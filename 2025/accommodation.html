@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodation Information</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; 
+            color: #333;
+        }
+        nav {
+            background-color: #5DBBF2;
+            padding: 1em 2em;
+            display: flex; /* 使用flex布局 */
+            justify-content: center; /* 根据需要调节，如space-between或center */
+            flex-wrap: nowrap; /* 禁止换行 */
+        }
+
+        nav a {
+            color: white;
+            margin: 0 0.5em; /* 增加了间距的灵活性 */
+            text-decoration: none;
+            font-weight: bold;
+            white-space: nowrap; /* 防止文本换行 */
+            font-size: 18px; /* 适当减少字体大小 */
+        }
+        nav a:hover { 
+            text-decoration: underline; 
+        }
+
+        /* 容器设置 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;   
+        }
+
+        .banner-container {
+            text-align: center;
+            padding: 2em 0 1em; /* 顶部留白 */
+        }
+        .banner-container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .accommodation {
+            background-color: white;
+            padding: 2em;
+            margin: 2em 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .accommodation h2 {
+            color: #0044cc;
+        }
+
+        .content { 
+            padding: 3em 2em; 
+            background-color: white; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            border-radius: 8px; 
+        }
+        .introduction { 
+            margin-top: 2em; 
+        }
+        h1, h2, h3, h4 { 
+            color: #0044cc; 
+        }
+        h1 { 
+            margin-top: 0; 
+        }
+        p { 
+            line-height: 1.6; 
+        }
+        .gallery {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 48%;
+            border-radius: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f1f1f1;
+            position: relative;
+        }
+        .footer img {
+            max-width: 80px;
+            vertical-align: middle;
+        }
+        .wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="committee.html">Committee</a>
+            <a href="call_for_papers.html">Call for Papers</a>
+            <a href="program.html">Program</a>
+            <a href="keynote.html">Keynote</a>
+            <a href="sponsorship.html">Sponsorship</a>
+            <a href="accommodation.html">Accommodation</a>
+            <a href="registration.html">Registration</a>
+            
+        </nav>
+
+        <div class="container">
+            
+
+            <!-- accommodation 区域 -->
+            <div class="accommodation">
+                <h2>Accommodation Information</h2>
+                <!-- <p><strong>Address:</strong> 210 Jiyuan Road, Jimei District, Xiamen</p> -->
+                <p>ICXR 2024 will be co-located with ChinaVR 2024, at Wanda Realm Hotel Huilong, North Bay, Xiamen, Fujian Province (No.210 Jiyuan Road, Jimei District). Hotel accommodation is 520 RMB/night.  ICXR 2024 attendees who need to book a hotel are kindly requested to send the following information to ziyingshi2023@163.com.</p>
+                <ul class="topics">
+                    <span>(1) Paper ID<br></span>
+                    <span>(2) Name<br></span>
+                    <span>(3) Phone number<br></span>
+                    <span>(4) Check-in time<br></span>
+                    <span>(5) Check-out time<br></span>
+                    <span>(6) Room Type (Queen/Twin). Note that we will try to satisfy your request, but this is not guaranteed.<br></span>
+                    <span>(7) Room quantity<br></span>
+                    
+                </ul>
+                
+                
+                <p><strong>Hotline:</strong> 0592-6123333<br></p>
+
+                
+
+                <h3>Hotel Environment</h3>
+                <p>The hotel covers an area of 100,000 square meters and features a unique Southeast Asian garden design. It offers a variety of banquet halls and is equipped with comprehensive multimedia audio-visual facilities.</p>
+
+                <div class="gallery">
+                    <img src="hotel1.jpg" alt="Hotel Image 1"> <!-- 替换为你的图片路径 -->
+                    <img src="hotel2.jpg" alt="Hotel Image 2"> <!-- 替换为你的图片路径 -->
+                </div>
+
+                <h3>Parking Services</h3>
+                <p>The North Bay Hotel offers both above-ground and underground parking. Please provide your license plate number to the reception staff for 4 hours of free parking service.</p>
+
+                <h3>Electronic Map</h3>
+                <p>The hotel is located within the Jimei University Town, close to Dragon Boat Pond and Jiageng Park.</p>
+                <!-- <p><a href="https://map.qq.com/?addr=%E7%A6%8F%E5%BB%BA%E7%9C%81%E5%8E%A6%E9%97%A8%E5%B8%82%E9%9B%86%E7%BE%8E%E5%8C%BA%E9%9B%86%E6%BA%90%E8%B7%AF&isopeninfowin=1&markertype=1&name=%E5%8E%A6%E9%97%A8%E5%8C%97%E6%B5%B7%E6%B9%BE%E6%83%A0%E9%BE%99%E4%B8%87%E8%BE%BE%E5%98%89%E5%8D%8E%E9%85%92%E5%BA%97%28%E9%9B%86%E7%BE%8E%E5%8C%BA%29&pointx=118.11&pointy=24.5737&ref=WeChat&type=marker" target="_blank">Click here to view the Tencent map</a></p> -->
+                <p><a href="https://www.google.com.hk/maps/place/Wanda+Realm+Xiamen+North+Bay/@24.573324,118.1071201,17z/data=!3m1!4b1!4m9!3m8!1s0x34148fd5d3e1061f:0xec24ddf28397348!5m2!4m1!1i2!8m2!3d24.573324!4d118.109695!16s%2Fg%2F11f54wtt7k?hl=zh-CN&entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank">Click here to view the map</a></p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Sponsored by <strong>CCF</strong></p>
+            <img src="screenshot-20240828-143707.png" alt="CCF Logo">
+        </div> 
+    </div>
+</body>
+</html>

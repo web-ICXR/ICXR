@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; 
+            color: #333;
+        }
+        nav {
+            background-color: #5DBBF2;
+            padding: 1em 2em;
+            display: flex; /* 使用flex布局 */
+            justify-content: center; /* 根据需要调节，如space-between或center */
+            flex-wrap: nowrap; /* 禁止换行 */
+        }
+
+        nav a {
+            color: white;
+            margin: 0 0.5em; /* 增加了间距的灵活性 */
+            text-decoration: none;
+            font-weight: bold;
+            white-space: nowrap; /* 防止文本换行 */
+            font-size: 18px; /* 适当减少字体大小 */
+        }
+        nav a:hover { 
+            text-decoration: underline; 
+        }
+
+        /* 容器设置 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            
+        }
+
+        .banner-container {
+            width: 100%;
+            text-align: center;
+            padding: 2em 0 1em; /* 顶部留白 */
+        }
+        .banner-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        .news {
+            background-color: white;
+            padding: 2em;
+            margin: 2em 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .news h2 {
+            color: #0044cc;
+        }
+
+        .content { 
+            padding: 3em 2em; 
+            background-color: white; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            border-radius: 8px; 
+        }
+        .introduction { 
+            margin-top: 2em; 
+        }
+        h1, h2 { 
+            color: #0044cc; 
+        }
+        h1 { 
+            margin-top: 0; 
+        }
+        p { 
+            line-height: 1.6; 
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f1f1f1;
+            position: relative;
+        }
+        .footer img {
+            max-width: 80px;
+            vertical-align: middle;
+        }
+        .wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="committee.html">Committee</a>
+            <a href="call_for_papers.html">Call for Papers</a>
+            <a href="program.html">Program</a>
+            <a href="keynote.html">Keynote</a>
+            <a href="sponsorship.html">Sponsorship</a>
+            <a href="accommodation.html">Accommodation</a>
+            <a href="registration.html">Registration</a>
+            
+        </nav>
+    
+        <div class="container">
+            <!-- banner 区域 -->
+            <div class="banner-container">
+                <img src="QQ20240904-195541.png" alt="Conference Banner"> <!-- 替换为你的图片路径 -->
+            </div>
+    
+            <!-- news 区域 -->
+            <div class="news">
+                <h2>News</h2>
+                <p>August 28, 2024: The website is online.</p>
+    
+            </div>
+    
+            <div class="content">
+                <h1>Welcome to ICXR</h1>
+    
+                <div class="introduction">
+                    <h2>2024 International Conference on Extended Reality (ICXR 2024)</h2>
+                    <p>The International Conference on Extended Reality (ICXR) 2024 is set to take place from November 14 to 17 in the vibrant city of Xiamen, Fujian Province, China. Co-located with the prestigious ChinaVR 2024, ICXR promises to be a landmark event that brings together a global community of researchers, developers, industry leaders, and academics in the field of extended reality technologies, including Virtual Reality (VR), Augmented Reality (AR), and Mixed Reality (MR).</p>
+                    <p>ICXR 2024 will feature a blend of keynote speeches, technical paper presentations, and panel discussions that explore the forefront of XR innovations, applications, and future trends. The conference will delve into a variety of compelling topics, such as metaverse development, advanced modeling techniques, perceptual interaction, graphics and image rendering, XR content creation, and digital twins.</p>
+                    <p>In cooperation with ChinaVR, ICXR will offer a unique opportunity to engage with thought leaders from the VR industry and academia. The conference will also host joint workshops and special sessions, notably a collaborative initiative with the Golden Rooster Film Festival. This venture will spotlight the intersection of XR technologies and filmmaking, providing insights into how these immersive technologies can revolutionize the film industry. Participants can look forward to an enriched experience through roundtable forums, expert panels, and interactive workshops that will explore innovative methods to enhance storytelling and cinematic experiences using XR technologies.</p>
+                    <p>We warmly invite all professionals, researchers, scholars, and enthusiasts from the XR community to converge in Xiamen for ICXR 2024. Engage with pioneering minds, discover groundbreaking advancements, and participate in a vibrant exchange of ideas that aim to shape the future of extended reality. Join us for an unforgettable experience in one of China's most beautiful coastal cities!</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer">
+            <p>Sponsored by <strong>CCF</strong></p>
+            <img src="screenshot-20240828-143707.png" alt="CCF Logo">
+        </div> 
+    </div>
+    
+</body>
+</html>
