@@ -4,35 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ICXR 2025: Committee</title>
-   <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4; 
-            color: #333;
-        }
-        nav {
-            background-color: #8AA4E1;
-            padding: 1em 2em;
-            display: flex; /* 使用flex布局 */
-            justify-content: center; /* 根据需要调节，如space-between或center */
-            flex-wrap: nowrap; /* 禁止换行 */
-        }
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        background-color: #f4f4f4;
+        color: #333;
+      }
 
-        nav a {
-            color: white;
-            margin: 0 0.5em; /* 增加了间距的灵活性 */
-            text-decoration: none;
-            font-weight: bold;
-            white-space: nowrap; /* 防止文本换行 */
-            font-size: 18px; /* 适当减少字体大小 */
-        }
-        nav a:hover { 
-            text-decoration: underline; 
-        }
-        
-        /* Dropdown Container */
+      nav {
+        background-color: #8aa4e1;
+        padding: 1em 2em;
+        display: flex;
+        /* 使用flex布局 */
+        justify-content: center;
+        /* 根据需要调节，如space-between或center */
+        flex-wrap: nowrap;
+        /* 禁止换行 */
+      }
+
+      nav a {
+        color: white;
+        margin: 0 0.5em;
+        /* 增加了间距的灵活性 */
+        text-decoration: none;
+        font-weight: bold;
+        white-space: nowrap;
+        /* 防止文本换行 */
+        font-size: 18px;
+        /* 适当减少字体大小 */
+      }
+
+      nav a:hover {
+        text-decoration: underline;
+      }
+              /* Dropdown Container */
         .dropdown {
             position: relative;
             display: inline-block; /* INLINE-BLOCK用于下拉 */
@@ -76,82 +84,76 @@
             display: block; /* 当悬停在下拉菜单上时显示 */
         }
 
-        .content { 
-            padding: 3em 2em; 
-            background-color: white; 
-            margin: 2em auto; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-            border-radius: 8px; 
-            max-width: 936px; 
-        }
+      .content {
+        padding: 3em 2em;
+        background-color: white;
+        margin: 2em auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        max-width: 936px;
+      }
 
-        .introduction { 
-            margin-top: 2em; 
-        }
-        h1, h2 { 
-            color: #0044cc; 
-        }
-        h1 { 
-            margin-top: 0; 
-        }
-        p { 
-            line-height: 1.6; 
-        }
-        .update-notice {
-            background-color: yellow;
-            padding: 1em;
-            border-radius: 8px;
-            margin-top: 2em;
-            font-weight: bold;
-        }
-        .overview {
-            margin-top: 3em; /* 添加了一些额外的留白 */
-        }
-        hr {
-            border: 0;
-            height: 1px;
-            background: #ccc;
-            margin: 2em 0;
-        }
-        .footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #f1f1f1;
-            position: relative;
-        }
-        .footer img {
-            max-width: 80px;
-            vertical-align: middle;
-        }
-        .important-dates, .contact {
-            background: #f1f1f1;
-            padding: 15px;
-            border-radius: 5px;
-        }
-        .contact a {
-            color: #0056b3;
-            text-decoration: none;
-        }
-        .contact a:hover {
-            text-decoration: underline;
-        }
-        .topics {
-            line-height: 2; 
-        }
-        ul li::before {
-            content: "•";
-            color: #0056b3;
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-        .wrapper {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 2em;
-        }
-        
+      .introduction {
+        margin-top: 2em;
+      }
+
+      h1,
+      h2 {
+        color: #0044cc;
+      }
+
+      h1 {
+        margin-top: 0;
+      }
+
+      p {
+        line-height: 1.6;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #f1f1f1;
+      }
+
+      .footer img {
+        max-width: 80px;
+        vertical-align: middle;
+      }
+
+      /* Align nav and content for same left margin */
+      .wrapper {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 2em;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* 创建3列等宽网格 */
+        gap: 10px;
+        /* 网格间距 */
+      }
+
+      /* .grid-item img {
+        margin-bottom: 10px;
+        // 调整图片底部行距 
+      } */
+      .image {
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .grid-item p {
+        text-align: center;
+        margin: 0;
+        /* 去除p标签默认的上下边距 */
+        margin-bottom: 5px;
+        /* 设置文字底部行距，可根据需要修改数值 */
+      }
     </style>
 </head>
 <body>

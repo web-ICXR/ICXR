@@ -76,19 +76,43 @@
             display: block; /* 当悬停在下拉菜单上时显示 */
         }
 
+        /* 容器设置 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;   
+        }
+
+        .banner-container {
+            text-align: center;
+            padding: 2em 0 1em; /* 顶部留白 */
+        }
+        .banner-container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .accommodation {
+            background-color: white;
+            padding: 2em;
+            margin: 2em 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .accommodation h2 {
+            color: #0044cc;
+        }
+
         .content { 
             padding: 3em 2em; 
             background-color: white; 
-            margin: 2em auto; 
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
             border-radius: 8px; 
-            max-width: 936px; 
         }
-
         .introduction { 
             margin-top: 2em; 
         }
-        h1, h2 { 
+        h1, h2, h3, h4 { 
             color: #0044cc; 
         }
         h1 { 
@@ -97,22 +121,16 @@
         p { 
             line-height: 1.6; 
         }
-        .update-notice {
-            background-color: yellow;
-            padding: 1em;
+        .gallery {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 48%;
             border-radius: 8px;
-            margin-top: 2em;
-            font-weight: bold;
         }
-        .overview {
-            margin-top: 3em; /* 添加了一些额外的留白 */
-        }
-        hr {
-            border: 0;
-            height: 1px;
-            background: #ccc;
-            margin: 2em 0;
-        }
+
         .footer {
             text-align: center;
             padding: 20px;
@@ -123,35 +141,11 @@
             max-width: 80px;
             vertical-align: middle;
         }
-        .important-dates, .contact {
-            background: #f1f1f1;
-            padding: 15px;
-            border-radius: 5px;
-        }
-        .contact a {
-            color: #0056b3;
-            text-decoration: none;
-        }
-        .contact a:hover {
-            text-decoration: underline;
-        }
-        .topics {
-            line-height: 2; 
-        }
-        ul li::before {
-            content: "•";
-            color: #0056b3;
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
         .wrapper {
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 2em;
         }
-        
     </style>
 </head>
 <body>
