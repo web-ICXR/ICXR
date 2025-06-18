@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICXR 2025: Call for XR Gallery</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; 
+            color: #333;
+        }
+        nav {
+            background-color: #8AA4E1;
+            padding: 1em 2em;
+            display: flex; /* 使用flex布局 */
+            justify-content: center; /* 根据需要调节，如space-between或center */
+            flex-wrap: nowrap; /* 禁止换行 */
+        }
+
+        nav a {
+            color: white;
+            margin: 0 0.5em; /* 增加了间距的灵活性 */
+            text-decoration: none;
+            font-weight: bold;
+            white-space: nowrap; /* 防止文本换行 */
+            font-size: 18px; /* 适当减少字体大小 */
+        }
+        nav a:hover { 
+            text-decoration: underline; 
+        }
+        
+        /* Dropdown Container */
+        .dropdown {
+            position: relative;
+            display: inline-block; /* INLINE-BLOCK用于下拉 */
+        }
+
+        /* Dropdown button */
+        .dropbtn {
+            background-color: #8AA4E1; /* 按钮与导航条一致 */
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* Dropdown Content */
+        .dropdown-content {
+            display: none; /* 隐藏下拉内容 */
+            position: absolute; /* 绝对定位 */
+            background-color: #f9f9f9; /* 下拉菜单背景颜色 */
+            min-width: 160px; /* 下拉菜单最小宽度 */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* 阴影效果 */
+            z-index: 1; /* 确保在其他元素之上显示 */
+        }
+
+        /* 配置下拉菜单中的链接 */
+        .dropdown-content a {
+            color: #0056b3; /* 链接颜色 */
+            padding: 12px 16px; /* 链接的填充 */
+            text-decoration: none; /* 去除下划线 */
+            display: block; /* 块级元素 */
+        }
+
+        /* 下拉菜单链接的悬停效果 */
+        .dropdown-content a:hover {
+            background-color: #ddd; /* 悬停时背景颜色 */
+        }
+
+        /* 显示下拉菜单 */
+        .dropdown:hover .dropdown-content {
+            display: block; /* 当悬停在下拉菜单上时显示 */
+        }
+
+        .content { 
+            padding: 3em 2em; 
+            background-color: white; 
+            margin: 2em auto; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            border-radius: 8px; 
+            max-width: 936px; 
+        }
+
+        .introduction { 
+            margin-top: 2em; 
+        }
+        h1, h2 { 
+            color: #0044cc; 
+        }
+        h1 { 
+            margin-top: 0; 
+        }
+        p { 
+            line-height: 1.6; 
+        }
+        .update-notice {
+            background-color: yellow;
+            padding: 1em;
+            border-radius: 8px;
+            margin-top: 2em;
+            font-weight: bold;
+        }
+        .overview {
+            margin-top: 3em; /* 添加了一些额外的留白 */
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ccc;
+            margin: 2em 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f1f1f1;
+            position: relative;
+        }
+        .footer img {
+            max-width: 80px;
+            vertical-align: middle;
+        }
+        .important-dates, .contact {
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .contact a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        .topics {
+            line-height: 2; 
+        }
+        ul li::before {
+            content: "•";
+            color: #0056b3;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        .wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2em;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="committee.html">Committee</a>
+            
+            <!-- Dropdown for Call for Papers -->
+            <div class="dropdown">
+                <button class="dropbtn">Contribute</button>
+                <div class="dropdown-content">
+                    <a href="callForPapers.html">Call for Papers</a>
+                    <a href="callForXRgallery.html">Call for XR Gallery</a>
+                </div>
+            </div>
+            
+            <a href="program.html">Program</a>
+            <a href="keynote.html">Keynote</a>
+            <a href="sponsorship.html">Sponsorship</a>
+            <a href="accommodation.html">Accommodation</a>
+            <a href="registration.html">Registration</a>
+        </nav>
+
+        <div class="content">
+
+            <div class="container">
+                <h1>Call for Proposals "XR Gallery"</h1>
+                <h2>MetaMorphosis: From Extended Reality to Extended Creativity</h2>
+                <p style="text-align:justify; text-justify:inter-ideograph;">Extended Reality (XR) is an umbrella term for augmented (AR), mixed (MR), and virtual reality (VR) experiences. This year, we are excited to invite submissions that explore how XR technologies can inspire new forms of imagination, expression, and interaction. The theme highlights the transformative power of XR, encouraging researchers and artists to break boundaries and redefine creativity in both virtual and real worlds through immersive, multisensory experiences. The call is open to anyone interested in creating artistic content: artists, researchers, designers, etc.</p>
+
+                <h2>Topics and Scope</h2>
+                <p style="text-align:justify; text-justify:inter-ideograph;">As part of ICXR 2025, we are delighted to invite you to the first edition of the “XR Gallery” fostering bridges between people from the XR and Art communities through this art exhibition, titled “MetaMorphosis: From Extended Reality to Extended Creativity”. We aim to provoke thought and discussion between artists and researchers around the question of “How XR Inspires Our Creativity”. By bridging the gap between the XR research community and the art world, we hope to inspire innovative perspectives and foster a deeper understanding of the complex relationship between XR technology and creativity.</p>
+                <p style="text-align:justify; text-justify:inter-ideograph;">The main requirements for the submissions are as follows:</p>
+                <ul class="topics">
+                    <li>Primarily focus on interactive XR art installations, XR engaging technologies, storytelling, creative expression, theater, while also welcoming non-XR artistic works (any other digital media that explores how we understand reality and creativity)</li>
+                    <li>Properly defined space and equipment required</li>
+                    <li>At least one presenter presents at the conference</li>
+                    <li>The proposed artistic work may be new or already existing</li>
+                </ul>
+                <p style="text-align:justify; text-justify:inter-ideograph;">Accepted submissions will be exhibited in the dedicated XR Gallery space throughout the ICXR conference. The corresponding abstract papers will be published in the ICXR 2025 Proceedings as part of the Springer LNCS series (EI indexed).</p>
+                
+                <h2>Important Dates:</h2>
+                <div class="important-dates">
+                    <p>Submission of Abstracts Deadline: August 10, 2025</p>
+                    <p>Notification of Acceptance: September 25, 2025</p>
+                    <p>Camera-ready Version Submission Deadline: October 10, 2025</p>
+                    <p>Onsite Present Dates: November 1-2, 2025</p>
+                </div>
+            
+                <h2>Submission Guidelines:</h2>
+                <p style="text-align:justify; text-justify:inter-ideograph;">In order to apply, submit the following information directly to the easychair system: <a href=" https://easychair.org/conferences?conf=icxr2025" target="_blank">https://easychair.org/conferences?conf=icxr2025</a>. The submission should include:</p>
+                <ul class="topics">
+                    <li>Anonymized abstract paper (up to 6 pages including references and appendix)</li>
+                    <li>Description of the art project</li>
+                    <li>Implementation Details (how it will be executed, e.g., HMD or installation project, etc)</li>
+                    <li>Representative image</li>
+                    <li>Anonymised video</li>
+                    <li>Information on equipment and technology used (ICXR only supports the provision of basic facilities such as table, power, network, display space, etc.)</li>
+                </ul>
+
+                <p style="text-align:justify; text-justify:inter-ideograph;">Any supplementary material which shows your previous work is also welcomed but not required (Anonymizing the material is not necessary here).</p>
+                
+                <h2>Abstract Paper Format</h2>
+                <p style="text-align:justify; text-justify:inter-ideograph;">The maximum paper length is 6 pages in the LNCS one-column page format (including references and appendix).</p>
+                <p><a href="https://resource-cms.springernature.com/springer-cms/rest/v1/content/19238648/data/v8" target="_blank">LaTeX Template </a></p>
+                <p><a href="https://resource-cms.springernature.com/springer-cms/rest/v1/content/19238706/data/v3" target="_blank">Word Template </a></p>
+
+
+                <h2>Selection Process</h2>
+                <p style="text-align:justify; text-justify:inter-ideograph;">Each submission will be examined by a panel of external assessor from the digital arts fields and XR research communities, on the basis of the following criteria:</p>
+                <ul class="topics">
+                    <li>Originality</li>
+                    <li>How well it fits in the scope of the XR Gallery</li>
+                    <li>Representative video and image</li>
+                    <li>The equipment and technical information required for its realization: (including light, sound, network needs)</li>
+                </ul>
+                <h3>Accepted Submissions</h3>
+                <p style="text-align:justify; text-justify:inter-ideograph;">The installation will be showcased at the dedicated space for the XR Gallery during the entire duration of the conference.</p>
+                <h3>Abstracts paper and supplementary material due: August 10, 2025</h3>
+                <p style="text-align:justify; text-justify:inter-ideograph;">The abstract paper and optional supplementary material are to be submitted via the online submission system: <a href="https://easychair.org/conferences?conf=icxr2025" target="_blank">https://easychair.org/conferences?conf=icxr2025</a>.</p>
+                <p style="text-align:justify; text-justify:inter-ideograph;">Authors who are unfamiliar with the formalism expected by our community will be able to draw inspiration from the essays edited in the Siggraph 2024 Art Gallery proceeding <a href="https://dl.acm.org/doi/proceedings/10.1145/3641523" target="_blank">https://dl.acm.org/doi/proceedings/10.1145/3641523</a>.</p>
+                <h3>Camera-ready version due: October 10, 2025</h3>
+                <p style="text-align:justify; text-justify:inter-ideograph;">All these papers will be published in the Proceedings of ICXR 2025 with Springer LNCS series (EI indexed).</p>
+
+
+
+
+                <h2>Contact</h2>
+                <p>If you have any questions, please send mail to <a href="shuoyan@buaa.edu.cn">shuoyan@buaa.edu.cn</a>.</p>
+                <p style="text-align:justify; text-justify:inter-ideograph;">Shuo Yan ‒ Beihang University, China</p>
+                <p style="text-align:justify; text-justify:inter-ideograph;">Khoo Eng Tat ‒ National University of Singapore, Singapore</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Sponsored by <strong>CCF</strong></p>
+            <img src="screenshot-20240828-143707.png" alt="CCF Logo">
+        </div>
+    </div>
+    
+</body>
+</html>

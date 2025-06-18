@@ -5,121 +5,176 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ICXR 2025: Program</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
+   <style>
+        body { 
+            font-family: Arial, sans-serif; 
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f4f4f4; 
             color: #333;
         }
-
         nav {
             background-color: #8AA4E1;
             padding: 1em 2em;
-            display: flex;
-            /* 使用flex布局 */
-            justify-content: center;
-            /* 根据需要调节，如space-between或center */
-            flex-wrap: nowrap;
-            /* 禁止换行 */
+            display: flex; /* 使用flex布局 */
+            justify-content: center; /* 根据需要调节，如space-between或center */
+            flex-wrap: nowrap; /* 禁止换行 */
         }
 
         nav a {
             color: white;
-            margin: 0 0.5em;
-            /* 增加了间距的灵活性 */
+            margin: 0 0.5em; /* 增加了间距的灵活性 */
             text-decoration: none;
             font-weight: bold;
-            white-space: nowrap;
-            /* 防止文本换行 */
+            white-space: nowrap; /* 防止文本换行 */
+            font-size: 18px; /* 适当减少字体大小 */
+        }
+        nav a:hover { 
+            text-decoration: underline; 
+        }
+        
+        /* Dropdown Container */
+        .dropdown {
+            position: relative;
+            display: inline-block; /* INLINE-BLOCK用于下拉 */
+        }
+
+        /* Dropdown button */
+        .dropbtn {
+            background-color: #8AA4E1; /* 按钮与导航条一致 */
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
             font-size: 18px;
-            /* 适当减少字体大小 */
         }
 
-        nav a:hover {
-            text-decoration: underline;
+        /* Dropdown Content */
+        .dropdown-content {
+            display: none; /* 隐藏下拉内容 */
+            position: absolute; /* 绝对定位 */
+            background-color: #f9f9f9; /* 下拉菜单背景颜色 */
+            min-width: 160px; /* 下拉菜单最小宽度 */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* 阴影效果 */
+            z-index: 1; /* 确保在其他元素之上显示 */
         }
 
-        .content {
-            padding: 3em 2em;
-            background-color: white;
-            margin: 2em auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* 配置下拉菜单中的链接 */
+        .dropdown-content a {
+            color: #0056b3; /* 链接颜色 */
+            padding: 12px 16px; /* 链接的填充 */
+            text-decoration: none; /* 去除下划线 */
+            display: block; /* 块级元素 */
+        }
+
+        /* 下拉菜单链接的悬停效果 */
+        .dropdown-content a:hover {
+            background-color: #ddd; /* 悬停时背景颜色 */
+        }
+
+        /* 显示下拉菜单 */
+        .dropdown:hover .dropdown-content {
+            display: block; /* 当悬停在下拉菜单上时显示 */
+        }
+
+        .content { 
+            padding: 3em 2em; 
+            background-color: white; 
+            margin: 2em auto; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            border-radius: 8px; 
+            max-width: 936px; 
+        }
+
+        .introduction { 
+            margin-top: 2em; 
+        }
+        h1, h2 { 
+            color: #0044cc; 
+        }
+        h1 { 
+            margin-top: 0; 
+        }
+        p { 
+            line-height: 1.6; 
+        }
+        .update-notice {
+            background-color: yellow;
+            padding: 1em;
             border-radius: 8px;
-            max-width: 936px;
+            margin-top: 2em;
+            font-weight: bold;
         }
-
-        h1,
-        h2,
-        h3 {
-            color: #0044cc;
+        .overview {
+            margin-top: 3em; /* 添加了一些额外的留白 */
         }
-
-        h1 {
-            margin-top: 0;
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ccc;
+            margin: 2em 0;
         }
-
-        p {
-            line-height: 1.6;
-        }
-
         .footer {
             text-align: center;
             padding: 20px;
             background-color: #f1f1f1;
+            position: relative;
         }
-
         .footer img {
             max-width: 80px;
             vertical-align: middle;
         }
-
-        /* Align nav and content for same left margin */
+        .important-dates, .contact {
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .contact a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        .topics {
+            line-height: 2; 
+        }
+        ul li::before {
+            content: "•";
+            color: #0056b3;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
         .wrapper {
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 2em;
         }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-            background-color: #fff;
-        }
-
-        th,
-        td {
-            border: 2px solid #555;
-            padding: 12px;
-            text-align: center;
-            vertical-align: middle;
-        }
-
-        th {
-            background-color: #0073e6;
-            color: #fff;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
+        
     </style>
 </head>
-
 <body>
     <div class="wrapper">
         <nav>
             <a href="index.html">Home</a>
             <a href="committee.html">Committee</a>
-            <a href="callForPapers.html">Call for Papers</a>
+            
+            <!-- Dropdown for Call for Papers -->
+            <div class="dropdown">
+                <button class="dropbtn">Contribute</button>
+                <div class="dropdown-content">
+                    <a href="callForPapers.html">Call for Papers</a>
+                    <a href="callForXRgallery.html">Call for XR Gallery</a>
+                </div>
+            </div>
+            
             <a href="program.html">Program</a>
             <a href="keynote.html">Keynote</a>
             <a href="sponsorship.html">Sponsorship</a>
             <a href="accommodation.html">Accommodation</a>
             <a href="registration.html">Registration</a>
-
         </nav>
 
 
