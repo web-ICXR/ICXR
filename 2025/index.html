@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ICXR 2025: Home</title>
-    <style>
+        <style>
         body { 
             font-family: Arial, sans-serif; 
             margin: 0;
@@ -30,6 +30,50 @@
         }
         nav a:hover { 
             text-decoration: underline; 
+        }
+        
+        /* Dropdown Container */
+        .dropdown {
+            position: relative;
+            display: inline-block; /* INLINE-BLOCK用于下拉 */
+        }
+
+        /* Dropdown button */
+        .dropbtn {
+            background-color: #8AA4E1; /* 按钮与导航条一致 */
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* Dropdown Content */
+        .dropdown-content {
+            display: none; /* 隐藏下拉内容 */
+            position: absolute; /* 绝对定位 */
+            background-color: #f9f9f9; /* 下拉菜单背景颜色 */
+            min-width: 160px; /* 下拉菜单最小宽度 */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* 阴影效果 */
+            z-index: 1; /* 确保在其他元素之上显示 */
+        }
+
+        /* 配置下拉菜单中的链接 */
+        .dropdown-content a {
+            color: #0056b3; /* 链接颜色 */
+            padding: 12px 16px; /* 链接的填充 */
+            text-decoration: none; /* 去除下划线 */
+            display: block; /* 块级元素 */
+        }
+
+        /* 下拉菜单链接的悬停效果 */
+        .dropdown-content a:hover {
+            background-color: #ddd; /* 悬停时背景颜色 */
+        }
+
+        /* 显示下拉菜单 */
+        .dropdown:hover .dropdown-content {
+            display: block; /* 当悬停在下拉菜单上时显示 */
         }
 
         /* 容器设置 */
@@ -97,19 +141,29 @@
             padding: 0 2em;
         }
     </style>
+
+  
 </head>
 <body>
     <div class="wrapper">
         <nav>
-            <a href="./index.html">Home</a>
-            <a href="./committee.html">Committee</a>
-            <a href="./callForPapers.html">Call for Papers</a>
-            <a href="./program.html">Program</a>
-            <a href="./keynote.html">Keynote</a>
-            <a href="./sponsorship.html">Sponsorship</a>
-            <a href="./accommodation.html">Accommodation</a>
-            <a href="./registration.html">Registration</a>
+            <a href="index.html">Home</a>
+            <a href="committee.html">Committee</a>
             
+            <!-- Dropdown for Call for Papers -->
+            <div class="dropdown">
+                <button class="dropbtn">Contribute</button>
+                <div class="dropdown-content">
+                    <a href="callForPapers.html">Call for Papers</a>
+                    <a href="callForXRGallery.html">Call for XR Gallery</a>
+                </div>
+            </div>
+            
+            <a href="program.html">Program</a>
+            <a href="keynote.html">Keynote</a>
+            <a href="sponsorship.html">Sponsorship</a>
+            <a href="accommodation.html">Accommodation</a>
+            <a href="registration.html">Registration</a>
         </nav>
     
             <!-- banner 区域 --><!-- 替换为你的图片路径 -->
@@ -131,7 +185,7 @@
                 <div class="introduction">
 
                     <h2>2025 International Conference on Extended Reality (ICXR 2025)</h2>
-                    <p style="text-align:justify; text-justify:inter-ideograph;">The International Conference on Extended Reality (ICXR) 2025 is set to take place from November 1-2 in the vibrant city of Qingdao, Shandong Province, China. Co-located with the prestigious ChinaVR 2025, ICXR promises to be a landmark event that brings together a global community of researchers, developers, industry leaders, and academics in the field of extended reality technologies, including Virtual Reality (VR), Augmented Reality (AR), and Mixed Reality (MR).</p>
+                    <p style="text-align:justify; text-justify:inter-ideograph;">The International Conference on Extended Reality (ICXR) 2025 is set to take place on November 1-2 in the vibrant city of Qingdao, Shandong Province, China. Co-located with the prestigious ChinaVR 2025, ICXR promises to be a landmark event that brings together a global community of researchers, developers, industry leaders, and academics in the field of extended reality technologies, including Virtual Reality (VR), Augmented Reality (AR), and Mixed Reality (MR).</p>
                     <p style="text-align:justify; text-justify:inter-ideograph;">ICXR 2025 will feature a blend of keynote speeches, technical paper presentations, and panel discussions that explore the forefront of XR innovations, applications, and future trends. The conference will delve into a variety of compelling topics, such as metaverse development, advanced modeling techniques, perceptual interaction, graphics and image rendering, XR content creation, and digital twins.</p>
                     <!-- <p style="text-align:justify; text-justify:inter-ideograph;">ICXR will offer a unique opportunity to engage with thought leaders from the VR industry and academia. The conference will also host joint workshops and special sessions, notably a collaborative initiative with the Golden Rooster Film Festival. This venture will spotlight the intersection of XR technologies and filmmaking, providing insights into how these immersive technologies can revolutionize the film industry. Participants can look forward to an enriched experience through roundtable forums, expert panels, and interactive workshops that will explore innovative methods to enhance storytelling and cinematic experiences using XR technologies.</p> -->
                     <p style="text-align:justify; text-justify:inter-ideograph;">We warmly invite all professionals, researchers, scholars, and enthusiasts from the XR community to converge in Qingdao for ICXR 2025. Engage with pioneering minds, discover groundbreaking advancements, and participate in a vibrant exchange of ideas that aim to shape the future of extended reality. Join us for an unforgettable experience in one of China's most beautiful coastal cities!</p>

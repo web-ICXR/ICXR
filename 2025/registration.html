@@ -31,6 +31,50 @@
         nav a:hover { 
             text-decoration: underline; 
         }
+        
+        /* Dropdown Container */
+        .dropdown {
+            position: relative;
+            display: inline-block; /* INLINE-BLOCK用于下拉 */
+        }
+
+        /* Dropdown button */
+        .dropbtn {
+            background-color: #8AA4E1; /* 按钮与导航条一致 */
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* Dropdown Content */
+        .dropdown-content {
+            display: none; /* 隐藏下拉内容 */
+            position: absolute; /* 绝对定位 */
+            background-color: #f9f9f9; /* 下拉菜单背景颜色 */
+            min-width: 160px; /* 下拉菜单最小宽度 */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* 阴影效果 */
+            z-index: 1; /* 确保在其他元素之上显示 */
+        }
+
+        /* 配置下拉菜单中的链接 */
+        .dropdown-content a {
+            color: #0056b3; /* 链接颜色 */
+            padding: 12px 16px; /* 链接的填充 */
+            text-decoration: none; /* 去除下划线 */
+            display: block; /* 块级元素 */
+        }
+
+        /* 下拉菜单链接的悬停效果 */
+        .dropdown-content a:hover {
+            background-color: #ddd; /* 悬停时背景颜色 */
+        }
+
+        /* 显示下拉菜单 */
+        .dropdown:hover .dropdown-content {
+            display: block; /* 当悬停在下拉菜单上时显示 */
+        }
 
         /* 容器设置 */
         .container {
@@ -119,13 +163,21 @@
         <nav>
             <a href="index.html">Home</a>
             <a href="committee.html">Committee</a>
-            <a href="callForPapers.html">Call for Papers</a>
+            
+            <!-- Dropdown for Call for Papers -->
+            <div class="dropdown">
+                <button class="dropbtn">Contribute</button>
+                <div class="dropdown-content">
+                    <a href="callForPapers.html">Call for Papers</a>
+                    <a href="callForXRGallery.html">Call for XR Gallery</a>
+                </div>
+            </div>
+            
             <a href="program.html">Program</a>
             <a href="keynote.html">Keynote</a>
             <a href="sponsorship.html">Sponsorship</a>
             <a href="accommodation.html">Accommodation</a>
             <a href="registration.html">Registration</a>
-            
         </nav>
 
         <div class="container">

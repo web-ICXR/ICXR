@@ -40,6 +40,49 @@
       nav a:hover {
         text-decoration: underline;
       }
+              /* Dropdown Container */
+        .dropdown {
+            position: relative;
+            display: inline-block; /* INLINE-BLOCK用于下拉 */
+        }
+
+        /* Dropdown button */
+        .dropbtn {
+            background-color: #8AA4E1; /* 按钮与导航条一致 */
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* Dropdown Content */
+        .dropdown-content {
+            display: none; /* 隐藏下拉内容 */
+            position: absolute; /* 绝对定位 */
+            background-color: #f9f9f9; /* 下拉菜单背景颜色 */
+            min-width: 160px; /* 下拉菜单最小宽度 */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* 阴影效果 */
+            z-index: 1; /* 确保在其他元素之上显示 */
+        }
+
+        /* 配置下拉菜单中的链接 */
+        .dropdown-content a {
+            color: #0056b3; /* 链接颜色 */
+            padding: 12px 16px; /* 链接的填充 */
+            text-decoration: none; /* 去除下划线 */
+            display: block; /* 块级元素 */
+        }
+
+        /* 下拉菜单链接的悬停效果 */
+        .dropdown-content a:hover {
+            background-color: #ddd; /* 悬停时背景颜色 */
+        }
+
+        /* 显示下拉菜单 */
+        .dropdown:hover .dropdown-content {
+            display: block; /* 当悬停在下拉菜单上时显示 */
+        }
 
       .content {
         padding: 3em 2em;
@@ -112,24 +155,33 @@
         /* 设置文字底部行距，可根据需要修改数值 */
       }
     </style>
-  </head>
-
-  <body>
+</head>
+<body>
     <div class="wrapper">
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="committee.html">Committee</a>
-        <a href="callForPapers.html">Call for Papers</a>
-        <a href="program.html">Program</a>
-        <a href="keynote.html">Keynote</a>
-        <a href="sponsorship.html">Sponsorship</a>
-        <a href="accommodation.html">Accommodation</a>
-        <a href="registration.html">Registration</a>
-      </nav>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="committee.html">Committee</a>
+            
+            <!-- Dropdown for Call for Papers -->
+            <div class="dropdown">
+                <button class="dropbtn">Contribute</button>
+                <div class="dropdown-content">
+                    <a href="callForPapers.html">Call for Papers</a>
+                    <a href="callForXRGallery.html">Call for XR Gallery</a>
+                </div>
+            </div>
+            
+            <a href="program.html">Program</a>
+            <a href="keynote.html">Keynote</a>
+            <a href="sponsorship.html">Sponsorship</a>
+            <a href="accommodation.html">Accommodation</a>
+            <a href="registration.html">Registration</a>
+        </nav>
       <div class="content">
         <h1>ICXR Conference Committee</h1>
         <h2>Steering Committee</h2>
         <div class="container">
+
           <div class="grid-item">
             <div class="image">
               <img 
@@ -145,7 +197,23 @@
               Australia
             </p>
           </div>
-          
+
+          <div class="grid-item">
+            <div class="image">
+              <img 
+                style="height: 100%;"
+                src="committeeimages/FrankGuan.jpg" 
+                alt="Frank Guan" />
+            </div>
+            <p>
+              <strong>Frank Guan</strong>
+              <br />
+              Singapore Institute of Technology
+              <br />
+              Singapore
+            </p>
+          </div>
+
           <div class="grid-item">
             <div class="image">
               <img
@@ -162,6 +230,7 @@
               Japan
             </p>
           </div>
+
           <div class="grid-item">
             <div class="image">
               <img
@@ -176,38 +245,6 @@
               Université Paris-Saclay
               <br />
               France
-            </p>
-          </div>
-          <div class="grid-item">
-            <div class="image">
-              <img 
-                style="height: 100%;"
-                src="committeeimages/FrankGuan.jpg" 
-                alt="Frank Guan" />
-            </div>
-            <p>
-              <strong>Frank Guan</strong>
-              <br />
-              Singapore Institute of Technology
-              <br />
-              Singapore
-            </p>
-          </div>
-          
-          <div class="grid-item">
-            <div class="image">
-              <img 
-                style="height: 100%;"
-                src="committeeimages/YongtianWang.jpg" 
-                alt="Yongtian Wang" 
-              />
-            </div>
-            <p>
-              <strong>Yongtian Wang</strong>
-              <br />
-              Beijing Institute of Technology
-              <br />
-              China
             </p>
           </div>
 
@@ -227,6 +264,24 @@
               China
             </p>
           </div>
+
+          <div class="grid-item">
+            <div class="image">
+              <img 
+                style="height: 100%;"
+                src="committeeimages/YongtianWang.jpg" 
+                alt="Yongtian Wang" 
+              />
+            </div>
+            <p>
+              <strong>Yongtian Wang</strong>
+              <br />
+              Beijing Institute of Technology
+              <br />
+              China
+            </p>
+          </div>
+          
           <div class="grid-item">
             <div class="image">
               <img 
@@ -243,6 +298,7 @@
               China
             </p>
           </div>
+
         </div>
         <p style="line-height: 0.5">&nbsp;</p>
         <hr />
@@ -251,6 +307,7 @@
         <h1>2025 Organizing Committee</h1>
         <h2>General Chairs</h2>
         <div class="container">
+
           <div class="grid-item">
             <div class="image">
               <img 
@@ -267,22 +324,7 @@
               Germany
             </p>
           </div>
-          <div class="grid-item">
-            <div class="image">
-              <img 
-                style="height: 100%;"
-                src="committeeimages/YongtianWang.jpg" 
-                alt="Yongtian Wang" 
-            />
-            </div>
-            <p>
-              <strong>Yongtian Wang</strong>
-              <br />
-              Beijing Institute of Technology
-              <br />
-              China
-            </p>
-          </div>
+
           <div class="grid-item">
             <div class="image">
               <img 
@@ -299,6 +341,24 @@
               China
             </p>
           </div>
+
+          <div class="grid-item">
+            <div class="image">
+              <img 
+                style="height: 100%;"
+                src="committeeimages/YongtianWang.jpg" 
+                alt="Yongtian Wang" 
+            />
+            </div>
+            <p>
+              <strong>Yongtian Wang</strong>
+              <br />
+              Beijing Institute of Technology
+              <br />
+              China
+            </p>
+          </div>
+
           <div class="grid-item">
             <div class="image">
               <img 
@@ -315,27 +375,13 @@
               China
             </p>
           </div>
+
         </div>
         <p style="line-height: 0.5">&nbsp;</p>
 
         <h2>Program Chairs</h2>
         <div class="container">
-          <div class="grid-item">
-            <div class="image">
-              <img 
-                style="height: 100%;"
-                src="committeeimages/SonghaiZhang.png" 
-                alt="Songhai Zhang" 
-            />
-            </div>
-            <p>
-              <strong>Songhai Zhang</strong>
-              <br />
-              Tsinghua University
-              <br />
-              China
-            </p>
-          </div>
+
           <div class="grid-item">
             <div class="image">
               <img 
@@ -352,22 +398,8 @@
               Germany
             </p>
           </div>
-          <div class="grid-item">
-            <div class="image">
-              <img 
-                style="height: 100%;"
-                src="committeeimages/XueyingQin.jpg" 
-                alt="Xueying Qin" 
-            />
-            </div>
-            <p>
-              <strong>Xueying Qin</strong>
-              <br />
-              Shandong University
-              <br />
-              China
-            </p>
-          </div>
+
+
           <div class="grid-item">
             <div class="image">
               <img 
@@ -384,6 +416,41 @@
               China
             </p>
           </div>
+
+          <div class="grid-item">
+            <div class="image">
+              <img 
+                style="height: 100%;"
+                src="committeeimages/XueyingQin.jpg" 
+                alt="Xueying Qin" 
+            />
+            </div>
+            <p>
+              <strong>Xueying Qin</strong>
+              <br />
+              Shandong University
+              <br />
+              China
+            </p>
+          </div>
+
+          <div class="grid-item">
+            <div class="image">
+              <img 
+                style="height: 100%;"
+                src="committeeimages/SonghaiZhang.png" 
+                alt="Songhai Zhang" 
+            />
+            </div>
+            <p>
+              <strong>Songhai Zhang</strong>
+              <br />
+              Tsinghua University
+              <br />
+              China
+            </p>
+          </div>
+
         </div>
         <p style="line-height: 0.5">&nbsp;</p>
 
@@ -420,6 +487,7 @@
               China
             </p>
           </div>
+
           <div class="grid-item">
             <div class="image">
               <img 
@@ -436,6 +504,7 @@
               China
             </p>
           </div>
+
           <div class="grid-item">
             <div class="image">
               <img 
@@ -452,27 +521,13 @@
               China
             </p>
           </div>
+
         </div>
         <p style="line-height: 0.5">&nbsp;</p>
 
         <h2>XR Gallery Chairs</h2>
         <div class="container">
-          <div class="grid-item">
-            <div class="image">
-              <img 
-                style="height: 100%;"
-                src="committeeimages/ShuoYan.jpg" 
-                alt="Shuo Yan" 
-            />
-            </div>
-            <p>
-              <strong>Shuo Yan</strong>
-              <br />
-              Beihang University
-              <br />
-              China
-            </p>
-          </div>
+
           <div class="grid-item">
             <div class="image">
               <img 
@@ -489,27 +544,30 @@
               Singapore
             </p>
           </div>
+
+          <div class="grid-item">
+            <div class="image">
+              <img 
+                style="height: 100%;"
+                src="committeeimages/ShuoYan.jpg" 
+                alt="Shuo Yan" 
+            />
+            </div>
+            <p>
+              <strong>Shuo Yan</strong>
+              <br />
+              Beihang University
+              <br />
+              China
+            </p>
+          </div>
+
         </div>
         <p style="line-height: 0.5">&nbsp;</p>
 
         <h2>Publication Chairs</h2>
         <div class="container">
-          <div class="grid-item">
-            <div class="image">
-              <img 
-                style="height: 100%;"
-                src="committeeimages/WeitaoSong.jpg" 
-                alt="Weitao Song" 
-            />
-            </div>
-            <p>
-              <strong>Weitao Song</strong>
-              <br />
-              Beijing Institute of Technology
-              <br />
-              China
-            </p>
-          </div>
+
           <div class="grid-item">
             <div class="image">
               <img 
@@ -526,6 +584,25 @@
               Singapore
             </p>
           </div>
+          
+          
+          <div class="grid-item">
+            <div class="image">
+              <img 
+                style="height: 100%;"
+                src="committeeimages/WeitaoSong.jpg" 
+                alt="Weitao Song" 
+            />
+            </div>
+            <p>
+              <strong>Weitao Song</strong>
+              <br />
+              Beijing Institute of Technology
+              <br />
+              China
+            </p>
+          </div>
+          
           <div class="grid-item">
             <div class="image">
               <img 
@@ -542,6 +619,7 @@
               New Zealand
             </p>
           </div>
+
         </div>
         <p style="line-height: 0.5">&nbsp;</p>
 
@@ -563,6 +641,7 @@
                Austria
             </p>
           </div>
+
           <div class="grid-item">
             <div class="image">
               <img 
@@ -579,6 +658,7 @@
               Germany
             </p>
           </div>
+
           <div class="grid-item">
             <div class="image">
               <img 
@@ -595,11 +675,13 @@
               New Zealand
             </p>
           </div>
+
         </div>
         <p style="line-height: 0.5">&nbsp;</p>
 
         <h2>Web Chairs</h2>
         <div class="container">
+
           <div class="grid-item">
             <div class="image">
               <img 
@@ -616,6 +698,7 @@
               China
             </p>
           </div>
+
           <div class="grid-item">
             <div class="image">
               <img 
@@ -660,6 +743,8 @@
         <br />
         <h1>Program Committee</h1>
         <div class="container">
+          
+
           <div class="grid-item">
             <div class="image">
               <img 
@@ -681,19 +766,19 @@
             <div class="image">
               <img 
                 style="height: 100%;"
-                src="committeeimages/GuofengZhang.jpg" 
-                alt="Guofeng Zhang" 
+                src="committeeimages/ShihuiGuo.jpg" 
+                alt="Shihui Guo" 
             />
             </div>
             <p>
-              <strong>Guofeng Zhang</strong>
+              <strong>Shihui Guo</strong>
               <br />
-              Zhejiang University
+              Xiamen University
               <br />
               China
             </p>
           </div>
-          
+
           <div class="grid-item">
             <div class="image">
               <img 
@@ -711,41 +796,6 @@
             </p>
           </div>
 
-          
-          <div class="grid-item">
-            <div class="image">
-              <img 
-                style="height: 100%;"
-                src="committeeimages/JunjunPan.jpg" 
-                alt="Junjun Pan" 
-            />
-            </div>
-            <p>
-              <strong>Junjun Pan</strong>
-              <br />
-              Beihang University
-              <br />
-              China
-            </p>
-          </div>
-
-
-          <div class="grid-item">
-            <div class="image">
-              <img 
-                style="height: 100%;"
-                src="committeeimages/JunfengYao.jpg" 
-                alt="Junfeng Yao" 
-            />
-            </div>
-            <p>
-              <strong>Junfeng Yao</strong>
-              <br />
-              Xiamen University
-              <br />
-              China
-            </p>
-          </div>
           <div class="grid-item">
             <div class="image">
               <img 
@@ -767,18 +817,57 @@
             <div class="image">
               <img 
                 style="height: 100%;"
-                src="committeeimages/ShihuiGuo.jpg" 
-                alt="Shihui Guo" 
+                src="committeeimages/JunjunPan.jpg" 
+                alt="Junjun Pan" 
             />
             </div>
             <p>
-              <strong>Shihui Guo</strong>
+              <strong>Junjun Pan</strong>
+              <br />
+              Beihang University
+              <br />
+              China
+            </p>
+          </div>
+
+          <div class="grid-item">
+            <div class="image">
+              <img 
+                style="height: 100%;"
+                src="committeeimages/JunfengYao.jpg" 
+                alt="Junfeng Yao" 
+            />
+            </div>
+            <p>
+              <strong>Junfeng Yao</strong>
               <br />
               Xiamen University
               <br />
               China
             </p>
           </div>
+
+
+          
+          <div class="grid-item">
+            <div class="image">
+              <img 
+                style="height: 100%;"
+                src="committeeimages/GuofengZhang.jpg" 
+                alt="Guofeng Zhang" 
+            />
+            </div>
+            <p>
+              <strong>Guofeng Zhang</strong>
+              <br />
+              Zhejiang University
+              <br />
+              China
+            </p>
+          </div>
+
+
+          
         </div>
 
         <!-- <p>Frank Guan, Singapore Institute of Technology, Singapore</p>
