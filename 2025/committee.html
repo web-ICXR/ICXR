@@ -14,33 +14,31 @@
         color: #333;
       }
 
-      nav {
-        background-color: #8aa4e1;
-        padding: 1em 2em;
-        display: flex;
-        /* 使用flex布局 */
-        justify-content: center;
-        /* 根据需要调节，如space-between或center */
-        flex-wrap: nowrap;
-        /* 禁止换行 */
-      }
+         nav {
+            background-color: #8AA4E1; /* #5DBBF2 */
+            padding: 1em 2em;
+            display: flex; /* 使用flex布局 */
+            justify-content: center; /* 根据需要调节，如space-between或center */
+            flex-wrap: nowrap; /* 禁止换行 */
+        }
 
-      nav a {
-        color: white;
-        margin: 0 0.5em;
-        /* 增加了间距的灵活性 */
-        text-decoration: none;
-        font-weight: bold;
-        white-space: nowrap;
-        /* 防止文本换行 */
-        font-size: 18px;
-        /* 适当减少字体大小 */
-      }
+        nav a {
+            color: white;
+            margin: 0 0.5em; /* 增加了间距的灵活性 */
+            text-decoration: none;
+            font-weight: bold;
+            white-space: nowrap; /* 防止文本换行 */
+            font-size: 18px; /* 适当减少字体大小 */
+            display: flex; /* 使用flex以确保垂直居中 */
+            align-items: center; /* 垂直居中对齐 */
+            height: 100%; /* 确保高度一致 */
+            line-height: 1.5; /* 设置行高，使链接垂直居中 */
+        }
+        nav a:hover { 
+            text-decoration: underline; 
+        }
 
-      nav a:hover {
-        text-decoration: underline;
-      }
-              /* Dropdown Container */
+        /* Dropdown Container */
         .dropdown {
             position: relative;
             display: inline-block; /* INLINE-BLOCK用于下拉 */
@@ -48,12 +46,18 @@
 
         /* Dropdown button */
         .dropbtn {
-            background-color: #8AA4E1; /* 按钮与导航条一致 */
+            background-color: #8AA4E1; 
             color: white;
             font-weight: bold;
             border: none;
             cursor: pointer;
             font-size: 18px;
+            padding: 0; /* 报错 padding 的设置 */
+            margin: 0 0.5em; /* 添加与其他链接相同的外边距 */
+            display: flex; /* 使用flex以确保垂直居中 */
+            align-items: center; /* 垂直居中对齐 */
+            height: 100%; /* 确保高度一致 */
+            line-height: 1.5; /* 设置行高，使按钮文本在中间 */
         }
 
         /* Dropdown Content */
@@ -797,7 +801,7 @@
         </div>
         <p style="line-height: 0.5">&nbsp;</p>
 
-    <!--     <hr />
+        <!-- <hr />
         <br />
         <h1>Program Committee</h1>
         <div class="container">
