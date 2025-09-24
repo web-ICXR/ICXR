@@ -12,37 +12,33 @@
             background-color: #f4f4f4; 
             color: #333;
         }
-         nav {
+        nav {
             background-color: #8AA4E1; /* #5DBBF2 */
             padding: 1em 2em;
-            display: flex; /* 使用flex布局 */
-            justify-content: center; /* 根据需要调节，如space-between或center */
-            flex-wrap: nowrap; /* 禁止换行 */
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
         }
-
         nav a {
             color: white;
-            margin: 0 0.5em; /* 增加了间距的灵活性 */
+            margin: 0 0.5em;
             text-decoration: none;
             font-weight: bold;
-            white-space: nowrap; /* 防止文本换行 */
-            font-size: 18px; /* 适当减少字体大小 */
-            display: flex; /* 使用flex以确保垂直居中 */
-            align-items: center; /* 垂直居中对齐 */
-            height: 100%; /* 确保高度一致 */
-            line-height: 1.5; /* 设置行高，使链接垂直居中 */
+            white-space: nowrap;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            line-height: 1.5;
         }
         nav a:hover { 
             text-decoration: underline; 
         }
 
-        /* Dropdown Container */
         .dropdown {
             position: relative;
-            display: inline-block; /* INLINE-BLOCK用于下拉 */
+            display: inline-block;
         }
-
-        /* Dropdown button */
         .dropbtn {
             background-color: #8AA4E1; 
             color: white;
@@ -50,51 +46,41 @@
             border: none;
             cursor: pointer;
             font-size: 18px;
-            padding: 0; /* 报错 padding 的设置 */
-            margin: 0 0.5em; /* 添加与其他链接相同的外边距 */
-            display: flex; /* 使用flex以确保垂直居中 */
-            align-items: center; /* 垂直居中对齐 */
-            height: 100%; /* 确保高度一致 */
-            line-height: 1.5; /* 设置行高，使按钮文本在中间 */
+            padding: 0;
+            margin: 0 0.5em;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            line-height: 1.5;
         }
-
-        /* Dropdown Content */
         .dropdown-content {
-            display: none; /* 隐藏下拉内容 */
-            position: absolute; /* 绝对定位 */
-            background-color: #f9f9f9; /* 下拉菜单背景颜色 */
-            min-width: 160px; /* 下拉菜单最小宽度 */
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* 阴影效果 */
-            z-index: 1; /* 确保在其他元素之上显示 */
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
         }
-
-        /* 配置下拉菜单中的链接 */
         .dropdown-content a {
-            color: #0056b3; /* 链接颜色 */
-            padding: 12px 16px; /* 链接的填充 */
-            text-decoration: none; /* 去除下划线 */
-            display: block; /* 块级元素 */
+            color: #0056b3;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
         }
-
-        /* 下拉菜单链接的悬停效果 */
         .dropdown-content a:hover {
-            background-color: #ddd; /* 悬停时背景颜色 */
+            background-color: #ddd;
         }
-
-        /* 显示下拉菜单 */
         .dropdown:hover .dropdown-content {
-            display: block; /* 当悬停在下拉菜单上时显示 */
+            display: block;
         }
 
-        /* 容器设置 */
         .container {
             max-width: 1000px;
             margin: 0 auto;   
         }
-
         .banner-container {
             text-align: center;
-            padding: 2em 0 1em; /* 顶部留白 */
+            padding: 2em 0 1em;
         }
         .banner-container img {
             width: 100%;
@@ -108,10 +94,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
-
-        .accommodation h2 {
-            color: #0044cc;
-        }
+        .accommodation h2 { color: #0044cc; }
 
         .content { 
             padding: 3em 2em; 
@@ -119,18 +102,10 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
             border-radius: 8px; 
         }
-        .introduction { 
-            margin-top: 2em; 
-        }
-        h1, h2, h3, h4 { 
-            color: #0044cc; 
-        }
-        h1 { 
-            margin-top: 0; 
-        }
-        p { 
-            line-height: 1.6; 
-        }
+        .introduction { margin-top: 2em; }
+        h1, h2, h3, h4 { color: #0044cc; }
+        h1 { margin-top: 0; }
+        p { line-height: 1.6; }
         .gallery {
             display: flex;
             justify-content: space-between;
@@ -156,6 +131,47 @@
             margin: 0 auto;
             padding: 0 2em;
         }
+
+        /* Language tabs near the title */
+        .accom-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .accom-header h2 { margin: 0; }
+
+        .language-tabs {
+            display: inline-flex;
+            background: #8AA4E1;       /* 与导航一致 */
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .tab-btn {
+            appearance: none;
+            background: transparent;
+            color: #fff;
+            border: none;
+            padding: 8px 14px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .tab-btn:hover { text-decoration: underline; }
+        .tab-btn.active {
+            background: #5DBBF2;       /* 激活态稍亮/对比 */
+        }
+
+        /* Language content containers */
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+
+        /* Small screen tweaks */
+        @media (max-width: 480px) {
+            .tab-btn { padding: 6px 10px; font-size: 15px; }
+        }
     </style>
 </head>
 <body>
@@ -170,8 +186,6 @@
                     <a href="committeePC.html">Program Committee</a>
                 </div>
             </div>
-            
-            <!-- Dropdown for Call for Papers -->
             <div class="dropdown">
                 <button class="dropbtn">Contribute</button>
                 <div class="dropdown-content">
@@ -179,7 +193,6 @@
                     <a href="callForXRGallery.html">Call for XR Gallery</a>
                 </div>
             </div>
-            
             <a href="program.html">Program</a>
             <a href="keynote.html">Keynote</a>
             <a href="sponsorship.html">Sponsorship</a>
@@ -188,200 +201,206 @@
         </nav>
 
         <div class="container">
-            
-
             <!-- accommodation 区域 -->
             <div class="accommodation">
-                <!-- <p style="text-align:justify">Coming soon ...</p> -->
-
-                <h2>Accommodation Information</h2>
-                <h3>Conference Venue: Haitian Financial Center Hotel</h3>
-                <p style="text-align:justify; text-justify:inter-ideograph;">Location: No. 29 Xianxialing Road, Laoshan District, Qingdao City, Shandong, China</p>
-                <p style="text-align:justify; text-justify:inter-ideograph;">Hotel Venue: Haitian Financial Center Hotel; Atour X Hotel Qingdao Shilaoren Beach Exhibition Center Metro Station</p>
-
-                <h3>The Haitian Financial Center Hotel Booking</h3>
-                <div class="gallery">
-                    <img src="hotel1.jpg" alt="Hotel Image 1">
-                    <img src="hotel2.jpg" alt="Hotel Image 2">
-                </div>   
-                <p style="text-align:justify; text-justify:inter-ideograph;">Scan the QR code with WeChat App.</p>
-                <img src="hotelQR.webp" alt="Hotel QR Image">
-                <p><strong>Call the Hotline:</strong>&nbsp;+86-532-87057777</p>
-                <p><strong>Hotel Sales Contact:</strong> Manager Wang &nbsp;18562737889</p>
-
-                <h3>Atour X Hotel Booking</h3>
-                <div class="gallery">
-                    <img src="hotel3.jpg" alt="Hotel Image 3">
-                    <img src="hotel4.jpg" alt="Hotel Image 4">
+                <!-- 标题 + 语言切换 Tabs -->
+                <div class="accom-header">
+                    <h2>Accommodation Information</h2>
+                    <div class="language-tabs" role="tablist" aria-label="Language tabs">
+                        <button class="tab-btn active" data-lang="en" role="tab" aria-selected="true" aria-controls="lang-en">English</button>
+                        <button class="tab-btn" data-lang="zh" role="tab" aria-selected="false" aria-controls="lang-zh">中文</button>
+                    </div>
                 </div>
-                <p style="text-align:justify; text-justify:inter-ideograph;">Hotel Address: No. 31 Xianxialing Road, Laoshan District, Qingdao City, Shandong, China (about 50 meters from the main venue)</p>
-                <p style="text-align:justify; text-justify:inter-ideograph;"><strong>Hotel Sales Contact:</strong> Manager Yang &nbsp;18765928056</p>
 
+                <!-- 英文内容（默认显示） -->
+                <div id="lang-en" class="lang-content active" role="tabpanel" aria-labelledby="tab-en">
+                    <h3>Conference Venue: Haitian Financial Center Hotel</h3>
+                    <p style="text-align:justify; text-justify:inter-ideograph;">Location: No. 29 Xianxialing Road, Laoshan District, Qingdao City, Shandong, China</p>
+                    <p style="text-align:justify; text-justify:inter-ideograph;">Hotel Venue: Haitian Financial Center Hotel; Atour X Hotel Qingdao Shilaoren Beach Exhibition Center Metro Station</p>
 
-                <h3>Transportation Information</h3>
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Qingdao Jiaodong International Airport (TAO):</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• 56 km from the venue (55-minute taxi ride, costing approximately 185 RMB).</span></p>
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Qingdao North Railway Station:</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• 15 km from the venue (25-minute taxi ride, costing approximately 45 RMB).</span></p>
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Qingdao Railway Station:</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• 16 km from the venue (28-minute taxi ride, costing approximately 48 RMB).</span></p>
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Qingdao West Railway Station:</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• 62 km from the venue (80-minute taxi ride, costing approximately 210 RMB).</span></p>
+                    <h3>The Haitian Financial Center Hotel Booking</h3>
+                    <div class="gallery">
+                        <img src="hotel1.jpg" alt="Hotel Image 1">
+                        <img src="hotel2.jpg" alt="Hotel Image 2">
+                    </div>   
+                    <p style="text-align:justify; text-justify:inter-ideograph;">Scan the QR code with WeChat App.</p>
+                    <img src="hotelQR.webp" alt="Hotel QR Image">
+                    <!-- <p><strong>Call the Hotline:</strong>&nbsp;+86-532-87057777</p> -->
+                    <p><strong>Hotel Sales Contact:</strong> Manager Wang &nbsp;18562737889</p>
+
+                    <h3>Atour X Hotel Booking</h3>
+                    <div class="gallery">
+                        <img src="hotel3.jpg" alt="Hotel Image 3">
+                        <img src="hotel4.jpg" alt="Hotel Image 4">
+                    </div>
+                    <p style="text-align:justify; text-justify:inter-ideograph;">Hotel Address: No. 31 Xianxialing Road, Laoshan District, Qingdao City, Shandong, China (about 50 meters from the main venue)</p>
+                    <p style="text-align:justify; text-justify:inter-ideograph;"><strong>Hotel Sales Contact:</strong> Manager Yang &nbsp;18765928056</p>
+
+                    <h3>Transportation Information</h3>
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">Qingdao Jiaodong International Airport (TAO):</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• 56 km from the venue (55-minute taxi ride, costing approximately 185 RMB).</span></p>
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">Qingdao North Railway Station:</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• 15 km from the venue (25-minute taxi ride, costing approximately 45 RMB).</span></p>
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">Qingdao Railway Station:</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• 16 km from the venue (28-minute taxi ride, costing approximately 48 RMB).</span></p>
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">Qingdao West Railway Station:</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• 62 km from the venue (80-minute taxi ride, costing approximately 210 RMB).</span></p>
                     <p style="text-align: justify;"> &nbsp;</p>
-                    
-                    <!-- <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Other transportation suggestion details will coming soon...</span></strong></p> -->
-
-                <!-- <h3>Public Transportation Route</h3>
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Yantai Penglai International Airport (YNT):</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• Take Airport Bus No.1 (Yantai South Station Line) from Yantai Penglai International Airport, get off at Yantai Bus Terminal, transfer to Bus No.3 or Bus No.44, get off at Yantai Mountain Hospital Station, walk about 50 meters to reach Westin Yantai.</span></p>
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Yantai South Railway Station:</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• Take the high-speed bus No.2 from Yantai South Railway Station, transfer to Bus No.231 at the West Bus Station, get off at the Bay Road Yangzhou Street Station, and then walk 400 meters to the Westin Yantai.</span></p>
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Yantai Railway Station:</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• Take Bus No.21 from the North Ma Road Bus Station, transfer to Bus No.231 at the same station at Vanke City Station, get off at the Hai Bin Road Yangzhou Street Station, and walk 400 meters to the Westin Yantai.</span></p>
-                    <p style="text-align: justify;"> &nbsp;</p>
-
-
-                <h3>If you want to travel from transit cities such as Beijing, Shanghai, Qingdao, Chengdu, and Guangzhou to Yantai, the following information may be useful to you.</h3>
-                <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Transportation Guide from Beijing to Yantai</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• Railway Station: Taking the high-speed train directly from Beijing South Station to Yantai South Station is the fastest way to travel, and the running time is about 4~5.5 hours.</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">The Train Numbers include: </span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">G1085: 08:43am-13:03pm &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;G219: 12:22pm-16:19pm</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">G1089: 14:47pm-20:11pm &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;G1091: 15:34pm-20:58pm</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• From Beijing Capital International Airport to Yantai Penglai International Airport</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">CA1585: 06:30am-07:45am &nbsp; &nbsp; &nbsp; &nbsp;CA1545: 07:55am-09:15am</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">CA1559: 13:00pm-14:30pm &nbsp; &nbsp; &nbsp; &nbsp;CA1593: 20:40pm-22:20pm &nbsp;</span></p>
-                    <p style="text-align: justify;"> &nbsp;</p>
-
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Transportation Guide from Shanghai to Yantai</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• Railway Station: Take a high-speed train from Shanghai Hongqiao directly to Yantai South Station or Yantai Station, and the running time is about 6.5~7.5 hours. The Train Numbers include:</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">D4520: Shanghai Hongqiao 00:03am-06:53am Yantai Station &nbsp;</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">D4544: Shanghai Hongqiao 03:46am-10:22am Yantai South Station &nbsp;</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">D2928: Shanghai Hongqiao 06:52am-13:48pm Yantai South Station &nbsp;</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">D2152: Shanghai Hongqiao 07:24am-13:58pm Yantai South Station &nbsp;</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">D2136: Shanghai Hongqiao 16:12pm-22:50pm Yantai Station &nbsp;</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• Airport: it may take about 100 minutes.</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">FM9241: Shanghai Hongqiao International Airport 06:35am-Yantai 08:25am</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">MU2179: Shanghai Pudong International Airport 09:15am-Yantai 10:55am</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">MU5525: Shanghai Pudong International Airport 09:45am-Yantai 11:35am</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">MU5527: Shanghai Pudong International Airport 11:30am-Yantai 13:25pm</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">FM9231: Shanghai Hongqiao International Airport 12:55pm-Yantai 14:35pm</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">MU5543: Shanghai Hongqiao International Airport 13:50pm-Yantai 15:35pm</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">MU5584: Shanghai Hongqiao International Airport 20:15pm-Yantai 21:55pm</span></p>
-                    <p style="text-align: justify;"> &nbsp;</p>
-
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Transportation Guide from Chengdu to Yantai</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• Railway Station: Take the high-speed train No. G3423 directly from Chengdudong Railway Station to Yantai South Station, and the running time is about 13 hours from 08:50am to 21:40pm. &nbsp;</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• From Chengdu Tianfu International Airport to Yantai Penglai International Airport</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">CA2609: 08:00am-10:35am &nbsp; &nbsp; MU2619: 11:30am-14:10pm</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">ZH8447: 12:10pm-14:50pm &nbsp; &nbsp; 3U6485: 12:35pm-15:20pm</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px"> &nbsp; &nbsp;</span><span style="font-size: 18px"></span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Transportation Guide from Guangzhou to Yantai</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• From Guangzhou Baiyun International Airport to Yantai Penglai International Airport</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">CZ8777: 16:15pm-19:15pm</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• Railway Station: &nbsp;At present, there are no direct high-speed trains from Guangzhou to Yantai. &nbsp; </span></p>
-                    <p style="text-align: justify;"> &nbsp;</p>
-
-
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Transportation Guide from Qingdao to Yantai</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">The earliest departure time from Qingdao to Yantai is 06:11 and the latest departure time is 21:41. On average, around 53 various types of trains of high-speed C, G, D travel from Qingdao to Yantai per day between the times of 06:11 and 21:41 and the shortest train ride from Qingdao to Yantai takes around 56min.</span></p>
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(255, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px"></span></strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(255, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Kindly notice: </span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">China train tickets are available for purchase up to 15 days in advance. During peak travel periods, tickets can sell out quickly. To ensure a smooth journey, it's best to plan ahead and book your tickets as early as possible.</span></p>
-                    <p style="text-align: justify;"> &nbsp;</p> -->
 
                     <h3>Public Transportation Route</h3>
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Qingdao Jiaodong International Airport (TAO):</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• Take Metro Line 8 (towards Qingdao North Railway Station), transfer to Metro Line 3 (towards Qingdao Railway Station) at Qingdao North Station, transfer to Metro Line 2 (towards Sichuan Road) at Licun Station, transfer to Blue Valley Express (towards Qiangu Mountain) at Miaoling Road Station, get off at Huizhan Center Station Exit B, and walk about 900 meters to reach the Haitian Financial Center Hotel.</span></p>
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">Qingdao Jiaodong International Airport (TAO):</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• Take Metro Line 8 (towards Qingdao North Railway Station), transfer to Metro Line 3 (towards Qingdao Railway Station) at Qingdao North Station, transfer to Metro Line 2 (towards Sichuan Road) at Licun Station, transfer to Blue Valley Express (towards Qiangu Mountain) at Miaoling Road Station, get off at Huizhan Center Station Exit B, and walk about 900 meters to reach the Haitian Financial Center Hotel.</span></p>
 
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Qingdao North Railway Station:</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• Take Metro Line 3 (towards Qingdao Railway Station), transfer to Metro Line 2 (towards Sichuan Road) at Lijia Village Station, transfer to Blue Valley Express (towards Qiangu Mountain) at Miaoling Road Station, get off at Huizhan Center Station Exit B, and walk about 900 meters to reach the Haitian Financial Center Hotel.</span></p>
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">Qingdao North Railway Station:</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• Take Metro Line 3 (towards Qingdao Railway Station), transfer to Metro Line 2 (towards Sichuan Road) at Lijia Village Station, transfer to Blue Valley Express (towards Qiangu Mountain) at Miaoling Road Station, get off at Huizhan Center Station Exit B, and walk about 900 meters to reach the Haitian Financial Center Hotel.</span></p>
 
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Qingdao Railway Station:</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• Take Metro Line 3 (towards Qingdao North Station), transfer to Metro Line 2 (towards Licun Park) at May Fourth Square Station, transfer to Blue Valley Express (towards Qiangu Mountain) at Miaoling Road Station, get off at Huizhan Center Station Exit B, and walk about 900 meters to reach the Haitian Financial Center Hotel.</span></p>
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">Qingdao Railway Station:</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• Take Metro Line 3 (towards Qingdao North Station), transfer to Metro Line 2 (towards Licun Park) at May Fourth Square Station, transfer to Blue Valley Express (towards Qiangu Mountain) at Miaoling Road Station, get off at Huizhan Center Station Exit B, and walk about 900 meters to reach the Haitian Financial Center Hotel.</span></p>
 
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Qingdao West Railway Station:</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• The journey requires multiple transfers and takes about 3 hours, therefore not recommended.</span></p>
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">Qingdao West Railway Station:</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• The journey requires multiple transfers and takes about 3 hours, therefore not recommended.</span></p>
                     <p style="text-align: justify;"> &nbsp;</p>
-
 
                     <h3>If you want to travel from transit cities such as Beijing, Shanghai, Chengdu, Guangzhou, or Yantai to Qingdao, the following information may be useful to you.</h3>
 
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Transportation Guide from Beijing to Qingdao</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• Railway Station: Taking the high-speed train directly from Beijing South Station to Qingdao North Station or Qingdao Railway Station takes about 3.5~4.5 hours.</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">The Train Numbers include:</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">G183: Beijing South 08:35am-12:21pm Qingdao North &nbsp;&nbsp;&nbsp;&nbsp; G209: Beijing South 10:10am-14:01pm Qingdao North</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">G195: Beijing South 15:00pm-19:00pm Qingdao North &nbsp;&nbsp;&nbsp;&nbsp; G203: Beijing South 16:00pm-20:00pm Qingdao North</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• From Beijing Capital International Airport/Daxing International Airport to Qingdao Jiaodong International Airport</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">CA1559: Beijing Capital 08:05am-09:25am Qingdao &nbsp;&nbsp;&nbsp;&nbsp; MU5103: Beijing Capital 12:00pm-13:20pm Qingdao</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">CA8183: Beijing Daxing 15:05pm-16:25pm Qingdao &nbsp;&nbsp;&nbsp;&nbsp; MU5735: Beijing Daxing 19:30pm-20:50pm Qingdao</span></p>
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">Transportation Guide from Beijing to Qingdao</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• Railway Station: Taking the high-speed train directly from Beijing South Station to Qingdao North Station or Qingdao Railway Station takes about 3.5~4.5 hours.</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">The Train Numbers include:</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">G183: Beijing South 08:35am-12:21pm Qingdao North &nbsp;&nbsp;&nbsp;&nbsp; G209: Beijing South 10:10am-14:01pm Qingdao North</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">G195: Beijing South 15:00pm-19:00pm Qingdao North &nbsp;&nbsp;&nbsp;&nbsp; G203: Beijing South 16:00pm-20:00pm Qingdao North</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• From Beijing Capital International Airport/Daxing International Airport to Qingdao Jiaodong International Airport</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">CA1559: Beijing Capital 08:05am-09:25am Qingdao &nbsp;&nbsp;&nbsp;&nbsp; MU5103: Beijing Capital 12:00pm-13:20pm Qingdao</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">CA8183: Beijing Daxing 15:05pm-16:25pm Qingdao &nbsp;&nbsp;&nbsp;&nbsp; MU5735: Beijing Daxing 19:30pm-20:50pm Qingdao</span></p>
                     <p style="text-align: justify;"> &nbsp;</p>
 
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Transportation Guide from Shanghai to Qingdao</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• Railway Station: Take a high-speed train from Shanghai Hongqiao directly to Qingdao North Station, and the running time is about 5.5~6 hours. The Train Numbers include:</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">G232: Shanghai Hongqiao 07:10am-12:45pm Qingdao North &nbsp;&nbsp;&nbsp;&nbsp; G236: Shanghai Hongqiao 08:10am-13:45pm Qingdao North</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">G238: Shanghai Hongqiao 09:00am-14:33pm Qingdao North &nbsp;&nbsp;&nbsp;&nbsp; G240: Shanghai Hongqiao 10:00am-15:35pm Qingdao North</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• From Shanghai Hongqiao/Pudong International Airport to Qingdao Jiaodong International Airport</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">MU5517: Shanghai Hongqiao 07:30am-09:10am Qingdao &nbsp;&nbsp;&nbsp;&nbsp; FM9261: Shanghai Hongqiao 11:05am-12:45pm Qingdao</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">MU5525: Shanghai Pudong 09:45am-11:30am Qingdao &nbsp;&nbsp;&nbsp;&nbsp; MU5527: Shanghai Pudong 11:30am-13:15pm Qingdao</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">MU5539: Shanghai Pudong 18:55pm-20:35pm Qingdao</span></p>
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">Transportation Guide from Shanghai to Qingdao</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• Railway Station: Take a high-speed train from Shanghai Hongqiao directly to Qingdao North Station, and the running time is about 5.5~6 hours. The Train Numbers include:</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">G232: Shanghai Hongqiao 07:10am-12:45pm Qingdao North &nbsp;&nbsp;&nbsp;&nbsp; G236: Shanghai Hongqiao 08:10am-13:45pm Qingdao North</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">G238: Shanghai Hongqiao 09:00am-14:33pm Qingdao North &nbsp;&nbsp;&nbsp;&nbsp; G240: Shanghai Hongqiao 10:00am-15:35pm Qingdao North</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• From Shanghai Hongqiao/Pudong International Airport to Qingdao Jiaodong International Airport</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">MU5517: Shanghai Hongqiao 07:30am-09:10am Qingdao &nbsp;&nbsp;&nbsp;&nbsp; FM9261: Shanghai Hongqiao 11:05am-12:45pm Qingdao</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">MU5525: Shanghai Pudong 09:45am-11:30am Qingdao &nbsp;&nbsp;&nbsp;&nbsp; MU5527: Shanghai Pudong 11:30am-13:15pm Qingdao</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">MU5539: Shanghai Pudong 18:55pm-20:35pm Qingdao</span></p>
                     <p style="text-align: justify;"> &nbsp;</p>
 
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Transportation Guide from Chengdu to Qingdao</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• Railway Station: Take high-speed train G1834 or G1836 from Chengdu East Railway Station directly to Qingdao Station, with a travel time of about 14 hours.</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• From Chengdu Tianfu International Airport to Qingdao Jiaodong International Airport</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">CA4511: Chengdu Tianfu 07:25am-10:05am Qingdao &nbsp;&nbsp;&nbsp;&nbsp; MU2150: Chengdu Tianfu 14:15pm-16:55pm Qingdao</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">3U8737: Chengdu Tianfu 20:20pm-23:00pm Qingdao</span></p>
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">Transportation Guide from Chengdu to Qingdao</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• Railway Station: Take high-speed train G1834 or G1836 from Chengdu East Railway Station directly to Qingdao Station, with a travel time of about 14 hours.</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• From Chengdu Tianfu International Airport to Qingdao Jiaodong International Airport</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">CA4511: Chengdu Tianfu 07:25am-10:05am Qingdao &nbsp;&nbsp;&nbsp;&nbsp; MU2150: Chengdu Tianfu 14:15pm-16:55pm Qingdao</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">3U8737: Chengdu Tianfu 20:20pm-23:00pm Qingdao</span></p>
                     <p style="text-align: justify;"> &nbsp;</p>
 
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Transportation Guide from Guangzhou to Qingdao</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• Railway Station: Take high-speed train G2078 from Guangzhou South Railway Station directly to Qingdao North Station, with a travel time of about 12 hours.</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">• From Guangzhou Baiyun International Airport to Qingdao Jiaodong International Airport</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">CZ3737: Guangzhou Baiyun 08:00am-11:00am Qingdao &nbsp;&nbsp;&nbsp;&nbsp; ZH9249: Guangzhou Baiyun 15:20pm-18:10pm Qingdao</span></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">MU5255: Guangzhou Baiyun 20:00pm-23:00pm Qingdao</span></p>
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">Transportation Guide from Guangzhou to Qingdao</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• Railway Station: Take high-speed train G2078 from Guangzhou South Railway Station directly to Qingdao North Station, with a travel time of about 12 hours.</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• From Guangzhou Baiyun International Airport to Qingdao Jiaodong International Airport</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">CZ3737: Guangzhou Baiyun 08:00am-11:00am Qingdao &nbsp;&nbsp;&nbsp;&nbsp; ZH9249: Guangzhou Baiyun 15:20pm-18:10pm Qingdao</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">MU5255: Guangzhou Baiyun 20:00pm-23:00pm Qingdao</span></p>
                     <p style="text-align: justify;"> &nbsp;</p>
 
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Transportation Guide from Yantai to Qingdao</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">The earliest departure time from Yantai to Qingdao is 06:20 and the latest departure time is 21:30. On average, around 45 various types of high-speed C, G, D trains travel from Yantai to Qingdao per day between the times of 06:20 and 21:30 and the shortest train ride from Yantai to Qingdao takes about 1 hour.</span></p>
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">Transportation Guide from Yantai to Qingdao</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">The earliest departure time from Yantai to Qingdao is 06:20 and the latest departure time is 21:30. On average, around 45 various types of high-speed C, G, D trains travel from Yantai to Qingdao per day between the times of 06:20 and 21:30 and the shortest train ride from Yantai to Qingdao takes about 1 hour.</span></p>
 
                     <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(255, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Kindly notice:</span></strong></p>
-                    <p style="text-align: justify;line-height: 2em"><span style="color: rgb(0, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">China train tickets are available for purchase up to 15 days in advance. During peak travel periods, tickets can sell out quickly. To ensure a smooth journey, it's best to plan ahead and book your tickets as early as possible.</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">China train tickets are available for purchase up to 15 days in advance. During peak travel periods, tickets can sell out quickly. To ensure a smooth journey, it's best to plan ahead and book your tickets as early as possible.</span></p>
                     <p style="text-align: justify;"> &nbsp;</p>
 
-
-                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(255, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Note: All the above information may be adjusted according to the season, please refer to the real-time query results for accuracy.<span style="font-family: arial, helvetica,sans-serif;font-size: 18px"> &nbsp; </span><span style="font-size: 18px"></span></span></strong></p>
-                
-
-
-
-                <!-- <p style="text-align:justify; text-justify:inter-ideograph;">ICXR 2025 will be held at the Haitian Financial Center Hotel (No. 29 Xianxialing Road, Laoshan District) in Qingdao City, Shandong Province. Hotel accommodation is 380 RMB/night. ICXR 2025 attendees who need to book a hotel are kindly requested to send the following information to icxr@ccf.org.cn.
-                    <ul class="topics">
-                    <span>(1) Paper ID<br></span>
-                    <span>(2) Name<br></span>
-                    <span>(3) Phone number<br></span>
-                    <span>(4) Check-in time<br></span>
-                    <span>(5) Check-out time<br></span>
-                    <span>(6) Room Type (Queen/Twin). Note that we will try to satisfy your request, but this is not guaranteed.<br></span>
-                    <span>(7) Room quantity<br></span>
-                    
-                </ul>
-                
-                
-                <p><strong>Hotline:</strong>+86-532-87057777<br></p>
-
-                <h3>Hotel Environment</h3>
-                <p style="text-align:justify; text-justify:inter-ideograph;">The Hotel is an exceptional venue located in the vibrant Laoshan District of Qingdao. Boasting a contemporary design, the hotel spans a significant area and combines modern comfort with efficiency, making it an ideal choice for both business and leisure attendees.</p>
-
-                <div class="gallery">
-                    <img src="hotel1.jpg" alt="Hotel Image 1">
-                    <img src="hotel2.jpg" alt="Hotel Image 2">
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(255, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">Note: All the above information may be adjusted according to the season, please refer to the real-time query results for accuracy.</span></strong></p>
                 </div>
 
-                <h3>Parking Services</h3>
-                <p style="text-align:justify; text-justify:inter-ideograph;">The hotel offers both above-ground and underground parking. Please provide your license plate number to the reception staff for 3 hours of free parking service.</p>
+                <!-- 中文内容（默认隐藏） -->
+                <div id="lang-zh" class="lang-content" role="tabpanel" aria-labelledby="tab-zh">
+                    <h3>会议地点：海天金融中心酒店</h3>
+                    <p style="text-align:justify; text-justify:inter-ideograph;">地址：中国山东省青岛市崂山区仙霞岭路29号</p>
+                    <p style="text-align:justify; text-justify:inter-ideograph;">会议酒店：海天金融中心酒店；亚朵X酒店（青岛石老人海水浴场会展中心地铁站店）</p>
 
-                <h3>Electronic Map</h3>
-                <p style="text-align:justify; text-justify:inter-ideograph;">The hotel’s tranquil atmosphere and scenic views allow guests to unwind amidst picturesque surroundings, with attractions like Shilaoren Bathing Beach and Polar Ocean World nearby. With convenient services such as luggage storage and taxi booking, the Qingdao Haitian Financial Center Hotel stands out as a relaxing retreat, promising an enriching experience for all participants of ICXR.</p>
-                <p><a href="https://www.google.com.hk/maps/place/Qingdao+Haitian+Financial+Center+Hotel/@36.1128223,120.4782223,18z/data=!4m21!1m11!3m10!1s0x3596144a64f0d6c9:0x315bf6b050dfa2dc!2sQingdao+Haitian+Financial+Center+Hotel!5m2!4m1!1i2!8m2!3d36.112305!4d120.47848!10e5!16s%2Fg%2F11ppjbrpb5!3m8!1s0x3596144a64f0d6c9:0x315bf6b050dfa2dc!5m2!4m1!1i2!8m2!3d36.112305!4d120.47848!16s%2Fg%2F11ppjbrpb5?hl=zh-CN&entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank">Click here to view the map</a></p> -->
+                    <h3>海天金融中心酒店预订</h3>
+                    <div class="gallery">
+                        <img src="hotel1.jpg" alt="酒店图片1">
+                        <img src="hotel2.jpg" alt="酒店图片2">
+                    </div>   
+                    <p style="text-align:justify; text-justify:inter-ideograph;">请使用微信扫码预订。</p>
+                    <img src="hotelQR.webp" alt="酒店预订二维码">
+                    <!-- <p><strong>预订热线：</strong>&nbsp;+86-532-87057777</p> -->
+                    <p><strong>酒店销售联系人：</strong>王经理 &nbsp;18562737889</p>
+
+                    <h3>亚朵X酒店预订</h3>
+                    <div class="gallery">
+                        <img src="hotel3.jpg" alt="酒店图片3">
+                        <img src="hotel4.jpg" alt="酒店图片4">
+                    </div>
+                    <p style="text-align:justify; text-justify:inter-ideograph;">酒店地址：中国山东省青岛市崂山区仙霞岭路31号（距离主会场约50米）</p>
+                    <p style="text-align:justify; text-justify:inter-ideograph;"><strong>酒店销售联系人：</strong>杨经理 &nbsp;18765928056</p>
+
+                    <h3>交通信息</h3>
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">青岛胶东国际机场（TAO）：</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• 距会场约56公里（打车约55分钟，费用约185元）。</span></p>
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">青岛北站：</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• 距会场约15公里（打车约25分钟，费用约45元）。</span></p>
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">青岛站：</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• 距会场约16公里（打车约28分钟，费用约48元）。</span></p>
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">青岛西站：</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• 距会场约62公里（打车约80分钟，费用约210元）。</span></p>
+                    <p style="text-align: justify;"> &nbsp;</p>
+
+                    <h3>公共交通路线</h3>
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">青岛胶东国际机场（TAO）：</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• 乘地铁8号线（往青岛北站方向），在青岛北站换乘地铁3号线（往青岛站方向），在李村站换乘地铁2号线（往四川路方向），在苗岭路站换乘蓝色硅谷快线（往千鼓山方向），在会展中心站B口下车，步行约900米到达海天金融中心酒店。</span></p>
+
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">青岛北站：</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• 乘地铁3号线（往青岛站方向），在丽家村站换乘地铁2号线（往四川路方向），在苗岭路站换乘蓝色硅谷快线（往千鼓山方向），在会展中心站B口下车，步行约900米到达海天金融中心酒店。</span></p>
+
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">青岛站：</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• 乘地铁3号线（往青岛北站方向），在五四广场站换乘地铁2号线（往李村公园方向），在苗岭路站换乘蓝色硅谷快线（往千鼓山方向），在会展中心站B口下车，步行约900米到达海天金融中心酒店。</span></p>
+
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">青岛西站：</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• 路线需多次换乘，全程约3小时，不建议采用。</span></p>
+                    <p style="text-align: justify;"> &nbsp;</p>
+
+                    <h3>如果您从北京、上海、成都、广州或烟台等中转城市前往青岛，以下信息供参考。</h3>
+
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">北京—青岛出行指南</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• 高铁：北京南直达青岛北/青岛站约3.5~4.5小时。</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">部分车次示例：</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">G183：北京南 08:35-12:21 青岛北 &nbsp;&nbsp;&nbsp;&nbsp; G209：北京南 10:10-14:01 青岛北</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">G195：北京南 15:00-19:00 青岛北 &nbsp;&nbsp;&nbsp;&nbsp; G203：北京南 16:00-20:00 青岛北</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• 航班：首都/大兴至青岛胶东国际机场部分航班示例：</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">CA1559：首都 08:05-09:25 青岛 &nbsp;&nbsp;&nbsp;&nbsp; MU5103：首都 12:00-13:20 青岛</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">CA8183：大兴 15:05-16:25 青岛 &nbsp;&nbsp;&nbsp;&nbsp; MU5735：大兴 19:30-20:50 青岛</span></p>
+                    <p style="text-align: justify;"> &nbsp;</p>
+
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">上海—青岛出行指南</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• 高铁：虹桥直达青岛北约5.5~6小时。部分车次示例：</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">G232：虹桥 07:10-12:45 青岛北 &nbsp;&nbsp;&nbsp;&nbsp; G236：虹桥 08:10-13:45 青岛北</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">G238：虹桥 09:00-14:33 青岛北 &nbsp;&nbsp;&nbsp;&nbsp; G240：虹桥 10:00-15:35 青岛北</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• 航班：虹桥/浦东至青岛胶东国际机场部分航班示例：</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">MU5517：虹桥 07:30-09:10 青岛 &nbsp;&nbsp;&nbsp;&nbsp; FM9261：虹桥 11:05-12:45 青岛</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">MU5525：浦东 09:45-11:30 青岛 &nbsp;&nbsp;&nbsp;&nbsp; MU5527：浦东 11:30-13:15 青岛</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">MU5539：浦东 18:55-20:35 青岛</span></p>
+                    <p style="text-align: justify;"> &nbsp;</p>
+
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">成都—青岛出行指南</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• 高铁：成都东乘 G1834 或 G1836 直达青岛站，约14小时。</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• 航班：天府至青岛胶东国际机场部分航班示例：</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">CA4511：天府 07:25-10:05 青岛 &nbsp;&nbsp;&nbsp;&nbsp; MU2150：天府 14:15-16:55 青岛</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">3U8737：天府 20:20-23:00 青岛</span></p>
+                    <p style="text-align: justify;"> &nbsp;</p>
+
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">广州—青岛出行指南</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• 高铁：广州南乘 G2078 直达青岛北，约12小时。</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">• 航班：白云至青岛胶东国际机场部分航班示例：</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">CZ3737：白云 08:00-11:00 青岛 &nbsp;&nbsp;&nbsp;&nbsp; ZH9249：白云 15:20-18:10 青岛</span></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">MU5255：白云 20:00-23:00 青岛</span></p>
+                    <p style="text-align: justify;"> &nbsp;</p>
+
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">烟台—青岛出行指南</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">烟台至青岛首班约06:20，末班约21:30。每日平均约45趟高速铁路列车（含 C/G/D 等车次）往返，最快约1小时可达。</span></p>
+
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(255, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">温馨提示：</span></strong></p>
+                    <p style="text-align: justify;line-height: 2em"><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">中国高铁车票最早可提前15天购买，节假日或高峰期票源紧张，请尽早规划并预订。</span></p>
+                    <p style="text-align: justify;"> &nbsp;</p>
+
+                    <p style="text-align: justify;line-height: 2em"><strong><span style="color: rgb(255, 0, 0);font-family: arial, helvetica,sans-serif;font-size: 18px">说明：</span></strong><span style="font-family: arial, helvetica,sans-serif;font-size: 18px">以上信息可能随季节调整，请以实时查询为准。</span></p>
+                </div>
             </div>
         </div>
 
@@ -390,5 +409,42 @@
             <a href="https://www.ccf.org.cn/en/About_CCF/About_CCF/"><img src="./screenshot-20240828-143707.png" alt="CCF Logo"></a>
         </div> 
     </div>
+
+    <script>
+        // 简单的语言切换逻辑
+        (function () {
+            const buttons = document.querySelectorAll('.tab-btn');
+            const panels = {
+                en: document.getElementById('lang-en'),
+                zh: document.getElementById('lang-zh')
+            };
+
+            function setLang(lang) {
+                // 切换按钮激活态
+                buttons.forEach(btn => {
+                    const isActive = btn.dataset.lang === lang;
+                    btn.classList.toggle('active', isActive);
+                    btn.setAttribute('aria-selected', String(isActive));
+                });
+                // 切换内容显示
+                Object.entries(panels).forEach(([key, el]) => {
+                    el.classList.toggle('active', key === lang);
+                });
+                // 保存用户选择
+                try { localStorage.setItem('accom-lang', lang); } catch(e) {}
+            }
+
+            // 点击事件
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => setLang(btn.dataset.lang));
+            });
+
+            // 读取并应用用户上次选择（如有）
+            try {
+                const saved = localStorage.getItem('accom-lang');
+                if (saved && (saved === 'en' || saved === 'zh')) setLang(saved);
+            } catch(e) {}
+        })();
+    </script>
 </body>
 </html>
