@@ -1,0 +1,216 @@
+var status_;
+var table_data;
+var datas;
+var apply_data;
+var meeting_column;
+var new_column_detail = [];
+var showTab = true; //是否展示会场选项卡
+var meetingPlaceTickets = []; // table数据
+
+/*var ifoutMember = false;
+var ifoutMember1 = true;*/
+var picture='';
+
+$(function(){
+    //显示状态
+    $.ajax({
+        url: config.get_web_url() + '/api/meetingInfo.action',
+        data: {meetingId: globalId},
+        dataType: "jsonp",
+        async: false,
+        jsonp: "jsoncallback",
+        type: 'get',
+        success: function (data) {
+            console.log('----------------会议介绍')
+            console.log(data)
+            status_ = data[0];
+        }
+    })
+    //关于会议table数据
+    /*$.ajax({
+        url: config.get_host_url()+'/conf/cms/meeting_cost.action?mid='+ globalId +'&language=zh',
+        async: false,
+        jsonp: "jsoncallback",
+        type: 'get',
+        success: function (data) {
+            console.log('---------------------会议动态table数据')
+            console.log(data)
+            table_data = data;
+        }
+    })*/
+    let new_globalId ;
+    if(globalId.indexOf("EN")>-1)
+    {
+        new_globalId = en_globalId;
+    }else{
+        new_globalId = globalId;
+    }
+    let  lan = localStorage.getItem(`language_${globalId}`);
+    if(lan=='1'){
+        $.ajax({
+            url: config.get_host_url() + "/conf/cms/v3/pticket.do?mid=" + globalId,
+            type: 'get',
+
+            success: function (data) {
+                console.log('---------------------会议动态table数据')
+                console.log(data)
+                let obj = data.data
+                if (obj.length == 1 && obj[0].meetingPlaceId < 1) {
+                    showTab = false;
+                }
+                //会议门票
+                meetingPlaceTickets = obj;
+                console.log('-------------------232123')
+                console.log(showTab)
+                console.log(meetingPlaceTickets)
+                window.pageVue.showTab = showTab;
+                window.pageVue.meetingPlaceTickets = meetingPlaceTickets;
+            },
+            error: function(e){
+                console.error(e)
+            }
+        })
+    }else {
+        $.ajax({
+            url: config.get_host_url() + "/conf/cms/en/v3/pticket.do?mid=" + globalId,
+            type: 'get',
+
+            success: function (data) {
+                console.log('---------------------会议动态table数据')
+                console.log(data)
+                let obj = data.data
+                if (obj.length == 1 && obj[0].meetingPlaceId < 1) {
+                    showTab = false;
+                }
+                //会议门票
+                meetingPlaceTickets = obj;
+                console.log('-------------------232123')
+                console.log(showTab)
+                console.log(meetingPlaceTickets)
+                window.pageVue.showTab = showTab;
+                window.pageVue.meetingPlaceTickets = meetingPlaceTickets;
+            },
+            error: function(e){
+                console.error(e)
+            }
+        })
+    }
+
+
+
+
+    //栏目树
+    /*$.ajax({
+        url: config.get_web_url()+"/api/show.action",
+        data:{code:'api_channel',meetingId: globalId},
+        dataType:"jsonp",
+        jsonp:"jsoncallback",
+        async:false,
+        type: 'get',
+        success: function (data) {
+            console.log('---------------栏目数据')
+            console.log(data[0].ds1)
+            var data_ = data[0].ds1;
+            var data_2=data_.filter(function (e) {
+                return e.LEV=='2';
+            });
+            meeting_column=data_2.filter(function (e) {
+                return e.COLUMN_TYPE=='4';
+            });
+            console.log('-------------------')
+            console.log(meeting_column)
+            for(var i=0;i<meeting_column.length;i++){
+                $.ajax({
+                    url: config.get_web_url() + '/api/newsAll.action',
+                    data: {channelId: meeting_column[i].ID},
+                    dataType: "jsonp",
+                    jsonp: "jsoncallback",
+                    async: false,
+                    type: 'get',
+                    success: function (data) {
+                        console.log('----------------------栏目详情')
+                        console.log(data)
+                        if(data.length>0){
+                            new_column_detail.push(data[0]);
+                        }else{
+                            new_column_detail.push('');
+                        }
+                    }
+                })
+            }
+        }
+    });*/
+
+    //论坛/活动申请
+    $.ajax({
+        url: config.get_web_url() + '/api/show.action',
+        data: {code:'api_application_setting',meetingId: globalId},
+        dataType: "jsonp",
+        async: false,
+        jsonp: "jsoncallback",
+        type: 'get',
+        success: function (data) {
+            console.log('------------------------论坛活动申请')
+            console.log(data);
+            apply_data = data[0].ds1;
+        }
+    })
+    //所有数据
+   /* $.ajax({
+        url: config.get_web_url() + '/api/getCCFOnePageData.action',
+        data: {meetingId: globalId},
+        dataType: "jsonp",
+        async: false,
+        jsonp: "jsoncallback",
+        type: 'get',
+        success: function (data) {
+            console.log(data)
+            datas = data;
+        }
+    })*/
+
+    //session
+/*
+    $.ajax({
+        url: config.get_host_url() + '/conf/session1.jsp',
+        // url:'https://conf2.ccf.org.cn/conf/session1.jsp',
+        async: false,
+        type: 'get',
+        success: function (data) {
+            console.log('---------------session')
+            console.log(data)
+            if(data.indexOf("no")<0){
+                data  = JSON.parse(data);
+                if(data.hasOwnProperty("id")){
+                    if(data.hasOwnProperty('cardNumber')){
+                        if(data.hasOwnProperty('userState')&&data['userState']!='1'){
+                            ifoutMember = true;
+                        }else{
+                            ifoutMember1 = false;
+                        }
+                    }
+                }
+            }
+        }
+    });
+*/
+    //会议图片
+    $.ajax({
+        url: config.get_web_url() + '/api/getFengPic.action',
+        data: {channelId: channelId},
+        dataType: "jsonp",
+        async: false,
+        jsonp: "jsoncallback",
+        type: 'get',
+        success: function (data) {
+            console.log('--------------------会议介绍图片')
+            console.log(data)
+            picture = data[0];
+        },
+        error:function(e){
+            console.log(e)
+        }
+    })
+
+
+})

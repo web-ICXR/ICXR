@@ -1,0 +1,94 @@
+/**
+ * Created by wz
+ * 配置类
+ */
+!function (global, fun) {
+    "function" == typeof define && define.amd ? define(fun) : global.config = fun()
+}(this, function () {
+   
+    // 获取当前浏览器访问地址
+    var strFullPath = window.document.location.href;
+    // http://localhost:8080/projectname/index.action
+    // 获取去除域名的后面的访问地址
+    var strPath = window.document.location.pathname;
+    // /projectname/index.action
+    var pos = strFullPath.indexOf(strPath);
+    // 获取去除域名的后面的访问地址
+    var prePath = strFullPath.substring(0, pos);
+    // 获取去除域名的后面的访问地址
+    var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
+    var webPath = prePath + postPath;// http://localhost:8080/projectname
+    var config = {
+        web_path_suffix: '.action',
+        getWebPath: function () {
+            return webPath;
+        }, get_full_path: function () {
+            return strFullPath;
+        }, get_str_path: function () {
+            return strPath;
+        }, get_host_url: function () {
+            return prePath;
+        }, get_project_name: function () {
+            return postPath;
+        }, get_web_url: function () {
+            return webPath;
+        }, get_meetingId: function () {
+            return '2014052613b443d78fc5995a7efb33a3';
+        }, get_shortUrl: function () {//短链接域名
+            
+                return 'ccf.org.cn';
+            
+        }
+    }
+
+  window.confccf="https://conf.ccf.org.cn";
+    window.shortccf="https://ccf.org.cn";
+
+    //会员
+    window.ccf ="https://web.ccf.org.cn/CCF";
+    //登录地址  ---外网测试
+    window.denlu ="https://passport.ccf.org.cn/sso/?source="+window.globalId+"&from="+window.btoa(location.href);
+    window.denluEN ="https://passport.ccf.org.cn/sso?language=en&source=dPR5fa";
+
+    //登录地址 ---内网
+    // window.denlu ="http://cspsso.fulong.cn/sso";c
+
+    //注册地址
+    //window.zhuce ="javascript:(window.location.href = '"+ window.ccf +"/apply/user!reg.action?flag=8&amp;url='+location.href)";
+    window.zhuce ="javascript:(window.location.href = '"+ window.ccf +"/apply/user!reg.action?source="+ getQueryString('globalId')+"&flag=8&amp;url='+location.href)";
+    window.zhuceEN ="https://web.ccf.org.cn/CCF/apply/user!register.action?flag=8";
+    //会议列表地址
+    window.meetingList ="/conf/show.action?code=index";
+    //我的会议地址
+    window.mine ="/conf/show.action?code=meeting_home_list";
+    //会议管理
+    window.myMeeting ="/conf/meetingmanager/meetsystem.action"
+    //业务门户
+    window.home ="https://passport.ccf.org.cn/sso/platform";
+    //加入CCF
+    window.pcccf =window.ccf+"/regTo.action?flag=0";
+    window.phoneccf =window.ccf+"/reg_phone.html";
+
+    //登录成功未交费
+    /* var url = encodeURIComponent(opts.webPath + '/user/refresh.action?&mid=' + opts.mid + '&return_url=' + window.location.href);
+     var signupMemberUrl = opts.memberUrl + '/apply/user!regMember.action?id=' + opts.userId + '&mid=' + opts.mid + '&url=' + url;*/
+    window.jpay = prePath + "/conf/user/refresh.action";
+    window.signupMemberUrl = window.ccf + "/apply/user!regMember.action";
+
+
+    setTimeout(function () {
+        window.denlu ="https://passport.ccf.org.cn/sso/?language=zh&source="+window.globalId+"&from="+window.btoa(location.href);
+        window.denlu1 ="https://passport.ccf.org.cn/sso/?language=zh&source="+window.globalId+"&from="+window.btoa(location.href);
+        window.denluEN ="https://passport.ccf.org.cn/sso?language=en&source=dPR5fa";
+        window.zhuce ="javascript:(window.location.href = '"+ window.ccf +"/apply/user!reg.action?source="+ window.globalId+"&flag=8&url="+location.href+"')";
+    },400)
+
+    return config;
+});
+
+function getQueryString(name){
+    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if(r!=null)return  unescape(r[2]); return null;
+}
+

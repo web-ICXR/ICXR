@@ -12,37 +12,29 @@
             background-color: #f4f4f4; 
             color: #333;
         }
-         nav {
+        nav {
             background-color: #8AA4E1; /* #5DBBF2 */
             padding: 1em 2em;
-            display: flex; /* 使用flex布局 */
-            justify-content: center; /* 根据需要调节，如space-between或center */
-            flex-wrap: nowrap; /* 禁止换行 */
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
         }
-
         nav a {
             color: white;
-            margin: 0 0.5em; /* 增加了间距的灵活性 */
+            margin: 0 0.5em;
             text-decoration: none;
             font-weight: bold;
-            white-space: nowrap; /* 防止文本换行 */
-            font-size: 18px; /* 适当减少字体大小 */
-            display: flex; /* 使用flex以确保垂直居中 */
-            align-items: center; /* 垂直居中对齐 */
-            height: 100%; /* 确保高度一致 */
-            line-height: 1.5; /* 设置行高，使链接垂直居中 */
+            white-space: nowrap;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            line-height: 1.5;
         }
         nav a:hover { 
             text-decoration: underline; 
         }
-
-        /* Dropdown Container */
-        .dropdown {
-            position: relative;
-            display: inline-block; /* INLINE-BLOCK用于下拉 */
-        }
-
-        /* Dropdown button */
+        .dropdown { position: relative; display: inline-block; }
         .dropbtn {
             background-color: #8AA4E1; 
             color: white;
@@ -50,56 +42,33 @@
             border: none;
             cursor: pointer;
             font-size: 18px;
-            padding: 0; /* 报错 padding 的设置 */
-            margin: 0 0.5em; /* 添加与其他链接相同的外边距 */
-            display: flex; /* 使用flex以确保垂直居中 */
-            align-items: center; /* 垂直居中对齐 */
-            height: 100%; /* 确保高度一致 */
-            line-height: 1.5; /* 设置行高，使按钮文本在中间 */
+            padding: 0;
+            margin: 0 0.5em;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            line-height: 1.5;
         }
-
-        /* Dropdown Content */
         .dropdown-content {
-            display: none; /* 隐藏下拉内容 */
-            position: absolute; /* 绝对定位 */
-            background-color: #f9f9f9; /* 下拉菜单背景颜色 */
-            min-width: 160px; /* 下拉菜单最小宽度 */
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* 阴影效果 */
-            z-index: 1; /* 确保在其他元素之上显示 */
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
         }
-
-        /* 配置下拉菜单中的链接 */
         .dropdown-content a {
-            color: #0056b3; /* 链接颜色 */
-            padding: 12px 16px; /* 链接的填充 */
-            text-decoration: none; /* 去除下划线 */
-            display: block; /* 块级元素 */
+            color: #0056b3;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
         }
+        .dropdown-content a:hover { background-color: #ddd; }
+        .dropdown:hover .dropdown-content { display: block; }
 
-        /* 下拉菜单链接的悬停效果 */
-        .dropdown-content a:hover {
-            background-color: #ddd; /* 悬停时背景颜色 */
-        }
-
-        /* 显示下拉菜单 */
-        .dropdown:hover .dropdown-content {
-            display: block; /* 当悬停在下拉菜单上时显示 */
-        }
-
-        /* 容器设置 */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;   
-        }
-
-        .banner-container {
-            text-align: center;
-            padding: 2em 0 1em; /* 顶部留白 */
-        }
-        .banner-container img {
-            width: 100%;
-            height: auto;
-        }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .banner-container { text-align: center; padding: 2em 0 1em; }
+        .banner-container img { width: 100%; height: auto; }
 
         .registration {
             background-color: white;
@@ -108,10 +77,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
-
-        .registration h2 {
-            color: #0044cc;
-        }
+        .registration h2 { color: #0044cc; }
 
         .content { 
             padding: 3em 2em; 
@@ -119,18 +85,10 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
             border-radius: 8px; 
         }
-        .introduction { 
-            margin-top: 2em; 
-        }
-        h1, h2, h3, h4 { 
-            color: #0044cc; 
-        }
-        h1 { 
-            margin-top: 0; 
-        }
-        p { 
-            line-height: 1.6; 
-        }
+        .introduction { margin-top: 2em; }
+        h1, h2, h3, h4 { color: #0044cc; }
+        h1 { margin-top: 0; }
+        p { line-height: 1.6; }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -141,15 +99,10 @@
         table th, table td {
             padding: 12px;
             border: 1px solid #ddd;
-            text-align: left;
+            text-align: center;
         }
-        table th {
-            background-color: #007acc;
-            color: white;
-        }
-        table tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
+        table th { background-color: #007acc; color: white; }
+        table tr:nth-child(even) { background-color: #f2f2f2; }
 
         .footer {
             text-align: center;
@@ -157,14 +110,66 @@
             background-color: #f1f1f1;
             position: relative;
         }
-        .footer img {
-            max-width: 80px;
-            vertical-align: middle;
+        .footer img { max-width: 80px; vertical-align: middle; }
+        .wrapper { max-width: 1000px; margin: 0 auto; padding: 0 2em; }
+
+        .btn-link {
+            display: inline-block;
+            padding: 8px 12px;
+            background-color: #8AA4E1;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
         }
-        .wrapper {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 2em;
+        .btn-link:hover { background-color: #6f8bd6; }
+
+        .info-box {
+            background: #f8fbff;
+            border-left: 4px solid #8AA4E1;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin: 1em 0 1.5em;
+        }
+        .muted { color: #555; font-size: 0.95em; }
+        .note { color: #444; font-size: 0.95em; margin: 0.5em 0; }
+        .subtle { color: #666; font-size: 0.95em; }
+
+        /* 新增：左右布局（首块） */
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;          /* 小屏换行 */
+            gap: 20px;                /* 两列间距 */
+            align-items: stretch;     /* 让左右两列等高 */
+        }
+        .left-section, .right-section {
+            flex: 1;
+            min-width: 300px;         /* 屏幕窄时自动换行 */
+        }
+        .left-section { text-align: center; }
+        .right-section {
+            display: flex;
+            flex-direction: column;   /* 让按钮能靠底 */
+        }
+        .conference-info { text-align: left; }
+        .btn-container {
+            margin-top: auto;         /* 将按钮推到底部 */
+            text-align: center;
+        }
+        .count { font-weight: 800; color: #0044cc; }
+
+        /* 新增：行内布局（用于列表项和分栏文字+按钮） */
+        .inline-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;          /* 小屏自动换行 */
+        }
+        .line-btn {
+            white-space: nowrap;
+            flex-shrink: 0;
         }
     </style>
 </head>
@@ -180,8 +185,6 @@
                     <a href="committeePC.html">Program Committee</a>
                 </div>
             </div>
-            
-            <!-- Dropdown for Call for Papers -->
             <div class="dropdown">
                 <button class="dropbtn">Contribute</button>
                 <div class="dropdown-content">
@@ -189,7 +192,6 @@
                     <a href="callForXRGallery.html">Call for XR Gallery</a>
                 </div>
             </div>
-            
             <a href="program.html">Program</a>
             <a href="keynote.html">Keynote</a>
             <a href="registration.html">Registration</a>
@@ -198,77 +200,164 @@
         </nav>
 
         <div class="container">
-            
-
-            <!-- registration 区域 -->
             <div class="registration">
-                            <!-- registration 区域 -->
-
-
                 <h2>Registration Information</h2>
 
-                <h4>Conference invitations</h4>
-                <!-- <a href="ICXR-2024-Conference invitations for participants.pdf" download>Conference invitations for participants</a>
-                <a href="ICXR 2025 Invitation Letter.pdf" download>Conference invitations for authors</a> -->
-                <a href="ICXR 2025 Invitation Letter.pdf" download>Conference invitation Letter</a>
+                <!-- 首块 info-box：左右布局 -->
+                <div class="info-box">
+                    <div class="flex-container">
+                        <!-- 左侧：Banner + Countdown -->
+                        <div class="left-section">
+                            <img src="./Information_files/cce291dab21f428685b10f8d956e868e.jpg" alt="ICXR 2025" style="max-width:100%; height:auto; display:block; margin:0 auto;">
+                            <p class="subtle" style="margin:8px 0 0;">
+                                Countdown: <strong><span id="countdown" class="count"></span></strong> days
+                            </p>
+                        </div>
 
-                <h4>Contact</h4>
-                <p><strong>Email:</strong> <a href="mailto:icxr@ccf.org.cn">icxr@ccf.org.cn</a></p>
-                <p style="text-align:justify"> Registration detailed information will coming soon...</p>
-                <!-- <h3>Registration Link:</h3>
+                        <!-- 右侧：会议信息 + Signup 按钮 -->
+                        <div class="right-section">
+                            <div class="conference-info">
+                                <p class="note" style="margin:0.2em 0;"><strong>Conference Time:</strong> 2025.11.01 ~ 11.02</p>
+                                <p class="note" style="margin:0.2em 0;"><strong>Registration Time:</strong> 2025.09.01 ~ 11.02</p>
+                                <p class="note" style="margin:0.2em 0; text-align:justify;">
+                                    <strong>Conference Place:</strong> Haitian Financial Center Hotel (No. 29 Xianxialing Road, Laoshan District) in Qingdao City, Shandong Province.
+                                </p>
+                                <p class="note" style="margin:0.2em 0;"><strong>Hosts:</strong> China Computer Federation (CCF)</p>
+                                <p class="note" style="margin:0.2em 0; text-align:justify;">
+                                    <strong>Organizer:</strong> CCF Virtual Reality and Visualization Technology, National Virtual Reality Innovation Center (Qingdao), China University of Petroleum (East China), Qingdao University
+                                </p>
+                            </div>
+                            <div class="btn-container">
+                                <a href="javascript:void(0)" class="btn-link" onclick="signup()">Signup</a>
+                            </div>
+                        </div>
+                    </div>
 
-                <p> <a href="https://ccf.org.cn/icxr2024register">ccf.org.cn/icxr2024register</a></p>
+                    <!-- 倒计时脚本 -->
+                    <script>
+                        (function () {
+                            const now = new Date();
+                            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+                            let targetYear = today.getFullYear();
+                            let target = new Date(targetYear, 10, 1); // 11 月（从 0 开始）
+
+                            if (today > target) {
+                                targetYear += 1;
+                                target = new Date(targetYear, 10, 1);
+                            }
+
+                            const msPerDay = 1000 * 60 * 60 * 24;
+                            const diffMs = target - today;
+                            const daysLeft = Math.floor(diffMs / msPerDay);
+
+                            const countdownEl = document.getElementById('countdown');
+                            if (countdownEl) countdownEl.textContent = String(daysLeft);
+
+                            const scheduleMidnightUpdate = () => {
+                                const now2 = new Date();
+                                const nextMidnight = new Date(now2.getFullYear(), now2.getMonth(), now2.getDate() + 1);
+                                const delay = nextMidnight - now2;
+                                setTimeout(() => location.reload(), delay);
+                            };
+                            scheduleMidnightUpdate();
+                        })();
+                    </script>
+                </div>
+
+                <h3>Conference Introduction</h3>
+                <p style="text-align:justify">
+                    The International Conference on Extended Reality (ICXR) 2025 is set to take place on November 1-2 in the vibrant city of Qingdao, Shandong Province, China. Co-located with the prestigious ChinaVR 2025, ICXR promises to be a landmark event that brings together a global community of researchers, developers, industry leaders, and academics in the field of extended reality technologies, including Virtual Reality (VR), Augmented Reality (AR), and Mixed Reality (MR).
+                </p>
+                <p style="text-align:justify">
+                    ICXR 2025 will feature a blend of keynote speeches, technical paper presentations, and panel discussions that explore the forefront of XR innovations, applications, and future trends. The conference will delve into a variety of compelling topics, such as metaverse development, advanced modeling techniques, perceptual interaction, graphics and image rendering, XR content creation, and digital twins.
+                </p>
+                <p style="text-align:justify">
+                    We warmly ivite all professionals, researchers, scholars, and enthusiasts from the XR community to converge in Qingdao for ICXR 2025. Engage with pioneering minds, discover groundbreaking advancements, and participate in a vibrant exchange of ideas that aim to shape the future of extended reality. Join us for an unforgettable experience in one of China's most beautiful coastal cities!
+                </p>
+
                 <h3>Registration Categories and Fees</h3>
+                <p class="subtle">All prices are shown in RMB / USD.</p>
                 <table>
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>CCF Member</th>
-                            <th>Non-CCF Member</th>
+                            <th>Ticket</th>
+                            <th>Membership Type</th>
+                            <th>9.1–10.21</th>
+                            <th>10.22–11.2</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Full Registration</td>
-                            <td>3200 RMB / 450 USD</td>
-                            <td>4000 RMB / 560 USD</td>
+                            <td rowspan="2">Author Registration</td>
+                            <td>CCF Member</td>
+                            <td>￥3200 / 450</td>
+                            <td>￥3200 / 450</td>
                         </tr>
                         <tr>
-                            <td>Student Registration</td>
-                            <td>1900 RMB / 270 USD</td>
-                            <td>2400 RMB / 340 USD</td>
+                            <td>Non-CCF Member</td>
+                            <td>￥4000 / 560</td>
+                            <td>￥4000 / 550</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="4">Participant Registration</td>
+                            <td>CCF Member</td>
+                            <td>￥2000 / 280</td>
+                            <td>￥2500 / 350</td>
+                        </tr>
+                        <tr>
+                            <td>CCF Student Member</td>
+                            <td>￥1400 / 200</td>
+                            <td>￥1800 / 250</td>
+                        </tr>
+                        <tr>
+                            <td>Non-CCF Member</td>
+                            <td>￥2500 / 350</td>
+                            <td>￥3200 / 450</td>
+                        </tr>
+                        <tr>
+                            <td>Non-CCF Student Member</td>
+                            <td>￥1600 / 220</td>
+                            <td>￥2000 / 280</td>
                         </tr>
                     </tbody>
                 </table>
-                <h4>Registration Notices:</h4>
-                <ul>
-                    <li>Each accepted paper requires at least one full registration, even if all authors are students.</li>
-                    <li>Conference registration deadline is Nov. 14, 2024. Paper authors are required to register for the conference by Nov. 10, 2024.</li>
-                </ul>
 
-                <h4>Registration using CCF System (Recommended):</h4>
-                <p>CCF members can sign up directly. For non-CCF members, please register one account first with your name. If you have an accepted paper, please fill in the form with the paper ID. After registering with your personal information, pay the registration fee according to the category.</p>
+                <div class="info-box">
+                    <h4 style="margin-top:0">Registration Notices</h4>
+                    <ul>
+                        <li>At least one author of each accepted paper must register as a paper author. Multiple accepted papers by the same author require separate registrations.</li>
+                        <li>Paper authors must complete author registration by October 21, 2025.</li>
+                        <li>For questions, please contact <a href="mailto:icxr@ccf.org.cn">icxr@ccf.org.cn</a>.</li>
 
-                <h4>Registration without using CCF System:</h4>
-                <p>If you are outside of China and do not use the CCF registration system, please download and fill out the <a href="Registration_Form_ICXR2024_ENG.docx" download>Registration Form</a> and email to <strong>ccf_tcvrv@163.com</strong>. Please note “icxr2024+Your name” when transferring the registration fee, and send the scanned version of transfer voucher to <strong>ccf_tcvrv@163.com</strong>. Payment information is as follows:</p>
-                <ul>
-                    <li><strong>Account Name:</strong> XIAMEN UNIVERSITY</li>
-                    <li><strong>Address:</strong> NO.422 SIMING SOUTH ROAD, XIAMEN, CHINA</li>
-                    <li><strong>Account Number:</strong> 428658381176</li>
-                    <li><strong>Bank:</strong> BANK OF CHINA, XIAMEN UNIVERSITY SUB-BRANCH</li>
-                    <li><strong>Address of the Bank:</strong> NO.422 SIMING SOUTH ROAD, XIAMEN, CHINA</li>
-                </ul>
-                <h4>Conference invitations</h4>
-                <a href="ICXR-2024-Conference invitations for participants.pdf" download>Conference invitations for participants</a>
-                <a href="ICXR-2024-Conference invitations for authors.pdf" download>Conference invitations for authors</a>
+                        <!-- 修改的最后一条：文本 + Join CCF 按钮同行显示 -->
+                        <li class="inline-flex">
+                            <span>
+                                Now join CCF, enjoy member benefits. Membership fee standard: CCF Member ￥360/year, Student Member ￥50/year.
+                            </span>
+                            <a href="https://web.ccf.org.cn/CCF/regTo.action?flag=0&source=m1390709452755308544175161257166&fro=https%3A%2F%2Fccf.org.cn%2Fconf%2Fuser%2Frefresh.action%3Fmid%3Dm1390709452755308544175161257166%26return_url%3Dhttps%3A%2F%2Fccf.org.cn%2Ficxr2025register%2Fbrief_3023" target="_blank" rel="noopener" class="btn-link line-btn">Join CCF</a>
+                        </li>
+                    </ul>
+                </div>
 
-                <h4>Contact</h4>
-                <p><strong>Email:</strong> <a href="mailto:ccf_tcvrv@163.com">ccf_tcvrv@163.com</a></p> -->
+                <h3>Group Registration</h3>
+                <div class="info-box">
+                    <!-- 文本 + Group Signup 按钮同行显示 -->
+                    <div class="inline-flex">
+                        <p class="note" style="margin:0">
+                            Group registration notice (from CCF system): For groups of 5, 10, and 20 participants (excluding paper authors), total discounts of ￥500, ￥2000, and ￥6000 apply respectively. One invoice will be issued for the group’s institution.
+                        </p>
+                        <a href="javascript:void(0)" class="btn-link line-btn" onclick="groupSignup()">Group Signup</a>
+                    </div>
+                </div>
+
+                <h3>Conference invitations</h3>
+                <div class="info-box">
+                    <p class="note" style="margin:0">
+                        The <a href="ICXR 2025 Invitation Letter.pdf" download>conference invitation letter</a> can be downloaded here.
+                    </p>
+                </div>
             </div>
-
-            
-
-
         </div>
 
         <div class="footer">
@@ -276,5 +365,11 @@
             <a href="https://www.ccf.org.cn/en/About_CCF/About_CCF/"><img src="./screenshot-20240828-143707.png" alt="CCF Logo"></a>
         </div> 
     </div>
+
+    <script>
+        // 可选：占位函数，避免未定义报错
+        function signup() { console.log('Signup clicked'); }
+        function groupSignup() { console.log('Group Signup clicked'); }
+    </script>
 </body>
 </html>

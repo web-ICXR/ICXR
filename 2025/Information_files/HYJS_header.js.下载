@@ -1,0 +1,97 @@
+var status_;
+var apply_data;
+var local;
+$(function(){
+    let new_globalId ;
+    if(globalId.indexOf("EN")>-1)
+    {
+        new_globalId = en_globalId;
+    }else{
+        new_globalId = globalId;
+    }
+    let  lan = localStorage.getItem(`language_${globalId}`);
+    local=lan
+    console.log(local,'_________________________________________________________________________________________')
+
+    if(lan=='1'||lan=='3'||lan==undefined){
+        //显示状态
+        $.ajax({
+            url: config.get_web_url() + '/api/' +
+                'meetingInfo.action',
+            data: {meetingId: new_globalId},
+            dataType: "jsonp",
+            async: false,
+            jsonp: "jsoncallback",
+            type: 'get',
+            success: function (data) {
+                console.log('----------------status数据')
+                console.log(data)
+                status_ = data[0];
+            }
+        })
+    }else {
+        let status_zh=[];
+        $.ajax({
+            url: config.get_web_url() + '/api/' +
+                'meetingInfo.action',
+            data: {meetingId: new_globalId},
+            dataType: "jsonp",
+            async: false,
+            jsonp: "jsoncallback",
+            type: 'get',
+            success: function (data) {
+                console.log(data)
+                status_zh = data[0];
+                status_ = data[0];
+                console.log(status_zh,'----------------status数据')
+
+            }
+        })
+        // //显示状态
+        $.ajax({
+            url: config.get_web_url() + '/api/' +
+                'meetingInfoENG.action',
+            data: {meetingId: new_globalId},
+            dataType: "jsonp",
+            async: false,
+            jsonp: "jsoncallback",
+            type: 'get',
+            success: function (data) {
+                console.log('----------------status数据')
+                console.log(data)
+                const merged = {
+                    ...status_zh, // 先展开 a[0]，确保所有字段都来自 a[0]
+                    ...data[0], // 再展开 b[0]，覆盖 a[0] 中的字段
+                };
+
+                // 处理 b[0] 中值为 null 的字段
+                for (const key in status_zh) {
+                    if (data[0][key] === null) {
+                        merged[key] = status_zh[key]; // 如果 b[0][key] 是 null，则用 a[0][key] 替换
+                    }
+                }
+                debugger
+                status_ = merged;
+                meetingName =status_.MEETING_TITLE;
+                // status_ = data[0];
+
+                console.log(status_,'++++++++++++++++++++++++++++++++++++++++++++status数据')
+            }
+        })
+    }
+
+    //论坛/活动申请
+    $.ajax({
+        url: config.get_web_url() + '/api/show.action',
+        data: {code:'api_application_setting',meetingId: new_globalId},
+        dataType: "jsonp",
+        async: false,
+        jsonp: "jsoncallback",
+        type: 'get',
+        success: function (data) {
+            console.log('------------------------论坛活动申请')
+            console.log(data);
+            apply_data = data[0].ds1;
+        }
+    })
+})

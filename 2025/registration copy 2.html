@@ -236,12 +236,72 @@
             <div class="registration">
                 <h2>Registration Information</h2>
 
-                <!-- 插入的“内容源码”中 Information 后的内容（统一主题与样式） -->
+
+                <!-- 从“内容源码”Information提取并重构为主题一致的信息块 -->
                 <div class="info-box">
-                    <p class="note" style="margin:0">
-                        Conference website: 
-                        <a href="https://icxr.net/2025/index.html" target="_blank" rel="noopener">https://icxr.net/2025/index.html</a>
-                    </p>
+                    <div style="text-align:center;">
+                        <img src="./Information_files/cce291dab21f428685b10f8d956e868e.jpg" alt="ICXR 2025" style="max-width:100%; height:auto; display:block; margin:0 auto;">
+                        <p class="subtle" style="margin:8px 0 0;">
+                            Countdown: <strong><span id="countdown" class="count"></span></strong> days
+                            
+                            <script>
+                            (function () {
+                            // 取得今天的本地日期（不含时间部分，避免时区造成的偏差）
+                            const now = new Date();
+                            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+                            // 目标：今年的 11 月 1 日（注意：JS 月份从 0 开始，11 月是 10）
+                            let targetYear = today.getFullYear();
+                            let target = new Date(targetYear, 10, 1);
+
+                            // 如果今天已经超过今年的 11 月 1 日，则目标改为明年的 11 月 1 日
+                            if (today > target) {
+                                targetYear += 1;
+                                target = new Date(targetYear, 10, 1);
+                            }
+
+                            // 计算剩余天数：将毫秒差转换为天，向下取整
+                            const msPerDay = 1000 * 60 * 60 * 24;
+                            const diffMs = target - today;
+                            const daysLeft = Math.floor(diffMs / msPerDay);
+
+                            // 展示
+                            const countdownEl = document.getElementById('countdown');
+                            const detailEl = document.getElementById('detail');
+
+                            countdownEl.textContent = String(daysLeft);
+                            detailEl.textContent = daysLeft === 0
+                                ? '今天就是 11 月 1 日'
+                                : `目标日期：${targetYear} 年 11 月 1 日`;
+
+                            // 如果你希望每天自动更新（无需刷新页面），可设置到午夜的定时器：
+                            const scheduleMidnightUpdate = () => {
+                                const now2 = new Date();
+                                const nextMidnight = new Date(now2.getFullYear(), now2.getMonth(), now2.getDate() + 1);
+                                const delay = nextMidnight - now2;
+                                setTimeout(() => location.reload(), delay);
+                            };
+                            scheduleMidnightUpdate();
+                            })();
+                        </script>
+                        </p>
+                        
+  
+                    </div>
+                    <div style="margin-top:12px;">
+                        <p class="note" style="margin:0.2em 0;"><strong>Conference Time:</strong> 2025.11.01 ~ 11.02</p>
+                        <p class="note" style="margin:0.2em 0;"><strong>Registration Time:</strong> 2025.09.01 ~ 11.02</p>
+                        <p class="note" style="margin:0.2em 0; text-align:justify;">
+                            <strong>Conference Place:</strong> Haitian Financial Center Hotel (No. 29 Xianxialing Road, Laoshan District) in Qingdao City, Shandong Province.
+                        </p>
+                        <p class="note" style="margin:0.2em 0;"><strong>Hosts:</strong> China Computer Federation (CCF)</p>
+                        <p class="note" style="margin:0.2em 0; text-align:justify;">
+                            <strong>Organizer:</strong> CCF Virtual Reality and Visualization Technology, National Virtual Reality Innovation Center (Qingdao), China University of Petroleum (East China), Qingdao University
+                        </p>
+                    </div>
+                    <div style="text-align:center; margin-top:12px;">
+                        <a href="javascript:void(0)" class="btn-link" onclick="signup()">Signup</a>
+                    </div>
                 </div>
 
                 <h3>Conference Introduction</h3>

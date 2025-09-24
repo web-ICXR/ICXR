@@ -1,0 +1,242 @@
+!function (global, factory) {
+    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+        typeof define === 'function' && define.amd ? define(factory) :
+            (global.login = factory());
+}(this, function () {
+    var loginTypeEnum = {
+        account: 1,//账号登录
+        phone: 2//手机登录
+    };
+    var loginCardEnum = {
+        1: 'l-account',
+        2: 'l-phone'
+    };
+    var login = {};
+    var options = {
+        loginType: loginTypeEnum.account,//展示卡片元素
+        currentLoginTarget: loginCardEnum.account,
+        referUrl: '',//请求来源
+        source: '',//来源
+        ssoDomain: '',
+        canLoginAccount: true,
+        slideVerifyAccount: null,
+        canLoginSMS:false,
+        slideVerifyASMS:null,
+    };
+    //初始化数据
+    login.init = function (opt) {
+        options = opt || {};
+        if (options.loginType) {
+            if('1' == options.loginType){
+                $(".l-phone").hide();
+            }else{
+                $(".l-account").hide();
+            }
+            changeLoginTarget($("#" + (loginCardEnum[options.loginType] + "-target")));
+        }
+    }
+
+    login.setCanLoginAccount = function (can) {
+        options.canLoginAccount = can;
+    }
+    login.setSlideVerifyAccount = function (can) {
+        options.slideVerifyAccount = can;
+    }
+
+    login.setSlideVerifyLoginSMS = function (can) {
+        options.slideVerifyASMS = can;
+    }
+
+
+    login.setCanLoginSMS = function(can){
+        options.canLoginSMS = can;
+    }
+
+    $("#login-account").click(function () {
+        //账号登录
+        loginAccount();
+    });
+    $("#login-phone").click(function () {
+        //手机号登录
+        loginPhone();
+    })
+    if( $("#login-account-m")){
+        $("#login-account-m").click(function () {
+            //账号登录
+            // loginAccount();
+            var _userName = $.trim($("#user-name-phone").val());
+            var _pwd = $.trim($("#user-pwd-phone").val());
+            if ((!_userName) || (!_pwd)) {
+                $("#error-account").text("用户名/密码不能为空");
+                if (slideVerifyAccount) {
+                    slideVerifyAccount.resetVerify();
+                }
+                return;
+            }
+            if (/[<>,+=^]/g.test(_userName)) {
+                $("#error-account").text("用户名格式非法");
+                if (slideVerifyAccount) {
+                    slideVerifyAccount.resetVerify();
+                }
+                return;
+            }
+            if (!options.canLoginAccount) {
+                $("#error-account").text("滑动验证失败");
+                return;
+            }
+            /*  var $authCode = $("#form-account input[name='checkCode']");
+              if ($authCode && $authCode.length > 0) {
+                  var authCode = $.trim($authCode.val());
+                  if (!authCode) {
+                      $("#error-account").text("验证码不能为空");
+                      return;
+                  }
+                  $authCode.val(authCode);
+              }*/
+            $("#error-account").text("");
+            var $userName = $("#form-account input[name='username']");
+            var $pwd = $("#form-account input[name='password']");
+            $pwd.val(wzUtils.encrypt(_pwd));
+            $userName.val(_userName);
+            $("#form-account").submit();
+        });
+    }
+    //账号密码登录
+    function loginAccount() {
+        var _userName = $.trim($("#user-name").val());
+        var _pwd = $.trim($("#pass-word").val());
+        if ((!_userName) || (!_pwd)) {
+            $("#error-account").text("用户名/密码不能为空");
+            if (slideVerifyAccount) {
+                slideVerifyAccount.resetVerify();
+            }
+            return;
+        }
+        if (/[<>,+=^]/g.test(_userName)) {
+            $("#error-account").text("用户名格式非法");
+            if (slideVerifyAccount) {
+                slideVerifyAccount.resetVerify();
+            }
+            return;
+        }
+        if (!options.canLoginAccount) {
+            $("#error-account").text("滑动验证失败");
+            return;
+        }
+        /*  var $authCode = $("#form-account input[name='checkCode']");
+          if ($authCode && $authCode.length > 0) {
+              var authCode = $.trim($authCode.val());
+              if (!authCode) {
+                  $("#error-account").text("验证码不能为空");
+                  return;
+              }
+              $authCode.val(authCode);
+          }*/
+        $("#error-account").text("");
+        var $userName = $("#form-account input[name='username']");
+        var $pwd = $("#form-account input[name='password']");
+        $pwd.val(wzUtils.encrypt(_pwd));
+        $userName.val(_userName);
+        $("#form-account").submit();
+    }
+
+    //手机短信登录
+    function loginPhone() {
+        // TODO 校验
+        var phone = $.trim($("input[name='phone']").val());
+        if (!phone) {
+            $("#error-phone").text("手机号不能为空");
+            return;
+        }
+        if (!/^1\d{10}$/.test(phone)) {
+            $("#error-phone").text("手机号格式非法");
+            return;
+        }
+        if (!options.canLoginSMS) {
+            $("#error-phone").text("滑动验证失败");
+            return;
+        }
+        $("input[name='phone']").val(phone);
+        var $authCodePhone = $("input[name='smsCode']");
+        var authCode = $.trim($authCodePhone.val());
+        if (!authCode) {
+            $("#error-phone").text("短信验证码不能为空");
+            return;
+        }
+        $authCodePhone.val(authCode);
+        $("#form-phone").submit();
+    }
+
+    document.onkeydown = function (e) {//网页内按下回车触发
+        switch ((window.event) ? event.keyCode : e.which) {
+            case 13: {
+                if (loginTypeEnum.phone == options.currentLoginTarget) {
+                    loginPhone();
+                } else {
+                    loginAccount();
+                }
+                break;
+            }
+            default: {
+            }
+        }
+    };
+    /*登录页切换*/
+    $('.lx_tabs a').click(function () {
+        changeLoginTarget(this);
+    });
+
+    //切换登录方式
+    function changeLoginTarget(ele) {
+        var $me = $(ele);
+        $me.addClass('active').siblings().removeClass('active');
+        var target = $me.attr('card');
+        //记录当前登录类型
+        options.currentLoginTarget = target;
+        if (options.currentLoginTarget == loginCardEnum["2"]) {
+            //刷新验证码
+            changeImgCode('verify-' + target);
+        }
+        $('.' + target).show().siblings('.lx_tabContent').hide();
+    }
+
+    //微信扫码登录
+    function wxQcCode(refererUrl,source) {
+        var state = '';
+        if (refererUrl) {
+            refererUrl = $.base64.atob(refererUrl);
+            state = encodeURIComponent(refererUrl);
+        }
+        var bastPath = config.getWebPath();
+        new WxLogin({
+            self_redirect: false,
+            id: "login_qc_container",
+            appid: "wx157bbca8ec8f4b2d",
+            scope: "snsapi_login",
+            redirect_uri: encodeURIComponent(options.ssoDomain + "/wechat/user_info_op?source="+source), //登录成功，重定向地址授权地址
+            state: state,
+            style: "",
+            href: bastPath + "/static/css/qrcode.css"//自定义样式
+        });
+    }
+
+    /*扫码登录切换*/
+    $('.lx_wechatCode').click(function () {
+        if ($(this).parent().prop('className') == 'l-scan') {
+            $('.l-count').show(); // 账户登录图标显示
+            $('.l-scan').hide();  // 扫码图标隐藏
+            $('.l_scancode').hide(); // 扫码隐藏
+            $('.lx_tabs').show(); // 选项卡隐藏
+            $('.lx_tabContent').eq(0).show(); // 选项卡隐藏
+        } else {
+            wxQcCode(options.referUrl,options.source);
+            $('.l-count').hide(); // 账户登录图标隐藏
+            $('.l-scan').show();  // 扫码图标显示
+            $('.l_scancode').show(); // 扫码显示
+            $('.lx_tabs').hide(); // 选项卡显示
+            $('.lx_tabContent').hide(); // 选项卡显示
+        }
+    })
+
+    return login;
+});

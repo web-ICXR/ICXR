@@ -1,0 +1,1175 @@
+HTML,
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+dl,
+li,
+dt,
+dd,
+p,
+blockquote,
+pre,
+form,
+fieldset,
+table,
+th,
+input,
+td {
+	border: none;
+	font-family: "微软雅黑", "黑体", "宋体";
+	font-size: 16px;
+	margin: 0px;
+	padding: 0px;
+	color: #333;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+}
+
+a {
+	color: #333;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+	font-style: normal
+}
+
+ul,
+ol,
+li {
+	list-style: none
+}
+
+input {
+	outline: none;
+	border: none;
+}
+
+img {
+	border: 0;
+	vertical-align: middle
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+p {
+	word-wrap: break-word
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+.clearfix:after {
+	content: "";
+	width: 0;
+	height: 0;
+	visibility: hidden;
+	display: block;
+	clear: both;
+	overflow: hidden;
+}
+
+/* 背景特效 开始 */
+.lx_bgColor {
+	/*Fallback if gradeints don't work */
+	/* background: #141e6e; */
+	/*Linear gradient... */
+	/* background:
+		-webkit-radial-gradient(at center, #0075c3, #000b61);
+	background:
+		-moz-radial-gradient(at center, #0075c3, #000b61);
+	background:
+		-o-radial-gradient(at center, #0075c3, #000b61);
+	background:
+		radial-gradient(at center, #0075c3, #000b61); */
+	background: url(../web-images/banner.jpg) no-repeat center;
+}
+
+.apImgTitle {
+	position: fixed;
+	width: 42%;
+	left: 30%;
+	top: 30%;
+}
+
+.apTitle {
+	font-size: 40px;
+	color: #fff;
+	position: fixed;
+	top: 32%;
+	width: 100%;
+	text-align: center;
+}
+
+.logcon {
+	position: fixed;
+	width: 100%;
+	top: 47%;
+	text-align: center;
+}
+
+.logcon input {
+	padding: 10px 15px;
+	border-radius: 3px;
+	border: none;
+	margin-right: 10px;
+	width: 220px;
+}
+
+.logcon button {
+	padding: 7px 20px 10px 20px;
+	border: none;
+	background: #fff;
+	border-radius: 3px;
+}
+
+.logcon button:hover {
+	cursor: pointer;
+}
+
+canvas {
+	display: block;
+	vertical-align: bottom;
+}
+
+#particles-js {
+	width: 100%;
+	height: 100%;
+	-o-background-size: cover;
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* 背景特效 结束 */
+
+/* 忘记密码1 开始 */
+.lx_header {
+	width: 100%;
+	height: 70px;
+	background-color: #fff;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.lx_mainWidth {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.lx_headerLogo {
+	max-width: 496px;
+}
+
+.lx_footer {
+	height: 70px;
+	background-color: #fff;
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.lx_footer p,
+.lx_footer p a {
+	font-size: 14px;
+	color: #666;
+	line-height: 24px;
+}
+
+.lx_footer p a:hover {
+	color: #0180fe;
+}
+
+.lx_flex {
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.lx_login {
+	height: 100vh;
+}
+
+.lx_center {
+	width: 100%;
+	height: -webkit-calc(100% - 140px);
+	height: -moz-calc(100% - 140px);
+	height: calc(100% - 140px);
+}
+
+.lx_absolute {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.lx_forgetBox {
+	width: 621px;
+	border-radius: 6px;
+	background-color: #fff;
+	padding: 15px 30px 20px;
+}
+
+.lx_forgetBox h2 {
+	font-size: 20px;
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 15px;
+}
+
+.lx_rowCenter {
+	-webkit-justify-content: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+
+.lx_rowBetween {
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+}
+
+.lx_step {
+	padding: 0 14px;
+	margin: 15px 0;
+}
+
+.lx_step>span {
+	margin-right: 38px;
+}
+
+.lx_step>span:last-child {
+	margin-right: 0;
+}
+
+.lx_confirm {
+	color: #999;
+	padding-bottom: 6px;
+	border-bottom: 1px solid #c9d0dd;
+	margin-bottom: 14px;
+}
+
+.lx_way {
+	padding-left: 35px;
+}
+
+.lx_way>span {
+	display: inline-block;
+	min-width: 63px;
+	-moz-text-align-last: justify;
+	text-align-last: justify;
+}
+
+.lx_way input[type=radio] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: url('../images/radio.png') no-repeat center;
+	-o-background-size: 100% 100%;
+	background-size: 100% 100%;
+	margin-right: 4px;
+	width: 16px;
+	height: 16px;
+	border: none;
+}
+
+.lx_way input[type=radio]:checked {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: url('../images/radio-check.png') no-repeat center;
+	-o-background-size: 100% 100%;
+	background-size: 100% 100%;
+}
+
+.lx_way>label {
+	margin-right: 20px;
+}
+
+.lx_way>label:last-child {
+	margin-right: 0;
+}
+
+.lx_radio {
+	display: none;
+	margin-bottom: 10px;
+}
+
+.lx_input {
+	width: 304px;
+	height: 44px;
+	line-height: 44px;
+	border-radius: 6px;
+	border: 1px solid #eee;
+	padding-left: 14px;
+	background-color: #fff;
+}
+
+input::-webkit-input-placeholder {
+	/* WebKit, Blink, Edge */
+	color: #999;
+	font-size: 16px;
+}
+
+:-moz-placeholder {
+	/* Mozilla Firefox 4 to 18 */
+	color: #999;
+	font-size: 16px;
+}
+
+::-moz-placeholder {
+	/* Mozilla Firefox 19+ */
+	color: #999;
+	font-size: 16px;
+}
+
+input:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: #999;
+	font-size: 16px;
+}
+
+input::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: #999;
+	font-size: 16px;
+}
+
+.lx_bottom14 {
+	margin-bottom: 12px;
+}
+
+.lx_submit {
+	padding: 15px 0;
+	text-align: center;
+	position: relative;
+}
+
+.lx_submit a {
+	width: 218px;
+	height: 39px;
+	display: inline-block;
+	border-radius: 6px;
+	background-color: #0047ae;
+	color: #fff;
+	font-weight: bold;
+	line-height: 39px;
+	text-align: center;
+}
+
+.lx_tips {
+	border: 1px solid #cae0ff;
+	background-color: #edf8ff;
+	padding: 10px;
+}
+
+.lx_tips p {
+	line-height: 26px;
+}
+
+.lx_tips p a {
+	color: #0047ae;
+}
+
+/* 忘记密码1 结束 */
+
+/* 忘记密码3 开始 */
+.lx_success>img {
+	margin-right: 20px;
+}
+
+.lx_success {
+	font-size: 24px;
+	padding: 30px 0;
+}
+
+.lx_btns a {
+	width: 148px;
+	height: 39px;
+	margin-right: 13px;
+}
+
+.lx_btns a:last-child {
+	margin-right: 0;
+}
+
+.lx_newPassword {
+	padding-left: 30px;
+}
+
+.lx_newPassword span {
+	min-width: 95px;
+	text-align: right;
+	display: inline-block;
+}
+
+.lx_marBottom18 {
+	margin-bottom: 15px;
+}
+
+.lx_error {
+	color: #999;
+	padding-left: 120px;
+	padding-top: 5px;
+}
+
+.lx_binding {
+	padding: 34px 119px;
+	padding-bottom: 20px;
+}
+
+.lx_bindPic {
+	text-align: center;
+}
+
+.lx_bindPic>img {
+	margin-right: 28px;
+}
+
+.lx_bindPic>img:last-child {
+	margin-right: 0;
+}
+
+.lx_binding p {
+	color: #999;
+	line-height: 25px;
+	margin: 20px 0;
+}
+
+.lx_bindInput {
+	width: 100%;
+	padding-left: 55px;
+	background: #fff url('../web-images/phone.png') no-repeat;
+	-o-background-size: 44px 44px;
+	background-size: 44px 44px;
+	background-position: left center;
+	margin-bottom: 15px;
+}
+.lx_bindInput_r{
+	width: 100%;
+	padding-left: 55px;
+	-o-background-size: 44px 44px;
+	background-size: 44px 44px;
+	background-position: left center;
+	margin-bottom: 15px;
+}
+
+.lx_passwordInput {
+	background: #fff url('../web-images/password.png') no-repeat;
+	-o-background-size: 44px 44px;
+	background-size: 44px 44px;
+	background-position: left center;
+	/*margin-bottom: 0;*/
+	/*margin-top: 5px;*/
+}
+.lx_codeInput {
+	width: 100%;
+	padding-left: 55px;
+	background: #fff url('../web-images/password.png') no-repeat;
+	-o-background-size: 44px 44px;
+	background-size: 44px 44px;
+	background-position: left center;
+}
+
+
+.lx_mcodeInput {
+	width: 60%;
+}
+
+.lx_phoneInput {
+	width: 100%;
+	padding-left: 55px;
+	padding-right: 128px;
+	background: #fff url('../web-images/code.png') no-repeat;
+	-o-background-size: 44px 44px;
+	background-size: 44px 44px;
+	background-position: left center;
+	margin-bottom: 15px;
+}
+.lx_phoneInput_p{
+	width: 100%;
+	padding-left: 55px;
+	padding-right: 128px;
+	margin-bottom: 15px;
+}
+.lx_mobileInput {
+	background: #fff url('../web-images/mobile.png') no-repeat;
+	-o-background-size: 44px 44px;
+	background-size: 44px 44px;
+	background-position: left center;
+}
+.lx_rowBetween {
+	-webkit-justify-content: space-between;
+	-moz-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+}
+
+.lx_verify {
+	margin-bottom: 15px;
+}
+
+.lx_verify>img {
+	max-width: 130px;
+	max-height: 40px;
+}
+
+.lx_btn {
+	width: 121px;
+	height: 34px;
+	border-radius: 6px;
+	background-color: #0047ae;
+	color: #fff;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	position: absolute;
+	top: 5px;
+	right: 6px;
+}
+
+.lx_relative {
+	position: relative;
+}
+
+.lx_sure {
+	padding-bottom: 15px;
+	padding-top: 30px;
+}
+
+.lx_sure a {
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	font-weight: normal;
+}
+
+/* 忘记密码3 结束 */
+
+/* 登录 开始 */
+.lx_loginBox {
+	width: 400px;
+	background-color: #fff;
+	border-radius: 6px;
+	padding: 8px 24px 25px 24px;
+}
+
+.lx_wechatLogin {
+	margin-left: 175px;
+}
+
+.lx_wechatCode {
+	position: absolute;
+	top: 0;
+	right: -15px;
+}
+
+.lx_tabs {
+	margin-top: 14px;
+}
+.lx_tabs_bottom{
+	margin-bottom: 17px;
+}
+
+.lx_tabs a {
+	font-size: 20px;
+	color: #a1a6bb;
+	font-weight: bold;
+	display: inline-block;
+	padding-bottom: 6px;
+	margin-right: 20px;
+}
+
+.lx_tabs a:last-child {
+	margin-right: 0;
+}
+
+.lx_tabs a.active {
+	color: #0047ae;
+	border-bottom: 2px solid #0047ae;
+}
+
+.lx_content {
+	margin-top: 24px;
+}
+
+.lx_tabContent {
+	display: none;
+}
+
+.lx_toLogin a {
+	width: 100%;
+	height: 48px;
+	line-height: 48px;
+	font-size: 18px;
+}
+
+.lx_loginRow img {
+	margin-right: 5px;
+}
+
+.lx_toLogin {
+	padding: 0 0 20px;
+}
+
+.lx_phoneLogin {
+	display: block;
+	width: 100%;
+	padding: 0 .4rem;
+}
+
+/* 登录 结束 */
+
+/* 滑块校验开始 */
+.l-verify{
+	/*margin-top: 15px;*/
+}
+.l-verify:after{
+	display: block;
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	bottom: -8px;
+	width: 16px;
+	height: 8px;
+	background: url(../images/tips.gif) no-repeat center;
+	background-position: 0 -8px;
+}
+.l-verify-tip{
+	font-size: 14px;
+	color: #999999;
+	line-height: 30px;
+	margin-bottom: 6px;
+	text-align: left;
+}
+.l-relative{
+	position: relative;
+}
+
+/* 滑块校验结束 */
+
+.l-scan,.lx_pForget{
+	display: none;
+}
+
+/* 滑块儿 */
+.verify-wrap{
+	width:350px;
+	height:40px;
+	background-color:#e5e5e5;
+	border:1px solid #e0e0e0;
+	margin:0 auto;
+	position:relative;
+	overflow: hidden;
+	border-radius: 6px;
+}
+.layui-layer-dialog .layui-layer-content,.layui-layer-title{
+	font-size: 16px !important;
+}
+/* 兼容手机端 开始 */
+@media screen and (max-width:750px) {
+	.lx_bgColor {
+		background: #fff;
+	}
+
+	#particles-js {
+		width: 0;
+		height: 0;
+	}
+
+	* {
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	/*.lx_login {
+		display: none;
+	}*/
+
+	.lx_header,.lx_footer,.lx_mainWidth>img,.l-change {
+		display: none;
+	}
+
+	.lx_loginBox {
+		display: block;
+		width: 100%;
+		padding: 0 .4rem;
+	}
+
+	.lx_pFlex {
+		display: -webkit-flex;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-align-items: center;
+		-moz-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+	}
+
+	.lx_pRowCenter {
+		-webkit-justify-content: center;
+		-moz-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+	}
+
+	.lx_pRowBetween {
+		-webkit-justify-content: space-between;
+		-moz-box-pack: justify;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+		margin-top: .4rem;
+	}
+
+	.lx_pLoginLogo {
+		padding: .7rem 0;
+		width: 100%;
+	}
+
+	.lx_pLoginLogo>img {
+		max-width: 4.34rem;
+	}
+
+	.lx_pTabs {
+		margin-bottom: .75rem;
+		margin-top: .3rem;
+	}
+
+	.lx_pTabs a {
+		text-align: center;
+		-webkit-flex: 1;
+		-moz-box-flex: 1;
+		-ms-flex: 1;
+		flex: 1;
+		font-size: .32rem;
+		height: .84rem;
+		line-height: .84rem;
+		display: block;
+		border-bottom: .01rem solid #e8e8e8;
+		margin: 0;
+	}
+
+	.lx_pTabs a.active {
+		color: #0047ae;
+		border-bottom: .03rem solid #0047ae;
+	}
+
+	.lx_pInput {
+		width: 100%;
+		height: .9rem;
+		line-height: .9rem;
+		border-radius: .45rem;
+		background: #f5f5f5;
+		padding-left: .4rem;
+		font-size: .32rem;
+		color: #333;
+		border: none;
+		display: block;
+	}
+
+	.lx_pCode>img {
+		width: 35%;
+	}
+
+	.lx_pCodeInput {
+		width: 62%;
+	}
+
+	.lx_pInputBottom {
+		margin-bottom: .5rem;
+	}
+
+	.lx_pForget {
+		display: block;
+		text-align: right;
+		margin: 0 0 .4rem;
+	}
+
+	.lx_pForget a {
+		font-size: .28rem;
+		color: #666;
+	}
+
+	.lx_pbottom100 {
+		margin-bottom: 1rem;
+	}
+
+	.lx_toLogin .lx_pSubmit {
+		width: 100%;
+		text-align: center;
+		height: .9rem;
+		line-height: .9rem;
+		border-radius: .45rem;
+		font-size: .34rem;
+		color: #fff;
+		background-color: #7fa3d6;
+		display: block;
+		font-weight: normal;
+	}
+
+	.lx_pContent {
+		display: none;
+	}
+
+	.lx_pRelative {
+		position: relative;
+	}
+
+	.lx_pBtn {
+		width: 35%;
+		height: .68rem;
+		border-radius: .12rem;
+		background-color: #0047ae;
+		color: #fff;
+		display: -webkit-flex;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-align-items: center;
+		-moz-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		-webkit-justify-content: center;
+		-moz-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		font-size: .28rem;
+	}
+
+	.lx_pBottom40 {
+		margin-bottom: .4rem;
+	}
+
+	.lx_pGorgetLogo>img {
+		max-width: 2.93rem;
+	}
+
+	.lx_pLine {
+		width: 100%;
+		margin-bottom: 0.1rem;
+	}
+
+	.lx_pStep {
+		padding-left: 0.3rem;
+		font-size: .28rem;
+		padding-right: 0.15rem;
+	}
+
+	.lx_pStep span {
+		display: -webkit-flex;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-align-items: center;
+		-moz-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+	}
+
+	.lx_pStep i {
+		width: .3rem;
+		height: .3rem;
+		border-radius: 50%;
+		background-color: #c9d0dd;
+		font-size: .24rem;
+		color: #fff;
+		display: inline-block;
+		font-style: normal;
+		line-height: .28rem;
+		text-align: center;
+		margin-right: .13rem;
+	}
+
+	.lx_pStep i.active {
+		background-color: #0047ae;
+	}
+
+	.lx_pConfirm {
+		font-size: .28rem;
+		color: #999;
+		margin-top: .5rem;
+		padding-bottom: .15rem;
+		border-bottom: .01rem solid #eeeeee;
+	}
+
+	.lx_pWay>p {
+		font-size: .28rem;
+		color: #333;
+		margin-top: 0.5rem;
+		margin-bottom: .35rem;
+	}
+
+	.lx_pWayRadio {
+		margin-bottom: .45rem;
+	}
+
+	.lx_pWayRadio label {
+		margin-right: .47rem;
+		font-size: .28rem;
+	}
+
+	.lx_pWayRadio input[type=radio] {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		background: url('../images/radio.png') no-repeat center;
+		-o-background-size: 100% 100%;
+		background-size: 100% 100%;
+		margin-right: .2rem;
+		width: .28rem;
+		height: .28rem;
+		border: none;
+		outline: none;
+	}
+
+	.lx_pWayRadio input[type=radio]:checked {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		background: url('../images/radio-check.png') no-repeat center;
+		-o-background-size: 100% 100%;
+		background-size: 100% 100%;
+	}
+
+	.lx_pRadio {
+		display: none;
+	}
+
+	.lx_pNextStep {
+		margin-top: .65rem;
+		margin-bottom: .49rem;
+	}
+
+	.lx_pTips {
+		background-color: #edf8ff;
+		border: .01rem solid #cae0ff;
+		padding: .2rem;
+	}
+
+	.lx_pTips p {
+		font-size: .28rem;
+		line-height: .4rem;
+	}
+
+	.lx_pTips p a {
+		color: #0047ae;
+	}
+
+	input::-webkit-input-placeholder {
+		/* WebKit, Blink, Edge */
+		color: #999;
+		font-size: .32rem;
+	}
+
+	:-moz-placeholder {
+		/* Mozilla Firefox 4 to 18 */
+		color: #999;
+		font-size: .32rem;
+	}
+
+	::-moz-placeholder {
+		/* Mozilla Firefox 19+ */
+		color: #999;
+		font-size: .32rem;
+	}
+
+	input:-ms-input-placeholder {
+		/* Internet Explorer 10-11 */
+		color: #999;
+		font-size: .32rem;
+	}
+
+	input::-ms-input-placeholder {
+		/* Microsoft Edge */
+		color: #999;
+		font-size: .32rem;
+	}
+
+	.lx_pTop70 {
+		margin-top: .7rem;
+	}
+
+	.lx_pError {
+		font-size: .28rem;
+		color: #999;
+		padding-left: 0.2rem;
+		margin-bottom: 0.4rem;
+	}
+
+	.lx_pTop40 {
+		margin-top: .4rem;
+	}
+
+	.lx_pBottom90 {
+		margin-bottom: .9rem;
+	}
+
+	.lx_blueColor {
+		background-color: #0047ae;
+	}
+
+	.lx_phoneSuccess {
+		text-align: center;
+		margin: 1.1rem 0;
+	}
+
+	.lx_phoneSuccess>img {
+		max-width: 1.08rem;
+		margin-bottom: .62rem;
+	}
+
+	.lx_phoneSuccess>p {
+		font-size: .42rem;
+		font-weight: bold;
+	}
+
+	.lx_phoneBind {
+		text-align: center;
+	}
+
+	.lx_phoneBind img {
+		max-width: .88rem;
+		margin-right: .51rem;
+	}
+
+	.lx_phoneBind img:last-child {
+		margin-right: 0;
+	}
+
+	.lx_phoneP {
+		font-size: .28rem;
+		color: #999;
+		line-height: .4rem;
+		margin: .5rem 0;
+	}
+
+	.lx_pTop120 {
+		margin-top: 1.2rem;
+	}
+
+	.lx_pShort {
+		width: 69%;
+	}
+
+	.lx_pInputDiv {
+		padding-left: 0;
+	}
+
+	.lx_pInputDiv a {
+		font-size: .32rem;
+		color: #0047ae;
+	}
+
+	/* 滑块样式开始 */
+	.l-verify{
+		width: 100%;
+	}
+	.verify-wrap{
+		margin: 0;
+		border-radius: .45rem;
+	}
+	.verify-wrap{
+		width:100%!important;
+		/*height:40px;*/
+		/*background-color:#e5e5e5;*/
+		/*border:1px solid #e0e0e0;*/
+		/*margin:0 auto;*/
+		/*position:relative;*/
+		/*overflow: hidden;*/
+		/*border-radius: 6px;*/
+	}
+	/* 滑块样式结束 */
+
+	/* 修改手机端 */
+	.lx_absolute{
+		position: relative;
+		top: 0;
+		left: 0;
+		transform: none;
+	}
+	.lx_mainWidth{
+		width: 100%;
+	}
+	.lx_btn{
+		position: static;
+	}
+	.lx_phoneInput{
+		padding-right: 0;
+		flex: 1 1;
+		margin-right: 10px;
+		margin-bottom: 0;
+	}
+	.l_errtip{
+		margin:0;
+	}
+	.l-inputbg{
+		display: none;
+	}
+}
+
+/* 兼容手机端 结束 */

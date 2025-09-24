@@ -1,0 +1,662 @@
+
+//判断静态页面时不加载头部，菜单，底部
+var scripts=document.getElementsByTagName('script');
+var if_static = scripts[1].src.indexOf('site=py')>-1;
+var status_;
+var meetingId;
+var channelId = getQueryString('channelId');
+var superChannel = getQueryString('superChannel');
+var globalId = getQueryString('globalId');
+var type = getQueryString('type');
+var webUrl = config.get_host_url() + "/cmsFileManager/";
+var fileUrl = config.get_host_url() + "/resource/";
+var host_url = config.get_host_url()+ "/ccfFileManager/";
+var web_url_download = config.get_web_url();
+var CmsId = getQueryString('CmsId');
+var dayMeetNewsId = getQueryString('dayMeetNewsId');
+var urlId = getQueryString('urlId');
+var column_2;//一级菜单
+var column_3;//二级菜单
+var footer_data;//底部数据
+var index_img;//图片
+var column_replace;//栏目链接替换
+var pageName = window.location.href.substring(window.location.href.lastIndexOf('/')+1,window.location.href.length);//地址栏截取页面名称
+var ShareURL='';//分享
+var version='2.6';//版本号
+var meetingName = '';//会议名称
+/*var menuCount=0;//菜单左右切换个数
+var turnCount=1;*/
+var menu_width=0;
+var htmlList;
+var languagenum;
+var langu;
+var languagealist;
+var search_condition = getQueryString('search_condition'); //搜索条件
+(function (doc, win) {
+    let meta = document.createElement('meta');
+    meta.name='viewport';
+    meta.content='width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0';
+    document.getElementsByTagName('head')[0].appendChild(meta);
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            if(clientWidth>=750){
+                docEl.style.fontSize = '100px';
+            }else{
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            }
+        };
+
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+
+/*ydc 2022年9月1日10:03:14*/
+var shortUrlList ;//短链接集合
+//进入及执行参数转化
+!function () {
+    console.info("优先执行")
+    //判断为短链接域名访问
+    if(window.location.hostname.indexOf(config.get_shortUrl())!= -1) {
+        //以下为短链接进入，参数转化
+        let h = window.location.pathname.split("/")
+        //let h = "ccf.org.cn/iYrEZz".split("/")
+        const h1 = h[1] //iYrEZz
+        let h2;
+        let h3;
+        if(h.length > 2){
+            const s2 = h[2].split("_")
+            if(s2.length == 1){//index 加参数 例：ccf.org.cn/iYrEZz/001
+                h2 = "/"
+                h3 = s2[0];
+            }else{
+                h2 = s2.length == 3 ?"/" +s2[0]+"_"+s2[1]+"_"+s2[2].substring(0,1): "/"+s2[0]+"_"+s2[1].substring(0,1)//news_1
+                h3 = s2.length == 3 ? s2[2].substring(1) : s2[1].substring(1) //002
+            }
+        }else{//index 不加参数 例：ccf.org.cn/iYrEZz
+            h2 = "/";
+            h3 = "";
+        }
+
+        let locationUrl=window.location.href;
+        if(locationUrl.indexOf("schedule_1")>-1||
+            locationUrl.indexOf("schedule_2")>-1||
+            locationUrl.indexOf("schedule_3")>-1||
+            locationUrl.indexOf("schedule_4")>-1||
+            locationUrl.indexOf("schedule_d_")>-1){
+            $.ajax({
+                url: config.get_web_url()+"/api/getMeetingIdByMeetingShort.action",
+                data: {meetingShort:h1},
+                type: 'post',
+                traditional: true,
+                async: false,
+                dataType: "json",
+                success: function (data) {
+                    globalId = data.data;
+                    meetingId = data.data;
+                },error: function (XMLHttpRequest, textStatus, errorThrown) {
+                }
+            });
+
+        }
+
+        if(window.location.href.indexOf("schedule_d_")>-1){//大会日程详情短链接处理
+            $.ajax({
+                url: config.get_web_url()+"/api/getApplyForumNewsId.action",
+                data:{meetingShort:h1,h3:h3},
+                async:false,
+                type: 'post',
+                success: function (data) {
+                    dayMeetNewsId=data.data;
+                }
+            })
+        }
+
+        $.ajax({
+            url: config.get_web_url()+"/api/getShortUrl.action",
+            data:{meetingShort:h1},
+            async:false,
+            type: 'post',
+            success: function (data) {
+                shortUrlList = data.data;
+                console.info("短链接数据",shortUrlList)
+                data.data.forEach(function(element) {
+                    if(h.length > 2){
+                        if(element.MEETING_SHORT == h1&&element.NGINX_NAME == h2&&element.SHORT_ID == h3){
+                            channelId = element.CHANNEL_ID;
+                            globalId = element.GLOBAL_ID;
+                            meetingId = element.GLOBAL_ID;
+                            CmsId = element.CMS_ID;
+                        }
+                    }else{
+                        if(element.MEETING_SHORT == h1&&element.NGINX_NAME == h2){
+                            channelId = element.CHANNEL_ID;
+                            globalId = element.GLOBAL_ID;
+                            meetingId = element.GLOBAL_ID;
+                            CmsId = element.CMS_ID;
+                        }
+                    }
+                })
+            },
+        });
+    }
+}();
+//vue初始化后进行短链接转换[mounted后]
+function setHtmlUrl(){
+    const names = ["html5", "html6", "html7", "html16"]
+    //判断为短链接域名访问
+    if(window.location.hostname.indexOf(config.get_shortUrl())!= -1) {
+        //获取全部a标签，应转化为短链接访问
+        let elements = document.getElementsByTagName('a');
+        for(let i=0; i< elements.length; i++){
+            for(let item of names){
+                if(elements[i].href.indexOf(item)!='-1' && elements[i].href.indexOf("qq")=='-1' && elements[i].href.indexOf("weibo")=='-1'){
+                    elements[i].href = getHref(hrefGetMap(elements[i].href),elements[i].href);
+                }
+            }
+        }
+    }
+}
+/*长链接参数分解为map*/
+function hrefGetMap(hr){
+    const h1 = hr.split("?")[1].split("&")
+    let map = {};
+    for(let item of h1){
+        const s = item.split("=")
+        map[s[0]] = s[1];
+    }
+    return map;
+}
+/*转换为短连接形式*/
+function getHref(map,oldhref){ //原始链接oldhref
+    let u = oldhref;
+    let y = "http://" + config.get_shortUrl() +"/";
+    shortUrlList.forEach(function(element) {
+        if(map['CmsId']!= null || element.CMS_ID != null){ //详情
+            if(element.CHANNEL_ID == map['channelId'] && element.CMS_ID == map['CmsId']){
+                u = "";
+                u = y+element.MEETING_SHORT + element.NGINX_NAME + element.SHORT_ID
+            }
+        }else{
+            if(map['channelId'] != null){
+                if(element.CHANNEL_ID !=null && element.CHANNEL_ID == map['channelId']){
+                    u = "";
+                    u = y+element.MEETING_SHORT + element.NGINX_NAME + element.SHORT_ID
+                }
+            }else if(element.HTML_NAME == "index.html" && oldhref.indexOf("index.html") != -1){
+                u = "";
+                u = y+element.MEETING_SHORT
+            }
+        }
+    })
+    return u
+}
+/*短链接结束------------------------------************************/
+
+$(function(){
+    if($(window).width()<=750){
+        $(document).bind('click',function(e){
+            var divTop = $('.lx_hdRight,.lx_com_nav');
+            var divTop2= $('.lx_com_nav')
+            if(!divTop.is(e.target) && divTop.has(e.target).length === 0){
+                divTop2.hide()
+            }
+        })
+    }
+
+
+    //菜单收缩
+    /*$('body').on('click','.l_menu li',function(){
+        $(this).addClass('active').siblings().removeClass('active');
+        if($(this).children('dl').children('a').length>0){
+            $(this).children('dl').show();
+            $(this).siblings().children('dl').hide();
+        }
+    })*/
+    /*$('body').on('mouseover','.lx_com_nav li>a',function(){
+        $(this).siblings('.l_menuSec').show();
+    });
+    $('body').on('mouseout','.lx_com_nav li>a',function(){
+        $(this).siblings('.l_menuSec').hide();
+    });
+    $('.l_menuSec').on('mouseover','.l_menuSec',function(){
+        $(this).show();
+    });
+    $('.l_menuSec').on('mouseout','.l_menuSec',function(){
+        $(this).hide();
+    });*/
+    //菜单定位记录cookie
+    /*$('body').on('click','.l_menu li a',function(){
+        console.log($(this).attr('href').substring($(this).attr('href').lastIndexOf('/')+1,$(this).attr('href').length))
+        pageName = $(this).attr('href').substring($(this).attr('href').lastIndexOf('/')+1,$(this).attr('href').length);
+        setCookie('menu',pageName);
+    })*/
+    //获取meetingId
+    /*if(getQueryString("type")=="1")
+    {
+        if (getQueryString("globalId") != null) {
+            meetingId = getQueryString("globalId");
+            sessionStorage.setItem("meetingId", meetingId);
+        }
+
+    }else {
+        meetingId = sessionStorage.getItem("meetingId");
+    }*/
+    //栏目树
+    $.ajax({
+        url: config.get_web_url()+"/api/show.action",
+        data:{code:'api_channel',meetingId:globalId},
+        dataType:"jsonp",
+        jsonp:"jsoncallback",
+        async:false,
+        type: 'get',
+        success: function (data) {
+            console.log('---------------栏目数据')
+            console.log(data[0].ds1)
+            var data_ = data[0].ds1;
+            var data_2=data_.filter(function (e) {
+                return e.LEV=='2';
+            });
+            var data_3=data_.filter(function (e) {
+                return e.LEV=='3';
+            });
+            column_2=data_2;
+            column_3=data_3;
+        }
+    });
+    //栏目链接替换
+    $.ajax({
+        url: config.get_web_url()+"/api/checkChannelLev2On.action",
+        data:{meetingId:globalId},
+        dataType:"jsonp",
+        jsonp:"jsoncallback",
+        async:false,
+        type: 'get',
+        success: function (data) {
+            console.log('---------------栏目链接替换')
+            console.log(column_2);
+            for(let i=0;i<column_2.length;i++){
+                for(let j=0;j<data.length;j++){
+                    if((data[j].SUPER_CHANNEL==column_2[i].ID)&&((column_2[i].TEMPLATE_NAME=='演讲嘉宾')||(column_2[i].TEMPLATE_NAME=='会议日程')||(column_2[i].TEMPLATE_NAME=='合作单位')||(column_2[i].TEMPLATE_NAME=='组织机构'))){
+                        data.splice(j,1)
+                    }
+                }
+            }
+            column_replace = data;
+        }
+    });
+
+    //首页图片
+    // $.ajax({
+    //     url: config.get_web_url()+"/api/indexPageData.action",
+    //     data:{meetingId:globalId},
+    //     dataType:"jsonp",
+    //     jsonp:"jsoncallback",
+    //     async:false,
+    //     type: 'get',
+    //     success: function (data) {
+    //         console.log('---------------首页数据')
+    //         console.log(data)
+    //         if(data.length>0){
+    //             index_img = data;
+    //             languagenum=data[0].language
+    //         }else {
+    //             languagenum = '1'
+    //         }
+    //
+    //         $.ajax({
+    //             url: '/web/html7/js/Chinese.json',
+    //             type: 'GET',
+    //             async: false, // 设置为同步请求
+    //             dataType: 'json',
+    //             success: function(dataa) {
+    //                 htmlList = dataa[languagenum === '1' || languagenum === '3' ? 'zh' : 'en'];
+    //             },
+    //             error: function(jqXHR, textStatus, errorThrown) {
+    //                 console.error('Error fetching JSON:', textStatus, errorThrown);
+    //             }
+    //         });
+    //     }
+    // });
+    $.ajax({
+        url: config.get_web_url() + "/api/indexPageData.action",
+        data: { meetingId: globalId },
+        dataType: "jsonp",
+        jsonp: "jsoncallback",
+        async: false,
+        type: 'get',
+        success: function (data) {
+            // 使用 globalId 作为本地存储的键的一部分
+            const cacheKeyHtmlList = `htmlList_${globalId}`;
+            const cacheKeyLanguage = `language_${globalId}`;
+            if (data.length > 0) {
+                index_img = data;
+                languagenum = data[0].language?data[0].language:'1';
+
+                if(languagenum=='1'||languagenum=='2'){
+                    localStorage.clear();
+                }
+            } else {
+                languagenum = '1';
+            }
+
+            $.ajax({
+                url: '/web/html7/js/Chinese.json',
+                type: 'GET',
+                async: false,
+                dataType: 'json',
+                success: function(dataa) {
+                    const cachedHtmlList = localStorage.getItem(cacheKeyHtmlList);
+                    const cachedLanguage = localStorage.getItem(cacheKeyLanguage);
+
+                    let finalComparisonResult = false; // 默认设为false
+
+                    if (cachedHtmlList && cachedLanguage) {
+                        try {
+                            const storedData = JSON.parse(cachedHtmlList);
+                            finalComparisonResult = strictDeepCompare(storedData, dataa);
+
+                            // 关键修改：当比较结果为false时，用新数据更新本地存储
+                            if (finalComparisonResult === false) {
+                                console.log('数据不一致，正在更新本地存储...');
+                                localStorage.setItem(cacheKeyHtmlList, JSON.stringify(dataa));
+                                console.log('本地存储已更新为新数据');
+                            }
+                        } catch (e) {
+                            console.error('解析失败:', e);
+                            // 解析失败时也更新为最新数据
+                            localStorage.setItem(cacheKeyHtmlList, JSON.stringify(dataa));
+                            finalComparisonResult = false;
+                            console.log('因解析失败，已更新本地存储');
+                        }
+                    } else {
+                        // 无缓存数据时直接存储新数据
+                        localStorage.setItem(cacheKeyHtmlList, JSON.stringify(dataa));
+                        finalComparisonResult = false;
+                        console.log('无缓存数据，已存储新数据');
+                    }
+
+                    console.log('最终比较结果(是否一致):', finalComparisonResult);
+                    return finalComparisonResult;
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error('请求失败:', textStatus, errorThrown);
+                    return false;
+                }
+            });
+
+            /**
+             * 严格深度比较函数
+             * 只要发现任何一个不一致就立即返回false
+             */
+            function strictDeepCompare(obj1, obj2) {
+                // 快速路径：如果是同一个对象
+                if (obj1 === obj2) return true;
+
+                // 处理null/undefined情况
+                if (obj1 == null || obj2 == null) return obj1 === obj2;
+
+                // 类型不同直接返回false
+                if (typeof obj1 !== typeof obj2) return false;
+
+                // 处理Date对象
+                if (obj1 instanceof Date && obj2 instanceof Date) {
+                    return obj1.getTime() === obj2.getTime();
+                }
+
+                // 处理数组
+                if (Array.isArray(obj1)) {
+                    if (!Array.isArray(obj2)) return false;
+                    if (obj1.length !== obj2.length) return false;
+
+                    for (let i = 0; i < obj1.length; i++) {
+                        if (!strictDeepCompare(obj1[i], obj2[i])) {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+
+                // 处理普通对象
+                if (typeof obj1 === 'object') {
+                    const keys1 = Object.keys(obj1);
+                    const keys2 = Object.keys(obj2);
+
+                    // 键数量不同直接返回false
+                    if (keys1.length !== keys2.length) return false;
+
+                    // 检查所有键值对
+                    for (const key of keys1) {
+                        // 如果key不存在于obj2中，立即返回false
+                        if (!Object.prototype.hasOwnProperty.call(obj2, key)) {
+                            return false;
+                        }
+                        // 递归比较值
+                        if (!strictDeepCompare(obj1[key], obj2[key])) {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+
+                // 基本类型值比较
+                return obj1 === obj2;
+            }
+
+
+
+
+            // 检查本地存储中是否有缓存的数据
+            const cachedHtmlList = localStorage.getItem(cacheKeyHtmlList);
+            const cachedLanguage = localStorage.getItem(cacheKeyLanguage);
+
+            if (cachedHtmlList && cachedLanguage) {
+                if(cachedLanguage=='1'){
+                    localStorage.setItem(cacheKeyLanguage,cachedLanguage);
+                }
+                if(cachedLanguage=='2'){
+                    localStorage.setItem(cacheKeyLanguage,cachedLanguage);
+                }
+                // 如果本地存储中有缓存且语言未变化，直接使用缓存数据
+                htmlList = JSON.parse(cachedHtmlList)[localStorage.getItem(cacheKeyLanguage) === '1' || localStorage.getItem(cacheKeyLanguage) === '3' ? 'zh' : 'en'];
+                languagealist=cachedLanguage;
+                renderPage(); // 渲染页面
+            } else {
+                // 如果本地存储中没有缓存或语言变化，重新请求数据
+                $.ajax({
+                    url: '/web/html7/js/Chinese.json',
+                    type: 'GET',
+                    async: false, // 设置为同步请求
+                    dataType: 'json',
+                    success: function (dataa) {
+                        if(languagenum=='3'||languagenum=='1'){
+                            localStorage.setItem(cacheKeyLanguage,'1');
+                        }
+                        if(languagenum=='4'||languagenum=='2'){
+                            localStorage.setItem(cacheKeyLanguage,'2');
+                        }
+
+                        // 根据语言选择数据
+                        htmlList = dataa[languagenum === '1' || languagenum === '3' ? 'zh' : 'en'];
+                        localStorage.setItem(cacheKeyHtmlList, JSON.stringify(dataa));
+                        languagealist=localStorage.getItem(cacheKeyLanguage);
+                        // 将数据存储到本地存储中
+                        renderPage(); // 渲染页面
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.error('Error fetching JSON:', textStatus, errorThrown);
+                    }
+                });
+            }
+        }
+    });
+
+// 页面渲染函数
+    function renderPage() {
+        // 使用 htmlList 渲染页面
+        console.log('Rendering page with htmlList:', htmlList);
+        // 这里添加具体的页面渲染逻辑
+    }
+
+    // //往期回顾
+    // $.ajax({
+    //     url: config.get_web_url() + '/api/showReviewData.action',
+    //     data: {meetingId: meetingId},
+    //     dataType: "jsonp",
+    //     jsonp: "jsoncallback",
+    //     async: false,
+    //     type: 'get',
+    //     success: function (data) {
+    //         console.log('---------------往期回顾')
+    //         console.log(data)
+    //         review = data;
+    //     }
+    // })
+    // 底部
+    // $.ajax({
+    //     url:config.get_web_url() + '/api/showHeaderFooter.action',
+    //     data:{meetingId:meetingId,headerFooter:'1'},
+    //     dataType:"jsonp",
+    //     jsonp:"jsoncallback",
+    //     type: 'get',
+    //     success: function (data) {
+    //         //console.log(data)
+    //         console.log('---------------底部数据')
+    //         footer_data = data[0];
+    //         /*$(".fulongCustom").each(function (i, obj) {
+    //             for (var key in data[0]) {
+    //                 if (key == $(obj).attr('FULONG_NAME')) {
+    //                     $(obj).text(data[0][key]);
+    //                 }
+    //             }
+    //         });*/
+    //     }
+    // })
+    //获取会议名称
+    $.ajax({
+        url: config.get_web_url() + '/api/getmeetingname.action',
+        data: {meetingId: globalId},
+        dataType: "jsonp",
+        jsonp: "jsoncallback",
+        async: false,
+        type: 'get',
+        success: function (data) {
+            console.log('----------------会议名称')
+            console.log(data[0].MEETING_TITLE)
+            if(languagealist=='1'){
+                meetingName = data[0].MEETING_TITLE;
+            }
+        },
+        error:function(err){
+            console.error(err)
+        }
+    })
+
+})
+function getQueryString(name){
+    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if(r!=null)return  decodeURIComponent(r[2]); return null;
+}
+function getNowFormatDate() {
+    var date = new Date();
+    var seperator1 = "-";
+    var seperator2 = ":";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate;
+    // + " " + date.getHours() + seperator2 + date.getMinutes()
+    // + seperator2 + date.getSeconds();
+    return currentdate;
+}
+
+function getFormatCode(strValue){
+    return strValue.replace(/\r\n/g, '<br/>').replace(/\n/g, '<br/>').replace(/\s/g, ' ');
+}
+//存储cookie
+function setCookie(name, value) {
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 60 * 60 * 1000);
+    document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString() + ";path=/";
+}
+//获取cookie
+function getCookie(name) {
+    var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+
+    if (arr = document.cookie.match(reg))
+
+        return unescape(arr[2]);
+    else
+        return null;
+}
+//删除cookies
+function delCookie(name) {
+    var exp = new Date();
+    exp.setTime(exp.getTime() - 60 * 60 * 1000);
+    var cval = getCookie(name);
+    if (cval != null)
+        document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString() + ";path=/";
+}
+//删除时只能删除对应路径下的cookie，不指定路径，默认删除的是页面所对应的路径下的cookie。
+function showMenu(){
+    $('.lx_com_nav1').toggle();
+}
+
+function next(){
+
+    /*if(turnCount<menuCount){
+        $('.menu ul li:first-of-type').css('margin-left',-400*turnCount);
+        $('.menu_arrowR').show();
+        turnCount++;
+    }
+    if(turnCount==menuCount){
+        $('.menu ul li:first-of-type').css('margin-left',menu_width-400);
+        $('.menu_arrowR').hide();
+    }*/
+    // if(column_2.length>9){
+        $('.lx_com_nav ul li:first-of-type').animate({'marginLeft':'-900px'},500)
+    $('.menu_arrowR').hide();
+    $('.menu_arrowL').show();
+    // }
+
+}
+function prev(){
+    /*if(turnCount>0){
+        turnCount--;
+        $('.menu ul li:first-of-type').css('margin-left',-400*turnCount);
+        $('.menu_arrowL').show();
+    }
+    if(turnCount==0){
+        $('.menu_arrowL').hide();
+    }*/
+    $('.lx_com_nav ul li:first-of-type').animate({'marginLeft':'0'},500)
+    $('.menu_arrowL').hide();
+    $('.menu_arrowR').show();
+}
+function language(val){
+    // 使用 globalId 作为本地存储的键的一部分
+    const cacheKeyLanguage = `language_${globalId}`;
+    // 检查本地存储中是否有缓存的数据
+    const cachedLanguage = localStorage.getItem(cacheKeyLanguage);
+    status_=[]
+
+    if(val=='ZH'){
+
+        localStorage.setItem(cacheKeyLanguage, '1');
+            location.reload();
+    }
+    if(val=='EN'){
+
+        localStorage.setItem(cacheKeyLanguage, '2');
+        location.reload();
+    }
+}

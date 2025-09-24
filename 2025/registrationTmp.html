@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICXR 2025: Registration Information</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; 
+            color: #333;
+        }
+         nav {
+            background-color: #8AA4E1; /* #5DBBF2 */
+            padding: 1em 2em;
+            display: flex; /* 使用flex布局 */
+            justify-content: center; /* 根据需要调节，如space-between或center */
+            flex-wrap: nowrap; /* 禁止换行 */
+        }
+
+        nav a {
+            color: white;
+            margin: 0 0.5em; /* 增加了间距的灵活性 */
+            text-decoration: none;
+            font-weight: bold;
+            white-space: nowrap; /* 防止文本换行 */
+            font-size: 18px; /* 适当减少字体大小 */
+            display: flex; /* 使用flex以确保垂直居中 */
+            align-items: center; /* 垂直居中对齐 */
+            height: 100%; /* 确保高度一致 */
+            line-height: 1.5; /* 设置行高，使链接垂直居中 */
+        }
+        nav a:hover { 
+            text-decoration: underline; 
+        }
+
+        /* Dropdown Container */
+        .dropdown {
+            position: relative;
+            display: inline-block; /* INLINE-BLOCK用于下拉 */
+        }
+
+        /* Dropdown button */
+        .dropbtn {
+            background-color: #8AA4E1; 
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 0; /* 报错 padding 的设置 */
+            margin: 0 0.5em; /* 添加与其他链接相同的外边距 */
+            display: flex; /* 使用flex以确保垂直居中 */
+            align-items: center; /* 垂直居中对齐 */
+            height: 100%; /* 确保高度一致 */
+            line-height: 1.5; /* 设置行高，使按钮文本在中间 */
+        }
+
+        /* Dropdown Content */
+        .dropdown-content {
+            display: none; /* 隐藏下拉内容 */
+            position: absolute; /* 绝对定位 */
+            background-color: #f9f9f9; /* 下拉菜单背景颜色 */
+            min-width: 160px; /* 下拉菜单最小宽度 */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* 阴影效果 */
+            z-index: 1; /* 确保在其他元素之上显示 */
+        }
+
+        /* 配置下拉菜单中的链接 */
+        .dropdown-content a {
+            color: #0056b3; /* 链接颜色 */
+            padding: 12px 16px; /* 链接的填充 */
+            text-decoration: none; /* 去除下划线 */
+            display: block; /* 块级元素 */
+        }
+
+        /* 下拉菜单链接的悬停效果 */
+        .dropdown-content a:hover {
+            background-color: #ddd; /* 悬停时背景颜色 */
+        }
+
+        /* 显示下拉菜单 */
+        .dropdown:hover .dropdown-content {
+            display: block; /* 当悬停在下拉菜单上时显示 */
+        }
+
+        /* 容器设置 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;   
+        }
+
+        .banner-container {
+            text-align: center;
+            padding: 2em 0 1em; /* 顶部留白 */
+        }
+        .banner-container img {
+            width: 100%;
+            height: auto;
+        }
+
+        .registration {
+            background-color: white;
+            padding: 2em;
+            margin: 2em 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .registration h2 {
+            color: #0044cc;
+        }
+
+        .content { 
+            padding: 3em 2em; 
+            background-color: white; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            border-radius: 8px; 
+        }
+        .introduction { 
+            margin-top: 2em; 
+        }
+        h1, h2, h3, h4 { 
+            color: #0044cc; 
+        }
+        h1 { 
+            margin-top: 0; 
+        }
+        p { 
+            line-height: 1.6; 
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1em 0;
+            font-size: 1em;
+            color: #333;
+        }
+        table th, table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        table th {
+            background-color: #007acc;
+            color: white;
+        }
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f1f1f1;
+            position: relative;
+        }
+        .footer img {
+            max-width: 80px;
+            vertical-align: middle;
+        }
+        .wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <nav>
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Committee</button>
+                <div class="dropdown-content">
+                    <a href="committeeSO.html">Steering Committee</a>
+                    <a href="committeeSO.html">Organization Committee</a>
+                    <a href="committeePC.html">Program Committee</a>
+                </div>
+            </div>
+            
+            <!-- Dropdown for Call for Papers -->
+            <div class="dropdown">
+                <button class="dropbtn">Contribute</button>
+                <div class="dropdown-content">
+                    <a href="callForPapers.html">Call for Papers</a>
+                    <a href="callForXRGallery.html">Call for XR Gallery</a>
+                </div>
+            </div>
+            
+            <a href="program.html">Program</a>
+            <a href="keynote.html">Keynote</a>
+            <a href="registration.html">Registration</a>
+            <a href="Venue.html">Venue</a>
+            <a href="sponsorship.html">Sponsorship</a>
+        </nav>
+
+        <div class="container">
+            
+
+            <!-- registration 区域 -->
+            <div class="registration">
+                            <!-- registration 区域 -->
+
+
+                <h2>Registration Information</h2>
+
+                <h4>Conference invitations</h4>
+                <!-- <a href="ICXR-2024-Conference invitations for participants.pdf" download>Conference invitations for participants</a>
+                <a href="ICXR 2025 Invitation Letter.pdf" download>Conference invitations for authors</a> -->
+                <a href="ICXR 2025 Invitation Letter.pdf" download>Conference invitation Letter</a>
+
+                <h4>Contact</h4>
+                <p><strong>Email:</strong> <a href="mailto:icxr@ccf.org.cn">icxr@ccf.org.cn</a></p>
+                <p style="text-align:justify"> Registration detailed information will coming soon...</p>
+                <!-- <h3>Registration Link:</h3>
+
+                <p> <a href="https://ccf.org.cn/icxr2024register">ccf.org.cn/icxr2024register</a></p>
+                <h3>Registration Categories and Fees</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>CCF Member</th>
+                            <th>Non-CCF Member</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Full Registration</td>
+                            <td>3200 RMB / 450 USD</td>
+                            <td>4000 RMB / 560 USD</td>
+                        </tr>
+                        <tr>
+                            <td>Student Registration</td>
+                            <td>1900 RMB / 270 USD</td>
+                            <td>2400 RMB / 340 USD</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>Registration Notices:</h4>
+                <ul>
+                    <li>Each accepted paper requires at least one full registration, even if all authors are students.</li>
+                    <li>Conference registration deadline is Nov. 14, 2024. Paper authors are required to register for the conference by Nov. 10, 2024.</li>
+                </ul>
+
+                <h4>Registration using CCF System (Recommended):</h4>
+                <p>CCF members can sign up directly. For non-CCF members, please register one account first with your name. If you have an accepted paper, please fill in the form with the paper ID. After registering with your personal information, pay the registration fee according to the category.</p>
+
+                <h4>Registration without using CCF System:</h4>
+                <p>If you are outside of China and do not use the CCF registration system, please download and fill out the <a href="Registration_Form_ICXR2024_ENG.docx" download>Registration Form</a> and email to <strong>ccf_tcvrv@163.com</strong>. Please note “icxr2024+Your name” when transferring the registration fee, and send the scanned version of transfer voucher to <strong>ccf_tcvrv@163.com</strong>. Payment information is as follows:</p>
+                <ul>
+                    <li><strong>Account Name:</strong> XIAMEN UNIVERSITY</li>
+                    <li><strong>Address:</strong> NO.422 SIMING SOUTH ROAD, XIAMEN, CHINA</li>
+                    <li><strong>Account Number:</strong> 428658381176</li>
+                    <li><strong>Bank:</strong> BANK OF CHINA, XIAMEN UNIVERSITY SUB-BRANCH</li>
+                    <li><strong>Address of the Bank:</strong> NO.422 SIMING SOUTH ROAD, XIAMEN, CHINA</li>
+                </ul>
+                <h4>Conference invitations</h4>
+                <a href="ICXR-2024-Conference invitations for participants.pdf" download>Conference invitations for participants</a>
+                <a href="ICXR-2024-Conference invitations for authors.pdf" download>Conference invitations for authors</a>
+
+                <h4>Contact</h4>
+                <p><strong>Email:</strong> <a href="mailto:ccf_tcvrv@163.com">ccf_tcvrv@163.com</a></p> -->
+            </div>
+
+            
+
+
+        </div>
+
+        <div class="footer">
+            <p>Sponsored by <strong>CCF</strong></p>
+            <a href="https://www.ccf.org.cn/en/About_CCF/About_CCF/"><img src="./screenshot-20240828-143707.png" alt="CCF Logo"></a>
+        </div> 
+    </div>
+</body>
+</html>
