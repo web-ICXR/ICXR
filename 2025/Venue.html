@@ -12,70 +12,21 @@
             background-color: #f4f4f4; 
             color: #333;
         }
-        nav {
-            background-color: #8AA4E1; /* #5DBBF2 */
-            padding: 1em 2em;
-            display: flex;
-            justify-content: center;
-            flex-wrap: nowrap;
-        }
-        nav a {
-            color: white;
-            margin: 0 0.5em;
-            text-decoration: none;
-            font-weight: bold;
-            white-space: nowrap;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            height: 100%;
-            line-height: 1.5;
-        }
-        nav a:hover { 
-            text-decoration: underline; 
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .dropbtn {
-            background-color: #8AA4E1; 
-            color: white;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-            padding: 0;
-            margin: 0 0.5em;
-            display: flex;
-            align-items: center;
-            height: 100%;
-            line-height: 1.5;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-        .dropdown-content a {
-            color: #0056b3;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-        .dropdown-content a:hover {
-            background-color: #ddd;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+ 
+    nav {background-color: #8AA4E1; padding: 1em 2em; display: flex; justify-content: space-evenly; flex-wrap: wrap; gap: 0.25rem 0.75rem;}
+    nav a { color: white; margin: 0 0.5em; text-decoration: none; font-weight: bold; white-space: nowrap; font-size: 24px; display: flex; align-items: center; height: 100%; line-height: 1.5; }
+    nav a:hover { text-decoration: underline; }
+    .dropdown { position: relative; display: inline-block; }
+    .dropbtn { background-color: #8AA4E1; color: white; font-weight: bold; border: none; cursor: pointer; font-size: 24px; padding: 0; margin: 0 0.5em; display: flex; align-items: center; height: 100%; line-height: 1.5; } 
+    .dropdown-content { display: none; position: absolute; background-color: #f9f9f9; min-width: 160px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 1; }
+    .dropdown-content a { color: #0056b3; padding: 12px 16px; text-decoration: none; display: block; }
+    .dropdown-content a:hover { background-color: #ddd; }
+    .dropdown:hover .dropdown-content { display: block; }
+    .container { max-width: 1600px; margin: 0 auto; }
+    .content { padding: 3em 2em; background-color: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; }
 
         .container {
-            max-width: 1000px;
+            max-width: 1600px;
             margin: 0 auto;   
         }
         .banner-container {
@@ -96,12 +47,12 @@
         }
         .accommodation h2 { color: #0044cc; }
 
-        .content { 
+        /* .content { 
             padding: 3em 2em; 
             background-color: white; 
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
             border-radius: 8px; 
-        }
+        } */
         .introduction { margin-top: 2em; }
         h1, h2, h3, h4 { color: #0044cc; }
         h1 { margin-top: 0; }
@@ -127,7 +78,7 @@
             vertical-align: middle;
         }
         .wrapper {
-            max-width: 1000px;
+            max-width: 1600px;
             margin: 0 auto;
             padding: 0 2em;
         }
@@ -176,7 +127,9 @@
 </head>
 <body>
     <div class="wrapper">
-        <nav>
+    <!-- 顶部：导航占位 -->
+    <div id="header-container"></div>
+        <!-- <nav>
             <a href="index.html">Home</a>
             <div class="dropdown">
                 <button class="dropbtn">Committee</button>
@@ -193,12 +146,13 @@
                     <a href="callForXRGallery.html">Call for XR Gallery</a>
                 </div>
             </div>
+            
             <a href="program.html">Program</a>
             <a href="keynote.html">Keynote</a>
             <a href="registration.html">Registration</a>
             <a href="Venue.html">Venue</a>
             <a href="sponsorship.html">Sponsorship</a>
-        </nav>
+        </nav> -->
 
         <div class="container">
             <!-- accommodation 区域 -->
@@ -410,10 +364,12 @@
             </div>
         </div>
 
-        <div class="footer">
+        <!-- 底部：Sponsored by CCF 占位（放在最底部） -->
+        <div id="footer-container"></div>
+        <!-- <div class="footer">
             <p>Sponsored by <strong>CCF</strong></p>
             <a href="https://www.ccf.org.cn/en/About_CCF/About_CCF/"><img src="./screenshot-20240828-143707.png" alt="CCF Logo"></a>
-        </div> 
+        </div> -->
     </div>
 
     <script>
@@ -452,5 +408,18 @@
             } catch(e) {}
         })();
     </script>
+    
+  <!-- 分别加载 header 与 footer，确保底部在页面最末尾 -->
+  <script>
+    // 加载导航
+    fetch('header.html').then(r => r.text()).then(html => {
+      document.getElementById('header-container').innerHTML = html;
+    }).catch(err => console.error('Error loading header:', err));
+
+    // 加载底部（一定在 .container 之后）
+    fetch('footer.html').then(r => r.text()).then(html => {
+      document.getElementById('footer-container').innerHTML = html;
+    }).catch(err => console.error('Error loading footer:', err));
+  </script>
 </body>
 </html>
