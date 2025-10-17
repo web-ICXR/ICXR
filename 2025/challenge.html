@@ -219,20 +219,17 @@
   <!-- 分别加载 header 与 footer，确保底部在页面最末尾 -->
   <script>
     // 加载导航
-    fetch('header.html')
-      .then(r => r.text())
-      .then(html => { document.getElementById('header-container').innerHTML = html; })
-      .catch(err => console.error('Error loading header:', err));
+    fetch('header.html').then(r => r.text()).then(html => {
+      document.getElementById('header-container').innerHTML = html;
+    }).catch(err => console.error('Error loading header:', err));
 
     // 加载底部（一定在 .container 之后）
-    fetch('footer.html')
-      .then(r => r.text())
-      .then(html => { document.getElementById('footer-container').innerHTML = html; })
-      .catch(err => console.error('Error loading footer:', err));
+    fetch('footer.html').then(r => r.text()).then(html => {
+      document.getElementById('footer-container').innerHTML = html;
+    }).catch(err => console.error('Error loading footer:', err));
   </script>
-
-  <noscript>导航与底部依赖 JavaScript 加载，请启用 JavaScript 或联系管理员。</noscript>
 </body>
 </html>
+
 
 
