@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -16,9 +16,9 @@
 
     /* ===================== 仅在本页“修饰注入的 header” ===================== */
     /* 1) 让蓝色区域与内容同宽（max-width:1600px），并居中 */
-    #header-container { 
-      display: flex; 
-      justify-content: center; 
+    #header-container {
+      display: flex;
+      justify-content: center;
       background: #f4f4f4; /* 页面底色 */
     }
     /* header.html 里最外层通常是 <nav>，我们直接给它蓝底与等宽 */
@@ -90,10 +90,10 @@
     }
 
     /* ===================== 仅在本页“修饰注入的 footer” ===================== */
-    #footer-container { 
-      display: flex; 
-      justify-content: center; 
-      background: #f1f1f1; 
+    #footer-container {
+      display: flex;
+      justify-content: center;
+      background: #f1f1f1;
     }
     /* 兼容 footer.html 中的结构（常见是 <div class="footer">…） */
     #footer-container .footer,
@@ -138,35 +138,34 @@
 
     .panel { background: #f1f1f1; padding: 15px; border-radius: 5px; }
 
-    /* ======= 图片排版：第一行1张，第二行2张 ======= */
+    /* ======= 图片排版：三张图等高、无边框 (美化后) ======= */
     .image-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
       justify-items: center;
-      align-items: start;
+      align-items: center;
       margin-top: 2rem;
     }
     .image-grid .imgbox {
-      width: 100%;
-      max-width: 520px;
-      background: #f1f1f1;
-      border-radius: 6px;
+      /* 这个容器现在只负责对齐，没有了背景、边框等可见样式 */
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding: 10px;
-      border: 1px solid #e0e0e0;
-    }
-    .image-grid .imgbox:first-child {
-      grid-column: 1 / -1;
-      max-width: 720px;
+      align-items: center;
+      width: 100%;
     }
     .image-grid img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 4px;
+      height: 200px;    /* 为所有图片设置一个固定的高度 */
+      width: auto;     /* 宽度自动调整以保持正确的长宽比 */
+      max-width: 100%; /* 确保图片不会超出其容器 */
+    }
+
+    /* 在小屏幕上，图片会自动垂直堆叠 */
+    @media (max-width: 768px) {
+      .image-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
     }
   </style>
 </head>
@@ -309,4 +308,3 @@
   <noscript>导航与底部依赖 JavaScript 动态加载；请启用 JavaScript。</noscript>
 </body>
 </html>
-

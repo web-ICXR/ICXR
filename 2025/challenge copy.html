@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tripo AI 3D Rendering Challenge</title>
+  <style>
+    /* —— 页面基础 —— */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    /* ===================== 仅在本页“修饰注入的 header” ===================== */
+    /* 1) 让蓝色区域与内容同宽（max-width:1600px），并居中 */
+    #header-container {
+      display: flex;
+      justify-content: center;
+      background: #f4f4f4; /* 页面底色 */
+    }
+    /* header.html 里最外层通常是 <nav>，我们直接给它蓝底与等宽 */
+    #header-container nav {
+      background-color: #0018AC;
+      width: 100%;
+      max-width: 1600px;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      padding: 1em 2em;
+
+      /* 排版与参考站一致 */
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.25rem 0.75rem;
+      box-sizing: border-box;
+    }
+    /* 链接与按钮（参考站风格） */
+    #header-container nav a,
+    #header-container .dropbtn {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      white-space: nowrap;
+      font-size: 24px;
+      line-height: 1.5;
+      display: flex;
+      align-items: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      /* 去除按钮的默认样式影响 */
+      font-family: inherit;
+      padding: 0;
+      margin: 0 0.5em;
+    }
+    #header-container nav a:hover,
+    #header-container .dropbtn:hover { text-decoration: underline; }
+
+    /* 下拉菜单（只作用于 header 容器内） */
+    #header-container .dropdown { position: relative; display: inline-block; }
+    #header-container .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%; left: 0;
+      background-color: #f9f9f9;
+      min-width: 200px;              /* 与你参考站一致或略大 */
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 1000;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    #header-container .dropdown-content a {
+      color: #0056b3;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 18px;
+    }
+    #header-container .dropdown-content a:hover { background-color: #ddd; }
+    #header-container .dropdown:hover .dropdown-content { display: block; }
+
+    /* 小屏优化（可选） */
+    @media (max-width: 600px){
+      #header-container nav a,
+      #header-container .dropbtn { font-size: 18px; }
+    }
+
+    /* ===================== 仅在本页“修饰注入的 footer” ===================== */
+    #footer-container {
+      display: flex;
+      justify-content: center;
+      background: #f1f1f1;
+    }
+    /* 兼容 footer.html 中的结构（常见是 <div class="footer">…） */
+    #footer-container .footer,
+    #footer-container footer,
+    #footer-container .footer-inner {
+      width: 100%;
+      max-width: 1600px;
+      padding: 20px;
+      text-align: center;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+    #footer-container img { max-width: 80px; vertical-align: middle; }
+
+    /* ===================== 正文区域 ===================== */
+    .wrapper {max-width: 1600px; margin: 0 auto; padding: 0 2em;}
+    .container {max-width: 1600px; margin: 0 auto;}
+    .content {
+      padding: 3em 2em;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    h1, h2 { color: #0044cc; }
+    h1 { margin-top: 0; }
+    p { line-height: 1.6; }
+
+    ul { margin: 0 0 1em 1.25em; padding: 0; }
+    ul li { margin: 0.35em 0; list-style: none; position: relative; padding-left: 0.75em; }
+    ul li::before {
+      content: "•";
+      color: #0056b3;
+      font-weight: bold;
+      position: absolute;
+      left: -1em;
+      width: 1em;
+    }
+
+    a { color: #0056b3; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .panel { background: #f1f1f1; padding: 15px; border-radius: 5px; }
+
+    /* ======= 图片排版：三张图等高、无边框 (美化后) ======= */
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      justify-items: center;
+      align-items: center;
+      margin-top: 2rem;
+    }
+    .image-grid .imgbox {
+      /* 这个容器现在只负责对齐，没有了背景、边框等可见样式 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .image-grid img {
+      height: 200px;    /* 为所有图片设置一个固定的高度 */
+      width: auto;     /* 宽度自动调整以保持正确的长宽比 */
+      max-width: 100%; /* 确保图片不会超出其容器 */
+    }
+
+    /* 在小屏幕上，图片会自动垂直堆叠 */
+    @media (max-width: 768px) {
+      .image-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 把 header 的占位写在 wrapper 之外，避免正文 max-width 影响导航 -->
+  <div id="header-container"></div>
+
+  <!-- 原本本地导航 注释掉，避免样式冲突 -->
+  <!--
+  <header>…你之前的 nav 代码…</header>
+  -->
+
+  <!-- ======= 页面内容 ======= -->
+  <div class="wrapper">
+    <div class="content">
+      <div class="container">
+
+        <h1>Tripo AI 3D Rendering Challenge</h1>
+        <p>Fill in the <a href="https://docs.google.com/forms/d/e/1FAIpQLSevhx-dsL1Z9jgAWu0TSTuIJe_L9zHgS4b6Z2BAz5XNRD-bBg/viewform" target="_blank" rel="noopener">Entry Form</a> to join the Challenge!</p>
+        <p><em>(Note: By registering in challenge, you will receive 8000 time-limited credits to help you complete your creation.)</em></p>
+
+        <h2>Theme</h2>
+        <p>The work should be created around the theme of <strong>“Portal Pass”</strong>. The work should embody core concepts such as “transit” and “breaking through spatial boundaries”, and can be presented in different styles such as science fiction, fantasy, or reality.</p>
+
+        <h2>Timeline</h2>
+        <div class="panel">
+          <p>Submission Period: <strong>2025/11/02 – 2025/11/23</strong></p>
+          <p>Award Announcement: <strong>2025/11/28</strong></p>
+        </div>
+
+        <h2>Rules</h2>
+        <ul>
+          <li>Strictly 7 seconds long.</li>
+          <li>Follow the template idea to fill in the scenes and characters.</li>
+          <li>At least one character and the “portal” on both sides.</li>
+          <li>Not specific to a human and not specific to walk.</li>
+          <li>Movement of the camera or the scene is allowed.</li>
+          <li>The main 3D models are recommended to be generated using Tripo Studio.</li>
+          <li>The rendering work are highly recommended using RAYSENGINE.</li>
+          <li>The work must be original and must not infringe upon any intellectual property rights of any third party.</li>
+        </ul>
+        <p>Click the link to download the challenge action templates.</p>
+
+        <h2>Submission</h2>
+        <p><strong>1) Official Website Submission</strong></p>
+        <ul>
+          <li>A link to your uploaded video (upload on YouTube or Bilibili).</li>
+          <li>A cover design along with the creative description.</li>
+        </ul>
+
+        <p><strong>2) Supplementary Submission via Social Media</strong></p>
+        <ul>
+          <li>Publish the work on XiaoHongShu, Bilibili, DouYin, etc., @Tripo AI Official Account, and add the topic tag: <strong>#TripoRenderingChallengeS2</strong>.</li>
+          <li>Note: Social media submission is an additional display channel. The work must first be submitted through the official website; otherwise, it will be regarded as an invalid submission.</li>
+        </ul>
+
+        <h2>Winners Criteria</h2>
+        <p>The final winners will be determined by a jury composed of experienced professionals in the 3D rendering field, renowned 3D renderers, and core members of the Tripo AI team, along with the results of public voting. The Special Award will be determined by the RAYSENGINE team.</p>
+
+        <h2>Prizes</h2>
+        <p><em><u>All the prize winners will get a customized trophy and certificate designed by Tripo.
+        Cash can also be exchanged for equivalent gift cards.</u></em></p>
+
+        <h3>1st Place</h3>
+        <ul>
+          <li>$1,500 Cash;</li>
+          <li>1-Year Tripo Premium Membership;</li>
+          <li>Exclusive feature spotlight + dedicated promotion across major platforms.</li>
+        </ul>
+
+        <h3>2nd Place</h3>
+        <ul>
+          <li>$1,000 Cash;</li>
+          <li>6-Month Tripo Premium Membership;</li>
+          <li>Featured promotion on platforms.</li>
+        </ul>
+
+        <h3>3rd Place</h3>
+        <ul>
+          <li>$500 Cash;</li>
+          <li>3-Month Tripo Premium Membership;</li>
+          <li>Featured promotion on platforms.</li>
+        </ul>
+
+        <h3>Best Popularity Award; Best Visual Award; Best Creativity Award; Best Tripo Studio Using Award; Best Story Award</h3>
+        <ul>
+          <li>$200 Cash;</li>
+          <li>2-Month Tripo Premium Membership;</li>
+          <li>Featured promotion on platforms.</li>
+        </ul>
+
+        <h3>Participation Award</h3>
+        <ul><li>1-Month Tripo Professional Membership</li></ul>
+
+        <h3>Special Award from RAYSENGINE – RAYSENGINE Award</h3>
+        <ul>
+          <li>1st Place: ¥1500</li>
+          <li>2nd Place: ¥1000</li>
+          <li>3rd Place: ¥500</li>
+        </ul>
+
+        <h2>Links</h2>
+        <p>
+          Challenge Link: Tripo Events Page Link (to be added)<br>
+          Tripo Official Website: <a href="https://studio.tripo3d.ai" target="_blank" rel="noopener">https://studio.tripo3d.ai</a><br>
+          RAYSENGINE Official Website: <a href="https://www.raysengine.com" target="_blank" rel="noopener">https://www.raysengine.com</a>
+        </p>
+
+        <div class="image-grid">
+          <div class="imgbox"><img src="tripo.png" alt="picture1"></div>
+          <div class="imgbox"><img src="ccf.png" alt="picture2"></div>
+          <div class="imgbox"><img src="raysengine.png" alt="picture3"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 底部占位（footer.html 将被注入这里） -->
+    <div id="footer-container"></div>
+  </div>
+
+  <!-- 动态加载 header / footer（和参考网页一致） -->
+  <script>
+    // 建议在本地用服务器访问，避免 file:// 导致 fetch 被 CORS 限制
+    document.addEventListener('DOMContentLoaded', () => {
+      const bust = `?v=${Date.now()}`; // 防缓存
+      fetch(`header.html${bust}`)
+        .then(r => r.text())
+        .then(html => { document.getElementById('header-container').innerHTML = html; })
+        .catch(err => console.error('Error loading header:', err));
+
+      fetch(`footer.html${bust}`)
+        .then(r => r.text())
+        .then(html => { document.getElementById('footer-container').innerHTML = html; })
+        .catch(err => console.error('Error loading footer:', err));
+    });
+  </script>
+
+  <noscript>导航与底部依赖 JavaScript 动态加载；请启用 JavaScript。</noscript>
+</body>
+</html>
