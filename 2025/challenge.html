@@ -13,78 +13,6 @@
       color: #333;
     }
 
-    header {
-      display: flex;
-      justify-content: center;
-      background-color: #f4f4f4; /* 页面背景 */
-    }
-
-    .nav-wrapper {
-      background-color: #0018AC;
-      width: 100%;
-      max-width: 1600px;  /* 与正文一致 */
-      border-radius: 0 0 8px 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.25rem 0.75rem;
-      padding: 1em 2em;
-    }
-
-    nav a, .dropbtn {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      white-space: nowrap;
-      font-size: 24px;
-      display: flex;
-      align-items: center;
-      line-height: 1.5;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    nav a:hover, .dropbtn:hover {
-      text-decoration: underline;
-    }
-
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #f9f9f9;
-      min-width: 200px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-      z-index: 10;
-      border-radius: 4px;
-    }
-
-    .dropdown-content a {
-      color: #0056b3;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      font-size: 18px;
-    }
-
-    .dropdown-content a:hover {
-      background-color: #ddd;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
     /* ======= 正文部分 ======= */
     .wrapper {max-width: 1600px; margin: 0 auto; padding: 0 2em;}
     .container {max-width: 1600px; margin: 0 auto;}
@@ -124,64 +52,62 @@
       align-items: start;
       margin-top: 2rem;
     }
-
     .image-grid .imgbox {
       width: 100%;
       max-width: 520px;
       background: #f1f1f1;
       border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       padding: 10px;
       border: 1px solid #e0e0e0;
     }
+    .image-grid .imgbox:first-child { grid-column: 1 / -1; max-width: 720px; }
 
-    .image-grid .imgbox:first-child {
-      grid-column: 1 / -1;
-      max-width: 720px;
-    }
+    .image-grid img { max-width: 100%; height: auto; display: block; border-radius: 4px; }
 
-    .image-grid img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 4px;
-    }
+    /* 可选：无 JS 时的提示 */
+    noscript { display:block; text-align:center; color:#666; padding:8px 0; }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="nav-wrapper">
-      <nav>
-        <a href="index.html">Home</a>
-        <div class="dropdown">
-          <button class="dropbtn">Committee</button>
-          <div class="dropdown-content">
-            <a href="committeeSO.html">Steering Committee</a>
-            <a href="committeeSO.html">Organization Committee</a>
-            <a href="committeePC.html">Program Committee</a>
-          </div>
-        </div>
-        <div class="dropdown">
-          <button class="dropbtn">Contribute</button>
-          <div class="dropdown-content">
-            <a href="callForPapers.html">Call for Papers</a>
-            <a href="callForXRGallery.html">Call for XR Gallery</a>
-          </div>
-        </div>
-        <a href="program.html">Program</a>
-        <a href="keynote.html">Keynote</a>
-        <a href="registration.html">Registration</a>
-        <a href="venue.html">Venue</a>
-        <a href="sponsorship.html">Sponsorship</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- ======= 页面内容 ======= -->
   <div class="wrapper">
+
+    <!-- 顶部：导航占位（与参考网页一致，实际内容来自 header.html） -->
+    <div id="header-container"></div>
+
+    <!-- 原本的导航栏代码已按你的要求注释掉 -->
+    <!--
+    <header>
+      <div class="nav-wrapper">
+        <nav>
+          <a href="index.html">Home</a>
+          <div class="dropdown">
+            <button class="dropbtn">Committee</button>
+            <div class="dropdown-content">
+              <a href="committeeSO.html">Steering Committee</a>
+              <a href="committeeSO.html">Organization Committee</a>
+              <a href="committeePC.html">Program Committee</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn">Contribute</button>
+            <div class="dropdown-content">
+              <a href="callForPapers.html">Call for Papers</a>
+              <a href="callForXRGallery.html">Call for XR Gallery</a>
+            </div>
+          </div>
+          <a href="program.html">Program</a>
+          <a href="keynote.html">Keynote</a>
+          <a href="registration.html">Registration</a>
+          <a href="venue.html">Venue</a>
+          <a href="sponsorship.html">Sponsorship</a>
+        </nav>
+      </div>
+    </header>
+    -->
+
+    <!-- ======= 页面内容 ======= -->
     <div class="content">
       <div class="container">
 
@@ -285,7 +211,28 @@
 
       </div>
     </div>
+
+    <!-- 底部：页脚占位（与参考网页一致，实际内容来自 footer.html） -->
+    <div id="footer-container"></div>
   </div>
+
+  <!-- 分别加载 header 与 footer，确保底部在页面最末尾 -->
+  <script>
+    // 加载导航
+    fetch('header.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('header-container').innerHTML = html; })
+      .catch(err => console.error('Error loading header:', err));
+
+    // 加载底部（一定在 .container 之后）
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(html => { document.getElementById('footer-container').innerHTML = html; })
+      .catch(err => console.error('Error loading footer:', err));
+  </script>
+
+  <noscript>导航与底部依赖 JavaScript 加载，请启用 JavaScript 或联系管理员。</noscript>
 </body>
 </html>
+
 
