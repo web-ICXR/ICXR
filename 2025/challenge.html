@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tripo AI 3D Rendering Challenge</title>
   <style>
+    /* —— 页面基础 —— */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -13,7 +14,101 @@
       color: #333;
     }
 
-    /* ======= 正文部分 ======= */
+    /* ===================== 仅在本页“修饰注入的 header” ===================== */
+    /* 1) 让蓝色区域与内容同宽（max-width:1600px），并居中 */
+    #header-container { 
+      display: flex; 
+      justify-content: center; 
+      background: #f4f4f4; /* 页面底色 */
+    }
+    /* header.html 里最外层通常是 <nav>，我们直接给它蓝底与等宽 */
+    #header-container nav {
+      background-color: #0018AC;
+      width: 100%;
+      max-width: 1600px;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      padding: 1em 2em;
+
+      /* 排版与参考站一致 */
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.25rem 0.75rem;
+      box-sizing: border-box;
+    }
+    /* 链接与按钮（参考站风格） */
+    #header-container nav a,
+    #header-container .dropbtn {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      white-space: nowrap;
+      font-size: 24px;
+      line-height: 1.5;
+      display: flex;
+      align-items: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      /* 去除按钮的默认样式影响 */
+      font-family: inherit;
+      padding: 0;
+      margin: 0 0.5em;
+    }
+    #header-container nav a:hover,
+    #header-container .dropbtn:hover { text-decoration: underline; }
+
+    /* 下拉菜单（只作用于 header 容器内） */
+    #header-container .dropdown { position: relative; display: inline-block; }
+    #header-container .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%; left: 0;
+      background-color: #f9f9f9;
+      min-width: 200px;              /* 与你参考站一致或略大 */
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 1000;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    #header-container .dropdown-content a {
+      color: #0056b3;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 18px;
+    }
+    #header-container .dropdown-content a:hover { background-color: #ddd; }
+    #header-container .dropdown:hover .dropdown-content { display: block; }
+
+    /* 小屏优化（可选） */
+    @media (max-width: 600px){
+      #header-container nav a,
+      #header-container .dropbtn { font-size: 18px; }
+    }
+
+    /* ===================== 仅在本页“修饰注入的 footer” ===================== */
+    #footer-container { 
+      display: flex; 
+      justify-content: center; 
+      background: #f1f1f1; 
+    }
+    /* 兼容 footer.html 中的结构（常见是 <div class="footer">…） */
+    #footer-container .footer,
+    #footer-container footer,
+    #footer-container .footer-inner {
+      width: 100%;
+      max-width: 1600px;
+      padding: 20px;
+      text-align: center;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+    #footer-container img { max-width: 80px; vertical-align: middle; }
+
+    /* ===================== 正文区域 ===================== */
     .wrapper {max-width: 1600px; margin: 0 auto; padding: 0 2em;}
     .container {max-width: 1600px; margin: 0 auto;}
     .content {
@@ -43,7 +138,7 @@
 
     .panel { background: #f1f1f1; padding: 15px; border-radius: 5px; }
 
-    /* ======= 图片排版 ======= */
+    /* ======= 图片排版：第一行1张，第二行2张 ======= */
     .image-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -57,57 +152,36 @@
       max-width: 520px;
       background: #f1f1f1;
       border-radius: 6px;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 10px;
       border: 1px solid #e0e0e0;
     }
-    .image-grid .imgbox:first-child { grid-column: 1 / -1; max-width: 720px; }
-
-    .image-grid img { max-width: 100%; height: auto; display: block; border-radius: 4px; }
-
-    /* 可选：无 JS 时的提示 */
-    noscript { display:block; text-align:center; color:#666; padding:8px 0; }
+    .image-grid .imgbox:first-child {
+      grid-column: 1 / -1;
+      max-width: 720px;
+    }
+    .image-grid img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+    }
   </style>
 </head>
 <body>
 
+  <!-- 把 header 的占位写在 wrapper 之外，避免正文 max-width 影响导航 -->
+  <div id="header-container"></div>
+
+  <!-- 原本本地导航 注释掉，避免样式冲突 -->
+  <!--
+  <header>…你之前的 nav 代码…</header>
+  -->
+
+  <!-- ======= 页面内容 ======= -->
   <div class="wrapper">
-
-    <!-- 顶部：导航占位（与参考网页一致，实际内容来自 header.html） -->
-    <div id="header-container"></div>
-
-    <!-- 原本的导航栏代码已按你的要求注释掉 -->
-    <!--
-    <header>
-      <div class="nav-wrapper">
-        <nav>
-          <a href="index.html">Home</a>
-          <div class="dropdown">
-            <button class="dropbtn">Committee</button>
-            <div class="dropdown-content">
-              <a href="committeeSO.html">Steering Committee</a>
-              <a href="committeeSO.html">Organization Committee</a>
-              <a href="committeePC.html">Program Committee</a>
-            </div>
-          </div>
-          <div class="dropdown">
-            <button class="dropbtn">Contribute</button>
-            <div class="dropdown-content">
-              <a href="callForPapers.html">Call for Papers</a>
-              <a href="callForXRGallery.html">Call for XR Gallery</a>
-            </div>
-          </div>
-          <a href="program.html">Program</a>
-          <a href="keynote.html">Keynote</a>
-          <a href="registration.html">Registration</a>
-          <a href="venue.html">Venue</a>
-          <a href="sponsorship.html">Sponsorship</a>
-        </nav>
-      </div>
-    </header>
-    -->
-
-    <!-- ======= 页面内容 ======= -->
     <div class="content">
       <div class="container">
 
@@ -145,7 +219,6 @@
         </ul>
 
         <p><strong>2) Supplementary Submission via Social Media</strong></p>
-        <p><a href="https://forms.gle/avxB71fijtsqjon66" target="_blank" rel="noopener">https://forms.gle/avxB71fijtsqjon66</a></p>
         <ul>
           <li>Publish the work on XiaoHongShu, Bilibili, DouYin, etc., @Tripo AI Official Account, and add the topic tag: <strong>#TripoRenderingChallengeS2</strong>.</li>
           <li>Note: Social media submission is an additional display channel. The work must first be submitted through the official website; otherwise, it will be regarded as an invalid submission.</li>
@@ -212,24 +285,28 @@
       </div>
     </div>
 
-    <!-- 底部：页脚占位（与参考网页一致，实际内容来自 footer.html） -->
+    <!-- 底部占位（footer.html 将被注入这里） -->
     <div id="footer-container"></div>
   </div>
 
-  <!-- 分别加载 header 与 footer，确保底部在页面最末尾 -->
+  <!-- 动态加载 header / footer（和参考网页一致） -->
   <script>
-    // 加载导航
-    fetch('header.html').then(r => r.text()).then(html => {
-      document.getElementById('header-container').innerHTML = html;
-    }).catch(err => console.error('Error loading header:', err));
+    // 建议在本地用服务器访问，避免 file:// 导致 fetch 被 CORS 限制
+    document.addEventListener('DOMContentLoaded', () => {
+      const bust = `?v=${Date.now()}`; // 防缓存
+      fetch(`header.html${bust}`)
+        .then(r => r.text())
+        .then(html => { document.getElementById('header-container').innerHTML = html; })
+        .catch(err => console.error('Error loading header:', err));
 
-    // 加载底部（一定在 .container 之后）
-    fetch('footer.html').then(r => r.text()).then(html => {
-      document.getElementById('footer-container').innerHTML = html;
-    }).catch(err => console.error('Error loading footer:', err));
+      fetch(`footer.html${bust}`)
+        .then(r => r.text())
+        .then(html => { document.getElementById('footer-container').innerHTML = html; })
+        .catch(err => console.error('Error loading footer:', err));
+    });
   </script>
+
+  <noscript>导航与底部依赖 JavaScript 动态加载；请启用 JavaScript。</noscript>
 </body>
 </html>
-
-
 
