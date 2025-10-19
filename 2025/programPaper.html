@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICXR 2025 Papers Program</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Roboto', Arial, sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; 
+            color: #333;
+            line-height: 1.6;
+        }
+
+        
+        nav {background-color: #0018AC; padding: 1em 2em; display: flex; justify-content: space-evenly; flex-wrap: wrap; gap: 0.25rem 0.75rem;}
+        nav a { color: white; margin: 0 0.5em; text-decoration: none; font-weight: bold; white-space: nowrap; font-size: 24px; display: flex; align-items: center; height: 100%; line-height: 1.5; }
+        nav a:hover { text-decoration: underline; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropbtn { background-color: #0018AC; color: white; font-weight: bold; border: none; cursor: pointer; font-size: 24px; padding: 0; margin: 0 0.5em; display: flex; align-items: center; height: 100%; line-height: 1.5; } 
+        .dropdown-content { display: none; position: absolute; background-color: #f9f9f9; min-width: 160px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 1; }
+        .dropdown-content a { color: #0056b3; padding: 12px 16px; text-decoration: none; display: block; }
+        .dropdown-content a:hover { background-color: #ddd; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .wrapper { max-width: 1600px; margin: 0 auto; padding: 0 2em; }
+        .container { max-width: 1600px; margin: 0 auto; }
+        .content { padding: 3em 2em; background-color: white; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); border-radius: 8px; }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f1f1f1;
+            position: relative;
+        }
+        .footer img {
+            max-width: 80px;
+            vertical-align: middle;
+        }
+        
+        /* --- START: BEAUTIFIED PROGRAM STYLES --- */
+
+        .entry-title {
+            text-align: center;
+            font-size: 2.8em;
+            font-weight: 700;
+            color: #0018AC;
+            margin-bottom: 40px;
+        }
+        
+        .entry-content h3 {
+            font-size: 2em;
+            font-weight: 700;
+            color: #333;
+            border-bottom: 3px solid #0018AC;
+            padding-bottom: 12px;
+            margin-top: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .entry-content h3:first-of-type {
+            margin-top: 10px;
+        }
+
+        .session-info {
+            background-color: #eef2f7;
+            border-left: 5px solid #0056b3;
+            border-radius: 4px;
+            padding: 15px 25px;
+            margin: 25px 0;
+            font-size: 1.1em;
+            font-weight: 500;
+            color: #444;
+        }
+
+        .session-info strong {
+            color: #0018AC;
+            margin-right: 8px;
+        }
+
+        .paper-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 25px;
+        }
+
+        .paper-item {
+            background: #fff;
+            padding: 20px 15px;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            align-items: flex-start;
+            transition: background-color 0.2s ease-in-out;
+        }
+        
+        .paper-item:last-child {
+            border-bottom: none;
+        }
+
+        .paper-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .paper-id {
+            font-weight: 700;
+            color: #c23616; /* A clear, professional red */
+            margin-right: 15px;
+            font-size: 1.05em;
+            line-height: 1.5;
+            min-width: 65px; /* Ensures titles align vertically */
+            text-align: left;
+        }
+
+        .paper-title {
+            font-weight: 500;
+            color: #333;
+            font-size: 1.05em;
+            line-height: 1.5;
+        }
+        
+        /* Remove original table styles as they are not used for this layout */
+        table, th, td {
+            all: unset;
+        }
+        /* --- END: BEAUTIFIED PROGRAM STYLES --- */
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+    <!-- 顶部：导航占位 -->
+    <div id="header-container"></div>
+        <!-- <nav> ... </nav> -->
+
+    <div class="container">
+        <!-- Content class is kept for consistency with the rest of the site -->
+        <div class="content"> 
+            <header>
+                <h1 class="entry-title">ICXR 2025 Papers Program</h1>
+            </header>
+            <div class="entry-content">
+                <!-- Paper Session 1 -->
+                <h3>Paper Session 1 - 3D Reconstruction, SLAM & Scene Understanding</h3>
+                <div class="session-info">
+                    <strong>Date:</strong> 2025.11.1 | <strong>Time:</strong> 13:00-14:00 | <strong>Place:</strong> Taishan Function Room
+                </div>
+                <ul class="paper-list">
+                    <li class="paper-item"><span class="paper-id">[6323]</span><span class="paper-title">RBTFusion: Region-based Tracking for Real-Time Reconstruction from RGB-D Data</span></li>
+                    <li class="paper-item"><span class="paper-id">[7062]</span><span class="paper-title">3DOT-SLAM: Robust SLAM in Weak Feature Environment Based on 3D Object Tracking</span></li>
+                    <li class="paper-item"><span class="paper-id">[7897]</span><span class="paper-title">StockSeg: Anchor-Guided Multimodal Segmentation for Stockpile Point Clouds</span></li>
+                    <li class="paper-item"><span class="paper-id">[8662]</span><span class="paper-title">Adaptive Regional Segmentation and Fitting-Based Building LOD Reconstruction Method</span></li>
+                    <li class="paper-item"><span class="paper-id">[1287]</span><span class="paper-title">PanoNormal: Monocular Indoor 360° Surface Normal Estimation</span></li>
+                    <li class="paper-item"><span class="paper-id">[1077]</span><span class="paper-title">CleanSplat: Curriculum Structural Gaussian Splatting for Spot-Free Novel View Synthesis</span></li>
+                </ul>
+
+                <!-- Paper Session 2 -->
+                <h3>Paper Session 2 - AI & Data-Driven Methods</h3>
+                <div class="session-info">
+                    <strong>Date:</strong> 2025.11.1 | <strong>Time:</strong> 14:00-15:00 | <strong>Place:</strong> Taishan Function Room
+                </div>
+                <ul class="paper-list">
+                    <li class="paper-item"><span class="paper-id">[8127]</span><span class="paper-title">DS²DF: Decoupled Subject-Scene Diffusion Framework for Customized Image Synthesis</span></li>
+                    <li class="paper-item"><span class="paper-id">[645]</span><span class="paper-title">A Method for Fast Prediction of Flood Evolution Process Based on Graph Neural Network</span></li>
+                    <li class="paper-item"><span class="paper-id">[103]</span><span class="paper-title">Learning A Deep Second-Order Unfolding Model for Arbitrary-Scale Depth Map Super-Resolution</span></li>
+                    <li class="paper-item"><span class="paper-id">[6094]</span><span class="paper-title">Training-Free Mental-Oriented Verbalized Learning For Video Highlight Detection</span></li>
+                    <li class="paper-item"><span class="paper-id">[3064]</span><span class="paper-title">Aligned and Detail Guided Retrieval: Multi-Scale Fine-grained Features Enhancement for End-to-End Person Search</span></li>
+                    <li class="paper-item"><span class="paper-id">[9898]</span><span class="paper-title">An AI-Driven Weather Forecasting Framework Integrating Large Weather Model and Data Assimilation</span></li>
+                </ul>
+
+                <!-- Paper Session 3 -->
+                <h3>Paper Session 3 - Animation, Motion & Physical Simulation</h3>
+                <div class="session-info">
+                    <strong>Date:</strong> 2025.11.1 | <strong>Time:</strong> 15:20-16:20 | <strong>Place:</strong> Taishan Function Room
+                </div>
+                <ul class="paper-list">
+                    <li class="paper-item"><span class="paper-id">[5399]</span><span class="paper-title">A 3D Simulation Platform for Fuel Handling and Storage Systems</span></li>
+                    <li class="paper-item"><span class="paper-id">[2321]</span><span class="paper-title">ViMoGen: A Novel Motion Generator for Virtual Standard Patient</span></li>
+                    <li class="paper-item"><span class="paper-id">[4327]</span><span class="paper-title">DistMovGen: Knowledge Distillation-Enhanced Synthesis Framework for Real-Time Virtual Character Motion Generation</span></li>
+                    <li class="paper-item"><span class="paper-id">[5959]</span><span class="paper-title">Learning Disentangled Speech- and Expression-Driven Blendshapes for 3D Talking Face Animation</span></li>
+                    <li class="paper-item"><span class="paper-id">[4000]</span><span class="paper-title">Multi-process thermodynamic graph learning for 2D fluid simulation</span></li>
+                    <li class="paper-item"><span class="paper-id">[7483]</span><span class="paper-title">Dynamic simulation of water erosion terrain</span></li>
+                </ul>
+
+                <!-- Paper Session 4 -->
+                <h3>Paper Session 4 - Collaborative Systems, Design & Creative Tools</h3>
+                <div class="session-info">
+                    <strong>Date:</strong> 2025.11.1 | <strong>Time:</strong> 16:20-17:20 | <strong>Place:</strong> Taishan Function Room
+                </div>
+                <ul class="paper-list">
+                    <li class="paper-item"><span class="paper-id">[8741]</span><span class="paper-title">Foregrounding Collaboration in CAVE Systems: A Survey Across Domains, Interaction, and System Design</span></li>
+                    <li class="paper-item"><span class="paper-id">[4894]</span><span class="paper-title">ForwardTerrain: One-Pass Terrain Authoring through Mid-Air Sketching without Backtracking</span></li>
+                    <li class="paper-item"><span class="paper-id">[1265]</span><span class="paper-title">Paper shadow art</span></li>
+                    <li class="paper-item"><span class="paper-id">[2688]</span><span class="paper-title">Integrating Multi-Modal Interaction with AR Garment Design for Educational Applications</span></li>
+                    <li class="paper-item"><span class="paper-id">[4827]</span><span class="paper-title">WireSculptor: Interactive Guided Bending Workflow for Novice-Friendly Wire Sculpture Fabrication</span></li>
+                    <li class="paper-item"><span class="paper-id">[8636]</span><span class="paper-title">Synchronizing Virtual Backgrounds with Monocular Camera Motion: A Mixed Reality Framework for Video Conferencing</span></li>
+                </ul>
+                
+                <!-- Paper Session 5 -->
+                <h3>Paper Session 5 - Locomotion, Navigation & Interaction</h3>
+                <div class="session-info">
+                    <strong>Date:</strong> 2025.11.2 | <strong>Time:</strong> 13:00-14:00 | <strong>Place:</strong> Meeting Room 1
+                </div>
+                <ul class="paper-list">
+                    <li class="paper-item"><span class="paper-id">[1158]</span><span class="paper-title">Proprioception-Based Subconscious Physical Body Tapping to Manipulate Virtual Humanoid Interface: A Novel Interactive Genre</span></li>
+                    <li class="paper-item"><span class="paper-id">[5537]</span><span class="paper-title">Look at That Distractor: Dynamic Translation Gain under Low Perceptual Load in Virtual Reality</span></li>
+                    <li class="paper-item"><span class="paper-id">[1184]</span><span class="paper-title">Incorporating Strafing Gain into Redirected Walking with Pose Score Guidance</span></li>
+                    <li class="paper-item"><span class="paper-id">[1259]</span><span class="paper-title">Locomotion in CAVE: Enhancing Immersion through Full-Body Motion</span></li>
+                    <li class="paper-item"><span class="paper-id">[6122]</span><span class="paper-title">Negotiating Without Turning: Exploring Rear-Space Interaction for Negotiated Teleportation in VR</span></li>
+                    <li class="paper-item"><span class="paper-id">[7443]</span><span class="paper-title">Calibration‑Free Multi‑View 3D Hand Pose Estimation for XR Cockpit Interactions</span></li>
+                </ul>
+
+                <!-- Paper Session 6 -->
+                <h3>Paper Session 6 - Medical Imaging, Simulation & Planning</h3>
+                <div class="session-info">
+                    <strong>Date:</strong> 2025.11.2 | <strong>Time:</strong> 14:00-15:00 | <strong>Place:</strong> Meeting Room 1
+                </div>
+                <ul class="paper-list">
+                    <li class="paper-item"><span class="paper-id">[1374]</span><span class="paper-title">Energy-based Haptic Rendering for Real-time Surgical Simulation</span></li>
+                    <li class="paper-item"><span class="paper-id">[5701]</span><span class="paper-title">Model-guided 3D Cranial Open Surface Reconstruction based on Euler’s Elastica and Optimal Transport</span></li>
+                    <li class="paper-item"><span class="paper-id">[2003]</span><span class="paper-title">Automatic accurate craniofacial reconstruction based on geodesic statistical model</span></li>
+                    <li class="paper-item"><span class="paper-id">[3462]</span><span class="paper-title">3D Tooth semi-closed hole filling algorithm based on moving least squares method</span></li>
+                    <li class="paper-item"><span class="paper-id">[8275]</span><span class="paper-title">MESA-Net: Multi-scale Enhanced Spatial Attention Network for Medical Image Segmentation</span></li>
+                    <li class="paper-item"><span class="paper-id">[16]</span><span class="paper-title">A Semi-Passive Haptic Device For Viscosity Display In Virtual Bone Cement Injection</span></li>
+                </ul>
+                
+                <!-- Paper Session 7 -->
+                <h3>Paper Session 7 - Perception, Cognition & User Experience</h3>
+                <div class="session-info">
+                    <strong>Date:</strong> 2025.11.2 | <strong>Time:</strong> 15:20-16:20 | <strong>Place:</strong> Meeting Room 1
+                </div>
+                <ul class="paper-list">
+                    <li class="paper-item"><span class="paper-id">[3554]</span><span class="paper-title">Correlations Between Instant and Prolonged Stimuli With Physiological and Subjective Responses in VR Horror</span></li>
+                    <li class="paper-item"><span class="paper-id">[2711]</span><span class="paper-title">Bioresponsive Avatars: Perceiving Emotions Through Virtual Avatar Representation in Empathic Social VR</span></li>
+                    <li class="paper-item"><span class="paper-id">[5549]</span><span class="paper-title">The Effect of Unexpected Visual Stimuli on Short-term Memory in Immersive Experience</span></li>
+                    <li class="paper-item"><span class="paper-id">[2204]</span><span class="paper-title">Exploring the Impact of Emotional Background Music on Motion Control Training for Dance Majors Based on Valence and Arousal</span></li>
+                    <li class="paper-item"><span class="paper-id">[4804]</span><span class="paper-title">Voice of Artifacts: Evaluating User Preferences for Artifact Voice in Virtual Museums</span></li>
+                    <li class="paper-item"><span class="paper-id">[6168]</span><span class="paper-title">A Sensory Encoding Framework for VR: Extending Bayesian Efficient Coding with Physiological Insights</span></li>
+                </ul>
+                
+                <!-- Paper Session 8 -->
+                <h3>Paper Session 8 - Rendering, Illumination & Global Illumination</h3>
+                <div class="session-info">
+                    <strong>Date:</strong> 2025.11.2 | <strong>Time:</strong> 16:20-17:20 | <strong>Place:</strong> Meeting Room 1
+                </div>
+                <ul class="paper-list">
+                    <li class="paper-item"><span class="paper-id">[1586]</span><span class="paper-title">Detail Enhancement Gaussian Avatar: High-quality head avatars modeling</span></li>
+                    <li class="paper-item"><span class="paper-id">[1745]</span><span class="paper-title">WebGS360: Gaussian Splatting Mapping for Panoramic Images with Web-Based Visualization</span></li>
+                    <li class="paper-item"><span class="paper-id">[2872]</span><span class="paper-title">Importance Sampling Guided Neural Radiosity</span></li>
+                    <li class="paper-item"><span class="paper-id">[4121]</span><span class="paper-title">Geometry-Aware Global Feature Aggregation for Real-Time Indirect Illumination</span></li>
+                    <li class="paper-item"><span class="paper-id">[5158]</span><span class="paper-title">Neural Global Illumination via HoloMap and AdaptMap</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- 底部：Sponsored by CCF 占位（放在最底部） -->
+    <div id="footer-container"></div>
+    <!-- <div class="footer"> ... </div> -->
+    </div>
+    
+  <!-- 分别加载 header 与 footer，确保底部在页面最末尾 -->
+  <script>
+    // 加载导航
+    fetch('header.html').then(r => r.text()).then(html => {
+      document.getElementById('header-container').innerHTML = html;
+    }).catch(err => console.error('Error loading header:', err));
+
+    // 加载底部（一定在 .container 之后）
+    fetch('footer.html').then(r => r.text()).then(html => {
+      document.getElementById('footer-container').innerHTML = html;
+    }).catch(err => console.error('Error loading footer:', err));
+  </script>
+<script>window.parent.postMessage({ action: "ready" }, "*"); 
+ 
+window.console = new Proxy(console, {
+  get(target, prop) {
+    if (['log', 'warn', 'error'].includes(prop)) {
+      return new Proxy(target[prop], {
+        apply(fn, thisArg, args) {
+          fn.apply(thisArg, args);
+          window.parent.postMessage({ action: 'console', 
+            type: prop, 
+            args: args.map((arg) => {
+              try {
+                return JSON.stringify(arg).replace(/^["']|["']$/g, '');
+              } catch (e) {
+                return arg;
+              }
+            }) 
+          }, '*');
+        }
+      });
+    }
+    return target[prop];
+  }
+});
+</script></body>
+</html>
