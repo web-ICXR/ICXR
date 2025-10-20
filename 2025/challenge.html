@@ -50,6 +50,8 @@
     .dropdown-content a:hover { background-color: #ddd; }
     .dropdown:hover .dropdown-content { display: block; }
 
+    .banner-container { width: 100%; text-align: center; padding: 2em 0 1em; }
+    .banner-container img { width: 100%; max-width: 1600px; height: auto; border-radius: 15px; }
     /* ===================== 仅在本页“修饰注入的 footer” ===================== */
     #footer-container {
       display: flex;
@@ -177,10 +179,13 @@
   <div id="header-container"></div>
 
   <!-- 头图（与正文同宽） -->
-  <div class="hero">
+  <!-- <div class="hero">
     <img src="head.png" alt="Tripo AI 3D Rendering Challenge - Hero">
-  </div>
+  </div> -->
 
+      <div class="banner-container">
+        <img src="head.png" alt="Tripo AI 3D Rendering Challenge - Hero">
+      </div>
   <!-- ======= 页面内容 ======= -->
   <div class="wrapper">
     <div class="content">
@@ -275,7 +280,7 @@
 
         <h2>Links</h2>
         <p>
-          Challenge Link: <a href="https://www.tripo3d.ai/event/tripo-ai-3d-rendering-challenge" target="_blank" rel="noopener">https://www.tripo3d.ai/event/tripo-ai-3d-rendering-challenge</a><br>
+          <span style="font-weight: bold; color: red;">Challenge Link: <a href="https://www.tripo3d.ai/event/tripo-ai-3d-rendering-challenge" target="_blank" rel="noopener">https://www.tripo3d.ai/event/tripo-ai-3d-rendering-challenge</a><br></span>
           Tripo Official Website: <a href="https://studio.tripo3d.ai" target="_blank" rel="noopener">https://studio.tripo3d.ai</a><br>
           RAYSENGINE Official Website: <a href="https://www.raysengine.com" target="_blank" rel="noopener">https://www.raysengine.com</a>
         </p>
