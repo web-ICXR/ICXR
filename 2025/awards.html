@@ -125,9 +125,9 @@
 
     /* 分组标题：图标 + 文本，水平居中 */
     .award-heading{
-        display:flex;align-items:center;justify-content:center;gap:12px;
+        display:flex;align-items:center;justify-content:flex-start;gap:12px;
         font-weight:800;color:#f1954e;font-size:1.25rem;margin:24px 0 8px;
-        text-transform:uppercase;
+        text-transform:uppercase;text-align: left; 
     }
     .award-heading.hm{ color:#f1954e; } /* HM 同站点主蓝色 */
     .award-icon{ width:48px;height:48px;object-fit:contain; }
@@ -140,6 +140,16 @@
     .paper-authors,.poster-authors,.gallery-authors{ margin:0;line-height:1.5; }
     .paper-authors strong,.poster-authors strong,.gallery-authors strong{ font-weight:700; }
     .paper-authors em,.poster-authors em,.gallery-authors em{ font-style:italic;color:#555; }
+
+    /* 1) 顶部主标题居中 */
+    .content > h1 { 
+      text-align: center; 
+    }
+
+    /* 2) 小标题 PAPERS / POSTERS / GALLERY 居中 */
+    .content > h2 { 
+      text-align: center; 
+    }
   </style>
 </head>
 <body>
@@ -250,8 +260,7 @@
     </article>
     </section>
 
-    <!-- —— Posters —— -->
-    <section id="posters">
+    <!-- —— Posters —— -->   
     <h2>POSTERS</h2>
 
     <section id="best-posters">
