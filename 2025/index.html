@@ -31,6 +31,30 @@
     .footer { text-align: center; padding: 20px; background-color: #f1f1f1; position: relative; }
     .footer img { max-width: 80px; vertical-align: middle; }
     .wrapper { max-width: 1600px; margin: 0 auto; padding: 0 2em; }
+
+        /* —— 标题下视频 —— */
+    .video-block {
+      margin: 2rem 0 1rem;
+    }
+    .video-block h2 {
+      margin: 0 0 0.75rem 0;
+      color: #0044cc;       /* 与页面 h2 颜色一致 */
+      font-size: 1.35rem;
+    }
+    .video-frame {
+      width: 100%;
+      max-width: 100%;
+      display: block;
+      margin: 0;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    }
+    .video-note {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
   </style>
 </head>
 <body>
@@ -49,6 +73,11 @@
 
         <p style="text-align:justify; text-justify:inter-ideograph;"><strong>November 1–2, 2025</strong>: ICXR 2025 has been successfully held in Qingdao, Shandong, China. The conference has gathered worldwide researchers and practitioners for keynotes, paper sessions, workshops, and exhibitions. We sincerely thank all attendees, authors, reviewers, sponsors, and volunteers for their support.</p>
         
+        <!-- —— 标题下：视频占位 —— -->
+      <div class="video-block">
+        <video class="video-frame" src="icxr2025.mp4" controls preload="metadata"></video>
+      </div>
+
         <p style="text-align:justify; text-justify:inter-ideograph;"><strong>October 18, 2025</strong>: The Tripo competition is now online, please refer to <a href="https://icxr.net/2025/challenge.html" target="_blank">Challenge</a> for more details.</p>
         
         <p style="text-align:justify; text-justify:inter-ideograph;"><strong>October 16, 2025</strong>: Paper recommendations have been completed.</p>
