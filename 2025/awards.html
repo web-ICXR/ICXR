@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ICXR Conference Awards 2025</title>
+  <style>
+    /* —— 页面基础：不再覆盖 header.html / footer.html 的任何样式 —— */
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; }
+
+    /* ===================== 仅在本页“修饰注入的 header” ===================== */
+    /* 1) 让蓝色区域与内容同宽（max-width:1600px），并居中 */
+    #header-container {
+      display: flex;
+      justify-content: center;
+      background: #f4f4f4; /* 页面底色 */
+    }
+    /* header.html 里最外层通常是 <nav>，我们直接给它蓝底与等宽 */
+    #header-container nav {
+      background-color: #0018AC;
+      width: 100%;
+      max-width: 1600px;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      padding: 1em 2em;
+
+      /* 排版与参考站一致 */
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.25rem 0.75rem;
+      box-sizing: border-box;
+    }
+    /* 链接与按钮（参考站风格） */
+
+    nav {background-color: #0018AC; padding: 1em 2em; display: flex; justify-content: space-evenly; flex-wrap: wrap; gap: 0.25rem 0.75rem;}
+    nav a { color: white; margin: 0 0.5em; text-decoration: none; font-weight: bold; white-space: nowrap; font-size: 24px; display: flex; align-items: center; height: 100%; line-height: 1.5; }
+    nav a:hover { text-decoration: underline; }
+    .dropdown { position: relative; display: inline-block; }
+    .dropbtn { background-color: #0018AC; color: white; font-weight: bold; border: none; cursor: pointer; font-size: 24px; padding: 0; margin: 0 0.5em; display: flex; align-items: center; height: 100%; line-height: 1.5; } 
+    .dropdown-content { display: none; position: absolute; background-color: #f9f9f9; min-width: 160px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 1; }
+    .dropdown-content a { color: #0056b3; padding: 12px 16px; text-decoration: none; display: block; }
+    .dropdown-content a:hover { background-color: #ddd; }
+    .dropdown:hover .dropdown-content { display: block; }
+
+    /* ===================== 仅在本页“修饰注入的 footer” ===================== */
+    #footer-container {
+      display: flex;
+      justify-content: center;
+      background: #f1f1f1;
+    }
+    /* 兼容 footer.html 中的结构（常见是 <div class="footer">…） */
+    #footer-container .footer,
+    #footer-container footer,
+    #footer-container .footer-inner {
+      width: 100%;
+      max-width: 1600px;
+      padding: 20px;
+      text-align: center;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+    #footer-container img { max-width: 80px; vertical-align: middle; }
+
+    /* —— 正文容器（与 challenge.html 一致的宽度节奏） —— */
+    .wrapper { max-width:1600px; margin:0 auto; padding:0 2em; }
+    .content { padding:3em 2em; background:#fff; box-shadow:0 4px 8px rgba(0,0,0,.1); border-radius:8px; }
+    h1,h2 { color:#0044cc; }
+
+    /* —— 标题下视频 —— */
+    .video-block {
+      margin: 2rem 0 1rem;
+    }
+    .video-block h2 {
+      margin: 0 0 0.75rem 0;
+      color: #0044cc;       /* 与页面 h2 颜色一致 */
+      font-size: 1.35rem;
+    }
+    .video-frame {
+      width: 100%;
+      max-width: 100%;
+      display: block;
+      margin: 0;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    }
+    .video-note {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    /* —— Quick Links（视频下方、仿 ieeevr 左栏样式） —— */
+    .links-card { border-radius:16px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,.08); border:1px solid #d9e2ea; margin:0 0 2rem; background:#fff; }
+    .links-header { padding:14px 18px; font-weight:700; color:#fff; background:linear-gradient(180deg,#87aec9,#a9c7e5); border-bottom:1px solid #cfe0f2; }
+    .links-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;          /* 关键：固定布局，三列可等宽 */
+    }
+    .links-table td {
+    width: 33.333%;               /* 三列等宽 */
+    text-align: center;           /* 内容居中 */
+    padding: 14px 12px;
+    font-size: 1.06rem;
+    }
+    .links-table tr:nth-child(odd) { background:#f5f5f5; }
+    .links-table a {
+    font-size: 1.06rem;
+    }
+
+    /* —— Awards 明细表格 —— */
+    table.data { width:100%; border-collapse:collapse; box-shadow:0 1px 3px rgba(0,0,0,.06); margin-top:.5rem; }
+    .data caption { text-align:left; font-weight:700; color:#0044cc; padding:0 0 8px; }
+    .data th,.data td { border:1px solid #e6e6e6; padding:10px 12px; text-align:left; vertical-align:top; }
+    .data th { background:#eef4ff; color:#1d3f8a; }
+    .badge { display:inline-block; background:#e8f0ff; color:#1d3f8a; padding:2px 8px; border-radius:999px; font-size:.8rem; font-weight:700; }
+
+    /* —— 列表 —— */
+    ul { margin:0 0 1em 1.25em; padding:0; }
+    ul li { margin:.35em 0; list-style:none; position:relative; padding-left:.75em; }
+    ul li::before { content:"•"; color:#0056b3; font-weight:bold; position:absolute; left:-1em; width:1em; }
+
+    /* 分组标题：图标 + 文本，水平居中 */
+    .award-heading{
+        display:flex;align-items:center;justify-content:center;gap:12px;
+        font-weight:800;color:#f1954e;font-size:1.25rem;margin:24px 0 8px;
+        text-transform:uppercase;
+    }
+    .award-heading.hm{ color:#f1954e; } /* HM 同站点主蓝色 */
+    .award-icon{ width:48px;height:48px;object-fit:contain; }
+    .divider{ border:0;border-top:1px solid #ddd;margin:8px 0 18px; }
+
+    /* 标题和作者行复用，与 ICXR 站点一致的蓝色 */
+    .paper-title,.poster-title,.gallery-title{
+        color:#0044cc;font-size:1.25rem;line-height:1.35;margin:0 0 6px;
+    }
+    .paper-authors,.poster-authors,.gallery-authors{ margin:0;line-height:1.5; }
+    .paper-authors strong,.poster-authors strong,.gallery-authors strong{ font-weight:700; }
+    .paper-authors em,.poster-authors em,.gallery-authors em{ font-style:italic;color:#555; }
+  </style>
+</head>
+<body>
+  <!-- —— header 注入占位（样式由 header.html 决定） —— -->
+  <div id="header-container"></div>
+
+  <!-- —— 正文 —— -->
+  <div class="wrapper">
+    <div class="content">
+      <h1>ICXR Conference Awards 2025</h1>
+
+      <!-- —— 标题下：视频占位 —— -->
+      <div class="video-block">
+        <video class="video-frame" src="icxr2025.mp4" controls preload="metadata"></video>
+      </div>
+
+      <!-- —— 视频下方：Quick Links —— -->
+      <div class="links-card" aria-label="Conference Awards - Quick Links">
+        <div class="links-header">Conference Awards - Quick Links</div>
+        <table class="links-table">
+          <tbody>
+            <tr>
+              <td>Papers</td>
+              <td><a href="#best-papers">Best Papers</a></td>
+              <td><a href="#paper-hm">Honorable Mentions</a></td>
+            </tr>
+            <tr>
+              <td>Posters</td>
+              <td><a href="#best-posters">Best Posters</a></td>
+              <td><a href="#poster-hm">Honorable Mentions</a></td>
+            </tr>
+            <tr>
+              <td>Gallery</td>
+              <td><a href="#best-gallery">Best Gallery</a></td>
+              <td><a href="#poster-hm"></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    <!-- —— Papers —— -->
+    <h2>PAPERS</h2>
+
+    <section id="best-papers">
+    <!-- BEST PAPERS 分组标题（图标 + 文本，居中） -->
+    <div class="award-heading">
+        <img src="icons/icon-best.png" alt="" class="award-icon">
+        <span>BEST PAPERS</span>
+    </div>
+    <hr class="divider">
+
+    <!-- 论文条目（标题无链接；作者加粗，单位斜体） -->
+    <article class="paper-item">
+        <h4 class="paper-title">Energy-based Haptic Rendering for Real-time Surgical Simulation</h4>
+        <p class="paper-authors">
+        <strong>Lei He, Mingbo Hu, Wenli Xiu, Hongyu Wu, Siming Zheng, Shuai Li, Qian Dong and Aimin Hao</strong><br>
+        <em>Beihang University, The Affiliated Hospital of Qingdao University, The First Affiliated Hospital of Ningbo University</em><br><br>
+        </p>
+    </article>
+
+    <article class="paper-item">
+        <h4 class="paper-title">Proprioception-Based Subconscious Physical Body Tapping to Manipulate Virtual Humanoid Interface A Novel Interactive Genre</h4>
+        <p class="paper-authors">
+        <strong>Ling-Long Zou, Qiang Tong, Er-Xia Luo, Sen-Zhe Xu, Song-Hai Zhang and Fang-Lue Zhang</strong><br>
+        <em>Beijing Information Science & Technology University, University of Science and Technology Beijing, Tsinghua University, Victoria University of Wellington</em><br><br>
+        </p>
+    </article>
+    </section>
+
+    <section id="paper-hm">
+    <!-- HONORABLE MENTIONS 分组标题（使用不同图标） -->
+    <div class="award-heading hm">
+        <img src="icons/icon-hm.png" alt="" class="award-icon">
+        <span>HONORABLE MENTIONS</span>
+    </div>
+    <hr class="divider">
+
+    <article class="paper-item">
+        <h4 class="paper-title">WebGS360 Gaussian Splatting Mapping for Panoramic Images with Web-Based Visualization</h4>
+        <p class="paper-authors">
+        <strong>Chongli Zhang, Pengyu Wang, Xiuquan Qiao and Yakun Huang</strong><br>
+        <em>Beijing University of Posts and Telecommunications</em><br><br>
+        </p>
+    </article>
+
+    <article class="paper-item">
+        <h4 class="paper-title">Correlations Between Instant and Prolonged Stimuli With Physiological and Subjective Responses in VR Horror</h4>
+        <p class="paper-authors">
+        <strong>Zeren Tao, Qilei Sun, Xiaohan Wang, Zuoqing Yang, Shengqiao Wu, Yibang Zhao and Binwei Lei</strong><br>
+        <em>Xi'an Jiaotong-Liverpool University</em><br><br>
+        </p>
+    </article>
+
+    <article class="paper-item">
+        <h4 class="paper-title">Training-Free Mental-Oriented Verbalized Learning For Video Highlight Detection</h4>
+        <p class="paper-authors">
+        <strong>Qiang Zhou, Qichuan Geng, Weimin Shi and Zhong Zhou</strong><br>
+        <em>Beihang University, Capital Normal University</em><br><br>
+        </p>
+    </article>
+
+    <article class="paper-item">
+        <h4 class="paper-title">Proprioception-Based Subconscious Physical Body Tapping to Manipulate Virtual Humanoid Interface A Novel Interactive Genre</h4>
+        <p class="paper-authors">
+        <strong>Gaorong Lv, Xiaokang Fan, Wei Gai, Qianyu Meng, Ping Li and Chenglei Yang</strong><br>
+        <em>Shandong University</em><br><br>
+        </p>
+    </article>
+    </section>
+
+    <!-- —— Posters —— -->
+    <section id="posters">
+    <h2>POSTERS</h2>
+
+    <section id="best-posters">
+    <!-- BEST POSTERS（图标 + 文本，居中） -->
+    <div class="award-heading">
+        <img src="icons/icon-best.png" alt="" class="award-icon">
+        <span>BEST POSTERS</span>
+    </div>
+    <hr class="divider">
+
+    <article class="poster-item">
+        <h4 class="poster-title">Perceiving Safety: User Preferences and Perception of Multimodal Virtual Boundary Cues in Virtual Reality</h4>
+        <p class="poster-authors">
+        <strong>Xin Du, Sen-Zhe Xu, Yang-Fu Ren, Qi-Wen Gan and Song-Hai Zhang</strong><br>
+        <em>Qinghai University, University of Science and Technology Beijing, University of Arizona, Tsinghua University</em><br>
+        </p>
+    </article>
+    </section>
+
+    <section id="poster-hm">
+    <!-- HONORABLE MENTIONS（使用 HM 图标） -->
+    <div class="award-heading hm">
+        <img src="icons/icon-hm.png" alt="" class="award-icon">
+        <span>HONORABLE MENTIONS</span>
+    </div>
+    <hr class="divider">
+
+    <article class="poster-item">
+        <h4 class="poster-title">Personalized Visiting Route Generation for Virtual Museums Based on Large-Scale Models</h4>
+        <p class="poster-authors">
+        <strong>Yuhan Duan and Lili Wang</strong><br>
+        <em>Beihang University</em><br>
+        </p>
+    </article>
+    </section>
+
+    <!-- —— Gallery —— -->   
+    <h2>GALLERY</h2>
+
+    <section id="best-gallery">
+    <!-- BEST GALLERY（仅 Best，无 HM） -->
+    <div class="award-heading">
+        <img src="icons/icon-best.png" alt="" class="award-icon">
+        <span>BEST GALLERY</span>
+    </div>
+    <hr class="divider">
+
+    <article class="gallery-item">
+        <h4 class="gallery-title">BraveQuest: Designing a Mixed Reality Game to Support Exposure Therapy for Children with Zoophobia</h4>
+        <p class="gallery-authors">
+        <strong>Jiajia Li, Xiu Zhang, Hongbo Chen, Jingyi Zhao, Xinwei Yuan, Lian Xue and Junyu Jiang</strong><br>
+        <em>Qingdao University, Qingdao Tongde Primary School</em>
+        </p>
+    </article>
+    </section>
+
+
+
+    </div>
+  </div>
+
+  <!-- —— footer 注入占位 —— -->
+  <div id="footer-container"></div>
+
+  <!-- —— 动态加载 header/footer（与 challenge.html 一致，并加 bust 防缓存） —— -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const bust = `?v=${Date.now()}`; // 防缓存参数
+      fetch(`header.html${bust}`).then(r=>r.text()).then(html=>{ document.getElementById('header-container').innerHTML = html; }).catch(e=>console.error('加载 header 失败：', e));
+      fetch(`footer.html${bust}`).then(r=>r.text()).then(html=>{ document.getElementById('footer-container').innerHTML = html; }).catch(e=>console.error('加载 footer 失败：', e));
+    });
+  </script>
+</body>
+</html>
