@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ICXR 2026: Committee</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+
+ 
+    nav {background-color: #0018AC; padding: 1em 2em; display: flex; justify-content: space-evenly; flex-wrap: wrap; gap: 0.25rem 0.75rem;}
+    nav a { color: white; margin: 0 0.5em; text-decoration: none; font-weight: bold; white-space: nowrap; font-size: 24px; display: flex; align-items: center; height: 100%; line-height: 1.5; }
+    nav a:hover { text-decoration: underline; }
+    .dropdown { position: relative; display: inline-block; }
+    .dropbtn { background-color: #0018AC; color: white; font-weight: bold; border: none; cursor: pointer; font-size: 24px; padding: 0; margin: 0 0.5em; display: flex; align-items: center; height: 100%; line-height: 1.5; } 
+    .dropdown-content { display: none; position: absolute; background-color: #f9f9f9; min-width: 160px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 1; }
+    .dropdown-content a { color: #0056b3; padding: 12px 16px; text-decoration: none; display: block; }
+    .dropdown-content a:hover { background-color: #ddd; }
+    .dropdown:hover .dropdown-content { display: block; }
+    .container { max-width: 1600px; margin: 0 auto; }
+    .content { padding: 3em 2em; background-color: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; }
+
+
+      .introduction {
+        margin-top: 2em;
+      }
+
+      h1,
+      h2 {
+        color: #0044cc;
+      }
+
+      h1 {
+        margin-top: 0;
+      }
+
+      p {
+        line-height: 1.6;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #f1f1f1;
+      }
+
+      .footer img {
+        max-width: 80px;
+        vertical-align: middle;
+      }
+
+      /* Align nav and content for same left margin */
+      .wrapper {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 0 2em;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* 创建3列等宽网格 */
+        gap: 10px;
+        /* 网格间距 */
+      }
+
+      /* .grid-item img {
+        margin-bottom: 10px;
+        // 调整图片底部行距 
+      } */
+      .image {
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .grid-item p {
+        text-align: center;
+        margin: 0;
+        /* 去除p标签默认的上下边距 */
+        margin-bottom: 5px;
+        /* 设置文字底部行距，可根据需要修改数值 */
+      }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+    <!-- 顶部：导航占位 -->
+    <div id="header-container"></div>
+        <!-- <nav>
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Committee</button>
+                <div class="dropdown-content">
+                    <a href="committeeSO.html">Steering Committee</a>
+                    <a href="committeeSO.html">Organization Committee</a>
+                    <a href="committeePC.html">Program Committee</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Contribute</button>
+                <div class="dropdown-content">
+                    <a href="callForPapers.html">Call for Papers</a>
+                    <a href="callForXRGallery.html">Call for XR Gallery</a>
+                </div>
+            </div>
+            
+            <a href="program.html">Program</a>
+            <a href="keynote.html">Keynote</a>
+            <a href="registration.html">Registration</a>
+            <a href="Venue.html">Venue</a>
+            <a href="sponsorship.html">Sponsorship</a>
+        </nav> -->
+      <div class="content">
+        <h1>Steering and Organization Committee</h1>
+        <h2>Steering Committee</h2>
+        <div class="container">
+
+          <div class="grid-item">
+            <div class="image">
+              <img 
+                style="height: 100%;"
+                src="committeeimages/MarkBillinghurst.jpg" 
+                alt="Mark Billinghurst" />
+            </div>
+            <p>
+              <strong>Mark Billinghurst</strong>
+              <br />
+              University of South Australia
+              <br />
+              Australia
+            </p>
+          </div>
+
+          <div class="grid-item">
+            <div class="image">
+              <img 
+                style="height: 100%;"
+                src="committeeimages/FrankGuan.jpg" 
+                alt="Frank Guan" />
+            </div>
+            <p>
+              <strong>Frank Guan</strong>
+              <br />
+              Singapore Institute of Technology
+              <br />
+              Singapore
+            </p>
+          </div>
+
+          <div class="grid-item">
+            <div class="image">
+              <img
+                style="height: 100%;"
+                src="committeeimages/kiyoshi.jpg"
+                alt="Kiyoshi Kiyokawa"
+              />
+            </div>
+            <p>
+              <strong>Kiyoshi Kiyokawa</strong>
+              <br />
+              Nara Institute of Science and Technology
+              <br />
+              Japan
+            </p>
+          </div>
+
+          <div class="grid-item">
+            <div class="image">
+              <img
+                style="height: 100%;"
+                src="committeeimages/Christian.jpg"
+                alt="Christian Sandor"
+              />
+            </div>
+            <p>
+              <strong>Christian Sandor</strong>
+              <br />
+              Université Paris-Saclay
+              <br />
+              France
+            </p>
+          </div>
+
+          <div class="grid-item">
+            <div class="image">
+              <img 
+                style="height: 100%;"
+                src="committeeimages/LiliWang.jpg" 
+                alt="Lili Wang" 
+              />
+            </div>
+            <p>
+              <strong>Lili Wang</strong>
+              <br />
+              Beihang University
+              <br />
+              China
+            </p>
+          </div>
+
+          <div class="grid-item">
+            <div class="image">
+              <img 
+                style="height: 100%;"
+                src="committeeimages/YongtianWang.jpg" 
+                alt="Yongtian Wang" 
+              />
+            </div>
+            <p>
+              <strong>Yongtian Wang</strong>
+              <br />
+              Beijing Institute of Technology
+              <br />
+              China
+            </p>
+          </div>
+          
+          <div class="grid-item">
+            <div class="image">
+              <img 
+                style="height: 100%;"
+                src="committeeimages/XuboYang.jpg" 
+                alt="Xubo Yang" 
+            />
+            </div>
+            <p>
+              <strong>Xubo Yang</strong>
+              <br />
+              Shanghai Jiao Tong University
+              <br />
+              China
+            </p>
+          </div>
+
+        </div>
+        <p style="line-height: 0.5">&nbsp;</p>
+        <hr />
+        <br />
+
+
+          
+        </div>
+
+ 
+      </div>
+
+        <!-- 底部：Sponsored by CCF 占位（放在最底部） -->
+        <div id="footer-container"></div>
+    </div>
+    
+  <!-- 分别加载 header 与 footer，确保底部在页面最末尾 -->
+  <script>
+    // 加载导航
+    fetch('header.html').then(r => r.text()).then(html => {
+      document.getElementById('header-container').innerHTML = html;
+    }).catch(err => console.error('Error loading header:', err));
+
+    // 加载底部（一定在 .container 之后）
+    fetch('footer.html').then(r => r.text()).then(html => {
+      document.getElementById('footer-container').innerHTML = html;
+    }).catch(err => console.error('Error loading footer:', err));
+  </script>
+  </body>
+</html>
