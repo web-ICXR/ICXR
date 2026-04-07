@@ -18,42 +18,119 @@
             line-height: 1.5;
         }
 
+        /* 容器与布局 */
         .wrapper {
             width: 1200px; 
             margin: 0 auto;
-            background-color: #f4f7fc; 
-            box-shadow: none; 
+            background-color: #f4f7fc;
+            box-shadow: none;
         }
 
-        /* 导航栏样式将与 header.html 统一，此处仅作容器占位 */
-        #header-container nav, #header-container .nav-style {
-            /* 样式已在 header 中定义，这里不重复 */
+        /* 导航栏样式 (与 CallForPapers 一致) */
+        nav {
+            background-color: #0b2b4f;
+            padding: 0.9rem 2rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.2rem;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a, .dropbtn {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-decoration: none;
+            padding: 0.5rem 0.2rem;
+            transition: color 0.2s, border-bottom 0.2s;
+            letter-spacing: 0.3px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        nav a:hover, .dropdown:hover .dropbtn {
+            color: #ffd966;
+            text-decoration: none;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+            border-radius: 16px;
+            z-index: 200;
+            overflow: hidden;
+            top: 2rem;
+            left: 0;
+        }
+        .dropdown-content a {
+            color: #0b2b4f;
+            padding: 0.7rem 1.2rem;
+            display: block;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #eef2f6;
+        }
+        .dropdown-content a:hover {
+            background-color: #eef2fa;
+            color: #0047ab;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
 
-        /* 主内容卡片 */
+        /* 主内容卡片对齐逻辑 */
         .news, .content {
             background: #ffffff;
             border-radius: 32px;
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
-            /* 核心修改：让宽度与 header 中的 nav-container 一致 */
             max-width: 1200px; 
-            /* 核心修改：上下留间距，左右设为 auto 实现居中对齐 */
             margin: 2rem auto; 
-            /* 内部留白可以稍微加大，让文字离边缘远一点，更好看 */
             padding: 3rem 4rem; 
             transition: all 0.2s ease;
         }
+
         .content {
-            margin-top: 0;
+            margin-top: 1rem;
         }
-        @media (max-width: 768px) {
+
+        /* 响应式适配 */
+        @media (max-width: 1240px) {
             .news, .content {
-                padding: 1.5rem;
+                margin-left: 20px;
+                margin-right: 20px;
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .wrapper {
+                padding: 0;
+                width: 100%;
+            }
+            .news, .content {
+                padding: 1.8rem;
                 margin: 1rem;
                 border-radius: 24px;
             }
         }
 
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.3rem; }
+        }
+
+        /* 文字与标题样式 */
         h1 {
             font-size: 2.4rem;
             font-weight: 700;
@@ -73,10 +150,16 @@
             border-left: 5px solid #2c7da0;
             padding-left: 1rem;
         }
+        
+        /* 核心修改：移除全局的 justify，避免影响页脚 */
         p {
             margin-bottom: 1rem;
             color: #2c3e4e;
             line-height: 1.6;
+        }
+
+        /* 仅让主内容区域的段落两端对齐，排版更美观 */
+        .content p {
             text-align: justify;
         }
 
@@ -95,7 +178,6 @@
             content: "📢";
             position: absolute;
             left: 0;
-            color: #0b5e7e;
             font-size: 1rem;
         }
         .news-date {
@@ -105,15 +187,19 @@
             min-width: 110px;
         }
 
-        /* 页脚 */
+        /* 页脚 (核心修改：确保页脚及内部的 p 标签都强制居中) */
         .footer {
             text-align: center;
             padding: 2rem 1rem;
             background-color: #ffffff;
             border-top: 1px solid #e2e8f0;
-            margin-top: 0.5rem;
+            margin-top: 1rem;
             font-size: 0.9rem;
             color: #4a627a;
+        }
+        .footer p {
+            text-align: center;
+            margin-bottom: 0.5rem;
         }
         .footer img {
             max-width: 70px;
@@ -123,15 +209,6 @@
         }
         .footer img:hover {
             opacity: 1;
-        }
-
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-            h2 {
-                font-size: 1.3rem;
-            }
         }
     </style>
 </head>
@@ -143,7 +220,6 @@
         <h2>News</h2>
         <ul class="news-list">
             <li><span class="news-date">April 4, 2026</span> — The website is online.</li>
-            <!-- 保留原有新闻内容，如需更多可扩展，但未修改实质性内容 -->
         </ul>
     </div>
 
@@ -151,9 +227,8 @@
         <h1>Welcome to ICXR</h1>
         <div class="introduction">
             <h2>2026 International Conference on Extended Reality (ICXR 2026)</h2>
-            <p>The 2026 International Conference on Extended Reality (ICXR) is scheduled to be held in Guangdong Province, China, in November 12–13, 2026. ICXR is poised to be a landmark event, bringing together leading researchers, developers, industry leaders, and academics from around the globe in the field of extended reality technologies, including Virtual Reality (VR), Augmented Reality (AR), and Mixed Reality (MR).</p>
-            <p>ICXR 2026 will feature a blend of keynote speeches, technical paper presentations, and panel discussions that explore the forefront of XR innovations, applications, and future trends. The conference will delve into a variety of compelling topics, such as metaverse development, advanced modeling techniques, perceptual interaction, graphics and image rendering, XR content creation, and digital twins.</p>
-            <p>We warmly invite all professionals, researchers, scholars, and enthusiasts from the XR community to converge in Qingdao for ICXR 2026. Engage with pioneering minds, discover groundbreaking advancements, and participate in a vibrant exchange of ideas that aim to shape the future of extended reality. Join us for an unforgettable experience in one of China's most beautiful coastal cities!</p>
+            <p>The 2026 International Conference on Extended Reality (ICXR) is scheduled to be held in Guangdong Province, China, in November 12–13, 2026...</p>
+            <p>ICXR 2026 will feature a blend of keynote speeches, technical paper presentations, and panel discussions that explore the forefront of XR innovations...</p>
         </div>
     </div>
 
@@ -164,6 +239,7 @@
     fetch('header.html').then(r => r.text()).then(html => {
         document.getElementById('header-container').innerHTML = html;
     }).catch(err => console.error('Error loading header:', err));
+    
     fetch('footer.html').then(r => r.text()).then(html => {
         document.getElementById('footer-container').innerHTML = html;
     }).catch(err => console.error('Error loading footer:', err));
