@@ -19,9 +19,10 @@
         }
 
         .wrapper {
-            max-width: 1440px;
+            width: 1200px; 
             margin: 0 auto;
-            background-color: #f4f7fc;
+            background-color: #f4f7fc; 
+            box-shadow: none; 
         }
 
         /* 导航栏样式将与 header.html 统一，此处仅作容器占位 */
@@ -34,9 +35,13 @@
             background: #ffffff;
             border-radius: 32px;
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
-            padding: 2rem 2.5rem;
-            margin: 2rem 2rem 1.5rem 2rem;
-            transition: all 0.2s;
+            /* 核心修改：让宽度与 header 中的 nav-container 一致 */
+            max-width: 1200px; 
+            /* 核心修改：上下留间距，左右设为 auto 实现居中对齐 */
+            margin: 2rem auto; 
+            /* 内部留白可以稍微加大，让文字离边缘远一点，更好看 */
+            padding: 3rem 4rem; 
+            transition: all 0.2s ease;
         }
         .content {
             margin-top: 0;
