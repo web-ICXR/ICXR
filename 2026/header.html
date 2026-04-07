@@ -1,43 +1,48 @@
-<!-- framework.html -->
-<nav>
-  <a href="index.html">Home</a>
-  <div class="dropdown">
-    <button class="dropbtn">Committee</button>
-    <div class="dropdown-content">
-      <a href="committeeSO.html">Steering Committee</a>
-      <!-- <a href="committeeSO.html">Organization Committee</a>
-      <a href="committeePC.html">Program Committee</a> -->
+<!-- header.html -->
+<nav style="background-color: #0b2b4f; padding: 0.6rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    <div class="nav-logo" style="display: flex; align-items: center; gap: 0.75rem;">
+        <a href="index.html" style="display: flex; align-items: center;">
+            <img src="./icons/logo.png" alt="ICXR Logo" style="height: 45px; width: auto;">
+        </a>
+        <span style="color: white; font-weight: 600; font-size: 1.25rem; letter-spacing: -0.3px;">ICXR 2026</span>
     </div>
-  </div>
-  <div class="dropdown">
-    <button class="dropbtn">Contribute</button>
-    <div class="dropdown-content">
-      <a href="callForPapers.html">Call for Papers</a>
-      <!-- <a href="callForXRGallery.html">Call for XR Gallery</a> -->
+    <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center;">
+        <a href="index.html" style="color: white; text-decoration: none; font-weight: 500; font-size: 1rem; padding: 0.4rem 0;">Home</a>
+        <div class="dropdown" style="position: relative;">
+            <button class="dropbtn" style="background: none; border: none; color: white; font-weight: 500; font-size: 1rem; cursor: pointer; padding: 0.4rem 0;">Committee</button>
+            <div class="dropdown-content" style="position: absolute; background: white; min-width: 180px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); top: 2rem; left: 0; display: none; z-index: 200; overflow: hidden;">
+                <a href="committeeSO.html" style="display: block; padding: 0.6rem 1.2rem; color: #0b2b4f; text-decoration: none; border-bottom: 1px solid #eef2f6; font-size: 0.9rem;">Steering Committee</a>
+            </div>
+        </div>
+        <div class="dropdown" style="position: relative;">
+            <button class="dropbtn" style="background: none; border: none; color: white; font-weight: 500; font-size: 1rem; cursor: pointer; padding: 0.4rem 0;">Contribute</button>
+            <div class="dropdown-content" style="position: absolute; background: white; min-width: 180px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); top: 2rem; left: 0; display: none; z-index: 200; overflow: hidden;">
+                <a href="callForPapers.html" style="display: block; padding: 0.6rem 1.2rem; color: #0b2b4f; text-decoration: none; font-size: 0.9rem;">Call for Papers</a>
+            </div>
+        </div>
     </div>
-  </div>
-  <!-- <a href="recommendations.html">Recommendations</a>
-  <a href="challenge.html">Challenge</a>
-
-  <div class="dropdown">
-    <button class="dropbtn">Program</button>
-    <div class="dropdown-content">
-      <a href="program.html">Overview</a>
-      <a href="programPaper.html">Papers</a>
-      <a href="programPoster.html">Posters</a>
-      <a href="programXRGallery.html">XR Gallery</a>
-    </div>
-  </div>
-
-  <a href="keynote.html">Keynote</a>
-  <a href="registration.html">Registration</a>
-  <a href="Venue.html">Venue</a>
-  <div class="dropdown">
-    <button class="dropbtn">Download</button>
-    <div class="dropdown-content">
-      <a href="ICXR-2025-Template.pptx">PPT Template</a>
-      <a href="ICXR-2025-Poster-Template.pptx">Poster Template</a>
-      <a href="ICXR 2025 Invitation Letter.pdf">Invitation Letter</a> 
-    </div>
-  </div> -->
 </nav>
+
+<style>
+    /* 确保下拉菜单 hover 生效 */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    .dropdown-content a:hover {
+        background-color: #f0f4f9;
+    }
+    @media (max-width: 700px) {
+        nav {
+            flex-direction: column;
+            align-items: stretch;
+            text-align: center;
+        }
+        .nav-logo {
+            justify-content: center;
+        }
+        .dropdown-content {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+</style>

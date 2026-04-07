@@ -1,130 +1,167 @@
-<!DOCTYPE html>  
-<html lang="zh-CN">  
-<head>  
-  <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <title>ICXR 2026: Home</title>  
-  <style>  
-    /* 保留你现有的样式不变 */  
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }  
-    /* nav { background-color: #8AA4E1; padding: 1em 2em; display: flex; justify-content: space-around; flex-wrap: nowrap; }*/  
-    /* 导航容器：均匀分布 + 可换行 */  
-    nav {background-color: #0018AC; padding: 1em 2em; display: flex; justify-content: space-evenly; flex-wrap: wrap; gap: 0.25rem 0.75rem;}  
-    nav a { color: white; margin: 0 0.5em; text-decoration: none; font-weight: bold; white-space: nowrap; font-size: 24px; display: flex; align-items: center; height: 100%; line-height: 1.5; }  
-    nav a:hover { text-decoration: underline; }  
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ICXR 2026 | International Conference on Extended Reality</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* 新增：导航栏logo样式 */  
-    .nav-logo-link {  
-        margin-right: auto; /* 将logo推到左边，其他导航项右对齐 */  
-        margin-left: 0;  
-        padding-right: 20px; /* logo和第一个导航项之间的间距 */  
-    }  
-    .nav-logo {  
-        height: 60px; /* 根据导航栏高度调整，保持美观 */  
-        width: auto;  
-        vertical-align: middle;  
-    }  
-    /* 调整其他导航项的字体大小，使之与logo部分更加协调 */  
-    nav a, .dropbtn {  
-        font-size: 20px; /* 适当调小字体，与logo更协调 */  
-        padding: 0 10px; /* 增加左右内边距 */  
-    }  
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7fc;
+            color: #1e2f3e;
+            line-height: 1.5;
+        }
 
+        .wrapper {
+            max-width: 1440px;
+            margin: 0 auto;
+            background-color: #f4f7fc;
+        }
 
-    .dropdown { position: relative; display: inline-block; }  
-    .dropbtn { background-color: #0018AC; color: white; font-weight: bold; border: none; cursor: pointer; font-size: 24px; padding: 0; margin: 0 0.5em; display: flex; align-items: center; height: 100%; line-height: 1.5; }   
-    .dropdown-content { display: none; position: absolute; background-color: #f9f9f9; min-width: 160px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 1; }  
-    .dropdown-content a { color: #0056b3; padding: 12px 16px; text-decoration: none; display: block; }  
-    .dropdown-content a:hover { background-color: #ddd; }  
-    .dropdown:hover .dropdown-content { display: block; }  
-    .container { max-width: 1600px; margin: 0 auto; }  
-    .banner-container { width: 100%; text-align: center; padding: 2em 0 1em; }  
-    .banner-container img { width: 100%; height: auto; border-radius: 15px; }  
-    .news { background-color: white; padding: 2em; margin: 2em 0; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; }  
-    .news h2 { color: #0044cc; }  
-    .content { padding: 3em 2em; background-color: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; }  
-    .introduction { margin-top: 2em; }  
-    h1, h2 { color: #0044cc; }  
-    h1 { margin-top: 0; }  
-    p { line-height: 1.6; }  
-    .footer { text-align: center; padding: 20px; background-color: #f1f1f1; position: relative; }  
-    .footer img { max-width: 80px; vertical-align: middle; }  
-    .wrapper { max-width: 1600px; margin: 0 auto; padding: 0 2em; }  
+        /* 导航栏样式将与 header.html 统一，此处仅作容器占位 */
+        #header-container nav, #header-container .nav-style {
+            /* 样式已在 header 中定义，这里不重复 */
+        }
 
-        /* —— 标题下视频 —— */  
-    .video-block {  
-      margin: 2rem 0 1rem;  
-    }  
-    .video-block h2 {  
-      margin: 0 0 0.75rem 0;  
-      color: #0044cc;       /* 与页面 h2 颜色一致 */  
-      font-size: 1.35rem;  
-    }  
-    .video-frame {  
-      width: 100%;  
-      max-width: 100%;  
-      display: block;  
-      margin: 0;  
-      border: none;  
-      border-radius: 8px;  
-      box-shadow: 0 4px 8px rgba(0,0,0,0.08);  
-    }  
-    .video-note {  
-      margin-top: 0.5rem;  
-      font-size: 0.95rem;  
-      color: #555;  
-    }  
-  </style>  
-</head>  
-<body>  
-  <div class="wrapper">  
-    <!-- 顶部：导航占位 -->  
-    <div id="header-container"></div>  
+        /* 主内容卡片 */
+        .news, .content {
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            padding: 2rem 2.5rem;
+            margin: 2rem 2rem 1.5rem 2rem;
+            transition: all 0.2s;
+        }
+        .content {
+            margin-top: 0;
+        }
+        @media (max-width: 768px) {
+            .news, .content {
+                padding: 1.5rem;
+                margin: 1rem;
+                border-radius: 24px;
+            }
+        }
 
-    <!-- 页面主体内容 -->  
-    <div class="container">  
-      <!-- <div class="banner-container">  
-        <img src="./ICXR2026-3.jpg" alt="Conference Banner">  
-      </div> -->  
-      <div class="news">  
-        <h2>News</h2>  
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0b2b4f, #1e4a76);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.3px;
+        }
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #0b2b4f;
+            margin-top: 0.2rem;
+            margin-bottom: 1rem;
+            border-left: 5px solid #2c7da0;
+            padding-left: 1rem;
+        }
+        p {
+            margin-bottom: 1rem;
+            color: #2c3e4e;
+            line-height: 1.6;
+            text-align: justify;
+        }
 
-        <p style="text-align:justify; text-justify:inter-ideograph;"><strong>April 4, 2026</strong>: The website is online.</p>  
-        <!-- <p style="text-align:justify; text-justify:inter-ideograph;"><strong>November 1–2, 2026</strong>: ICXR 2026 has been successfully held in Qingdao, Shandong, China. The conference has gathered worldwide researchers and practitioners for keynotes, paper sessions, workshops, and exhibitions. We sincerely thank all attendees, authors, reviewers, sponsors, and volunteers for their support.</p> -->  
-        
-      <!-- <div class="video-block">  
-        <video class="video-frame" src="icxr2026.mp4" controls preload="metadata"></video>  
-      </div> -->  
+        /* 新闻列表样式 */
+        .news-list {
+            list-style: none;
+            margin-top: 0.8rem;
+        }
+        .news-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.4rem;
+            position: relative;
+            font-size: 1rem;
+        }
+        .news-list li::before {
+            content: "📢";
+            position: absolute;
+            left: 0;
+            color: #0b5e7e;
+            font-size: 1rem;
+        }
+        .news-date {
+            font-weight: 700;
+            color: #0b2b4f;
+            display: inline-block;
+            min-width: 110px;
+        }
 
-      </div>  
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: #ffffff;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #4a627a;
+        }
+        .footer img {
+            max-width: 70px;
+            margin-top: 0.5rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        .footer img:hover {
+            opacity: 1;
+        }
 
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div id="header-container"></div>
 
-      <div class="content">  
-        <h1>Welcome to ICXR</h1>  
-        <div class="introduction">  
-          <h2>2026 International Conference on Extended Reality (ICXR 2026)</h2>  
-          <p style="text-align:justify; text-justify:inter-ideograph;">The 2026 International Conference on Extended Reality (ICXR) is scheduled to be held in Guangdong Province, China, in November 12–13, 2026. ICXR is poised to be a landmark event, bringing together leading researchers, developers, industry leaders, and academics from around the globe in the field of extended reality technologies, including Virtual Reality (VR), Augmented Reality (AR), and Mixed Reality (MR).</p>  
-          <!-- <p style="text-align:justify; text-justify:inter-ideograph;">ICXR 2026 will feature a blend of keynote speeches, technical paper presentations, and panel discussions that explore the forefront of XR innovations, applications, and future trends. The conference will delve into a variety of compelling topics, such as metaverse development, advanced modeling techniques, perceptual interaction, graphics and image rendering, XR content creation, and digital twins.</p>  
-          <p style="text-align:justify; text-justify:inter-ideograph;">We warmly invite all professionals, researchers, scholars, and enthusiasts from the XR community to converge in Qingdao for ICXR 2026. Engage with pioneering minds, discover groundbreaking advancements, and participate in a vibrant exchange of ideas that aim to shape the future of extended reality. Join us for an unforgettable experience in one of China's most beautiful coastal cities!</p> -->  
-        </div>  
-      </div>  
-    </div>  
+    <div class="news">
+        <h2>News</h2>
+        <ul class="news-list">
+            <li><span class="news-date">April 4, 2026</span> — The website is online.</li>
+            <!-- 保留原有新闻内容，如需更多可扩展，但未修改实质性内容 -->
+        </ul>
+    </div>
 
-    <!-- 底部：Sponsored by CCF 占位（放在最底部） -->  
-    <div id="footer-container"></div>  
-  </div>  
+    <div class="content">
+        <h1>Welcome to ICXR</h1>
+        <div class="introduction">
+            <h2>2026 International Conference on Extended Reality (ICXR 2026)</h2>
+            <p>The 2026 International Conference on Extended Reality (ICXR) is scheduled to be held in Guangdong Province, China, in November 12–13, 2026. ICXR is poised to be a landmark event, bringing together leading researchers, developers, industry leaders, and academics from around the globe in the field of extended reality technologies, including Virtual Reality (VR), Augmented Reality (AR), and Mixed Reality (MR).</p>
+            <p>ICXR 2026 will feature a blend of keynote speeches, technical paper presentations, and panel discussions that explore the forefront of XR innovations, applications, and future trends. The conference will delve into a variety of compelling topics, such as metaverse development, advanced modeling techniques, perceptual interaction, graphics and image rendering, XR content creation, and digital twins.</p>
+            <p>We warmly invite all professionals, researchers, scholars, and enthusiasts from the XR community to converge in Qingdao for ICXR 2026. Engage with pioneering minds, discover groundbreaking advancements, and participate in a vibrant exchange of ideas that aim to shape the future of extended reality. Join us for an unforgettable experience in one of China's most beautiful coastal cities!</p>
+        </div>
+    </div>
 
-  <!-- 分别加载 header 与 footer，确保底部在页面最末尾 -->  
-  <script>  
-    // 加载导航  
-    fetch('header.html').then(r => r.text()).then(html => {  
-      document.getElementById('header-container').innerHTML = html;  
-    }).catch(err => console.error('Error loading header:', err));  
+    <div id="footer-container"></div>
+</div>
 
-    // 加载底部（一定在 .container 之后）  
-    fetch('footer.html').then(r => r.text()).then(html => {  
-      document.getElementById('footer-container').innerHTML = html;  
-    }).catch(err => console.error('Error loading footer:', err));  
-  </script>  
-</body>  
-</html>  
+<script>
+    fetch('header.html').then(r => r.text()).then(html => {
+        document.getElementById('header-container').innerHTML = html;
+    }).catch(err => console.error('Error loading header:', err));
+    fetch('footer.html').then(r => r.text()).then(html => {
+        document.getElementById('footer-container').innerHTML = html;
+    }).catch(err => console.error('Error loading footer:', err));
+</script>
+</body>
+</html>

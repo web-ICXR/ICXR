@@ -1,273 +1,303 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ICXR 2026: Committee</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ICXR 2026 | Steering & Organization Committee</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-        background-color: #f4f4f4;
-        color: #333;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
- 
-    nav {background-color: #0018AC; padding: 1em 2em; display: flex; justify-content: space-evenly; flex-wrap: wrap; gap: 0.25rem 0.75rem;}
-    nav a { color: white; margin: 0 0.5em; text-decoration: none; font-weight: bold; white-space: nowrap; font-size: 24px; display: flex; align-items: center; height: 100%; line-height: 1.5; }
-    nav a:hover { text-decoration: underline; }
-    .dropdown { position: relative; display: inline-block; }
-    .dropbtn { background-color: #0018AC; color: white; font-weight: bold; border: none; cursor: pointer; font-size: 24px; padding: 0; margin: 0 0.5em; display: flex; align-items: center; height: 100%; line-height: 1.5; } 
-    .dropdown-content { display: none; position: absolute; background-color: #f9f9f9; min-width: 160px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 1; }
-    .dropdown-content a { color: #0056b3; padding: 12px 16px; text-decoration: none; display: block; }
-    .dropdown-content a:hover { background-color: #ddd; }
-    .dropdown:hover .dropdown-content { display: block; }
-    .container { max-width: 1600px; margin: 0 auto; }
-    .content { padding: 3em 2em; background-color: white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f4f9;
+            color: #1e2f3e;
+            line-height: 1.5;
+        }
 
+        .wrapper {
+            max-width: 1440px;
+            margin: 0 auto;
+            background-color: #f0f4f9;
+        }
 
-      .introduction {
-        margin-top: 2em;
-      }
+        /* 导航栏样式 (与全局一致) */
+        nav {
+            background-color: #0b2b4f;
+            padding: 0.9rem 2rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.2rem;
+            align-items: center;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a, .dropbtn {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-decoration: none;
+            padding: 0.5rem 0.2rem;
+            transition: color 0.2s;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        nav a:hover, .dropdown:hover .dropbtn {
+            color: #ffd966;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+            border-radius: 16px;
+            z-index: 200;
+            overflow: hidden;
+            top: 2rem;
+            left: 0;
+        }
+        .dropdown-content a {
+            color: #0b2b4f;
+            padding: 0.7rem 1.2rem;
+            display: block;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #eef2f6;
+        }
+        .dropdown-content a:hover {
+            background-color: #eef2fa;
+            color: #0047ab;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
 
-      h1,
-      h2 {
-        color: #0044cc;
-      }
+        /* 主内容卡片 */
+        .content {
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            padding: 2rem 2.5rem;
+            margin: 2rem 2rem 1.5rem 2rem;
+        }
+        @media (max-width: 768px) {
+            .content {
+                padding: 1.5rem;
+                margin: 1rem;
+                border-radius: 24px;
+            }
+        }
 
-      h1 {
-        margin-top: 0;
-      }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0b2b4f, #1e4a76);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #0b2b4f;
+            margin: 1.5rem 0 1rem 0;
+            border-left: 5px solid #2c7da0;
+            padding-left: 1rem;
+        }
 
-      p {
-        line-height: 1.6;
-      }
+        /* 委员会网格布局 */
+        .committee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0 1rem;
+        }
+        .member-card {
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-align: center;
+            padding: 1.5rem 1rem 1.2rem;
+            border: 1px solid #eef2f8;
+        }
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        }
+        .member-image {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #f0f4f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .member-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0b2b4f;
+            margin: 0.5rem 0 0.25rem;
+        }
+        .member-affiliation {
+            font-size: 0.9rem;
+            color: #2c7da0;
+            font-weight: 500;
+        }
+        .member-country {
+            font-size: 0.85rem;
+            color: #5e6f8d;
+            margin-top: 0.3rem;
+        }
+        hr {
+            margin: 2rem 0;
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, #e2e8f0, transparent);
+        }
 
-      .footer {
-        text-align: center;
-        padding: 20px;
-        background-color: #f1f1f1;
-      }
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: #ffffff;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #4a627a;
+        }
+        .footer img {
+            max-width: 70px;
+            margin-top: 0.5rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        .footer img:hover {
+            opacity: 1;
+        }
 
-      .footer img {
-        max-width: 80px;
-        vertical-align: middle;
-      }
-
-      /* Align nav and content for same left margin */
-      .wrapper {
-        max-width: 1600px;
-        margin: 0 auto;
-        padding: 0 2em;
-      }
-
-      .container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        /* 创建3列等宽网格 */
-        gap: 10px;
-        /* 网格间距 */
-      }
-
-      /* .grid-item img {
-        margin-bottom: 10px;
-        // 调整图片底部行距 
-      } */
-      .image {
-        height: 200px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .grid-item p {
-        text-align: center;
-        margin: 0;
-        /* 去除p标签默认的上下边距 */
-        margin-bottom: 5px;
-        /* 设置文字底部行距，可根据需要修改数值 */
-      }
+        @media (max-width: 600px) {
+            .committee-grid {
+                gap: 1rem;
+            }
+            .member-image {
+                width: 120px;
+                height: 120px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="wrapper">
-    <!-- 顶部：导航占位 -->
+<div class="wrapper">
     <div id="header-container"></div>
-        <!-- <nav>
-            <a href="index.html">Home</a>
-            <div class="dropdown">
-                <button class="dropbtn">Committee</button>
-                <div class="dropdown-content">
-                    <a href="committeeSO.html">Steering Committee</a>
-                    <a href="committeeSO.html">Organization Committee</a>
-                    <a href="committeePC.html">Program Committee</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn">Contribute</button>
-                <div class="dropdown-content">
-                    <a href="callForPapers.html">Call for Papers</a>
-                    <a href="callForXRGallery.html">Call for XR Gallery</a>
-                </div>
-            </div>
-            
-            <a href="program.html">Program</a>
-            <a href="keynote.html">Keynote</a>
-            <a href="registration.html">Registration</a>
-            <a href="Venue.html">Venue</a>
-            <a href="sponsorship.html">Sponsorship</a>
-        </nav> -->
-      <div class="content">
+
+    <div class="content">
         <h1>Steering and Organization Committee</h1>
         <h2>Steering Committee</h2>
-        <div class="container">
-
-          <div class="grid-item">
-            <div class="image">
-              <img 
-                style="height: 100%;"
-                src="committeeimages/MarkBillinghurst.jpg" 
-                alt="Mark Billinghurst" />
+        <div class="committee-grid">
+            <!-- Mark Billinghurst -->
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/MarkBillinghurst.jpg" alt="Mark Billinghurst">
+                </div>
+                <div class="member-name">Mark Billinghurst</div>
+                <div class="member-affiliation">University of South Australia</div>
+                <div class="member-country">Australia</div>
             </div>
-            <p>
-              <strong>Mark Billinghurst</strong>
-              <br />
-              University of South Australia
-              <br />
-              Australia
-            </p>
-          </div>
-
-          <div class="grid-item">
-            <div class="image">
-              <img 
-                style="height: 100%;"
-                src="committeeimages/FrankGuan.jpg" 
-                alt="Frank Guan" />
+            <!-- Frank Guan -->
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/FrankGuan.jpg" alt="Frank Guan">
+                </div>
+                <div class="member-name">Frank Guan</div>
+                <div class="member-affiliation">Singapore Institute of Technology</div>
+                <div class="member-country">Singapore</div>
             </div>
-            <p>
-              <strong>Frank Guan</strong>
-              <br />
-              Singapore Institute of Technology
-              <br />
-              Singapore
-            </p>
-          </div>
-
-          <div class="grid-item">
-            <div class="image">
-              <img
-                style="height: 100%;"
-                src="committeeimages/kiyoshi.jpg"
-                alt="Kiyoshi Kiyokawa"
-              />
+            <!-- Kiyoshi Kiyokawa -->
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/kiyoshi.jpg" alt="Kiyoshi Kiyokawa">
+                </div>
+                <div class="member-name">Kiyoshi Kiyokawa</div>
+                <div class="member-affiliation">Nara Institute of Science and Technology</div>
+                <div class="member-country">Japan</div>
             </div>
-            <p>
-              <strong>Kiyoshi Kiyokawa</strong>
-              <br />
-              Nara Institute of Science and Technology
-              <br />
-              Japan
-            </p>
-          </div>
-
-          <div class="grid-item">
-            <div class="image">
-              <img
-                style="height: 100%;"
-                src="committeeimages/Christian.jpg"
-                alt="Christian Sandor"
-              />
+            <!-- Christian Sandor -->
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/Christian.jpg" alt="Christian Sandor">
+                </div>
+                <div class="member-name">Christian Sandor</div>
+                <div class="member-affiliation">Université Paris-Saclay</div>
+                <div class="member-country">France</div>
             </div>
-            <p>
-              <strong>Christian Sandor</strong>
-              <br />
-              Université Paris-Saclay
-              <br />
-              France
-            </p>
-          </div>
-
-          <div class="grid-item">
-            <div class="image">
-              <img 
-                style="height: 100%;"
-                src="committeeimages/LiliWang.jpg" 
-                alt="Lili Wang" 
-              />
+            <!-- Lili Wang -->
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/LiliWang.jpg" alt="Lili Wang">
+                </div>
+                <div class="member-name">Lili Wang</div>
+                <div class="member-affiliation">Beihang University</div>
+                <div class="member-country">China</div>
             </div>
-            <p>
-              <strong>Lili Wang</strong>
-              <br />
-              Beihang University
-              <br />
-              China
-            </p>
-          </div>
-
-          <div class="grid-item">
-            <div class="image">
-              <img 
-                style="height: 100%;"
-                src="committeeimages/YongtianWang.jpg" 
-                alt="Yongtian Wang" 
-              />
+            <!-- Yongtian Wang -->
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/YongtianWang.jpg" alt="Yongtian Wang">
+                </div>
+                <div class="member-name">Yongtian Wang</div>
+                <div class="member-affiliation">Beijing Institute of Technology</div>
+                <div class="member-country">China</div>
             </div>
-            <p>
-              <strong>Yongtian Wang</strong>
-              <br />
-              Beijing Institute of Technology
-              <br />
-              China
-            </p>
-          </div>
-          
-          <div class="grid-item">
-            <div class="image">
-              <img 
-                style="height: 100%;"
-                src="committeeimages/XuboYang.jpg" 
-                alt="Xubo Yang" 
-            />
+            <!-- Xubo Yang -->
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/XuboYang.jpg" alt="Xubo Yang">
+                </div>
+                <div class="member-name">Xubo Yang</div>
+                <div class="member-affiliation">Shanghai Jiao Tong University</div>
+                <div class="member-country">China</div>
             </div>
-            <p>
-              <strong>Xubo Yang</strong>
-              <br />
-              Shanghai Jiao Tong University
-              <br />
-              China
-            </p>
-          </div>
-
         </div>
-        <p style="line-height: 0.5">&nbsp;</p>
+        <!-- 原文件中有 hr，保留视觉分隔 -->
         <hr />
-        <br />
-
-
-          
-        </div>
-
- 
-      </div>
-
-        <!-- 底部：Sponsored by CCF 占位（放在最底部） -->
-        <div id="footer-container"></div>
     </div>
-    
-  <!-- 分别加载 header 与 footer，确保底部在页面最末尾 -->
-  <script>
-    // 加载导航
-    fetch('header.html').then(r => r.text()).then(html => {
-      document.getElementById('header-container').innerHTML = html;
-    }).catch(err => console.error('Error loading header:', err));
 
-    // 加载底部（一定在 .container 之后）
+    <div id="footer-container"></div>
+</div>
+
+<script>
+    fetch('header.html').then(r => r.text()).then(html => {
+        document.getElementById('header-container').innerHTML = html;
+    }).catch(err => console.error('Error loading header:', err));
     fetch('footer.html').then(r => r.text()).then(html => {
-      document.getElementById('footer-container').innerHTML = html;
+        document.getElementById('footer-container').innerHTML = html;
     }).catch(err => console.error('Error loading footer:', err));
-  </script>
-  </body>
+</script>
+</body>
 </html>
