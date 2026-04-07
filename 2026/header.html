@@ -1,48 +1,142 @@
 <!-- header.html -->
-<nav style="background-color: #0b2b4f; padding: 0.6rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-    <div class="nav-logo" style="display: flex; align-items: center; gap: 0.75rem;">
-        <a href="index.html" style="display: flex; align-items: center;">
-            <img src="./icons/logo.png" alt="ICXR Logo" style="height: 45px; width: auto;">
-        </a>
-        <span style="color: white; font-weight: 600; font-size: 1.25rem; letter-spacing: -0.3px;">ICXR 2026</span>
-    </div>
-    <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center;">
-        <a href="index.html" style="color: white; text-decoration: none; font-weight: 500; font-size: 1rem; padding: 0.4rem 0;">Home</a>
-        <div class="dropdown" style="position: relative;">
-            <button class="dropbtn" style="background: none; border: none; color: white; font-weight: 500; font-size: 1rem; cursor: pointer; padding: 0.4rem 0;">Committee</button>
-            <div class="dropdown-content" style="position: absolute; background: white; min-width: 180px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); top: 2rem; left: 0; display: none; z-index: 200; overflow: hidden;">
-                <a href="committeeSO.html" style="display: block; padding: 0.6rem 1.2rem; color: #0b2b4f; text-decoration: none; border-bottom: 1px solid #eef2f6; font-size: 0.9rem;">Steering Committee</a>
-            </div>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+
+<nav class="ismar-nav">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="./icons/logo.png" alt="ICXR Logo">
+            </a>
         </div>
-        <div class="dropdown" style="position: relative;">
-            <button class="dropbtn" style="background: none; border: none; color: white; font-weight: 500; font-size: 1rem; cursor: pointer; padding: 0.4rem 0;">Contribute</button>
-            <div class="dropdown-content" style="position: absolute; background: white; min-width: 180px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); top: 2rem; left: 0; display: none; z-index: 200; overflow: hidden;">
-                <a href="callForPapers.html" style="display: block; padding: 0.6rem 1.2rem; color: #0b2b4f; text-decoration: none; font-size: 0.9rem;">Call for Papers</a>
+
+        <div class="nav-links">
+            <a href="index.html" class="nav-item">Home</a>
+            
+            <div class="dropdown">
+                <button class="dropbtn">Committee <span class="arrow">▼</span></button>
+                <div class="dropdown-content">
+                    <a href="committeeSO.html">Steering Committee</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">Contribute <span class="arrow">▼</span></button>
+                <div class="dropdown-content">
+                    <a href="callForPapers.html">Call for Papers</a>
+                </div>
             </div>
         </div>
     </div>
 </nav>
 
 <style>
-    /* 确保下拉菜单 hover 生效 */
+    /* 外部导航条：负责背景色和全宽 */
+    .ismar-nav {
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        font-family: 'Montserrat', sans-serif;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        width: 100%;
+    }
+
+    /* 内部容器：负责限制宽度并居中 */
+    .nav-container {
+        max-width: 1200px; /* 您可以根据需要调整这个数值，比如 1400px */
+        margin: 0 auto;    /* 核心代码：让容器在水平方向居中 */
+        padding: 0.2rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* 内容依然靠左对齐，但在容器内部 */
+        gap: 4rem;         /* Logo 和菜单之间的间距 */
+    }
+
+    .nav-logo {
+        display: flex;
+        align-items: center;
+    }
+    .nav-logo img {
+        height: 55px;
+        width: auto;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        align-items: center;
+    }
+
+    .nav-item, .dropbtn {
+        color: #4a2312;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.2rem 0;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: color 0.3s;
+        letter-spacing: 0.5px;
+    }
+
+    .nav-item:hover, .dropdown:hover .dropbtn {
+        color: #8b4513;
+    }
+
+    .arrow {
+        font-size: 0.7rem;
+        opacity: 0.7;
+    }
+
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown-content {
+        position: absolute;
+        background-color: #ffffff;
+        min-width: 220px;
+        top: 100%;
+        left: 0;
+        display: none;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        z-index: 200;
+        border-top: 3px solid #4a2312;
+        padding: 0.2rem 0;
+    }
+
+    .dropdown-content a {
+        display: block;
+        padding: 0.2rem 1.5rem;
+        color: #4a2312;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: background 0.2s;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f8f5f2;
+        color: #8b4513;
+    }
+
     .dropdown:hover .dropdown-content {
         display: block;
     }
-    .dropdown-content a:hover {
-        background-color: #f0f4f9;
-    }
-    @media (max-width: 700px) {
-        nav {
-            flex-direction: column;
-            align-items: stretch;
-            text-align: center;
+
+    /* 移动端适配 */
+    @media (max-width: 850px) {
+        .nav-container {
+            gap: 1.5rem;
+            padding: 0.4rem 1rem;
         }
-        .nav-logo {
-            justify-content: center;
-        }
-        .dropdown-content {
-            left: 50%;
-            transform: translateX(-50%);
+        .nav-links {
+            gap: 1rem;
         }
     }
 </style>
