@@ -1,4 +1,3 @@
-<!-- header.html -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 
 <nav class="ismar-nav">
@@ -23,6 +22,16 @@
                 <button class="dropbtn">Contribute <span class="arrow">▼</span></button>
                 <div class="dropdown-content">
                     <a href="CallForPapers.html">Call for Papers</a>
+                    
+                    <div class="sub-dropdown">
+                        <a href="javascript:void(0)" class="sub-dropbtn">
+                            Guidelines <span class="side-arrow">▶</span>
+                        </a>
+                        <div class="sub-dropdown-content">
+                            <a href="AuthorGuidelines.html">Author Guidelines</a>
+                            <a href="ReviewingGuidelines.html">Reviewing Guidelines</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -30,7 +39,7 @@
 </nav>
 
 <style>
-    /* 外部导航条：负责背景色和全宽 */
+    /* --- 基础导航条样式 --- */
     .ismar-nav {
         background-color: #ffffff;
         box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -41,15 +50,14 @@
         width: 100%;
     }
 
-    /* 内部容器：负责限制宽度并居中 */
     .nav-container {
-        max-width: 1200px; /* 您可以根据需要调整这个数值，比如 1400px */
-        margin: 0 auto;    /* 核心代码：让容器在水平方向居中 */
+        max-width: 1200px; 
+        margin: 0 auto;    
         padding: 0.2rem 2rem;
         display: flex;
         align-items: center;
-        justify-content: flex-start; /* 内容依然靠左对齐，但在容器内部 */
-        gap: 4rem;         /* Logo 和菜单之间的间距 */
+        justify-content: flex-start; 
+        gap: 4rem;         
     }
 
     .nav-logo {
@@ -93,6 +101,7 @@
         opacity: 0.7;
     }
 
+    /* --- 一级下拉菜单样式 --- */
     .dropdown {
         position: relative;
     }
@@ -108,11 +117,13 @@
         z-index: 200;
         border-top: 3px solid #4a2312;
         padding: 0.2rem 0;
+        /* 核心修复：必须设为 visible，二级菜单才能飞出边界 */
+        overflow: visible; 
     }
 
     .dropdown-content a {
         display: block;
-        padding: 0.2rem 1.5rem;
+        padding: 0.6rem 1.5rem; /* 增加一点内边距，方便点击 */
         color: #4a2312;
         text-decoration: none;
         font-size: 0.9rem;
@@ -125,11 +136,57 @@
         color: #8b4513;
     }
 
-    .dropdown:hover .dropdown-content {
+    .dropdown:hover > .dropdown-content {
         display: block;
     }
 
-    /* 移动端适配 */
+    /* --- 新增：二级下拉菜单样式 (Guidelines) --- */
+    
+    .sub-dropdown {
+        position: relative; /* 子菜单定位基准 */
+        width: 100%;
+    }
+
+    /* Guidelines 这一行的特殊样式：文字和箭头两端对齐 */
+    .sub-dropbtn {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        cursor: default;
+    }
+
+    .side-arrow {
+        font-size: 0.6rem;
+        opacity: 0.5;
+        transition: transform 0.3s;
+    }
+
+    /* 二级菜单面板：默认隐藏 */
+    .sub-dropdown-content {
+        position: absolute;
+        left: 100%;         /* 定位在父级的右侧 */
+        top: -3px;          /* 向上微调，对齐边框线 */
+        background-color: #ffffff;
+        min-width: 220px;
+        display: none;
+        box-shadow: 10px 0 25px rgba(0,0,0,0.1);
+        z-index: 300;
+        border-top: 3px solid #4a2312;
+        padding: 0.2rem 0;
+    }
+
+    /* 悬停触发逻辑 */
+    .sub-dropdown:hover .sub-dropdown-content {
+        display: block;
+    }
+
+    /* 悬停 Guidelines 时，箭头变色 */
+    .sub-dropdown:hover .sub-dropbtn {
+        background-color: #f8f5f2;
+        color: #8b4513;
+    }
+
+    /* --- 移动端适配 --- */
     @media (max-width: 850px) {
         .nav-container {
             gap: 1.5rem;
@@ -137,6 +194,16 @@
         }
         .nav-links {
             gap: 1rem;
+        }
+        /* 移动端如果宽度不够，建议让二级菜单向下弹出或靠左对齐 */
+        .sub-dropdown-content {
+            left: 0;
+            top: 100%;
+            position: relative;
+            box-shadow: none;
+            border-top: none;
+            border-left: 2px solid #4a2312;
+            margin-left: 1rem;
         }
     }
 </style>
