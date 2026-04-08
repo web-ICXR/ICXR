@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ICXR 2026: Author Guidelines</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7fc;
+            color: #1e2a3e;
+            line-height: 1.5;
+        }
+
+        .wrapper {
+            width: 1200px;
+            margin: 0 auto;
+            background-color: #f4f7fc;
+            box-shadow: none;
+        }
+
+        .content {
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 3rem 4rem;
+            transition: all 0.2s ease;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 1.8rem;
+                margin: 1rem;
+                border-radius: 24px;
+            }
+            .wrapper {
+                width: 100%;
+                padding: 0;
+            }
+        }
+
+        nav {
+            background-color: #0b2b4f;
+            padding: 0.9rem 2rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.2rem;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a, .dropbtn {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-decoration: none;
+            padding: 0.5rem 0.2rem;
+            transition: color 0.2s, border-bottom 0.2s;
+            letter-spacing: 0.3px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        nav a:hover, .dropdown:hover .dropbtn {
+            color: #ffd966;
+            text-decoration: none;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+            border-radius: 16px;
+            z-index: 200;
+            overflow: hidden;
+            top: 2rem;
+            left: 0;
+        }
+        .dropdown-content a {
+            color: #0b2b4f;
+            padding: 0.7rem 1.2rem;
+            display: block;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #eef2f6;
+        }
+        .dropdown-content a:hover {
+            background-color: #eef2fa;
+            color: #0047ab;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0b2b4f, #1e4a76);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: -0.3px;
+        }
+        h2 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: #0b2b4f;
+            margin-top: 1.8rem;
+            margin-bottom: 1rem;
+            border-left: 5px solid #2c7da0;
+            padding-left: 1rem;
+        }
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e4a76;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #1e4a76;
+            margin-top: 1.1rem;
+            margin-bottom: 0.55rem;
+        }
+        p {
+            margin-bottom: 1rem;
+            color: #2c3e4e;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 1.8rem 0;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+        th {
+            background-color: #0b2b4f;
+            color: white;
+            padding: 14px 16px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+        }
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e9edf2;
+            text-align: left;
+            color: #1f2e3a;
+            vertical-align: top;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:hover td {
+            background-color: #f8fafd;
+        }
+
+        .guideline-list, .num-list {
+            margin: 1rem 0 1.2rem 1.2rem;
+            padding-left: 1.2rem;
+        }
+        .guideline-list li, .num-list li {
+            margin-bottom: 0.7rem;
+            color: #2c3e4e;
+        }
+
+        .note {
+            font-size: 0.9rem;
+            background: #fef7e0;
+            padding: 0.8rem 1rem;
+            border-radius: 14px;
+            display: block;
+            margin: 0.8rem 0 1rem;
+        }
+
+        .contact {
+            background: #f0f5fa;
+            padding: 1.6rem 2rem;
+            border-radius: 28px;
+            margin: 2rem 0 1rem;
+            border: 1px solid #dfe8f0;
+        }
+        .contact a {
+            color: #0b5e7e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted;
+        }
+        .contact a:hover {
+            color: #003057;
+        }
+
+        @media (max-width: 700px) {
+            h1 {
+                font-size: 1.9rem;
+            }
+            th, td {
+                padding: 8px 10px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div id="header-container"></div>
+    <div class="content">
+
+        <h1>CCF ICXR 2026 Author Guidelines</h1>
+
+        <h2>1. Submission Categories and Contribution Requirements</h2>
+        <p>ICXR 2026 welcomes original, high-quality submissions across four distinct contribution types:</p>
+        <table>
+            <tr><th>Category</th><th>Description</th><th>Key Requirements</th></tr>
+            <tr><td>Methodological</td><td>Theoretical advances</td><td>Contributions to XR theories, ethics, presence, or human factors</td></tr>
+            <tr><td>Technical</td><td>Algorithmic or device innovations</td><td>Advances in input, display, interaction, or tracking technologies</td></tr>
+            <tr><td>Application</td><td>Novel domain applications</td><td>Innovative XR solutions to real-world problems with domain-specific evaluation</td></tr>
+            <tr><td>Systems</td><td>Integrated system development</td><td>Integration of techniques into effective XR systems, conveying lessons learned</td></tr>
+        </table>
+        <p class="note"><strong>Mandatory Requirement:</strong> All papers must include an appropriate evaluation of their contributions, such as user studies, benchmarking against existing systems/techniques, or theoretical analysis.</p>
+
+        <h2>2. Formatting Requirements</h2>
+
+        <h3>2.1 Page and Template Specifications</h3>
+        <ul class="guideline-list">
+            <li>Length: 12-15 pages of main content (excluding references and appendices)</li>
+            <li>References: Maximum 3 pages</li>
+            <li>Template: Mandatory Springer LNCS conference template (LaTeX or Word)</li>
+            <li>Language: English only</li>
+            <li>Format: PDF submission via the conference management system</li>
+            <li>Note: Submissions not following these formatting guidelines will be desk rejected</li>
+        </ul>
+
+        <h3>2.2 Supplementary Materials</h3>
+        <ul class="guideline-list">
+            <li>Optional attachments: Videos, proofs, source code, experimental data (total size &lt; 100MB)</li>
+            <li>Video length: Maximum 5 minutes to aid the review process</li>
+            <li>Anonymous supplementary materials: Must not reveal author identities</li>
+        </ul>
+
+        <h2>3. Double-Blind Review Policy (Mandatory)</h2>
+        <p class="note"><strong>Critical Warning:</strong> Failure to properly anonymize submissions will result in immediate desk rejection without review. Authors must ensure that their names and affiliations do not appear in the manuscript.</p>
+
+        <h3>3.1 Anonymization Requirements</h3>
+        <ul class="guideline-list">
+            <li>Remove all identifiers: Author names, affiliations, funding sources, and institutional information must not appear in the manuscript</li>
+            <li>Third-person referencing: When citing your own prior work, use third person (e.g., "the authors previously demonstrated..." rather than "we previously demonstrated...")</li>
+            <li>Metadata scrubbing: Ensure PDF metadata does not contain author information</li>
+            <li>Anonymous supplementary materials: Videos, code repositories, and datasets must be anonymized (e.g., use anonymous GitHub links without institutional identifiers)</li>
+        </ul>
+
+        <h3>3.2 Non-Anonymous Materials (Coordinator Only)</h3>
+        <p>For papers building upon prior work, authors may upload:</p>
+        <ul class="guideline-list">
+            <li>Previously published papers (non-anonymized)</li>
+            <li>Explanation letters describing the relationship to prior work and specific new contributions (visible only to the Coordinator (1AC))</li>
+        </ul>
+
+        <h2>4. Ethics and Submission Integrity</h2>
+
+        <h3>4.1 Originality and Simultaneous Submission</h3>
+        <ul class="guideline-list">
+            <li>No dual submission: Manuscripts must not be under review or published elsewhere during the ICXR 2026 review period (July 7 – September 23, 2026)</li>
+            <li>Prior publication: Two-page abstracts with substantial technical content are not considered prior publications and are acceptable as foundation for full papers</li>
+            <li>Plagiarism detection: All submissions undergo automated plagiarism screening; severe violations result in immediate rejection</li>
+        </ul>
+
+        <h3>4.2 AI-Generated Content Policy</h3>
+        <p>AI tools are permitted only for language polishing and grammar editing. The use of AI (including but not limited to ChatGPT, Claude, or other LLMs) for generating research content, technical contributions, experimental designs, data analysis, or any substantive intellectual material is strictly prohibited.</p>
+        <p>If AI is used for grammar editing or language polishing only, this must be disclosed in the Acknowledgments section by identifying:</p>
+        <ul class="guideline-list">
+            <li>The AI system used</li>
+            <li>A statement confirming AI was used only for language polishing/grammar editing</li>
+            <li>Confirmation that all research content, technical contributions, and scientific writing are entirely the authors' own work</li>
+        </ul>
+        <p>Prohibited uses of AI include: generating paper sections (introduction, methodology, results, discussion), creating or modifying figures/tables, generating code, analyzing data, or any other substantive research activity.</p>
+
+        <h3>4.3 Ethics Review Compliance</h3>
+        <p>All research involving human participants must include:</p>
+        <ul class="guideline-list">
+            <li>IRB/Ethics approval: Evidence of approval from your institution's ethics review board</li>
+            <li>Documentation: In the submission system, provide: Committee name, approved protocol title and number, approval date</li>
+            <li>Verification: Be prepared to provide documentation upon request</li>
+            <li>Consequence: False claims of ethics approval result in immediate desk rejection</li>
+        </ul>
+
+        <h3>4.4 Participant Diversity Reporting</h3>
+        <p>ICXR 2026 strongly encourages diversity in research participation:</p>
+        <ul class="guideline-list">
+            <li>Demographic reporting: All submissions must report participant demographics (gender, age, etc.)</li>
+            <li>Representativeness: Claims benefiting general populations must demonstrate balanced participant pools</li>
+            <li>Specialized populations: Research targeting specific groups must explicitly justify this focus and report relevant demographics</li>
+        </ul>
+
+        <h2>5. Pre-Publication and Social Media Policy (Strict)</h2>
+        <p>The following activities are prohibited from 30 days before submission until final notification (approximately July 7 – September 23, 2026). Violations may result in desk rejection.</p>
+
+        <h3>5.1 Prohibited Activities</h3>
+        <ul class="guideline-list">
+            <li>Listing submissions or preprints on personal or institutional web pages (arXiv, technical reports, etc.)</li>
+            <li>Promoting submissions through university or corporate PR channels</li>
+            <li>Publicizing submissions in external talks (except internal working presentations)</li>
+            <li>Social media promotion through personal or institutional accounts</li>
+            <li>Responding to or acknowledging others' social media posts about the submission</li>
+            <li>Creating public code or data repositories with author-identifying information</li>
+        </ul>
+
+        <h3>5.2 Permitted Activities</h3>
+        <ul class="guideline-list">
+            <li>Publication in peer-reviewed journals or conferences (non-ICXR versions)</li>
+            <li>Publication in non-English language outlets (if already existing)</li>
+            <li>Sharing code and data in private repositories with anonymous access links provided through the submission system</li>
+        </ul>
+
+        <h3>5.3 Preprint Policy</h3>
+        <ul class="guideline-list">
+            <li>Uploading to arXiv or similar repositories does not constitute grounds for rejection but may compromise double-blind anonymity</li>
+            <li>Authors are strongly advised against posting submissions to online repositories during the review period</li>
+        </ul>
+
+        <h2>6. Review Process and Author Obligations</h2>
+
+        <h3>6.1 Two-Cycle Review Process</h3>
+        <p>ICXR 2026 employs a rigorous two-cycle peer-review process with a two-reviewer system per submission:</p>
+        <ol class="num-list">
+            <li><strong>Abstract Submission (July 1, 2026):</strong> Required for full paper submission</li>
+            <li><strong>Full Paper Submission (July 7, 2026):</strong> Complete manuscript submission (12-15 pages). Note: There is no separate short paper submission track</li>
+            <li><strong>Cycle 1 (July – August):</strong> Initial review managed by Coordinator (1AC) and Program Committee Member (2AC). Each submission receives at least 3 reviews: 2AC writes 1 review, 1AC recruits 1 external reviewer, and 2AC recruits 1 external reviewer. 1AC leads discussion, writes meta-review and initial recommendation</li>
+            <li><strong>Initial Notification (August 30, 2026):</strong> Conditional acceptance as regular paper or short paper, or rejection</li>
+            <li><strong>Revision Period (August 30 – September 15):</strong> Authors address reviewer comments. Authors may not introduce new core contributions (such as new theorems or entirely new algorithms) beyond the original submission scope. However, authors may add experiments explicitly requested by reviewers to validate or strengthen existing claims</li>
+            <li><strong>Revised Submission Due (September 15, 2026):</strong> Authors submit revised manuscripts</li>
+            <li><strong>1AC Review of Revisions (September 20, 2026):</strong> 1AC checks the revision and makes final recommendations to Program Chairs</li>
+            <li><strong>Final Notification by Program Chairs (September 23, 2026):</strong> Final Accept or Reject decision (no conditional accept). Decision specifies Regular Paper or Short Paper format, with journal recommendations for selected high-quality regular papers</li>
+            <li><strong>Camera-Ready Due (October 1, 2026):</strong> Final materials submission</li>
+        </ol>
+
+        <h3>6.2 Short Paper Information</h3>
+        <p><strong>Important:</strong> There is no separate submission track for short papers. All submissions follow the same 12-15 page full paper format.</p>
+        <ul class="guideline-list">
+            <li>Selection process: Short papers are selected from the regular paper submissions during the review process when the contribution is considered interesting and valid but would be more appropriately presented in a condensed format</li>
+            <li>Notification: Authors are notified at Initial Notification (August 30) if their paper is accepted as a short paper</li>
+            <li>Page limit: Short papers must be compressed to 8 pages of main content (references and appendices follow the same 3-page limit as regular papers)</li>
+            <li>Adaptation: Content must be adapted to fit the reduced scope while maintaining scientific rigor; authors should focus on core contributions and may move supplementary material to online appendices</li>
+            <li>Presentation: Short papers are presented as posters only (no oral presentation)</li>
+        </ul>
+
+        <h3>6.3 Review Duty Requirement</h3>
+        <p>Given increasing submission volumes, ICXR 2026 requires:</p>
+        <ul class="guideline-list">
+            <li>Senior authors (PhD holders or equivalent) must register in the submission system to review at least one paper per submission</li>
+            <li>Mentorship: Senior authors are encouraged to mentor junior researchers in the review process</li>
+            <li>Enforcement: Non-compliance may be considered highly irresponsible and could lead to submission rejection</li>
+        </ul>
+
+        <h2>7. Publication Outcomes</h2>
+
+        <h3>7.1 Journal Recommendations (High-Quality Regular Papers)</h3>
+        <p>Following the Final Notification, a number of selected high-quality regular papers will be recommended for fast-track review at the following journals:</p>
+        <table>
+            <tr><th>Journal</th><th>CCF Rank</th></tr>
+            <tr><td>IEEE Transactions on Visualization and Computer Graphics (TVCG)</td><td>A</td></tr>
+            <tr><td>Interacting with Computers (IwC)</td><td>B</td></tr>
+            <tr><td>Frontiers of Computer Science (FCS)</td><td>B</td></tr>
+            <tr><td>Computers &amp; Graphics (C&amp;G)</td><td>C</td></tr>
+            <tr><td>Virtual Reality &amp; Intelligent Hardware (VRIH)</td><td>C</td></tr>
+        </table>
+        <p>Important Clarifications:</p>
+        <ul class="guideline-list">
+            <li>Recommendation does not guarantee journal acceptance: Final acceptance depends entirely on the journal's independent review process and standards</li>
+            <li>Automatic fallback to proceedings: If a paper is recommended to a journal but is ultimately rejected by that journal, it will automatically be published in the ICXR 2026 conference proceedings (Springer LNCS)</li>
+            <li>No simultaneous exclusion: Authors do not need to choose between journal and conference; all recommended papers are guaranteed publication in either the target journal or the conference proceedings</li>
+            <li>Journal review timeline: Authors will be informed of the journal recommendation in the Final Notification (September 23), but final journal decisions may extend beyond the conference date</li>
+            <li>No author selection: Journal recommendations are determined solely by Program Chairs based on paper quality and alignment with journal scope; authors cannot request or select specific journals</li>
+        </ul>
+
+        <h3>7.2 Conference Proceedings (Regular and Short Papers)</h3>
+        <ul class="guideline-list">
+            <li>All accepted regular papers not selected for journal recommendation, or those rejected from the journal process, will be published in the Proceedings of ICXR 2026 with the Springer Lecture Notes in Computer Science (LNCS) series</li>
+            <li>All accepted short papers will be published in the same proceedings after compression to 8 pages main content</li>
+            <li>Indexed by EI Compendex</li>
+            <li>CCF-C classification</li>
+        </ul>
+
+        <h3>7.3 Presentation Requirements</h3>
+        <ul class="guideline-list">
+            <li>Regular papers: Must be presented as oral presentations at the conference in Guangzhou (November 12-13, 2026)</li>
+            <li>Short papers: Presented as poster presentations only; authors must bring printed posters to the session</li>
+            <li>Attendance: All accepted papers must be presented in person; exceptional cases for remote presentation require application at least one month in advance</li>
+        </ul>
+
+        <div class="contact">
+            <p><strong>Contact:</strong> <a href="mailto:program@icxr.net">program@icxr.net</a> | <a href="https://icxr.net/2026/" target="_blank">https://icxr.net/2026/</a></p>
+            <p><strong>Important Dates (AoE - Anywhere on Earth, GMT/UTC-12:00):</strong></p>
+            <ul class="guideline-list">
+                <li>Abstract Submission: July 1, 2026</li>
+                <li>Full Paper Submission: July 7, 2026</li>
+                <li>Initial Notification: August 30, 2026 (Regular paper, short paper, or rejection)</li>
+                <li>Revised Submission Due: September 15, 2026</li>
+                <li>1AC checks the revision and makes final recommendations: September 20, 2026</li>
+                <li>Final Notification made by Program Chairs (Regular or Short Paper): September 23, 2026</li>
+                <li>Camera-Ready Materials Due: October 1, 2026</li>
+                <li>Conference Dates: November 12-13, 2026, Guangzhou</li>
+            </ul>
+        </div>
+
+    </div>
+    <div id="footer-container"></div>
+</div>
+
+<script>
+    fetch('header.html').then(r => r.text()).then(html => {
+        document.getElementById('header-container').innerHTML = html;
+    }).catch(err => console.error('Error loading header:', err));
+    fetch('footer.html').then(r => r.text()).then(html => {
+        document.getElementById('footer-container').innerHTML = html;
+    }).catch(err => console.error('Error loading footer:', err));
+</script>
+</body>
+</html>
