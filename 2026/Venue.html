@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ICXR 2026: Venue Information</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7fc;
+            color: #1e2a3e;
+            line-height: 1.6;
+        }
+
+        .wrapper {
+            width: 1200px;
+            max-width: 100%;
+            margin: 0 auto;
+            background-color: #f4f7fc;
+        }
+
+        .content {
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 3rem 4rem;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0b2b4f, #1e4a76);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.3px;
+        }
+
+        h2 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: #0b2b4f;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-left: 5px solid #2c7da0;
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e4a76;
+            margin-top: 1.4rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #2c3e4e;
+        }
+
+        .lead {
+            font-size: 1.03rem;
+        }
+
+        .image-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin: 1.25rem 0 1.5rem;
+        }
+
+        .image-row img,
+        .single-image img {
+            width: 100%;
+            display: block;
+            border-radius: 22px;
+            object-fit: cover;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            background: #eef2f6;
+        }
+
+        .image-card {
+        height: 320px;      /* 两张图统一高度 */
+        overflow: hidden;
+        border-radius: 18px;
+        }
+
+        .image-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;  /* 关键：铺满并裁切 */
+        display: block;
+        }
+
+        .single-image {
+            margin: 1.25rem 0 1.5rem;
+        }
+
+        .info-card {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            padding: 1.4rem 1.6rem;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .info-card p:last-child,
+        .note p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul {
+            margin: 0.8rem 0 1.1rem 1.2rem;
+            color: #2c3e4e;
+        }
+
+        li {
+            margin-bottom: 0.55rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 1.4rem 0 1.8rem;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        th {
+            background-color: #0b2b4f;
+            color: white;
+            padding: 14px 16px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e9edf2;
+            color: #1f2e3a;
+            vertical-align: top;
+        }
+
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background-color: #f8fafd; }
+
+        .note {
+            background: #f0f5fa;
+            padding: 1.1rem 1.2rem;
+            border-radius: 18px;
+            border: 1px solid #dfe8f0;
+            margin-top: 1rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: #ffffff;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #4a627a;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 1.8rem;
+                margin: 1rem;
+                border-radius: 24px;
+            }
+
+            .image-row {
+                grid-template-columns: 1fr;
+            }
+
+            h1 { font-size: 1.9rem; }
+
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            th {
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div id="header-container"></div>
+
+    <div class="content">
+        <h1>Venue Information</h1>
+        <p class="lead">ICXR 2026 will be held at <strong>Langham Place, Guangzhou</strong>, a modern conference hotel in Pazhou, Guangzhou. The venue is next to the Canton Fair Complex and offers convenient access to metro, airport, railway stations, and nearby business and sightseeing destinations.</p>
+
+        <h2>Conference Venue: Langham Place, Guangzhou</h2>
+        <div class="info-card">
+            <p><strong>Location:</strong> 638 Xingang East Road, Haizhu District, Guangzhou, China 510335</p>
+            <p><strong>Hotel Venue:</strong> Langham Place, Guangzhou</p>
+            <p><strong>Contact:</strong> T Telephone +(86)20 8916 3388&nbsp;&nbsp;&nbsp;F Fax +(86)20 8916 3333</p>
+        </div>
+
+        <div class="image-row">
+            <img src="icons/hotel1.png" alt="Langham Place Guangzhou exterior view">
+            <img src="icons/hotel2.png" alt="Langham Place Guangzhou interior or venue view">
+        </div>
+
+        <h2>Hotel Overview</h2>
+        <p>Langham Place, Guangzhou features <strong>488 guest rooms and suites</strong>, combining contemporary design, city views, and full-service conference hospitality. The hotel also provides multiple dining venues, spa and wellness facilities, and a broad range of indoor and outdoor event spaces suitable for international academic conferences.</p>
+
+        <h2>Conference Facilities</h2>
+        <table>
+            <tr>
+                <th>Space</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>Function Space</td>
+                <td>Approximately 5,000 square meters of flexible, high-tech event space, including pillar-free ballroom facilities.</td>
+            </tr>
+            <tr>
+                <td>Great Hall</td>
+                <td>2,800 square meters with an 11-meter ceiling and a 560-square-meter foyer; suitable for large plenary events and banquet functions.</td>
+            </tr>
+            <tr>
+                <td>Ballroom</td>
+                <td>760 square meters with a 500-square-meter foyer; can be divided into seven separate function rooms for parallel sessions.</td>
+            </tr>
+            <tr>
+                <td>Outdoor Terrace</td>
+                <td>An outdoor event space on the 3rd floor, suitable for gatherings of up to 80 guests.</td>
+            </tr>
+            <tr>
+                <td>The Peak</td>
+                <td>200 square meters of indoor ceremony space for up to 100 guests, plus 800 square meters of outdoor area with views of Pazhou.</td>
+            </tr>
+        </table>
+
+        <div class="image-row">
+            <div class="image-card">
+                <img src="icons/hotel3.png" alt="Hotel view 1">
+            </div>
+            <div class="image-card">
+                <img src="icons/hotel4.png" alt="Hotel view 2">
+            </div>
+        </div>
+
+        <h2>Dining and Wellness</h2>
+        <ul>
+            <li><strong>Ming Court</strong> offers refined Cantonese cuisine and was selected in the Michelin Guide Guangzhou for five consecutive years from 2019 to 2023.</li>
+            <li><strong>Alfresco</strong> is a semi-outdoor restaurant serving modern Italian cuisine.</li>
+            <li><strong>The Open Kitchen</strong> is an all-day dining restaurant with international flavors and seasonal ingredients.</li>
+            <li><strong>Portal</strong> and <strong>Sky Bar</strong> provide lounge and social spaces for informal meetings and evening gatherings.</li>
+            <li><strong>Chuan Spa</strong> and the <strong>24-hour Fitness Center</strong> offer wellness, massage, and workout facilities for guests.</li>
+        </ul>
+
+        <h2>Transportation Information</h2>
+        <ul>
+            <li><strong>Metro Station:</strong> about 5 minutes on foot.</li>
+            <li><strong>Canton Fair Complex:</strong> about 5–10 minutes on foot.</li>
+            <li><strong>Pazhou Ferry Terminal:</strong> about 5 minutes by car.</li>
+            <li><strong>Guangzhou East Railway Station:</strong> about 30 minutes by car.</li>
+            <li><strong>Guangzhou South Railway Station:</strong> about 30 minutes by car.</li>
+            <li><strong>Guangzhou Baiyun International Airport:</strong> about 40 minutes by car.</li>
+        </ul>
+
+        <h2>Nearby Highlights</h2>
+        <p>The venue is located in Pazhou, one of Guangzhou’s major exhibition and innovation districts. In addition to the Canton Fair Complex, attendees may also find the following nearby attractions of interest:</p>
+        <ul>
+            <li><strong>Canton Tower</strong> – one of Guangzhou’s best-known landmarks and sightseeing destinations.</li>
+            <li><strong>Historic Site of Ancient Whampoa Anchorage</strong> – a historic port area reflecting Guangzhou’s long trading history.</li>
+            <li><strong>Party Pier</strong> – a lively waterfront district for dining, culture, and nightlife.</li>
+            <li><strong>Tram Haizhu Line 1</strong> – a convenient scenic tram route connecting several city landmarks.</li>
+        </ul>
+
+    </div>
+
+    <div id="footer-container"></div>
+</div>
+
+<script>
+    fetch('header.html').then(r => r.text()).then(html => {
+        document.getElementById('header-container').innerHTML = html;
+    }).catch(err => console.error('Error loading header:', err));
+    fetch('footer.html').then(r => r.text()).then(html => {
+        document.getElementById('footer-container').innerHTML = html;
+    }).catch(err => console.error('Error loading footer:', err));
+</script>
+</body>
+</html>
