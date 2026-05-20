@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ICXR 2026 | Organizing Committee</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f4f9;
+            color: #1e2f3e;
+            line-height: 1.5;
+        }
+
+        .wrapper {
+            width: 1200px;
+            margin: 0 auto;
+            background-color: #f4f7fc;
+            box-shadow: none;
+        }
+
+        nav {
+            background-color: #0b2b4f;
+            padding: 0.9rem 2rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.2rem;
+            align-items: center;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a, .dropbtn {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-decoration: none;
+            padding: 0.5rem 0.2rem;
+            transition: color 0.2s;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        nav a:hover, .dropdown:hover .dropbtn {
+            color: #ffd966;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+            border-radius: 16px;
+            z-index: 200;
+            overflow: hidden;
+            top: 2rem;
+            left: 0;
+        }
+
+        .dropdown-content a {
+            color: #0b2b4f;
+            padding: 0.7rem 1.2rem;
+            display: block;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #eef2f6;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #eef2fa;
+            color: #0047ab;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .content {
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 3rem 4rem;
+            transition: all 0.2s ease;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 1.5rem;
+                margin: 1rem;
+                border-radius: 24px;
+            }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0b2b4f, #1e4a76);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #0b2b4f;
+            margin: 1.5rem 0 1rem 0;
+            border-left: 5px solid #2c7da0;
+            padding-left: 1rem;
+        }
+
+        .committee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .member-card {
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-align: center;
+            padding: 1.5rem 1rem 1.2rem;
+            border: 1px solid #eef2f8;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .member-image {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #f0f4f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .member-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0b2b4f;
+            margin: 0.5rem 0 0.25rem;
+        }
+
+        .member-affiliation {
+            font-size: 0.9rem;
+            color: #2c7da0;
+            font-weight: 500;
+        }
+
+        .member-country {
+            font-size: 0.85rem;
+            color: #5e6f8d;
+            margin-top: 0.3rem;
+        }
+
+        hr {
+            margin: 2rem 0;
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, #e2e8f0, transparent);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: #ffffff;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #4a627a;
+        }
+
+        .footer img {
+            max-width: 70px;
+            margin-top: 0.5rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .footer img:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 600px) {
+            .committee-grid {
+                gap: 1rem;
+            }
+
+            .member-image {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div id="header-container"></div>
+
+    <div class="content">
+        <h1>2026 Organizing Committee</h1>
+
+        <h2>General Chairs</h2>
+        <div class="committee-grid">
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/FrankSteinicke.webp" alt="Frank Steinicke">
+                </div>
+                <div class="member-name">Frank Steinicke</div>
+                <div class="member-affiliation">University of Hamburg</div>
+                <div class="member-country">Germany</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/ZhetaoLi.jpg" alt="Zhetao Li">
+                </div>
+                <div class="member-name">Zhetao Li</div>
+                <div class="member-affiliation">Jinan University</div>
+                <div class="member-country">China</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/WoontackWoo.jpg" alt="Woontack Woo">
+                </div>
+                <div class="member-name">Woontack Woo</div>
+                <div class="member-affiliation">KAIST</div>
+                <div class="member-country">Republic of Korea</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/HenryDuh.jpg" alt="Henry B. L. Duh">
+                </div>
+                <div class="member-name">Henry B. L. Duh</div>
+                <div class="member-affiliation">Hong Kong Polytechnic University</div>
+                <div class="member-country">China</div>
+            </div>
+        </div>
+
+        <h2>Program Chairs</h2>
+        <div class="committee-grid">
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/BarrettEns.jpg" alt="Barrett Ens">
+                </div>
+                <div class="member-name">Barrett Ens</div>
+                <div class="member-affiliation">University of British Columbia Okanagan</div>
+                <div class="member-country">Canada</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/GerardJKim.jpg" alt="Gerard J. Kim">
+                </div>
+                <div class="member-name">Gerard J. Kim</div>
+                <div class="member-affiliation">Korea University</div>
+                <div class="member-country">Republic of Korea</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/Hai-NingLiang.jpg" alt="Hai-Ning Liang">
+                </div>
+                <div class="member-name">Hai-Ning Liang</div>
+                <div class="member-affiliation">Hong Kong University of Science and Technology (Guangzhou)</div>
+                <div class="member-country">China</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/LinLu.png" alt="Lin Lu">
+                </div>
+                <div class="member-name">Lin Lu</div>
+                <div class="member-affiliation">Shandong University</div>
+                <div class="member-country">China</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/MiaoWang.jpg" alt="Miao Wang">
+                </div>
+                <div class="member-name">Miao Wang</div>
+                <div class="member-affiliation">Beihang University</div>
+                <div class="member-country">China</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/StefanieZollmann.jpg" alt="Stefanie Zollmann">
+                </div>
+                <div class="member-name">Stefanie Zollmann</div>
+                <div class="member-affiliation">Aarhus University</div>
+                <div class="member-country">Denmark</div>
+            </div>
+        </div>
+
+        <h2>Assistants to Program Chairs</h2>
+        <div class="committee-grid">
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/QiongZeng.png" alt="Qiong Zeng">
+                </div>
+                <div class="member-name">Qiong Zeng</div>
+                <div class="member-affiliation">Shandong University</div>
+                <div class="member-country">China</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/zhangshaokui.jpg" alt="Shao-Kui Zhang">
+                </div>
+                <div class="member-name">Shao-Kui Zhang</div>
+                <div class="member-affiliation">Beijing Normal University</div>
+                <div class="member-country">China</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/wantingjie.jpg" alt="Tingjie Wan">
+                </div>
+                <div class="member-name">Tingjie Wan</div>
+                <div class="member-affiliation">Jinan University</div>
+                <div class="member-country">China</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/ZhimingHu.png" alt="Zhiming Hu">
+                </div>
+                <div class="member-name">Zhiming Hu</div>
+                <div class="member-affiliation">Hong Kong University of Science and Technology (Guangzhou)</div>
+                <div class="member-country">China</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/YiJunLi.jpg" alt="Yi-Jun Li">
+                </div>
+                <div class="member-name">Yi-Jun Li</div>
+                <div class="member-affiliation">Tsinghua University</div>
+                <div class="member-country">China</div>
+            </div>
+        </div>
+
+        <h2>Publication Chairs</h2>
+        <div class="committee-grid">
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/JeanRemyChardonnet.jpg" alt="Jean-Rémy Chardonnet">
+                </div>
+                <div class="member-name">Jean-Rémy Chardonnet</div>
+                <div class="member-affiliation">Arts et Métiers Institute of Technology</div>
+                <div class="member-country">France</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/WeitaoSong.jpg" alt="Weitao Song">
+                </div>
+                <div class="member-name">Weitao Song</div>
+                <div class="member-affiliation">Beijing Institute of Technology</div>
+                <div class="member-country">China</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/XiaonanFang.jpg" alt="Xiaonan Fang">
+                </div>
+                <div class="member-name">Xiaonan Fang</div>
+                <div class="member-affiliation">Macau University of Science and Technology</div>
+                <div class="member-country">China</div>
+            </div>
+        </div>
+
+        <h2>Publicity Chairs</h2>
+        <div class="committee-grid">
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/HyungSeokKim.jpg" alt="HyungSeok Kim">
+                </div>
+                <div class="member-name">HyungSeok Kim</div>
+                <div class="member-affiliation">Konkuk University</div>
+                <div class="member-country">Korea</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/ThamPiumsomboon.jpg" alt="Tham Piumsomboon">
+                </div>
+                <div class="member-name">Tham Piumsomboon</div>
+                <div class="member-affiliation">University of Canterbury</div>
+                <div class="member-country">New Zealand</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/HuaweiTu.jpg" alt="Huawei Tu">
+                </div>
+                <div class="member-name">Huawei Tu</div>
+                <div class="member-affiliation">La Trobe University</div>
+                <div class="member-country">Australia</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/YueLi.jpg" alt="Yue Li">
+                </div>
+                <div class="member-name">Yue Li</div>
+                <div class="member-affiliation">Xi'an Jiaotong-Liverpool University</div>
+                <div class="member-country">China</div>
+            </div>
+        </div>
+
+        <h2>Workshop Chairs</h2>
+        <div class="committee-grid">
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/ShengLi.jpg" alt="Sheng Li">
+                </div>
+                <div class="member-name">Sheng Li</div>
+                <div class="member-affiliation">Peking University</div>
+                <div class="member-country">China</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/FanglueZhang.jpg" alt="Fang-Lue Zhang">
+                </div>
+                <div class="member-name">Fang-Lue Zhang</div>
+                <div class="member-affiliation">UNSW Sydney</div>
+                <div class="member-country">Australia</div>
+            </div>
+        </div>
+
+        <h2>Poster Chairs</h2>
+        <div class="committee-grid">
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/YongHu.png" alt="Yong Hu">
+                </div>
+                <div class="member-name">Yong Hu</div>
+                <div class="member-affiliation">Beihang University</div>
+                <div class="member-country">China</div>
+            </div>
+
+            <!-- <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/TimWeissker.jpg" alt="Tim Weissker">
+                </div>
+                <div class="member-name">Tim Weissker</div>
+                <div class="member-affiliation">RWTH Aachen University</div>
+                <div class="member-country">Germany</div>
+            </div> -->
+        </div>
+
+        <h2>XR Gallery Chairs</h2>
+        <div class="committee-grid">
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/AndreaBianchi.jpg" alt="Andrea Bianchi">
+                </div>
+                <div class="member-name">Andrea Bianchi</div>
+                <div class="member-affiliation">KAIST</div>
+                <div class="member-country">Korea</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/ShuoYan.jpg" alt="Shuo Yan">
+                </div>
+                <div class="member-name">Shuo Yan</div>
+                <div class="member-affiliation">Beihang University</div>
+                <div class="member-country">China</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/SeongwooJe.jpg" alt="Seongwoo Je">
+                </div>
+                <div class="member-name">Seongwoo Je</div>
+                <div class="member-affiliation">SUSTech</div>
+                <div class="member-country">China</div>
+            </div>
+        </div>
+
+        <h2>Local Arrangement Chairs</h2>
+        <div class="committee-grid">
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/boyuGao.jpg" alt="Boyu Gao">
+                </div>
+                <div class="member-name">Boyu Gao</div>
+                <div class="member-affiliation">Jinan University</div>
+                <div class="member-country">China</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/QingZhang.jpg" alt="Qing Zhang">
+                </div>
+                <div class="member-name">Qing Zhang</div>
+                <div class="member-affiliation">Sun Yat-Sen University</div>
+                <div class="member-country">China</div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/XinTong.jpg" alt="Xin Tong">
+                </div>
+                <div class="member-name">Xin Tong</div>
+                <div class="member-affiliation">Hong Kong University of Science and Technology (Guangzhou)</div>
+                <div class="member-country">China</div>
+            </div>
+        </div>
+
+        <h2>Web Chairs</h2>
+        <div class="committee-grid">
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/XuehuaiShi.jpg" alt="Xuehuai Shi">
+                </div>
+                <div class="member-name">Xuehuai Shi</div>
+                <div class="member-affiliation">Nanjing University of Posts and Telecommunications</div>
+                <div class="member-country">China</div>
+            </div>
+        </div>
+
+        <h2>Registration Chairs</h2>
+        <div class="committee-grid">
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="committeeimages/Sen-ZheXu.jpg" alt="Sen-Zhe Xu">
+                </div>
+                <div class="member-name">Sen-Zhe Xu</div>
+                <div class="member-affiliation">University of Science and Technology Beijing</div>
+                <div class="member-country">China</div>
+            </div>
+        </div>
+
+        <hr />
+    </div>
+
+    <div id="footer-container"></div>
+</div>
+
+<script>
+    fetch('header.html').then(r => r.text()).then(html => {
+        document.getElementById('header-container').innerHTML = html;
+    }).catch(err => console.error('Error loading header:', err));
+
+    fetch('footer.html').then(r => r.text()).then(html => {
+        document.getElementById('footer-container').innerHTML = html;
+    }).catch(err => console.error('Error loading footer:', err));
+</script>
+</body>
+</html>
