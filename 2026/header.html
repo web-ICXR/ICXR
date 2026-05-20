@@ -118,7 +118,8 @@
     .dropdown-content {
         position: absolute;
         background-color: #ffffff;
-        min-width: 220px;
+        min-width: 240px;
+        width: max-content;
         top: 100%;
         left: 0;
         display: none;
@@ -126,18 +127,20 @@
         z-index: 200;
         border-top: 3px solid #4a2312;
         padding: 0.2rem 0;
-        /* 核心修复：必须设为 visible，二级菜单才能飞出边界 */
-        overflow: visible; 
+        overflow: visible;
+        box-sizing: border-box;
     }
-
+    
     .dropdown-content a {
         display: block;
-        padding: 0.6rem 1.5rem; /* 增加一点内边距，方便点击 */
+        padding: 0.6rem 1.5rem;
         color: #4a2312;
         text-decoration: none;
         font-size: 0.9rem;
         font-weight: 500;
         transition: background 0.2s;
+        white-space: nowrap;
+        box-sizing: border-box;
     }
 
     .dropdown-content a:hover {
