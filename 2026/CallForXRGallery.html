@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ICXR 2026: Call for Proposals &quot;XR Gallery&quot;</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7fc;
+            color: #1e2a3e;
+            line-height: 1.5;
+        }
+
+        /* 容器与布局 */
+        .wrapper {
+            width: 1200px; /* 宽度撑满全屏 */
+            margin: 0 auto;
+            background-color: #f4f7fc; /* 保持页面背景色 */
+            box-shadow: none; /* 去除原本的外层阴影 */
+        }
+
+        .content {
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            /* 核心修改：让宽度与 header 中的 nav-container 一致 */
+            max-width: 1200px; 
+            /* 核心修改：上下留间距，左右设为 auto 实现居中对齐 */
+            margin: 2rem auto; 
+            /* 内部留白可以稍微加大，让文字离边缘远一点，更好看 */
+            padding: 3rem 4rem; 
+            transition: all 0.2s ease;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 1.8rem;
+                margin: 1rem;
+                border-radius: 24px;
+            }
+            .wrapper {
+                padding: 0;
+            }
+        }
+
+        /* 导航栏 (统一风格，与 header 联动) */
+        nav {
+            background-color: #0b2b4f;
+            padding: 0.9rem 2rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.2rem;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a, .dropbtn {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-decoration: none;
+            padding: 0.5rem 0.2rem;
+            transition: color 0.2s, border-bottom 0.2s;
+            letter-spacing: 0.3px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        nav a:hover, .dropdown:hover .dropbtn {
+            color: #ffd966;
+            text-decoration: none;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+            border-radius: 16px;
+            z-index: 200;
+            overflow: hidden;
+            top: 2rem;
+            left: 0;
+        }
+        .dropdown-content a {
+            color: #0b2b4f;
+            padding: 0.7rem 1.2rem;
+            display: block;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #eef2f6;
+        }
+        .dropdown-content a:hover {
+            background-color: #eef2fa;
+            color: #0047ab;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: #ffffff;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #4a627a;
+        }
+        .footer img {
+            max-width: 70px;
+            margin-top: 0.5rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        .footer img:hover {
+            opacity: 1;
+        }
+
+        /* 标题与文本 */
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0b2b4f, #1e4a76);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: -0.3px;
+        }
+        h2 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: #0b2b4f;
+            margin-top: 1.8rem;
+            margin-bottom: 1rem;
+            border-left: 5px solid #2c7da0;
+            padding-left: 1rem;
+        }
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e4a76;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        p {
+            margin-bottom: 1rem;
+            color: #2c3e4e;
+        }
+        .gray-text {
+            color: #5e6f8d;
+            font-size: 0.9rem;
+        }
+        .emphasis {
+            color: #c44536;
+            font-weight: 600;
+        }
+
+        /* 表格美化 */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 1.8rem 0;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+        th {
+            background-color: #0b2b4f;
+            color: white;
+            padding: 14px 16px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+        }
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e9edf2;
+            text-align: center;
+            color: #1f2e3a;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:hover td {
+            background-color: #f8fafd;
+        }
+
+        /* 列表样式 */
+        .topics, .category-list {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 0.6rem 1rem;
+            margin: 1.2rem 0;
+        }
+        .topics li, .category-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            line-height: 1.45;
+            margin-bottom: 0.4rem;
+        }
+        .topics li::before, .category-list li::before {
+            content: "▹";
+            color: #2c7da0;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        .category-list {
+            display: block;
+        }
+        .category-list li {
+            margin-bottom: 0.7rem;
+        }
+
+        /* 联系卡片 */
+        .contact {
+            background: #f0f5fa;
+            padding: 1.6rem 2rem;
+            border-radius: 28px;
+            margin: 2rem 0 1rem;
+            border: 1px solid #dfe8f0;
+        }
+        .contact a {
+            color: #0b5e7e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted;
+        }
+        .contact a:hover {
+            color: #003057;
+        }
+
+        /* 期刊表格内特殊 */
+        .journal-table th, .important-dates th {
+            background-color: #1a4b6e;
+        }
+        .note {
+            font-size: 0.85rem;
+            background: #fef7e0;
+            padding: 0.6rem 1rem;
+            border-radius: 14px;
+            display: inline-block;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 700px) {
+            .topics {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 1.9rem;
+            }
+            th, td {
+                padding: 8px 10px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div id="header-container"></div>
+
+    <div class="content">
+        <h1><strong>Call for Proposals "XR Gallery"</strong></h1>
+        <p><strong>Everywhere, Everywhen: Immersive Experiences that Bring Us Together</strong></p>
+
+        <h2><strong>Overview</strong></h2>
+        <p style="text-align:justify">Immersive media offer a unique ability to transcend the constraints of space and time, connecting people, places, and moments through shared experiences. This year, we invite submissions exploring how extended reality and immersive art foster connection beyond the here and now. We welcome works across the <strong>full spectrum of XR—including augmented (AR), mixed (MR), and virtual reality (VR)—using any creative approach, from generative and intelligent systems to handcrafted experiences</strong>. The call is open to artists, researchers, designers, technologists, and all creators of immersive experiences.</p>
+
+        <h2><strong>Topics and Scope</strong></h2>
+        <p style="text-align:justify">As part of ICXR 2026, held on November 5–6, 2026 in Guangzhou, China — a dynamic innovation hub in the Greater Bay Area — we invite submissions to the second XR Gallery, titled <strong><em>Everywhere, Everywhen: Immersive Experiences that Bring Us Together</em></strong>. We aim to provoke thought and discussion between artists and researchers around the question of “How Can Immersive Experiences Bring Us Together Beyond Space and Time?”. By bringing together the XR, technology, and art communities, we hope to inspire new perspectives on connection across places, moments, and communities.</p>
+        <p style="text-align:justify">The main requirements for the submissions are as follows:</p>
+        <ul class="category-list">
+            <li>Interactive XR artworks, installations, technologies, and experiences are encouraged, including single-user and multi-user, collaborative, participatory, and storytelling experiences. Other digital media and creative works aligned with the exhibition theme are also welcome.</li>
+            <li>Properly defined space and equipment required</li>
+            <li>At least one presenter presents at the conference</li>
+            <li>The proposed artistic work may be new or already existing</li>
+        </ul>
+        <p style="text-align:justify">Accepted submissions will be exhibited in the dedicated XR Gallery space throughout the ICXR conference. </p>
+
+        <h2><strong>Important Dates</strong></h2>
+        <ul class="category-list">
+            <li><strong>September 5, 2026: </strong>Submission deadline <strong>(Full Paper / Artwork Description)</strong>.</li>
+            <li><strong>October 1, 2026: </strong>Notification of acceptance.</li>
+            <li><strong>October 8, 2026: </strong>Camera-ready version.</li>
+            <li><strong>November 5–6, 2026: </strong>Onsite exhibition dates (Guangzhou, China).</li>
+        </ul>
+        <p style="text-align:justify">All deadlines are 23:59 AoE (Anywhere on Earth) == GMT/UTC-12:00 on the stated day.</p>
+
+        <h2><strong>Submission</strong></h2>
+        <p style="text-align:justify">This year, the XR Gallery offers <strong>T</strong><strong>wo Submission Types</strong>. Please select the one that best fits your work when submitting through the conference submission system (PCS): <a href="https://new.precisionconference.com/icxr26b" target="_blank"><u>https://new.precisionconference.com/icxr26b</u></a>.</p>
+        <ul class="category-list">
+            <li><strong>Full Paper: </strong>Minimum 8 pages of main text, excluding references and appendix. Accepted papers will be published in the conference proceedings (Springer LNCS, indexed by EI Compendex).</li>
+            <li><strong>Artwork Description: </strong>2 pages. Accepted submissions will not be published in the conference proceedings but will be exhibited in the XR Gallery throughout the conference.</li>
+        </ul>
+        <p style="text-align:justify">Regardless of the chosen type, each submission should include:</p>
+        <ul class="category-list">
+            <li>Paper (Full Paper: minimum 8 pages of main text, excluding references and appendix; Artwork Description: 2 pages), formatted in the LNCS template</li>
+            <li>Description of the art project</li>
+            <li>Implementation details (how it will be executed, e.g., HMD or installation project, etc.)</li>
+            <li>Representative image</li>
+            <li>Video</li>
+            <li>Information on equipment and technology used (ICXR only supports the provision of basic facilities such as table, power, network, display space, etc.)</li>
+        </ul>
+        <p style="text-align:justify">Any anonymized supplementary material is also welcomed but not required.</p>
+
+        <h2><strong>Anonymous Submission</strong></h2>
+        <p style="text-align:justify">All submissions must be anonymous. Please remove author names, affiliations, and acknowledgements from the paper, and avoid any content in the text, images, video, or supplementary material that identifies the authors or their institutions.</p>
+
+        <h2><strong>Paper Format</strong></h2>
+        <p style="text-align:justify">All submissions must use the LNCS one-column page format. Full Papers are a minimum of 8 pages of main text, excluding references and appendix. Artwork Descriptions are 2 pages.</p>
+        <p style="text-align:justify"><a href="https://resource-cms.springernature.com/springer-cms/rest/v1/content/19238648/data/v8" target="_blank"><u>LaTeX Template</u></a></p>
+        <p style="text-align:justify"><a href="https://resource-cms.springernature.com/springer-cms/rest/v1/content/19338734/data/v1" target="_blank"><u>Word Template</u></a></p>
+
+        <h2><strong>Selection Process</strong></h2>
+        <p style="text-align:justify">Each submission will be examined by a panel of external assessors from the digital arts fields and the XR research communities, based on the following criteria:</p>
+        <ul class="category-list">
+            <li>Originality</li>
+            <li>How well it fits in the scope of the XR Gallery and this year’s theme</li>
+            <li>How compellingly it brings people together across space and time</li>
+            <li>Representative video and image</li>
+            <li>The equipment and technical information required for its realization (including light, sound, network needs)</li>
+        </ul>
+
+        <h2><strong>Accepted Submissions</strong></h2>
+        <p style="text-align:justify">The installation will be showcased at the dedicated space for the XR Gallery during the entire duration of the conference.</p>
+        <p style="text-align:justify"><strong>Submission deadline: September 5, 2026</strong></p>
+        <p style="text-align:justify">The paper (Full Paper or Artwork Description) and optional supplementary material are to be submitted via the online submission system (PCS): <a href="https://new.precisionconference.com/icxr26b" target="_blank"><u>https://new.precisionconference.com/icxr26b</u></a>.</p>
+        <p style="text-align:justify">Authors who are unfamiliar with the formalism expected by our community will be able to draw inspiration from the essays edited in the SIGGRAPH 2025 Art Gallery proceedings (<a href="https://dl.acm.org/doi/proceedings/10.1145/3757369" target="_blank"><u>https://dl.acm.org/doi/proceedings/10.1145/3757369</u></a> ).</p>
+        <p style="text-align:justify"><strong>Camera-ready version due: October 8, 2026</strong></p>
+        <p style="text-align:justify">Accepted Full Papers will be published in the Proceedings of ICXR 2026 (CCF-C) with the Springer Lecture Notes in Computer Science (LNCS) series and indexed by EI Compendex. Artwork Descriptions will be exhibited in the XR Gallery but will not appear in the proceedings.</p>
+
+        <h2><strong>Contacts</strong></h2>
+        <div class="contact">
+            <p>For more information, please contact us at: xrgallery@icxr.net</p>
+            <p>Andrea Bianchi <em>– KAIST, Korea</em></p>
+            <p>Shuo Yan <em>– Beihang University, China</em></p>
+            <p>Seungwoo Je <em>– SUSTech, China</em></p>
+            <p><strong>ICXR 2026 XR Gallery Chairs</strong></p>
+        </div>
+    </div>
+
+        <div id="footer-container"></div>
+</div>
+
+<script>
+    fetch('header.html').then(r => r.text()).then(html => {
+        document.getElementById('header-container').innerHTML = html;
+    }).catch(err => console.error('Error loading header:', err));
+    fetch('footer.html').then(r => r.text()).then(html => {
+        document.getElementById('footer-container').innerHTML = html;
+    }).catch(err => console.error('Error loading footer:', err));
+</script>
+</body>
+</html>
