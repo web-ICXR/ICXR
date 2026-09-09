@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ICXR 2026: Registration Information</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7fc;
+            color: #1e2a3e;
+            line-height: 1.5;
+        }
+
+        .wrapper {
+            width: 1200px;
+            max-width: 100%;
+            margin: 0 auto;
+            background-color: #f4f7fc;
+            box-shadow: none;
+        }
+
+        .content {
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 3rem 4rem;
+        }
+
+        nav {
+            background-color: #0b2b4f;
+            padding: 0.9rem 2rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.2rem;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a, .dropbtn {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-decoration: none;
+            padding: 0.5rem 0.2rem;
+            transition: color 0.2s, border-bottom 0.2s;
+            letter-spacing: 0.3px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        nav a:hover, .dropdown:hover .dropbtn {
+            color: #ffd966;
+            text-decoration: none;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+            border-radius: 16px;
+            z-index: 200;
+            overflow: hidden;
+            top: 2rem;
+            left: 0;
+        }
+        .dropdown-content a {
+            color: #0b2b4f;
+            padding: 0.7rem 1.2rem;
+            display: block;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #eef2f6;
+        }
+        .dropdown-content a:hover {
+            background-color: #eef2fa;
+            color: #0047ab;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: #ffffff;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #4a627a;
+        }
+        .footer img {
+            max-width: 70px;
+            margin-top: 0.5rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        .footer img:hover {
+            opacity: 1;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0b2b4f, #1e4a76);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: -0.3px;
+        }
+        h2 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: #0b2b4f;
+            margin-top: 1.8rem;
+            margin-bottom: 1rem;
+            border-left: 5px solid #2c7da0;
+            padding-left: 1rem;
+        }
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e4a76;
+            margin-bottom: 0.75rem;
+        }
+        p {
+            margin-bottom: 1rem;
+            color: #2c3e4e;
+        }
+        .content a:not(.btn-link) {
+            color: #1e4a76;
+            text-underline-offset: 3px;
+        }
+        .content a:focus-visible,
+        .table-scroll:focus-visible {
+            outline: 3px solid #2c7da0;
+            outline-offset: 4px;
+        }
+        .info-card {
+            background: #f0f5fa;
+            padding: 1.6rem 2rem;
+            border-radius: 28px;
+            margin: 1.4rem 0;
+            border: 1px solid #dfe8f0;
+        }
+        .info-card > :last-child {
+            margin-bottom: 0;
+        }
+        .registration-overview {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+            gap: 2rem;
+            align-items: center;
+        }
+        .conference-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 18px;
+        }
+        .countdown {
+            text-align: center;
+            margin: 1rem 0 0;
+            color: #4a627a;
+        }
+        #countdown {
+            color: #0b2b4f;
+            font-size: 1.3rem;
+        }
+        .conference-info p {
+            margin-bottom: 0.65rem;
+        }
+        .btn-link {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #0b2b4f;
+            color: #ffffff;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        .btn-link:hover {
+            background-color: #1e4a76;
+        }
+        .signup-actions {
+            margin-top: 1.25rem;
+        }
+        .note {
+            color: #4a627a;
+            font-size: 0.95rem;
+        }
+        .content ul, .content ol {
+            padding-left: 1.4rem;
+            margin: 1rem 0;
+        }
+        .content li {
+            margin-bottom: 0.7rem;
+            color: #2c3e4e;
+        }
+        .table-scroll {
+            overflow-x: auto;
+            margin: 1.4rem 0;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+        table {
+            width: 100%;
+            min-width: 640px;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: #ffffff;
+        }
+        thead th {
+            background-color: #0b2b4f;
+            color: #ffffff;
+            padding: 14px 16px;
+            font-weight: 600;
+            text-align: left;
+        }
+        thead th span {
+            display: block;
+            margin-top: 0.2rem;
+            font-size: 0.85rem;
+            font-weight: 400;
+        }
+        tbody th, td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e9edf2;
+            text-align: left;
+            color: #1f2e3a;
+            vertical-align: top;
+        }
+        tbody th {
+            background: #f0f5fa;
+            font-weight: 600;
+            width: 27%;
+        }
+        thead th:first-child,
+        tbody th[scope="rowgroup"] {
+            text-align: center;
+            vertical-align: middle;
+        }
+        td.fee {
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
+        }
+        tbody tr:hover td {
+            background: #f8fafd;
+        }
+        .membership {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .membership p {
+            flex: 1 1 350px;
+            margin: 0;
+        }
+        @media (max-width: 1100px) {
+            #header-container .nav-container {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            #header-container .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.75rem 1rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .wrapper {
+                width: 100%;
+            }
+            .content {
+                padding: 1.8rem;
+                margin: 1rem;
+                border-radius: 24px;
+            }
+            .registration-overview {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .info-card {
+                padding: 1.25rem;
+                border-radius: 20px;
+            }
+            h1 {
+                font-size: 1.9rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            thead th, tbody th, td {
+                padding: 10px 12px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div id="header-container"></div>
+
+    <main class="content">
+        <h1>Registration Information</h1>
+
+        <div class="info-card registration-overview">
+            <div class="conference-image">
+                <img src="icons/banner.jpg" alt="ICXR 2026 — November 5–6, Guangzhou, China">
+                <p class="countdown" hidden>Countdown: <strong id="countdown"></strong> days</p>
+            </div>
+            <div class="conference-info">
+                <p><strong>Conference Time:</strong> 2026.11.05 ~ 11.06</p>
+                <p><strong>Registration Time:</strong> 2026.09.01 ~ 11.06</p>
+                <p><strong>Conference Place:</strong> Langham Place, Guangzhou, 638 Xingang East Road, Haizhu District, Guangzhou, China 510335</p>
+                <p><strong>Hosts:</strong> China Computer Federation (CCF)</p>
+                <p><strong>Organizer:</strong> CCF Technical Committee on Virtual Reality and Visualization Technology; Jinan University</p>
+                <div class="signup-actions">
+                    <a href="https://ccf.org.cn/icxr2026/brief_1011" class="btn-link" target="_blank" rel="noopener">Signup</a>
+                </div>
+            </div>
+        </div>
+
+        <h2>Registration and Payment</h2>
+        <p class="note"><a href="https://ccf.org.cn/icxr2026/brief_1011" target="_blank" rel="noopener">ICXR 2026 Registration System</a></p>
+        <blockquote cite="https://ccf.org.cn/icxr2026/brief_1011">
+            <p>This system handles ICXR 2026 registration, payment and invitation letter requests. For the conference program, speakers and other conference information, visit the <a href="https://icxr.net/2026/" target="_blank" rel="noopener">conference website</a>.</p>
+            <p>All attendees must register and pay the applicable registration fee.</p>
+            <p><strong>Early-bird rates through October 20, 2026 (UTC+8); regular rates from October 21.</strong> All fees are in CNY.</p>
+            <p>Use the <strong>Signup</strong> button for conference registration. Login/Register at the top is for your CCF account.</p>
+        </blockquote>
+        <p><strong>Registering a paper:</strong> select Paper Registration (1 Paper) for one accepted paper, or Paper Registration (2 Papers) for two accepted papers in a single registration. Either ticket includes attendance for <strong>ONE attendee only</strong>. The numbers refer to papers, not attendees.</p>
+        <p><strong>Attending only:</strong> select Full Conference Pass or, if eligible, Student Pass (Banquet Excluded). These passes do not cover papers. If your paper has already been registered and paid for by a coauthor, you do not need to register the same paper again. Read the detailed Paper Registration Guide below before choosing a ticket.</p>
+
+        <h2 id="registration-fees">Registration Categories and Fees</h2>
+        <div class="table-scroll" role="region" aria-labelledby="registration-fees" tabindex="0">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Ticket</th>
+                        <th scope="col">Membership Type</th>
+                        <th scope="col">9.1–10.20</th>
+                        <th scope="col">10.21–11.6</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><th scope="rowgroup" rowspan="4">Full Conference Pass</th><td>CCF Member</td><td class="fee">￥2200</td><td class="fee">￥2800</td></tr>
+                    <tr><td>CCF Student Member</td><td class="fee">￥1200</td><td class="fee">￥1400</td></tr>
+                    <tr><td>Non-CCF Member</td><td class="fee">￥2800</td><td class="fee">￥3600</td></tr>
+                    <tr><td>Non-CCF Student Member</td><td class="fee">￥1500</td><td class="fee">￥1800</td></tr>
+                </tbody>
+                <tbody>
+                    <tr><th scope="rowgroup" rowspan="2">Paper Registration (1 Paper)</th><td>CCF Member</td><td class="fee">￥2800</td><td class="fee">￥2800</td></tr>
+                    <tr><td>Non-CCF Member</td><td class="fee">￥3600</td><td class="fee">￥3600</td></tr>
+                </tbody>
+                <tbody>
+                    <tr><th scope="rowgroup" rowspan="2">Paper Registration (2 Papers)</th><td>CCF Member</td><td class="fee">￥5600</td><td class="fee">￥5600</td></tr>
+                    <tr><td>Non-CCF Member</td><td class="fee">￥7200</td><td class="fee">￥7200</td></tr>
+                </tbody>
+                <tbody>
+                    <tr><th scope="rowgroup" rowspan="2">Student Pass (Banquet Excluded)</th><td>CCF Student Member</td><td class="fee">￥800</td><td class="fee">￥1000</td></tr>
+                    <tr><td>Non-CCF Student Member</td><td class="fee">￥1000</td><td class="fee">￥1400</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Paper Registration Guide</h2>
+        <div class="info-card">
+            <p><strong>Oral and Poster papers:</strong> every accepted Oral or Poster paper requires a paid Paper Registration. A 2-paper ticket can cover two Oral papers, two Poster papers, or one of each; it still includes conference attendance for one attendee only.</p>
+            <p><strong>Every accepted paper must be covered by a paid Paper Registration.</strong> This requirement applies to all papers, regardless of whether the registering author is a student, a professional, a CCF member or a non-member. Full Conference Pass and Student Pass (Banquet Excluded) are attendance-only tickets and do not cover papers.</p>
+            <ol>
+                <li><strong>Paper Registration (1 Paper):</strong> covers ONE accepted paper (one Paper ID) and includes conference attendance for ONE attendee.</li>
+                <li><strong>Paper Registration (2 Papers):</strong> covers TWO accepted papers (two different Paper IDs) in a single registration and includes conference attendance for ONE attendee only. The numbers in the ticket names refer to papers, not attendees.</li>
+                <li>A paper needs paid registration coverage only once. If a coauthor has already registered and paid for the paper, other coauthors do not need to register that same paper again. Each additional coauthor who wishes to attend must register separately and purchase an appropriate attendance ticket.</li>
+                <li><strong>Students:</strong> a student responsible for registering an uncovered paper must choose a Paper Registration ticket, not a student attendance ticket. A student coauthor whose paper is already covered may choose an eligible attendance ticket. CCF membership determines the applicable member/non-member fee; it does not change the number of papers or attendees covered.</li>
+                <li><strong>Paper IDs:</strong> enter only the paper(s) covered by this registration. A 1-paper ticket requires one Paper ID; a 2-paper ticket requires two DISTINCT Paper IDs, separated by a comma (e.g. 123,456). Use the IDs assigned by the submission system.</li>
+                <li>If your situation is not covered above, or if you have any other questions, please contact <a href="mailto:icxr@ccf.org.cn">icxr@ccf.org.cn</a> before payment to confirm your registration arrangements.</li>
+            </ol>
+        </div>
+        <section class="info-card" lang="zh-CN" aria-labelledby="chinese-registration-guide">
+            <h3 id="chinese-registration-guide">论文注册选票指南（中文）</h3>
+            <p><strong>适用范围：</strong>每篇录用论文均须办理论文注册，包括 Oral（口头报告）论文和 Poster（海报展示）论文。双篇票可覆盖两篇 Oral、两篇 Poster，或各一篇，仍只包含1名参会者的参会权益。</p>
+            <p>每篇录用论文都必须由已付费的论文注册票覆盖；无论负责注册的作者是学生、专业人员、CCF会员还是非会员，此要求均适用。普通全日票和学生票（不含晚宴）仅用于参会，不覆盖论文。</p>
+            <ol>
+                <li><strong>论文注册（1篇）：</strong>覆盖1篇录用论文（1个Paper ID），并包含1名参会者的参会权益。</li>
+                <li><strong>论文注册（2篇）：</strong>通过一次注册覆盖2篇录用论文（2个不同的Paper ID），仍只包含1名参会者的参会权益。票名中的数字指论文篇数，不是参会人数。</li>
+                <li>同一篇论文只需付费覆盖一次。如果共同作者已为该论文完成注册和缴费，其他共同作者无须再次为同一篇论文办理论文注册。其他希望参会的共同作者须各自报名并购买适合自己的参会票。</li>
+                <li><strong>学生作者：</strong>负责为尚未覆盖的论文办理注册时，须选择论文注册票，不能用学生参会票代替。如果论文已由共同作者完成付费覆盖，学生共同作者可按自身资格选择参会票。CCF会员身份决定适用会员价或非会员价，不改变所覆盖的论文篇数和参会人数。</li>
+                <li><strong>Paper ID：</strong>仅填写本次注册实际覆盖的论文编号。单篇票填写1个Paper ID；双篇票填写2个不同的Paper ID，以英文逗号分隔（例如123,456）。请使用投稿系统分配的论文编号。</li>
+                <li>如有上述说明未覆盖的情况，或其他疑问，请在缴费前联系 <a href="mailto:icxr@ccf.org.cn">icxr@ccf.org.cn</a> 确认注册安排。</li>
+            </ol>
+        </section>
+
+        <h2>Payment &amp; E-invoice / 支付与发票</h2>
+        <p>Payment options: Alipay, WeChat Pay, YeePay and YeePay International. <strong>On mobile, the system supports WeChat Pay only.</strong></p>
+        <p>The finance team will issue an electronic invoice after the conference and send it to the email address you provided during registration.</p>
+        <p class="note" lang="zh-CN">可使用支付宝、微信、易支付和易支付国际版；手机端仅支持微信支付。财务会在会后开具电子发票发送至您注册时留下的邮箱。</p>
+
+        <h2>Cancellation, Refunds and Changes / 取消、退款及变更</h2>
+        <div class="info-card">
+            <p>Cancellation refunds (days before conference start): &gt;30 days: 70%; 8–30 days: 50%; ≤7 days: none. Duplicate payments: 70% of the duplicate amount refunded; 30% admin fee. Full refund if CCF is responsible for inability to attend. <strong>Apply by Nov 6, 2026 (Beijing time).</strong> Ticket changes/payment-method changes for the same ticket are not allowed.</p>
+            <p class="note" lang="zh-CN">取消报名退款（距会议开始）：超过30天退70%；8–30天退50%；7天内（含）不退。重复缴费部分退70%，收30%管理费；因CCF原因无法参会全退。<strong>申请截至2026年11月6日（北京时间）。</strong>不允许换票或同票更换支付方式。</p>
+        </div>
+        <div class="info-card membership">
+            <p>Now join CCF,enjoy member benefits.Membership fee standard:CCF Members:<strong>￥360/year</strong>,Students:<strong>￥50/year</strong>.</p>
+            <a href="https://web.ccf.org.cn/CCF/regTo.action?flag=0&amp;source=m1488189928050397184177485372807&amp;fro=https%3A%2F%2Fccf.org.cn%2Fconf%2Fuser%2Frefresh.action%3Fmid%3Dm1488189928050397184177485372807%26return_url%3Dhttps%3A%2F%2Fccf.org.cn%2Ficxr2026%2Fbrief_1011" class="btn-link" target="_blank" rel="noopener">Join CCF</a>
+        </div>
+
+        <h2>Conference Invitation Letters</h2>
+        <p>Need a visa invitation letter? After registration and payment, open <a href="https://ccf.org.cn/icxr2026/general_1014" target="_blank" rel="noopener">Visa</a> in the menu for application instructions and email <a href="mailto:icxr@ccf.org.cn">icxr@ccf.org.cn</a>.</p>
+
+        <h2>Contact</h2>
+        <ul>
+            <li><strong>Registration, payment, invoices and invitation letters:</strong> <a href="mailto:icxr@ccf.org.cn">icxr@ccf.org.cn</a></li>
+            <li><strong>Conference website:</strong> <a href="https://icxr.net/2026/" target="_blank" rel="noopener">https://icxr.net/2026/</a></li>
+            <li><strong>Hotel inquiries:</strong> +86 20 8916 3388 (Langham Place, Guangzhou)</li>
+        </ul>
+
+        <h2>Venue and Travel</h2>
+        <p>Venue: Langham Place, Guangzhou, 638 Xingang East Road, Haizhu District, Guangzhou, China 510335. The hotel is in Pazhou, next to the Canton Fair Complex. The conference website estimates approximately 30 minutes by car from either Guangzhou East Railway Station or Guangzhou South Railway Station, and approximately 40 minutes from Guangzhou Baiyun International Airport. A metro station is about a five-minute walk away. Travel times are estimates and depend on traffic conditions. Hotel telephone: +86 20 8916 3388.</p>
+        <p>Venue and travel information: <a href="https://icxr.net/2026/Venue.html" target="_blank" rel="noopener">https://icxr.net/2026/Venue.html</a></p>
+    </main>
+
+    <div id="footer-container"></div>
+</div>
+
+<script>
+    fetch('header.html').then(r => r.text()).then(html => {
+        document.getElementById('header-container').innerHTML = html;
+    }).catch(err => console.error('Error loading header:', err));
+    fetch('footer.html').then(r => r.text()).then(html => {
+        document.getElementById('footer-container').innerHTML = html;
+    }).catch(err => console.error('Error loading footer:', err));
+
+    // Count calendar days in Beijing time without rolling over to a later year.
+    const millisecondsPerDay = 24 * 60 * 60 * 1000;
+    const todayInBeijing = Math.floor((Date.now() + 8 * 60 * 60 * 1000) / millisecondsPerDay);
+    const conferenceDay = Math.floor(Date.UTC(2026, 10, 5) / millisecondsPerDay);
+    document.getElementById('countdown').textContent = Math.max(0, conferenceDay - todayInBeijing);
+    document.querySelector('.countdown').hidden = false;
+</script>
+</body>
+</html>
