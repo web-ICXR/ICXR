@@ -150,6 +150,7 @@
             text-underline-offset: 3px;
         }
         .content a:focus-visible,
+        .language-tab:focus-visible,
         .table-scroll:focus-visible {
             outline: 3px solid #2c7da0;
             outline-offset: 4px;
@@ -163,6 +164,51 @@
         }
         .info-card > :last-child {
             margin-bottom: 0;
+        }
+        .visa-information h4 {
+            color: #1e4a76;
+            font-size: 1.05rem;
+            margin: 1.25rem 0 0.65rem;
+        }
+        .registration-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.4rem;
+        }
+        .registration-header h1 {
+            margin-bottom: 0;
+        }
+        .language-tabs {
+            display: inline-flex;
+            gap: 0.25rem;
+            padding: 0.25rem;
+            background: #0b2b4f;
+            border-radius: 12px;
+        }
+        .language-tab {
+            appearance: none;
+            border: 0;
+            border-radius: 9px;
+            background: transparent;
+            color: #ffffff;
+            padding: 0.6rem 1rem;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .language-tab:hover {
+            background: #1e4a76;
+        }
+        .language-tab.active {
+            background: #dfeef8;
+            color: #0b2b4f;
+        }
+        .language-panel[hidden] {
+            display: none;
         }
         .registration-overview {
             display: grid;
@@ -181,7 +227,7 @@
             margin: 1rem 0 0;
             color: #4a627a;
         }
-        #countdown {
+        [data-countdown] {
             color: #0b2b4f;
             font-size: 1.3rem;
         }
@@ -321,129 +367,267 @@
 </head>
 <body>
 <div class="wrapper">
-    <div id="header-container"></div>
+    <div id="header-container" lang="en"></div>
 
     <main class="content">
-        <h1>Registration Information</h1>
-
-        <div class="info-card registration-overview">
-            <div class="conference-image">
-                <img src="icons/banner.jpg" alt="ICXR 2026 — November 5–6, Guangzhou, China">
-                <p class="countdown" hidden>Countdown: <strong id="countdown"></strong> days</p>
+        <div class="registration-header">
+            <h1 id="registration-title">Registration Information</h1>
+            <div class="language-tabs" role="tablist" aria-label="Language / 语言">
+                <button type="button" id="registration-tab-en" class="language-tab active" role="tab" aria-selected="true" aria-controls="registration-en" data-lang="en" lang="en">English</button>
+                <button type="button" id="registration-tab-zh" class="language-tab" role="tab" aria-selected="false" aria-controls="registration-zh" data-lang="zh" lang="zh-CN" tabindex="-1">中文</button>
             </div>
-            <div class="conference-info">
-                <p><strong>Conference Time:</strong> 2026.11.05 ~ 11.06</p>
-                <p><strong>Registration Time:</strong> 2026.09.01 ~ 11.06</p>
-                <p><strong>Conference Place:</strong> Langham Place, Guangzhou, 638 Xingang East Road, Haizhu District, Guangzhou, China 510335</p>
-                <p><strong>Hosts:</strong> China Computer Federation (CCF)</p>
-                <p><strong>Organizer:</strong> CCF Technical Committee on Virtual Reality and Visualization Technology; Jinan University</p>
-                <div class="signup-actions">
-                    <a href="https://ccf.org.cn/icxr2026/brief_1011" class="btn-link" target="_blank" rel="noopener">Signup</a>
+        </div>
+
+        <div id="registration-en" class="language-panel" role="tabpanel" aria-labelledby="registration-tab-en" lang="en">
+            <div class="info-card registration-overview">
+                <div class="conference-image">
+                    <img src="icons/banner.jpg" alt="ICXR 2026 — November 5–6, Guangzhou, China">
+                    <p class="countdown" hidden>Countdown: <strong data-countdown></strong> days</p>
+                </div>
+                <div class="conference-info">
+                    <p><strong>Conference Time:</strong> 2026.11.05 ~ 11.06</p>
+                    <p><strong>Registration Time:</strong> 2026.09.01 ~ 11.06</p>
+                    <p><strong>Conference Place:</strong> Langham Place, Guangzhou, 638 Xingang East Road, Haizhu District, Guangzhou, China 510335</p>
+                    <p><strong>Hosts:</strong> China Computer Federation (CCF)</p>
+                    <p><strong>Organizer:</strong> CCF Technical Committee on Virtual Reality and Visualization Technology; Jinan University</p>
+                    <div class="signup-actions">
+                        <a href="https://ccf.org.cn/icxr2026/brief_1011" class="btn-link" target="_blank" rel="noopener">Signup</a>
+                    </div>
                 </div>
             </div>
+
+            <h2>Registration and Payment</h2>
+            <p class="note"><a href="https://ccf.org.cn/icxr2026/brief_1011" target="_blank" rel="noopener">ICXR 2026 Registration System</a></p>
+            <blockquote cite="https://ccf.org.cn/icxr2026/brief_1011">
+                <p>This system handles ICXR 2026 registration, payment and invitation letter requests. For the conference program, speakers and other conference information, visit the <a href="https://icxr.net/2026/" target="_blank" rel="noopener">conference website</a>.</p>
+                <p>All attendees must register and pay the applicable registration fee.</p>
+                <p><strong>Early-bird rates through October 20, 2026 (UTC+8); regular rates from October 21.</strong> All fees are in CNY.</p>
+                <p>Use the <strong>Signup</strong> button for conference registration. Login/Register at the top is for your CCF account.</p>
+            </blockquote>
+            <p><strong>Registering a paper:</strong> select Paper Registration (1 Paper) for one accepted paper, or Paper Registration (2 Papers) for two accepted papers in a single registration. Either ticket includes attendance for <strong>ONE attendee only</strong>. The numbers refer to papers, not attendees.</p>
+            <p><strong>Attending only:</strong> select Full Conference Pass or, if eligible, Student Pass (Banquet Excluded). These passes do not cover papers. If your paper has already been registered and paid for by a coauthor, you do not need to register the same paper again. Read the detailed Paper Registration Guide below before choosing a ticket.</p>
+
+            <h2 id="registration-fees">Registration Categories and Fees</h2>
+            <div class="table-scroll" role="region" aria-labelledby="registration-fees" tabindex="0">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Ticket</th>
+                            <th scope="col">Membership Type</th>
+                            <th scope="col">9.1–10.20</th>
+                            <th scope="col">10.21–11.6</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="rowgroup" rowspan="4">Full Conference Pass</th><td>CCF Member</td><td class="fee">￥2200</td><td class="fee">￥2800</td></tr>
+                        <tr><td>CCF Student Member</td><td class="fee">￥1200</td><td class="fee">￥1400</td></tr>
+                        <tr><td>Non-CCF Member</td><td class="fee">￥2800</td><td class="fee">￥3600</td></tr>
+                        <tr><td>Non-CCF Student Member</td><td class="fee">￥1500</td><td class="fee">￥1800</td></tr>
+                    </tbody>
+                    <tbody>
+                        <tr><th scope="rowgroup" rowspan="2">Paper Registration (1 Paper)</th><td>CCF Member</td><td class="fee">￥2800</td><td class="fee">￥2800</td></tr>
+                        <tr><td>Non-CCF Member</td><td class="fee">￥3600</td><td class="fee">￥3600</td></tr>
+                    </tbody>
+                    <tbody>
+                        <tr><th scope="rowgroup" rowspan="2">Paper Registration (2 Papers)</th><td>CCF Member</td><td class="fee">￥5600</td><td class="fee">￥5600</td></tr>
+                        <tr><td>Non-CCF Member</td><td class="fee">￥7200</td><td class="fee">￥7200</td></tr>
+                    </tbody>
+                    <tbody>
+                        <tr><th scope="rowgroup" rowspan="2">Student Pass (Banquet Excluded)</th><td>CCF Student Member</td><td class="fee">￥800</td><td class="fee">￥1000</td></tr>
+                        <tr><td>Non-CCF Student Member</td><td class="fee">￥1000</td><td class="fee">￥1400</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 id="paper-registration-guide">Paper Registration Guide</h2>
+            <div class="info-card">
+                <p><strong>Oral and Poster papers:</strong> every accepted Oral or Poster paper requires a paid Paper Registration. A 2-paper ticket can cover two Oral papers, two Poster papers, or one of each; it still includes conference attendance for one attendee only.</p>
+                <p><strong>Every accepted paper must be covered by a paid Paper Registration.</strong> This requirement applies to all papers, regardless of whether the registering author is a student, a professional, a CCF member or a non-member. Full Conference Pass and Student Pass (Banquet Excluded) are attendance-only tickets and do not cover papers.</p>
+                <ol>
+                    <li><strong>Paper Registration (1 Paper):</strong> covers ONE accepted paper (one Paper ID) and includes conference attendance for ONE attendee.</li>
+                    <li><strong>Paper Registration (2 Papers):</strong> covers TWO accepted papers (two different Paper IDs) in a single registration and includes conference attendance for ONE attendee only. The numbers in the ticket names refer to papers, not attendees.</li>
+                    <li>A paper needs paid registration coverage only once. If a coauthor has already registered and paid for the paper, other coauthors do not need to register that same paper again. Each additional coauthor who wishes to attend must register separately and purchase an appropriate attendance ticket.</li>
+                    <li><strong>Students:</strong> a student responsible for registering an uncovered paper must choose a Paper Registration ticket, not a student attendance ticket. A student coauthor whose paper is already covered may choose an eligible attendance ticket. CCF membership determines the applicable member/non-member fee; it does not change the number of papers or attendees covered.</li>
+                    <li><strong>Paper IDs:</strong> enter only the paper(s) covered by this registration. A 1-paper ticket requires one Paper ID; a 2-paper ticket requires two DISTINCT Paper IDs, separated by a comma (e.g. 123,456). Use the IDs assigned by the submission system.</li>
+                    <li>If your situation is not covered above, or if you have any other questions, please contact <a href="mailto:icxr@ccf.org.cn">icxr@ccf.org.cn</a> before payment to confirm your registration arrangements.</li>
+                </ol>
+            </div>
+
+            <h2>Payment &amp; E-invoice</h2>
+            <p>Payment options: Alipay, WeChat Pay, YeePay and YeePay International. <strong>On mobile, the system supports WeChat Pay only.</strong></p>
+            <p>The finance team will issue an electronic invoice after the conference and send it to the email address you provided during registration.</p>
+
+            <h2>Cancellation, Refunds and Changes</h2>
+            <div class="info-card">
+                <p>Cancellation refunds (days before conference start): &gt;30 days: 70%; 8–30 days: 50%; ≤7 days: none. Duplicate payments: 70% of the duplicate amount refunded; 30% admin fee. Full refund if CCF is responsible for inability to attend. <strong>Apply by Nov 6, 2026 (Beijing time).</strong> Ticket changes/payment-method changes for the same ticket are not allowed.</p>
+
+            </div>
+            <div class="info-card membership">
+                <p>Now join CCF,enjoy member benefits.Membership fee standard:CCF Members:<strong>￥360/year</strong>,Students:<strong>￥50/year</strong>.</p>
+                <a href="https://web.ccf.org.cn/CCF/regTo.action?flag=0&amp;source=m1488189928050397184177485372807&amp;fro=https%3A%2F%2Fccf.org.cn%2Fconf%2Fuser%2Frefresh.action%3Fmid%3Dm1488189928050397184177485372807%26return_url%3Dhttps%3A%2F%2Fccf.org.cn%2Ficxr2026%2Fbrief_1011" class="btn-link" target="_blank" rel="noopener">Join CCF</a>
+            </div>
+
+            <h2 id="visa-and-invitation-letters">Visa and Invitation Letters</h2>
+            <section class="info-card visa-information" lang="en" aria-labelledby="visa-information-en">
+                <h3 id="visa-information-en">Visa &amp; Invitation Letter</h3>
+                <p>If you need to apply for a Chinese visa, please complete conference registration and payment before requesting an invitation letter. Email <a href="mailto:icxr@ccf.org.cn?subject=ICXR%202026%20Invitation%20Letter%20Request">icxr@ccf.org.cn</a> with the subject <strong>ICXR 2026 Invitation Letter Request – Full Name</strong>.</p>
+                <h4>Please include the following in your email</h4>
+                <ul>
+                    <li><strong>Passport details:</strong> full name as shown on your passport, gender, date of birth (YYYY-MM-DD), nationality and passport number.</li>
+                    <li><strong>Affiliation:</strong> institution/company, position and your role at the conference (e.g. author, speaker or attendee).</li>
+                    <li><strong>Expenses:</strong> the person or organization covering your travel and attendance expenses.</li>
+                    <li><strong>Registration details:</strong> the email address used for conference registration, and your registration/order number, if available.</li>
+                </ul>
+                <p>After verifying your registration details, we will email you a personalized conference invitation letter in PDF format. One letter is issued per individual attendee. The invitation letter supports your visa application; visa decisions are made by the relevant authorities.</p>
+                <h4>Special invitation requirements</h4>
+                <p>For applicants from most countries and regions, a standard invitation letter is generally sufficient to support a visa application. If the Chinese embassy, consulate or visa application center handling your application requires an Invitation Letter (TE), an Invitation Verification Letter or other specific documents, and you are an author of a paper accepted by ICXR 2026, please contact <a href="mailto:icxr@ccf.org.cn">icxr@ccf.org.cn</a>. Please specify your passport type and the country and city where you plan to submit your Chinese visa application. Whether these documents can be provided, and the arrangements for obtaining them, must be confirmed separately.</p>
+            </section>
+
+            <p class="note"><a href="https://ccf.org.cn/icxr2026/general_1014" target="_blank" rel="noopener">Visa information on the ICXR 2026 Registration System</a></p>
+
+            <h2>Contact</h2>
+            <ul>
+                <li><strong>Registration, payment, invoices and invitation letters:</strong> <a href="mailto:icxr@ccf.org.cn">icxr@ccf.org.cn</a></li>
+                <li><strong>Conference website:</strong> <a href="https://icxr.net/2026/" target="_blank" rel="noopener">https://icxr.net/2026/</a></li>
+                <li><strong>Hotel inquiries:</strong> +86 20 8916 3388 (Langham Place, Guangzhou)</li>
+            </ul>
+
+            <h2>Venue and Travel</h2>
+            <p>Venue: Langham Place, Guangzhou, 638 Xingang East Road, Haizhu District, Guangzhou, China 510335. The hotel is in Pazhou, next to the Canton Fair Complex. The conference website estimates approximately 30 minutes by car from either Guangzhou East Railway Station or Guangzhou South Railway Station, and approximately 40 minutes from Guangzhou Baiyun International Airport. A metro station is about a five-minute walk away. Travel times are estimates and depend on traffic conditions. Hotel telephone: +86 20 8916 3388.</p>
+            <p>Venue and travel information: <a href="https://icxr.net/2026/Venue.html" target="_blank" rel="noopener">https://icxr.net/2026/Venue.html</a></p>
+
+            <h2 id="hotel-reservation">Hotel Reservation</h2>
+            <div class="info-card">
+                <p><strong>Langham Place, Guangzhou</strong></p>
+                <a href="https://be.synxis.com/?Hotel=60091&amp;Chain=10316&amp;config=LPCAN&amp;theme=lpcan_new&amp;locale=en-US&amp;arrive=2026-11-05&amp;depart=2026-11-09&amp;adult=1&amp;child=0&amp;group=HAI110526" class="btn-link" target="_blank" rel="noopener">Book Hotel</a>
+            </div>
         </div>
 
-        <h2>Registration and Payment</h2>
-        <p class="note"><a href="https://ccf.org.cn/icxr2026/brief_1011" target="_blank" rel="noopener">ICXR 2026 Registration System</a></p>
-        <blockquote cite="https://ccf.org.cn/icxr2026/brief_1011">
-            <p>This system handles ICXR 2026 registration, payment and invitation letter requests. For the conference program, speakers and other conference information, visit the <a href="https://icxr.net/2026/" target="_blank" rel="noopener">conference website</a>.</p>
-            <p>All attendees must register and pay the applicable registration fee.</p>
-            <p><strong>Early-bird rates through October 20, 2026 (UTC+8); regular rates from October 21.</strong> All fees are in CNY.</p>
-            <p>Use the <strong>Signup</strong> button for conference registration. Login/Register at the top is for your CCF account.</p>
-        </blockquote>
-        <p><strong>Registering a paper:</strong> select Paper Registration (1 Paper) for one accepted paper, or Paper Registration (2 Papers) for two accepted papers in a single registration. Either ticket includes attendance for <strong>ONE attendee only</strong>. The numbers refer to papers, not attendees.</p>
-        <p><strong>Attending only:</strong> select Full Conference Pass or, if eligible, Student Pass (Banquet Excluded). These passes do not cover papers. If your paper has already been registered and paid for by a coauthor, you do not need to register the same paper again. Read the detailed Paper Registration Guide below before choosing a ticket.</p>
+        <div id="registration-zh" class="language-panel" role="tabpanel" aria-labelledby="registration-tab-zh" lang="zh-CN" hidden>
+            <div class="info-card registration-overview">
+                <div class="conference-image">
+                    <img src="icons/banner.jpg" alt="ICXR 2026 — 11.5–11.6，中国广州">
+                    <p class="countdown" hidden>距离会议开始还有 <strong data-countdown></strong> 天</p>
+                </div>
+                <div class="conference-info">
+                    <p><strong>会议时间：</strong>2026.11.05 ~ 11.06</p>
+                    <p><strong>注册时间：</strong>2026.09.01 ~ 11.06</p>
+                    <p><strong>会议地点：</strong>广州南丰朗豪酒店，中国广东省广州市海珠区新港东路638号，邮编510335</p>
+                    <p><strong>主办单位：</strong>中国计算机学会（CCF）</p>
+                    <p><strong>承办单位：</strong>CCF虚拟现实与可视化技术专业委员会；暨南大学</p>
+                    <div class="signup-actions">
+                        <a href="https://ccf.org.cn/icxr2026/brief_1011" class="btn-link" target="_blank" rel="noopener">注册报名</a>
+                    </div>
+                </div>
+            </div>
 
-        <h2 id="registration-fees">Registration Categories and Fees</h2>
-        <div class="table-scroll" role="region" aria-labelledby="registration-fees" tabindex="0">
-            <table>
-                <thead>
-                    <tr>
-                        <th scope="col">Ticket</th>
-                        <th scope="col">Membership Type</th>
-                        <th scope="col">9.1–10.20</th>
-                        <th scope="col">10.21–11.6</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><th scope="rowgroup" rowspan="4">Full Conference Pass</th><td>CCF Member</td><td class="fee">￥2200</td><td class="fee">￥2800</td></tr>
-                    <tr><td>CCF Student Member</td><td class="fee">￥1200</td><td class="fee">￥1400</td></tr>
-                    <tr><td>Non-CCF Member</td><td class="fee">￥2800</td><td class="fee">￥3600</td></tr>
-                    <tr><td>Non-CCF Student Member</td><td class="fee">￥1500</td><td class="fee">￥1800</td></tr>
-                </tbody>
-                <tbody>
-                    <tr><th scope="rowgroup" rowspan="2">Paper Registration (1 Paper)</th><td>CCF Member</td><td class="fee">￥2800</td><td class="fee">￥2800</td></tr>
-                    <tr><td>Non-CCF Member</td><td class="fee">￥3600</td><td class="fee">￥3600</td></tr>
-                </tbody>
-                <tbody>
-                    <tr><th scope="rowgroup" rowspan="2">Paper Registration (2 Papers)</th><td>CCF Member</td><td class="fee">￥5600</td><td class="fee">￥5600</td></tr>
-                    <tr><td>Non-CCF Member</td><td class="fee">￥7200</td><td class="fee">￥7200</td></tr>
-                </tbody>
-                <tbody>
-                    <tr><th scope="rowgroup" rowspan="2">Student Pass (Banquet Excluded)</th><td>CCF Student Member</td><td class="fee">￥800</td><td class="fee">￥1000</td></tr>
-                    <tr><td>Non-CCF Student Member</td><td class="fee">￥1000</td><td class="fee">￥1400</td></tr>
-                </tbody>
-            </table>
+            <h2>注册与缴费</h2>
+            <p class="note"><a href="https://ccf.org.cn/icxr2026/brief_1011" target="_blank" rel="noopener">ICXR 2026 注册系统</a></p>
+            <blockquote cite="https://ccf.org.cn/icxr2026/brief_1011">
+                <p>该系统用于ICXR 2026会议注册、缴费及邀请函申请。会议日程、嘉宾及其他会议信息请查看<a href="https://icxr.net/2026/" target="_blank" rel="noopener">会议网站</a>。</p>
+                <p>所有参会者均须注册并支付相应的注册费用。</p>
+                <p><strong>优惠注册费适用至2026.10.20（UTC+8）；2026.10.21起适用常规注册费。</strong>所有费用均以人民币计价。</p>
+                <p>请使用<strong>注册报名（Signup）</strong>按钮进行会议注册。注册系统顶部的Login/Register用于CCF账号登录或注册。</p>
+            </blockquote>
+            <p><strong>论文注册：</strong>一篇录用论文请选择论文注册（1篇）；通过一次注册覆盖两篇录用论文请选择论文注册（2篇）。两种票均<strong>只包含1名参会者</strong>的参会权益。票名中的数字指论文篇数，不是参会人数。</p>
+            <p><strong>仅参会：</strong>请选择普通全日票，或在符合资格时选择学生票（不含晚宴）。这些票不覆盖论文。如果共同作者已经为您的论文完成注册和缴费，您无须再次为同一篇论文办理注册。选票前请阅读下方详细的论文注册选票指南。</p>
+
+            <h2 id="registration-fees-zh">注册类别与费用</h2>
+            <div class="table-scroll" role="region" aria-labelledby="registration-fees-zh" tabindex="0">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">票种</th>
+                            <th scope="col">会员类型</th>
+                            <th scope="col">9.1–10.20</th>
+                            <th scope="col">10.21–11.6</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="rowgroup" rowspan="4">普通全日票</th><td>CCF会员</td><td class="fee">￥2200</td><td class="fee">￥2800</td></tr>
+                        <tr><td>CCF学生会员</td><td class="fee">￥1200</td><td class="fee">￥1400</td></tr>
+                        <tr><td>非CCF会员</td><td class="fee">￥2800</td><td class="fee">￥3600</td></tr>
+                        <tr><td>非CCF学生会员</td><td class="fee">￥1500</td><td class="fee">￥1800</td></tr>
+                    </tbody>
+                    <tbody>
+                        <tr><th scope="rowgroup" rowspan="2">论文注册（1篇）</th><td>CCF会员</td><td class="fee">￥2800</td><td class="fee">￥2800</td></tr>
+                        <tr><td>非CCF会员</td><td class="fee">￥3600</td><td class="fee">￥3600</td></tr>
+                    </tbody>
+                    <tbody>
+                        <tr><th scope="rowgroup" rowspan="2">论文注册（2篇）</th><td>CCF会员</td><td class="fee">￥5600</td><td class="fee">￥5600</td></tr>
+                        <tr><td>非CCF会员</td><td class="fee">￥7200</td><td class="fee">￥7200</td></tr>
+                    </tbody>
+                    <tbody>
+                        <tr><th scope="rowgroup" rowspan="2">学生票（不含晚宴）</th><td>CCF学生会员</td><td class="fee">￥800</td><td class="fee">￥1000</td></tr>
+                        <tr><td>非CCF学生会员</td><td class="fee">￥1000</td><td class="fee">￥1400</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 id="chinese-registration-guide">论文注册选票指南</h2>
+            <div class="info-card">
+                <p><strong>适用范围：</strong>每篇录用论文均须办理论文注册，包括 Oral（口头报告）论文和 Poster（海报展示）论文。双篇票可覆盖两篇 Oral、两篇 Poster，或各一篇，仍只包含1名参会者的参会权益。</p>
+                <p>每篇录用论文都必须由已付费的论文注册票覆盖；无论负责注册的作者是学生、专业人员、CCF会员还是非会员，此要求均适用。普通全日票和学生票（不含晚宴）仅用于参会，不覆盖论文。</p>
+                <ol>
+                    <li><strong>论文注册（1篇）：</strong>覆盖1篇录用论文（1个Paper ID），并包含1名参会者的参会权益。</li>
+                    <li><strong>论文注册（2篇）：</strong>通过一次注册覆盖2篇录用论文（2个不同的Paper ID），仍只包含1名参会者的参会权益。票名中的数字指论文篇数，不是参会人数。</li>
+                    <li>同一篇论文只需付费覆盖一次。如果共同作者已为该论文完成注册和缴费，其他共同作者无须再次为同一篇论文办理论文注册。其他希望参会的共同作者须各自报名并购买适合自己的参会票。</li>
+                    <li><strong>学生作者：</strong>负责为尚未覆盖的论文办理注册时，须选择论文注册票，不能用学生参会票代替。如果论文已由共同作者完成付费覆盖，学生共同作者可按自身资格选择参会票。CCF会员身份决定适用会员价或非会员价，不改变所覆盖的论文篇数和参会人数。</li>
+                    <li><strong>Paper ID：</strong>仅填写本次注册实际覆盖的论文编号。单篇票填写1个Paper ID；双篇票填写2个不同的Paper ID，以英文逗号分隔（例如123,456）。请使用投稿系统分配的论文编号。</li>
+                    <li>如有上述说明未覆盖的情况，或其他疑问，请在缴费前联系 <a href="mailto:icxr@ccf.org.cn">icxr@ccf.org.cn</a> 确认注册安排。</li>
+                </ol>
+            </div>
+
+            <h2>支付与发票</h2>
+            <p>可使用支付宝、微信、易支付和易支付国际版；手机端仅支持微信支付。财务会在会后开具电子发票发送至您注册时留下的邮箱。</p>
+
+            <h2>取消、退款及变更</h2>
+            <div class="info-card">
+                <p>取消报名退款（距会议开始）：超过30天退70%；8–30天退50%；7天内（含）不退。重复缴费部分退70%，收30%管理费；因CCF原因无法参会全退。<strong>申请截至2026年11月6日（北京时间）。</strong>不允许换票或同票更换支付方式。</p>
+            </div>
+
+            <div class="info-card membership">
+                <p>现在加入CCF，享受会员权益。会费标准：CCF会员：<strong>￥360/年</strong>，学生：<strong>￥50/年</strong>。</p>
+                <a href="https://web.ccf.org.cn/CCF/regTo.action?flag=0&amp;source=m1488189928050397184177485372807&amp;fro=https%3A%2F%2Fccf.org.cn%2Fconf%2Fuser%2Frefresh.action%3Fmid%3Dm1488189928050397184177485372807%26return_url%3Dhttps%3A%2F%2Fccf.org.cn%2Ficxr2026%2Fbrief_1011" class="btn-link" target="_blank" rel="noopener">加入CCF</a>
+            </div>
+
+            <h2 id="visa-and-invitation-letters-zh">签证与邀请函</h2>
+            <section class="info-card visa-information" lang="zh-CN" aria-labelledby="visa-information-zh">
+                <h3 id="visa-information-zh">签证与邀请函</h3>
+                <p>如果您需要办理中国签证，请完成会议注册和缴费后，再申请邀请函。请发送邮件至 <a href="mailto:icxr@ccf.org.cn?subject=ICXR%202026%20Invitation%20Letter%20Request">icxr@ccf.org.cn</a>，邮件主题为 <strong>ICXR 2026 Invitation Letter Request – 姓名</strong>。</p>
+                <h4>请在邮件中提供</h4>
+                <ul>
+                    <li><strong>护照信息：</strong>与护照一致的姓名、性别、出生日期（YYYY-MM-DD）、国籍及护照号码。</li>
+                    <li><strong>单位信息：</strong>所在院校或单位、职务及参会身份（如作者、演讲嘉宾或普通参会者）。</li>
+                    <li><strong>费用来源：</strong>承担此次行程和参会费用的个人或单位。</li>
+                    <li><strong>注册信息：</strong>会议报名使用的电子邮箱，以及报名／订单编号（如有）。</li>
+                </ul>
+                <p>我们将在核对注册信息后，通过邮件发送个人会议邀请函 PDF。邀请函按实际参会者一人一函出具。邀请函用于支持签证申请，签证审批由有关主管机关决定。</p>
+                <h4>特殊邀请材料要求</h4>
+                <p>对于大多数国家和地区，一般邀请信已足够支持签证申请。如受理申请的中国使领馆或签证申请中心要求提供《邀请函（TE）》《邀请核实单》或其他特定材料，且您是本届ICXR已录用论文的作者，请联系 <a href="mailto:icxr@ccf.org.cn">icxr@ccf.org.cn</a>。请说明您的护照类型，以及您计划在哪个国家、哪个城市提交中国签证申请。此类材料能否办理及具体安排须另行确认。</p>
+            </section>
+            <p class="note"><a href="https://ccf.org.cn/icxr2026/general_1014" target="_blank" rel="noopener">ICXR 2026 注册系统的签证与邀请函说明</a></p>
+
+            <h2>联系方式</h2>
+            <ul>
+                <li><strong>注册、缴费、发票及邀请函：</strong><a href="mailto:icxr@ccf.org.cn">icxr@ccf.org.cn</a></li>
+                <li><strong>会议网站：</strong><a href="https://icxr.net/2026/" target="_blank" rel="noopener">https://icxr.net/2026/</a></li>
+                <li><strong>酒店咨询：</strong>+86 20 8916 3388（广州南丰朗豪酒店）</li>
+            </ul>
+
+            <h2>会场与交通</h2>
+            <p>会场：广州南丰朗豪酒店，中国广东省广州市海珠区新港东路638号，邮编510335。酒店位于琶洲，毗邻广交会展馆。根据会议网站的估计，从广州东站或广州南站驾车前往酒店均约需30分钟，从广州白云国际机场驾车约需40分钟。地铁站距离酒店约5分钟步行路程。以上交通时间为估计值，实际时间取决于交通状况。酒店电话：+86 20 8916 3388。</p>
+            <p>会场与交通信息：<a href="https://icxr.net/2026/Venue.html" target="_blank" rel="noopener">https://icxr.net/2026/Venue.html</a></p>
+
+            <h2 id="hotel-reservation-zh">酒店预订</h2>
+            <div class="info-card">
+                <p><strong>广州南丰朗豪酒店</strong></p>
+                <a href="https://be.synxis.com/?Hotel=60091&amp;Chain=10316&amp;config=LPCAN&amp;theme=lpcan_new&amp;locale=en-US&amp;arrive=2026-11-05&amp;depart=2026-11-09&amp;adult=1&amp;child=0&amp;group=HAI110526" class="btn-link" target="_blank" rel="noopener">预订酒店</a>
+            </div>
         </div>
-
-        <h2>Paper Registration Guide</h2>
-        <div class="info-card">
-            <p><strong>Oral and Poster papers:</strong> every accepted Oral or Poster paper requires a paid Paper Registration. A 2-paper ticket can cover two Oral papers, two Poster papers, or one of each; it still includes conference attendance for one attendee only.</p>
-            <p><strong>Every accepted paper must be covered by a paid Paper Registration.</strong> This requirement applies to all papers, regardless of whether the registering author is a student, a professional, a CCF member or a non-member. Full Conference Pass and Student Pass (Banquet Excluded) are attendance-only tickets and do not cover papers.</p>
-            <ol>
-                <li><strong>Paper Registration (1 Paper):</strong> covers ONE accepted paper (one Paper ID) and includes conference attendance for ONE attendee.</li>
-                <li><strong>Paper Registration (2 Papers):</strong> covers TWO accepted papers (two different Paper IDs) in a single registration and includes conference attendance for ONE attendee only. The numbers in the ticket names refer to papers, not attendees.</li>
-                <li>A paper needs paid registration coverage only once. If a coauthor has already registered and paid for the paper, other coauthors do not need to register that same paper again. Each additional coauthor who wishes to attend must register separately and purchase an appropriate attendance ticket.</li>
-                <li><strong>Students:</strong> a student responsible for registering an uncovered paper must choose a Paper Registration ticket, not a student attendance ticket. A student coauthor whose paper is already covered may choose an eligible attendance ticket. CCF membership determines the applicable member/non-member fee; it does not change the number of papers or attendees covered.</li>
-                <li><strong>Paper IDs:</strong> enter only the paper(s) covered by this registration. A 1-paper ticket requires one Paper ID; a 2-paper ticket requires two DISTINCT Paper IDs, separated by a comma (e.g. 123,456). Use the IDs assigned by the submission system.</li>
-                <li>If your situation is not covered above, or if you have any other questions, please contact <a href="mailto:icxr@ccf.org.cn">icxr@ccf.org.cn</a> before payment to confirm your registration arrangements.</li>
-            </ol>
-        </div>
-        <section class="info-card" lang="zh-CN" aria-labelledby="chinese-registration-guide">
-            <h3 id="chinese-registration-guide">论文注册选票指南（中文）</h3>
-            <p><strong>适用范围：</strong>每篇录用论文均须办理论文注册，包括 Oral（口头报告）论文和 Poster（海报展示）论文。双篇票可覆盖两篇 Oral、两篇 Poster，或各一篇，仍只包含1名参会者的参会权益。</p>
-            <p>每篇录用论文都必须由已付费的论文注册票覆盖；无论负责注册的作者是学生、专业人员、CCF会员还是非会员，此要求均适用。普通全日票和学生票（不含晚宴）仅用于参会，不覆盖论文。</p>
-            <ol>
-                <li><strong>论文注册（1篇）：</strong>覆盖1篇录用论文（1个Paper ID），并包含1名参会者的参会权益。</li>
-                <li><strong>论文注册（2篇）：</strong>通过一次注册覆盖2篇录用论文（2个不同的Paper ID），仍只包含1名参会者的参会权益。票名中的数字指论文篇数，不是参会人数。</li>
-                <li>同一篇论文只需付费覆盖一次。如果共同作者已为该论文完成注册和缴费，其他共同作者无须再次为同一篇论文办理论文注册。其他希望参会的共同作者须各自报名并购买适合自己的参会票。</li>
-                <li><strong>学生作者：</strong>负责为尚未覆盖的论文办理注册时，须选择论文注册票，不能用学生参会票代替。如果论文已由共同作者完成付费覆盖，学生共同作者可按自身资格选择参会票。CCF会员身份决定适用会员价或非会员价，不改变所覆盖的论文篇数和参会人数。</li>
-                <li><strong>Paper ID：</strong>仅填写本次注册实际覆盖的论文编号。单篇票填写1个Paper ID；双篇票填写2个不同的Paper ID，以英文逗号分隔（例如123,456）。请使用投稿系统分配的论文编号。</li>
-                <li>如有上述说明未覆盖的情况，或其他疑问，请在缴费前联系 <a href="mailto:icxr@ccf.org.cn">icxr@ccf.org.cn</a> 确认注册安排。</li>
-            </ol>
-        </section>
-
-        <h2>Payment &amp; E-invoice / 支付与发票</h2>
-        <p>Payment options: Alipay, WeChat Pay, YeePay and YeePay International. <strong>On mobile, the system supports WeChat Pay only.</strong></p>
-        <p>The finance team will issue an electronic invoice after the conference and send it to the email address you provided during registration.</p>
-        <p class="note" lang="zh-CN">可使用支付宝、微信、易支付和易支付国际版；手机端仅支持微信支付。财务会在会后开具电子发票发送至您注册时留下的邮箱。</p>
-
-        <h2>Cancellation, Refunds and Changes / 取消、退款及变更</h2>
-        <div class="info-card">
-            <p>Cancellation refunds (days before conference start): &gt;30 days: 70%; 8–30 days: 50%; ≤7 days: none. Duplicate payments: 70% of the duplicate amount refunded; 30% admin fee. Full refund if CCF is responsible for inability to attend. <strong>Apply by Nov 6, 2026 (Beijing time).</strong> Ticket changes/payment-method changes for the same ticket are not allowed.</p>
-            <p class="note" lang="zh-CN">取消报名退款（距会议开始）：超过30天退70%；8–30天退50%；7天内（含）不退。重复缴费部分退70%，收30%管理费；因CCF原因无法参会全退。<strong>申请截至2026年11月6日（北京时间）。</strong>不允许换票或同票更换支付方式。</p>
-        </div>
-        <div class="info-card membership">
-            <p>Now join CCF,enjoy member benefits.Membership fee standard:CCF Members:<strong>￥360/year</strong>,Students:<strong>￥50/year</strong>.</p>
-            <a href="https://web.ccf.org.cn/CCF/regTo.action?flag=0&amp;source=m1488189928050397184177485372807&amp;fro=https%3A%2F%2Fccf.org.cn%2Fconf%2Fuser%2Frefresh.action%3Fmid%3Dm1488189928050397184177485372807%26return_url%3Dhttps%3A%2F%2Fccf.org.cn%2Ficxr2026%2Fbrief_1011" class="btn-link" target="_blank" rel="noopener">Join CCF</a>
-        </div>
-
-        <h2>Conference Invitation Letters</h2>
-        <p>Need a visa invitation letter? After registration and payment, open <a href="https://ccf.org.cn/icxr2026/general_1014" target="_blank" rel="noopener">Visa</a> in the menu for application instructions and email <a href="mailto:icxr@ccf.org.cn">icxr@ccf.org.cn</a>.</p>
-
-        <h2>Contact</h2>
-        <ul>
-            <li><strong>Registration, payment, invoices and invitation letters:</strong> <a href="mailto:icxr@ccf.org.cn">icxr@ccf.org.cn</a></li>
-            <li><strong>Conference website:</strong> <a href="https://icxr.net/2026/" target="_blank" rel="noopener">https://icxr.net/2026/</a></li>
-            <li><strong>Hotel inquiries:</strong> +86 20 8916 3388 (Langham Place, Guangzhou)</li>
-        </ul>
-
-        <h2>Venue and Travel</h2>
-        <p>Venue: Langham Place, Guangzhou, 638 Xingang East Road, Haizhu District, Guangzhou, China 510335. The hotel is in Pazhou, next to the Canton Fair Complex. The conference website estimates approximately 30 minutes by car from either Guangzhou East Railway Station or Guangzhou South Railway Station, and approximately 40 minutes from Guangzhou Baiyun International Airport. A metro station is about a five-minute walk away. Travel times are estimates and depend on traffic conditions. Hotel telephone: +86 20 8916 3388.</p>
-        <p>Venue and travel information: <a href="https://icxr.net/2026/Venue.html" target="_blank" rel="noopener">https://icxr.net/2026/Venue.html</a></p>
     </main>
 
-    <div id="footer-container"></div>
+    <div id="footer-container" lang="en"></div>
 </div>
 
 <script>
@@ -454,12 +638,97 @@
         document.getElementById('footer-container').innerHTML = html;
     }).catch(err => console.error('Error loading footer:', err));
 
+    const languageTabs = Array.from(document.querySelectorAll('.language-tab'));
+    const languagePanels = {
+        en: document.getElementById('registration-en'),
+        zh: document.getElementById('registration-zh')
+    };
+    const sectionAnchors = [
+        { en: 'registration-fees', zh: 'registration-fees-zh' },
+        { en: 'paper-registration-guide', zh: 'chinese-registration-guide' },
+        { en: 'visa-and-invitation-letters', zh: 'visa-and-invitation-letters-zh' },
+        { en: 'visa-information-en', zh: 'visa-information-zh' },
+        { en: 'hotel-reservation', zh: 'hotel-reservation-zh' }
+    ];
+
+    function currentAnchorId() {
+        try { return decodeURIComponent(window.location.hash.slice(1)); }
+        catch { return ''; }
+    }
+
+    function setLanguage(language, remember = true) {
+        languageTabs.forEach(tab => {
+            const selected = tab.dataset.lang === language;
+            tab.classList.toggle('active', selected);
+            tab.setAttribute('aria-selected', String(selected));
+            tab.tabIndex = selected ? 0 : -1;
+        });
+        Object.entries(languagePanels).forEach(([key, panel]) => {
+            panel.hidden = key !== language;
+        });
+        document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
+        const title = language === 'zh' ? '注册信息' : 'Registration Information';
+        document.getElementById('registration-title').textContent = title;
+        document.title = 'ICXR 2026: ' + title;
+
+        const anchorId = currentAnchorId();
+        const section = sectionAnchors.find(ids => Object.values(ids).includes(anchorId));
+        if (section && section[language] !== anchorId) {
+            window.history.replaceState(window.history.state, '', '#' + section[language]);
+        }
+        if (remember) {
+            try { localStorage.setItem('icxr-2026-registration-language', language); }
+            catch { /* Language switching also works when storage is unavailable. */ }
+        }
+    }
+
+    languageTabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => setLanguage(tab.dataset.lang));
+        tab.addEventListener('keydown', event => {
+            let nextIndex;
+            if (event.key === 'ArrowRight') nextIndex = (index + 1) % languageTabs.length;
+            else if (event.key === 'ArrowLeft') nextIndex = (index + languageTabs.length - 1) % languageTabs.length;
+            else if (event.key === 'Home') nextIndex = 0;
+            else if (event.key === 'End') nextIndex = languageTabs.length - 1;
+            else return;
+            event.preventDefault();
+            const nextTab = languageTabs[nextIndex];
+            setLanguage(nextTab.dataset.lang);
+            nextTab.focus();
+        });
+    });
+
+    function languageForAnchor() {
+        const target = document.getElementById(currentAnchorId());
+        return Object.keys(languagePanels).find(language => languagePanels[language].contains(target));
+    }
+
+    let initialLanguage = 'en';
+    try {
+        const saved = localStorage.getItem('icxr-2026-registration-language');
+        if (saved === 'en' || saved === 'zh') initialLanguage = saved;
+    } catch { /* Default to English when storage is unavailable. */ }
+    setLanguage(languageForAnchor() || initialLanguage, false);
+    function revealAnchor() {
+        const language = languageForAnchor();
+        if (language) {
+            setLanguage(language, false);
+            document.getElementById(currentAnchorId()).scrollIntoView();
+        }
+    }
+    window.addEventListener('hashchange', revealAnchor);
+    if (window.location.hash) requestAnimationFrame(revealAnchor);
+
     // Count calendar days in Beijing time without rolling over to a later year.
     const millisecondsPerDay = 24 * 60 * 60 * 1000;
     const todayInBeijing = Math.floor((Date.now() + 8 * 60 * 60 * 1000) / millisecondsPerDay);
     const conferenceDay = Math.floor(Date.UTC(2026, 10, 5) / millisecondsPerDay);
-    document.getElementById('countdown').textContent = Math.max(0, conferenceDay - todayInBeijing);
-    document.querySelector('.countdown').hidden = false;
+    document.querySelectorAll('[data-countdown]').forEach(counter => {
+        counter.textContent = Math.max(0, conferenceDay - todayInBeijing);
+    });
+    document.querySelectorAll('.countdown').forEach(countdown => {
+        countdown.hidden = false;
+    });
 </script>
 </body>
 </html>
