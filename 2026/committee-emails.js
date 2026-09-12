@@ -1,4 +1,4 @@
-/* ICXR 2026 committee contacts.
+/* ICXR 2026 committee contacts — left aligned beside each role heading.
  * Place this file beside committeeOR.html, then add before </body>:
  * <script src="committee-emails.js"></script>
  * Updates only existing role headings; all member lists remain untouched.
@@ -21,9 +21,9 @@
                 .icxr-committee-heading {
                     display: flex;
                     align-items: baseline;
-                    justify-content: space-between;
+                    justify-content: flex-start;
                     flex-wrap: wrap;
-                    gap: .35rem 1.5rem;
+                    gap: .35rem 1.5rem; /* 24px between the title and email at a 16px root font size */
                     width: 100%;
                     margin: 1.5rem 0 1rem;
                 }
@@ -33,14 +33,14 @@
                 }
                 .icxr-committee-heading > .icxr-committee-email {
                     display: block;
-                    margin-left: auto;
+                    margin-left: 0;
                     max-width: 100%;
                     color: #0b2b4f;
                     font-size: 1.25rem;
                     font-weight: 700;
                     font-style: italic;
                     line-height: 1.5;
-                    text-align: right;
+                    text-align: left;
                     text-decoration: none;
                     overflow-wrap: anywhere;
                 }
