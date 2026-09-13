@@ -163,6 +163,51 @@
             color: #2c3e4e;
         }
 
+        .venue-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.4rem;
+        }
+        .venue-header h1 {
+            margin-bottom: 0;
+        }
+        .language-tabs {
+            display: inline-flex;
+            gap: 0.25rem;
+            padding: 0.25rem;
+            background: #0b2b4f;
+            border-radius: 12px;
+        }
+        .language-tab {
+            appearance: none;
+            border: 0;
+            border-radius: 9px;
+            background: transparent;
+            color: #ffffff;
+            padding: 0.6rem 1rem;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .language-tab:hover {
+            background: #1e4a76;
+        }
+        .language-tab.active {
+            background: #dfeef8;
+            color: #0b2b4f;
+        }
+        .language-panel[hidden] {
+            display: none;
+        }
+        .language-tab:focus-visible {
+            outline: 3px solid #2c7da0;
+            outline-offset: 4px;
+        }
+
         .hero-text {
             text-align: justify;
         }
@@ -259,6 +304,32 @@
             background-color: #f8fafd;
         }
 
+        .hotel-reservation .room-rate {
+            text-align: center;
+            vertical-align: middle;
+            border-bottom: none;
+        }
+        .hotel-reservation .rate-note {
+            color: #4a627a;
+            font-size: 0.95rem;
+        }
+        .hotel-reservation-link {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #0b2b4f;
+            color: #ffffff;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .hotel-reservation-link:hover {
+            background-color: #1e4a76;
+        }
+        .hotel-reservation-link:focus-visible {
+            outline: 3px solid #2c7da0;
+            outline-offset: 4px;
+        }
+
         @media (max-width: 700px) {
             .image-row {
                 grid-template-columns: 1fr;
@@ -278,95 +349,235 @@
 </head>
 <body>
 <div class="wrapper">
-    <div id="header-container"></div>
+    <div id="header-container" lang="en"></div>
 
     <div class="content">
-        <h1>Venue Information</h1>
-        <p class="lead">ICXR 2026 will be held at <strong>Langham Place, Guangzhou</strong>, a modern conference hotel in Pazhou, Guangzhou. The venue is next to the Canton Fair Complex and offers convenient access to metro, airport, railway stations, and nearby business and sightseeing destinations.</p>
-
-        <h2>Conference Venue: Langham Place, Guangzhou</h2>
-        <div class="info-card">
-            <p><strong>Location:</strong> 638 Xingang East Road, Haizhu District, Guangzhou, China 510335</p>
-            <p><strong>Hotel Venue:</strong> Langham Place, Guangzhou</p>
-            <p><strong>Contact:</strong> T Telephone +(86)20 8916 3388&nbsp;&nbsp;&nbsp;F Fax +(86)20 8916 3333</p>
-        </div>
-
-        <div class="image-row">
-            <img src="icons/hotel1.png" alt="Langham Place Guangzhou exterior view">
-            <img src="icons/hotel2.png" alt="Langham Place Guangzhou interior or venue view">
-        </div>
-
-        <h2>Hotel Overview</h2>
-        <p>Langham Place, Guangzhou features <strong>488 guest rooms and suites</strong>, combining contemporary design, city views, and full-service conference hospitality. The hotel also provides multiple dining venues, spa and wellness facilities, and a broad range of indoor and outdoor event spaces suitable for international academic conferences.</p>
-
-        <h2>Conference Facilities</h2>
-        <table>
-            <tr>
-                <th>Space</th>
-                <th>Description</th>
-            </tr>
-            <tr>
-                <td>Function Space</td>
-                <td>Approximately 5,000 square meters of flexible, high-tech event space, including pillar-free ballroom facilities.</td>
-            </tr>
-            <tr>
-                <td>Great Hall</td>
-                <td>2,800 square meters with an 11-meter ceiling and a 560-square-meter foyer; suitable for large plenary events and banquet functions.</td>
-            </tr>
-            <tr>
-                <td>Ballroom</td>
-                <td>760 square meters with a 500-square-meter foyer; can be divided into seven separate function rooms for parallel sessions.</td>
-            </tr>
-            <tr>
-                <td>Outdoor Terrace</td>
-                <td>An outdoor event space on the 3rd floor, suitable for gatherings of up to 80 guests.</td>
-            </tr>
-            <tr>
-                <td>The Peak</td>
-                <td>200 square meters of indoor ceremony space for up to 100 guests, plus 800 square meters of outdoor area with views of Pazhou.</td>
-            </tr>
-        </table>
-
-        <div class="image-row">
-            <div class="image-card">
-                <img src="icons/hotel3.png" alt="Hotel view 1">
-            </div>
-            <div class="image-card">
-                <img src="icons/hotel4.png" alt="Hotel view 2">
+        <div class="venue-header">
+            <h1 id="venue-title">Venue Information</h1>
+            <div class="language-tabs" role="tablist" aria-label="Language / 语言">
+                <button type="button" id="venue-tab-en" class="language-tab active" role="tab" aria-selected="true" aria-controls="venue-en" data-lang="en" lang="en">English</button>
+                <button type="button" id="venue-tab-zh" class="language-tab" role="tab" aria-selected="false" aria-controls="venue-zh" data-lang="zh" lang="zh-CN" tabindex="-1">中文</button>
             </div>
         </div>
 
-        <h2>Dining and Wellness</h2>
-        <ul>
-            <li><strong>Ming Court</strong> offers refined Cantonese cuisine and was selected in the Michelin Guide Guangzhou for five consecutive years from 2019 to 2023.</li>
-            <li><strong>Alfresco</strong> is a semi-outdoor restaurant serving modern Italian cuisine.</li>
-            <li><strong>The Open Kitchen</strong> is an all-day dining restaurant with international flavors and seasonal ingredients.</li>
-            <li><strong>Portal</strong> and <strong>Sky Bar</strong> provide lounge and social spaces for informal meetings and evening gatherings.</li>
-            <li><strong>Chuan Spa</strong> and the <strong>24-hour Fitness Center</strong> offer wellness, massage, and workout facilities for guests.</li>
-        </ul>
+        <div id="venue-en" class="language-panel" role="tabpanel" aria-labelledby="venue-tab-en" lang="en">
+            <p class="lead">ICXR 2026 will be held at <strong>Langham Place, Guangzhou</strong>, a modern conference hotel in Pazhou, Guangzhou. The venue is next to the Canton Fair Complex and offers convenient access to metro, airport, railway stations, and nearby business and sightseeing destinations.</p>
 
-        <h2>Transportation Information</h2>
-        <ul>
-            <li><strong>Metro Station:</strong> about 5 minutes on foot.</li>
-            <li><strong>Canton Fair Complex:</strong> about 5–10 minutes on foot.</li>
-            <li><strong>Pazhou Ferry Terminal:</strong> about 5 minutes by car.</li>
-            <li><strong>Guangzhou East Railway Station:</strong> about 30 minutes by car.</li>
-            <li><strong>Guangzhou South Railway Station:</strong> about 30 minutes by car.</li>
-            <li><strong>Guangzhou Baiyun International Airport:</strong> about 40 minutes by car.</li>
-        </ul>
+            <h2>Conference Venue: Langham Place, Guangzhou</h2>
+            <div class="info-card">
+                <p><strong>Location:</strong> 638 Xingang East Road, Haizhu District, Guangzhou, China 510335</p>
+                <p><strong>Hotel Venue:</strong> Langham Place, Guangzhou</p>
+                <p><strong>Contact:</strong> T Telephone +(86)20 8916 3388&nbsp;&nbsp;&nbsp;F Fax +(86)20 8916 3333</p>
+            </div>
 
-        <h2>Nearby Highlights</h2>
-        <p>The venue is located in Pazhou, one of Guangzhou’s major exhibition and innovation districts. In addition to the Canton Fair Complex, attendees may also find the following nearby attractions of interest:</p>
-        <ul>
-            <li><strong>Canton Tower</strong> – one of Guangzhou’s best-known landmarks and sightseeing destinations.</li>
-            <li><strong>Historic Site of Ancient Whampoa Anchorage</strong> – a historic port area reflecting Guangzhou’s long trading history.</li>
-            <li><strong>Party Pier</strong> – a lively waterfront district for dining, culture, and nightlife.</li>
-            <li><strong>Tram Haizhu Line 1</strong> – a convenient scenic tram route connecting several city landmarks.</li>
-        </ul>
+            <div class="image-row">
+                <img src="icons/hotel1.png" alt="Langham Place Guangzhou exterior view">
+                <img src="icons/hotel2.png" alt="Langham Place Guangzhou interior or venue view">
+            </div>
 
+            <h2>Hotel Overview</h2>
+            <p>Langham Place, Guangzhou features <strong>488 guest rooms and suites</strong>, combining contemporary design, city views, and full-service conference hospitality. The hotel also provides multiple dining venues, spa and wellness facilities, and a broad range of indoor and outdoor event spaces suitable for international academic conferences.</p>
+
+            <section class="hotel-reservation" aria-labelledby="hotel-room-rates">
+                <h2 id="hotel-room-rates">Hotel Room Rates and Reservation</h2>
+                <p>The conference booking link offers the following two room types at the same rate, including daily breakfast for up to two guests.</p>
+                <table aria-labelledby="hotel-room-rates">
+                    <thead>
+                        <tr>
+                            <th scope="col">Room Type</th>
+                            <th scope="col">Average Per Room Per Night</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Superior King Bed</td>
+                            <td class="room-rate" rowspan="2"><strong>Approx. CNY 472</strong><br>Excluding service charge and taxes</td>
+                        </tr>
+                        <tr>
+                            <td>Superior Twin Bed</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="rate-note">Select your check-in and check-out dates on the booking page; final rates and availability are subject to your selection.</p>
+                <a href="https://be.synxis.com/?Hotel=60091&amp;Chain=10316&amp;config=LPCAN&amp;theme=lpcan_new&amp;locale=en-US&amp;arrive=2026-11-05&amp;depart=2026-11-09&amp;adult=1&amp;child=0&amp;group=HAI110526" class="hotel-reservation-link" target="_blank" rel="noopener">Book at Langham Place, Guangzhou</a>
+            </section>
+
+            <h2>Conference Facilities</h2>
+            <table>
+                <tr>
+                    <th>Space</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Function Space</td>
+                    <td>Approximately 5,000 square meters of flexible, high-tech event space, including pillar-free ballroom facilities.</td>
+                </tr>
+                <tr>
+                    <td>Great Hall</td>
+                    <td>2,800 square meters with an 11-meter ceiling and a 560-square-meter foyer; suitable for large plenary events and banquet functions.</td>
+                </tr>
+                <tr>
+                    <td>Ballroom</td>
+                    <td>760 square meters with a 500-square-meter foyer; can be divided into seven separate function rooms for parallel sessions.</td>
+                </tr>
+                <tr>
+                    <td>Outdoor Terrace</td>
+                    <td>An outdoor event space on the 3rd floor, suitable for gatherings of up to 80 guests.</td>
+                </tr>
+                <tr>
+                    <td>The Peak</td>
+                    <td>200 square meters of indoor ceremony space for up to 100 guests, plus 800 square meters of outdoor area with views of Pazhou.</td>
+                </tr>
+            </table>
+
+            <div class="image-row">
+                <div class="image-card">
+                    <img src="icons/hotel3.png" alt="Hotel view 1">
+                </div>
+                <div class="image-card">
+                    <img src="icons/hotel4.png" alt="Hotel view 2">
+                </div>
+            </div>
+
+            <h2>Dining and Wellness</h2>
+            <ul>
+                <li><strong>Ming Court</strong> offers refined Cantonese cuisine and was selected in the Michelin Guide Guangzhou for five consecutive years from 2019 to 2023.</li>
+                <li><strong>Alfresco</strong> is a semi-outdoor restaurant serving modern Italian cuisine.</li>
+                <li><strong>The Open Kitchen</strong> is an all-day dining restaurant with international flavors and seasonal ingredients.</li>
+                <li><strong>Portal</strong> and <strong>Sky Bar</strong> provide lounge and social spaces for informal meetings and evening gatherings.</li>
+                <li><strong>Chuan Spa</strong> and the <strong>24-hour Fitness Center</strong> offer wellness, massage, and workout facilities for guests.</li>
+            </ul>
+
+            <h2>Transportation Information</h2>
+            <ul>
+                <li><strong>Metro Station:</strong> about 5 minutes on foot.</li>
+                <li><strong>Canton Fair Complex:</strong> about 5–10 minutes on foot.</li>
+                <li><strong>Pazhou Ferry Terminal:</strong> about 5 minutes by car.</li>
+                <li><strong>Guangzhou East Railway Station:</strong> about 30 minutes by car.</li>
+                <li><strong>Guangzhou South Railway Station:</strong> about 30 minutes by car.</li>
+                <li><strong>Guangzhou Baiyun International Airport:</strong> about 40 minutes by car.</li>
+            </ul>
+
+            <h2>Nearby Highlights</h2>
+            <p>The venue is located in Pazhou, one of Guangzhou’s major exhibition and innovation districts. In addition to the Canton Fair Complex, attendees may also find the following nearby attractions of interest:</p>
+            <ul>
+                <li><strong>Canton Tower</strong> – one of Guangzhou’s best-known landmarks and sightseeing destinations.</li>
+                <li><strong>Historic Site of Ancient Whampoa Anchorage</strong> – a historic port area reflecting Guangzhou’s long trading history.</li>
+                <li><strong>Party Pier</strong> – a lively waterfront district for dining, culture, and nightlife.</li>
+                <li><strong>Tram Haizhu Line 1</strong> – a convenient scenic tram route connecting several city landmarks.</li>
+            </ul>
+        </div>
+
+        <div id="venue-zh" class="language-panel" role="tabpanel" aria-labelledby="venue-tab-zh" lang="zh-CN" hidden>
+            <p class="lead">ICXR 2026将在<strong>广州南丰朗豪酒店</strong>举行。酒店位于广州琶洲，是一家现代化会议酒店，毗邻广交会展馆，前往地铁站、机场、火车站以及周边商务和观光目的地均较为便利。</p>
+
+            <h2>会议场地：广州南丰朗豪酒店</h2>
+            <div class="info-card">
+                <p><strong>地址：</strong>中国广州市海珠区新港东路638号，邮编510335</p>
+                <p><strong>会议酒店：</strong>广州南丰朗豪酒店</p>
+                <p><strong>联系方式：</strong>电话 +(86)20 8916 3388&nbsp;&nbsp;&nbsp;传真 +(86)20 8916 3333</p>
+            </div>
+
+            <div class="image-row">
+                <img src="icons/hotel1.png" alt="广州南丰朗豪酒店外观">
+                <img src="icons/hotel2.png" alt="广州南丰朗豪酒店内部或会场">
+            </div>
+
+            <h2>酒店概况</h2>
+            <p>广州南丰朗豪酒店设有<strong>488间客房及套房</strong>，将现代设计、城市景观与完善的会议接待服务相结合。酒店还提供多处餐饮场所、水疗及康体设施，以及适合国际学术会议的各类室内外活动空间。</p>
+
+            <section class="hotel-reservation" aria-labelledby="hotel-room-rates-zh">
+                <h2 id="hotel-room-rates-zh">酒店房型价格与预订</h2>
+                <p>会议预订链接提供以下两种房型，价格相同，均包含每日最多两位住客的早餐。</p>
+                <table aria-labelledby="hotel-room-rates-zh">
+                    <thead>
+                        <tr>
+                            <th scope="col">房型</th>
+                            <th scope="col">平均每间每晚价格</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>高级大床房</td>
+                            <td class="room-rate" rowspan="2"><strong>约人民币472元</strong><br>不含服务费和税费</td>
+                        </tr>
+                        <tr>
+                            <td>高级双床房</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="rate-note">请在预订页面选择入住和退房日期；最终房价与房态以您所选条件下的预订页面为准。</p>
+                <a href="https://be.synxis.com/?Hotel=60091&amp;Chain=10316&amp;config=LPCAN&amp;theme=lpcan_new&amp;locale=en-US&amp;arrive=2026-11-05&amp;depart=2026-11-09&amp;adult=1&amp;child=0&amp;group=HAI110526" class="hotel-reservation-link" target="_blank" rel="noopener">预订广州南丰朗豪酒店</a>
+            </section>
+
+            <h2>会议设施</h2>
+            <table>
+                <tr>
+                    <th>场地</th>
+                    <th>说明</th>
+                </tr>
+                <tr>
+                    <td>活动空间</td>
+                    <td>约5,000平方米灵活配置的高科技活动空间，包括无柱宴会厅设施。</td>
+                </tr>
+                <tr>
+                    <td>Great Hall</td>
+                    <td>面积2,800平方米，层高11米，配有560平方米的前厅，适合大型全体会议及宴会活动。</td>
+                </tr>
+                <tr>
+                    <td>Ballroom</td>
+                    <td>面积760平方米，配有500平方米的前厅，可分隔为七个独立多功能厅，用于平行会议。</td>
+                </tr>
+                <tr>
+                    <td>户外露台</td>
+                    <td>位于3层的户外活动空间，适合举办最多80人的聚会。</td>
+                </tr>
+                <tr>
+                    <td>The Peak</td>
+                    <td>设有200平方米的室内仪式空间，可容纳100人，另有800平方米的户外区域，可欣赏琶洲景观。</td>
+                </tr>
+            </table>
+
+            <div class="image-row">
+                <div class="image-card">
+                    <img src="icons/hotel3.png" alt="酒店景观1">
+                </div>
+                <div class="image-card">
+                    <img src="icons/hotel4.png" alt="酒店景观2">
+                </div>
+            </div>
+
+            <h2>餐饮与康体</h2>
+            <ul>
+                <li><strong>Ming Court</strong>提供精致粤菜，并于2019至2023年连续五年入选广州米其林指南。</li>
+                <li><strong>Alfresco</strong>是一家供应现代意大利菜的半露天餐厅。</li>
+                <li><strong>The Open Kitchen</strong>是一家提供国际风味及应季食材的全日制餐厅。</li>
+                <li><strong>Portal</strong>和<strong>Sky Bar</strong>提供适合非正式会面及晚间聚会的休闲社交空间。</li>
+                <li><strong>Chuan Spa</strong>及<strong>24小时健身中心</strong>为住客提供康体、按摩及健身设施。</li>
+            </ul>
+
+            <h2>交通信息</h2>
+            <ul>
+                <li><strong>地铁站：</strong>步行约5分钟。</li>
+                <li><strong>广交会展馆：</strong>步行约5–10分钟。</li>
+                <li><strong>琶洲码头：</strong>驾车约5分钟。</li>
+                <li><strong>广州东站：</strong>驾车约30分钟。</li>
+                <li><strong>广州南站：</strong>驾车约30分钟。</li>
+                <li><strong>广州白云国际机场：</strong>驾车约40分钟。</li>
+            </ul>
+
+            <h2>周边景点</h2>
+            <p>会场位于琶洲，这里是广州主要的会展及创新区域之一。除广交会展馆外，参会者还可关注以下周边景点：</p>
+            <ul>
+                <li><strong>广州塔</strong>——广州知名的地标及观光景点之一。</li>
+                <li><strong>黄埔古港遗址</strong>——体现广州悠久贸易历史的历史港口区域。</li>
+                <li><strong>琶醍</strong>——集餐饮、文化及夜生活于一体的活力滨水区域。</li>
+                <li><strong>海珠有轨电车1号线</strong>——一条连接多个城市地标、便捷且沿途景色优美的电车线路。</li>
+            </ul>
+        </div>
     </div>
 
-    <div id="footer-container"></div>
+    <div id="footer-container" lang="en"></div>
 </div>
 
 <script>
@@ -376,6 +587,83 @@
     fetch('footer.html').then(r => r.text()).then(html => {
         document.getElementById('footer-container').innerHTML = html;
     }).catch(err => console.error('Error loading footer:', err));
+
+    const languageTabs = Array.from(document.querySelectorAll('.language-tab'));
+    const languagePanels = {
+        en: document.getElementById('venue-en'),
+        zh: document.getElementById('venue-zh')
+    };
+    const sectionAnchors = [
+        { en: 'hotel-room-rates', zh: 'hotel-room-rates-zh' }
+    ];
+
+    function currentAnchorId() {
+        try { return decodeURIComponent(window.location.hash.slice(1)); }
+        catch { return ''; }
+    }
+
+    function setLanguage(language, remember = true) {
+        languageTabs.forEach(tab => {
+            const selected = tab.dataset.lang === language;
+            tab.classList.toggle('active', selected);
+            tab.setAttribute('aria-selected', String(selected));
+            tab.tabIndex = selected ? 0 : -1;
+        });
+        Object.entries(languagePanels).forEach(([key, panel]) => {
+            panel.hidden = key !== language;
+        });
+        document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
+        const title = language === 'zh' ? '会场信息' : 'Venue Information';
+        document.getElementById('venue-title').textContent = title;
+        document.title = language === 'zh' ? 'ICXR 2026: 会场信息' : 'ICXR 2026: Venue';
+
+        const anchorId = currentAnchorId();
+        const section = sectionAnchors.find(ids => Object.values(ids).includes(anchorId));
+        if (section && section[language] !== anchorId) {
+            window.history.replaceState(window.history.state, '', '#' + section[language]);
+        }
+        if (remember) {
+            try { localStorage.setItem('icxr-2026-venue-language', language); }
+            catch { /* Language switching also works when storage is unavailable. */ }
+        }
+    }
+
+    languageTabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => setLanguage(tab.dataset.lang));
+        tab.addEventListener('keydown', event => {
+            let nextIndex;
+            if (event.key === 'ArrowRight') nextIndex = (index + 1) % languageTabs.length;
+            else if (event.key === 'ArrowLeft') nextIndex = (index + languageTabs.length - 1) % languageTabs.length;
+            else if (event.key === 'Home') nextIndex = 0;
+            else if (event.key === 'End') nextIndex = languageTabs.length - 1;
+            else return;
+            event.preventDefault();
+            const nextTab = languageTabs[nextIndex];
+            setLanguage(nextTab.dataset.lang);
+            nextTab.focus();
+        });
+    });
+
+    function languageForAnchor() {
+        const target = document.getElementById(currentAnchorId());
+        return Object.keys(languagePanels).find(language => languagePanels[language].contains(target));
+    }
+
+    let initialLanguage = 'en';
+    try {
+        const saved = localStorage.getItem('icxr-2026-venue-language');
+        if (saved === 'en' || saved === 'zh') initialLanguage = saved;
+    } catch { /* Default to English when storage is unavailable. */ }
+    setLanguage(languageForAnchor() || initialLanguage, false);
+    function revealAnchor() {
+        const language = languageForAnchor();
+        if (language) {
+            setLanguage(language, false);
+            document.getElementById(currentAnchorId()).scrollIntoView();
+        }
+    }
+    window.addEventListener('hashchange', revealAnchor);
+    if (window.location.hash) requestAnimationFrame(revealAnchor);
 </script>
 </body>
 </html>
