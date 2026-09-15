@@ -307,7 +307,24 @@
         .hotel-reservation .room-rate {
             text-align: center;
             vertical-align: middle;
+        }
+        .hotel-reservation th,
+        .hotel-reservation .stay-date {
+            text-align: center;
+        }
+        .hotel-reservation .stay-date {
+            white-space: nowrap;
+        }
+        .hotel-reservation .room-types {
+            text-align: center;
+            vertical-align: middle;
             border-bottom: none;
+        }
+        .hotel-reservation .room-types span {
+            display: block;
+        }
+        .hotel-reservation .room-types span + span {
+            margin-top: 0.75rem;
         }
         .hotel-reservation .rate-note {
             color: #4a627a;
@@ -385,21 +402,28 @@
                     <thead>
                         <tr>
                             <th scope="col">Room Type</th>
-                            <th scope="col">Average Per Room Per Night</th>
+                            <th scope="col">Stay Date (2026)</th>
+                            <th scope="col">Approx. Rate Per Room Per Night (including tax)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Superior King Bed</td>
-                            <td class="room-rate" rowspan="2"><strong>Approx. CNY 472</strong><br>Excluding service charge and taxes</td>
+                            <td class="room-types" rowspan="3"><span>Superior King Bed</span><span>Superior Twin Bed</span></td>
+                            <td class="stay-date">03 Nov</td>
+                            <td class="room-rate"><strong>CNY 1,000</strong></td>
                         </tr>
                         <tr>
-                            <td>Superior Twin Bed</td>
+                            <td class="stay-date">04 Nov</td>
+                            <td class="room-rate"><strong>CNY 700</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="stay-date">05–09 Nov</td>
+                            <td class="room-rate"><strong>CNY 550</strong></td>
                         </tr>
                     </tbody>
                 </table>
-                <p class="rate-note">Select your check-in and check-out dates on the booking page; final rates and availability are subject to your selection.</p>
-                <a href="https://be.synxis.com/?Hotel=60091&amp;Chain=10316&amp;config=LPCAN&amp;theme=lpcan_new&amp;locale=en-US&amp;arrive=2026-11-05&amp;depart=2026-11-09&amp;adult=1&amp;child=0&amp;group=HAI110526" class="hotel-reservation-link" target="_blank" rel="noopener">Book at Langham Place, Guangzhou</a>
+                <p class="rate-note">Rates include service charge and taxes. Select your check-in and check-out dates on the booking page; final rates and availability are subject to your selection.</p>
+                <a href="https://be.synxis.com/?Hotel=60091&amp;Chain=10316&amp;config=LPCAN&amp;theme=lpcan_new&amp;locale=en-US&amp;arrive=2026-11-03&amp;depart=2026-11-09&amp;adult=1&amp;child=0&amp;group=HAI110526" class="hotel-reservation-link" target="_blank" rel="noopener">Book at Langham Place, Guangzhou</a>
             </section>
 
             <h2>Conference Facilities</h2>
@@ -493,21 +517,28 @@
                     <thead>
                         <tr>
                             <th scope="col">房型</th>
-                            <th scope="col">平均每间每晚价格</th>
+                            <th scope="col">住宿日期（2026）</th>
+                            <th scope="col">每间每晚参考价格</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>高级大床房</td>
-                            <td class="room-rate" rowspan="2"><strong>约人民币472元</strong><br>不含服务费和税费</td>
+                            <td class="room-types" rowspan="3"><span>高级大床房</span><span>高级双床房</span></td>
+                            <td class="stay-date">11.03</td>
+                            <td class="room-rate"><strong>约人民币1,000元</strong></td>
                         </tr>
                         <tr>
-                            <td>高级双床房</td>
+                            <td class="stay-date">11.04</td>
+                            <td class="room-rate"><strong>约人民币700元</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="stay-date">11.05–11.09</td>
+                            <td class="room-rate"><strong>约人民币550元</strong></td>
                         </tr>
                     </tbody>
                 </table>
-                <p class="rate-note">请在预订页面选择入住和退房日期；最终房价与房态以您所选条件下的预订页面为准。</p>
-                <a href="https://be.synxis.com/?Hotel=60091&amp;Chain=10316&amp;config=LPCAN&amp;theme=lpcan_new&amp;locale=en-US&amp;arrive=2026-11-05&amp;depart=2026-11-09&amp;adult=1&amp;child=0&amp;group=HAI110526" class="hotel-reservation-link" target="_blank" rel="noopener">预订广州南丰朗豪酒店</a>
+                <p class="rate-note">价格已含服务费和税费。请在预订页面选择入住和退房日期；最终房价与房态以您所选条件下的预订页面为准。</p>
+                <a href="https://be.synxis.com/?Hotel=60091&amp;Chain=10316&amp;config=LPCAN&amp;theme=lpcan_new&amp;locale=en-US&amp;arrive=2026-11-03&amp;depart=2026-11-09&amp;adult=1&amp;child=0&amp;group=HAI110526" class="hotel-reservation-link" target="_blank" rel="noopener">预订广州南丰朗豪酒店</a>
             </section>
 
             <h2>会议设施</h2>

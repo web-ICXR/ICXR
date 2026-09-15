@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>ICXR 2026 | Organizing Committee</title>
+    <title>ICXR 2026 | Keynote Speakers</title>
     <style>
         * {
             margin: 0;
@@ -19,7 +19,7 @@
         }
 
         .wrapper {
-            width: 1200px;
+            width: min(1200px, 100%);
             margin: 0 auto;
             background-color: #f4f7fc;
             box-shadow: none;
@@ -131,12 +131,16 @@
 
         .committee-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
             gap: 2rem;
             margin: 2rem 0 1rem;
         }
 
         .member-card {
+            appearance: none;
+            width: 100%;
+            font: inherit;
+            cursor: pointer;
             background: #ffffff;
             border-radius: 28px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
@@ -148,13 +152,23 @@
         }
 
         .member-card:hover {
-            transform: translateY(-5px);
             box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
         }
 
+        .member-card[aria-expanded="true"] {
+            border-color: #2c7da0;
+            background: #f0f5fa;
+            box-shadow: 0 8px 24px rgba(44, 125, 160, 0.12);
+        }
+
+        .member-card:focus-visible {
+            outline: 3px solid #2c7da0;
+            outline-offset: 4px;
+        }
+
         .member-image {
-            width: 160px;
-            height: 160px;
+            width: 136px;
+            height: 136px;
             margin: 0 auto 1rem;
             border-radius: 50%;
             overflow: hidden;
@@ -173,6 +187,7 @@
         }
 
         .member-name {
+            display: block;
             font-size: 1.25rem;
             font-weight: 700;
             color: #0b2b4f;
@@ -180,6 +195,7 @@
         }
 
         .member-affiliation {
+            display: block;
             font-size: 0.9rem;
             color: #2c7da0;
             font-weight: 500;
@@ -189,6 +205,67 @@
             font-size: 0.85rem;
             color: #5e6f8d;
             margin-top: 0.3rem;
+        }
+
+        .speaker-hint {
+            color: #4a627a;
+            margin-top: 0.5rem;
+        }
+
+        .speaker-details {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .speaker-details[hidden] {
+            display: none;
+        }
+
+        .speaker-details:not([hidden]) {
+            animation: speaker-details-fade 280ms ease-out;
+        }
+
+        @keyframes speaker-details-fade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .speaker-details-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .speaker-details-header h2 {
+            margin: 0;
+        }
+
+        .speaker-details p {
+            margin-bottom: 1.2rem;
+            line-height: 1.75;
+            overflow-wrap: anywhere;
+        }
+
+        .speaker-details strong {
+            color: #0b2b4f;
+        }
+
+        .pending-info {
+            color: #5e6f8d;
+            font-style: italic;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .member-card {
+                transition: none;
+            }
+            .speaker-details:not([hidden]) {
+                animation: none;
+            }
         }
 
         hr {
@@ -236,37 +313,62 @@
     <div id="header-container"></div>
 
     <div class="content">
-        <h1>2026 Keynote Speakers</h1>
+        <h1 id="keynote-speakers">2026 Keynote Speakers</h1>
+        <p class="speaker-hint" id="speaker-hint">Click a speaker's photo to view the keynote details.</p>
 
         <div class="committee-grid">
-            <div class="member-card">
-                <div class="member-image">
-                    <img src="committeeimages/FrankSteinicke.webp" alt="Frank Steinicke">
-                </div>
-                <div class="member-name">Frank Steinicke</div>
-                <div class="member-affiliation">University of Hamburg</div>
-                <!-- <div class="member-country">Germany</div> -->
-            </div>
+            <button type="button" class="member-card" id="speaker-button-frank" aria-expanded="false" aria-controls="speaker-frank" aria-labelledby="speaker-name-frank" aria-describedby="speaker-hint">
+                <span class="member-image">
+                    <img src="committeeimages/FrankSteinicke2026.png" alt="Frank Steinicke" width="301" height="333">
+                </span>
+                <span class="member-name" id="speaker-name-frank">Frank Steinicke</span>
+                <span class="member-affiliation">University of Hamburg</span>
+            </button>
 
-            <div class="member-card">
-                <div class="member-image">
+            <button type="button" class="member-card" id="speaker-button-per-ola" aria-expanded="false" aria-controls="speaker-per-ola" aria-labelledby="speaker-name-per-ola" aria-describedby="speaker-hint">
+                <span class="member-image">
                     <img src="committeeimages/PerOlaKristensson.webp" alt="Per Ola Kristensson">
-                </div>
-                <div class="member-name">Per Ola Kristensson</div>
-                <div class="member-affiliation">University of Cambridge</div>
-            </div>
+                </span>
+                <span class="member-name" id="speaker-name-per-ola">Per Ola Kristensson</span>
+                <span class="member-affiliation">University of Cambridge</span>
+            </button>
 
-            <div class="member-card">
-                <div class="member-image">
-                    <img src="committeeimages/GerardJKim.jpg" alt="Gerard J. Kim">
-                </div>
-                <div class="member-name">Gerard J. Kim</div>
-                <div class="member-affiliation">Korea University</div>
-            </div>
+            <button type="button" class="member-card" id="speaker-button-gerard" aria-expanded="false" aria-controls="speaker-gerard" aria-labelledby="speaker-name-gerard" aria-describedby="speaker-hint">
+                <span class="member-image">
+                    <img src="committeeimages/GerardJounghyunKim2026.png" alt="Gerard Jounghyun Kim" width="276" height="306">
+                </span>
+                <span class="member-name" id="speaker-name-gerard">Gerard Jounghyun Kim</span>
+                <span class="member-affiliation">Korea University</span>
+            </button>
 
         </div>
 
-        <hr />
+        <article class="speaker-details" id="speaker-frank" aria-labelledby="speaker-heading-frank" hidden>
+            <div class="speaker-details-header">
+                <h2 id="speaker-heading-frank">Frank Steinicke</h2>
+            </div>
+            <p><strong>Title:</strong> Next-Generation Spatial Platforms at the Intersection of XR and Embodied AI</p>
+            <p><strong>Abstract:</strong> Virtual, Augmented, and Mixed Realities are no longer mere display mechanisms—they represent the perceptual sensory cortex for embodied AI systems. The keynote investigates how combining low-latency spatial tracking and display with real-time AI reasoning models transforms ambient computing into an synergistic collaboration between human and AI.</p>
+            <p><strong>Bio:</strong> Frank Steinicke is a professor of Human-Computer Interaction at the Department of Informatics at the Universität Hamburg. Before his current position, he was a professor of Computer Science in Media at the Department of Computer Science at the University of Würzburg and chair of the Immersive Media Group from 2011 to 2014. He studied Mathematics with a Minor in Computer Science at the University of Münster, from which he received his Ph.D. and Venia Legendi in Computer Science. His research interests are focused on merging natural with artificial intelligence and realities to improve interactions and experiences in computer-mediated environments. For his pioneering work, he received the IEEE VGTC Virtual Reality Technical Achievement Award in 2023 and was inducted into the prestigious IEEE VR Academy. In 2024, he was inaugurated in the Academy of Sciences and Humanities in Hamburg, and was inducted into AWE's XR Hall of Fame in 2025 and into the Scientific Research Honor Society.</p>
+        </article>
+
+        <article class="speaker-details" id="speaker-per-ola" aria-labelledby="speaker-heading-per-ola" hidden>
+            <div class="speaker-details-header">
+                <h2 id="speaker-heading-per-ola">Per Ola Kristensson</h2>
+            </div>
+            <p><strong>Title:</strong> <span class="pending-info">To be announced.</span></p>
+            <p><strong>Abstract:</strong> <span class="pending-info">To be announced.</span></p>
+            <p><strong>Bio:</strong> <span class="pending-info">To be announced.</span></p>
+        </article>
+
+        <article class="speaker-details" id="speaker-gerard" aria-labelledby="speaker-heading-gerard" hidden>
+            <div class="speaker-details-header">
+                <h2 id="speaker-heading-gerard">Gerard Jounghyun Kim</h2>
+            </div>
+            <p><strong>Title:</strong> Usability, "the Final Piece of the Puzzle for Proliferation of the XR", is within Reach!</p>
+            <p><strong>Abstract:</strong> <span class="pending-info">To be announced.</span></p>
+            <p><strong>Bio:</strong> Gerard Jounghyun Kim received the B.S. degree in electrical and computer engineering from Carnegie Mellon University, in 1987, and the M.S. and Ph.D. degrees in computer science from the University of Southern California in 1994. He began his academic career at POSTECH in 1996 and joined Korea University, in 2006 where he is currently a Professor of Computer Science and Engineering. He served as the Dean of the College of Informatics from 2024 to 2026. His research interests include human–computer interaction, virtual and mixed reality, and computer music. Dr. Kim has published over 200 research articles, authored two international books, and served as General and Program Chair for numerous international conferences. He was also the founding convener of the ISO/IEC JTC 1/SC 24/WG 9 Working Group on Mixed and Augmented Reality (MAR) Standardization.</p>
+        </article>
     </div>
 
     <div id="footer-container"></div>
@@ -280,6 +382,19 @@
     fetch('footer.html').then(r => r.text()).then(html => {
         document.getElementById('footer-container').innerHTML = html;
     }).catch(err => console.error('Error loading footer:', err));
+
+    const speakerButtons = Array.from(document.querySelectorAll('.member-card[aria-controls]'));
+
+    speakerButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const opening = button.getAttribute('aria-expanded') !== 'true';
+            speakerButtons.forEach(otherButton => {
+                const expanded = otherButton === button && opening;
+                otherButton.setAttribute('aria-expanded', String(expanded));
+                document.getElementById(otherButton.getAttribute('aria-controls')).hidden = !expanded;
+            });
+        });
+    });
 </script>
 </body>
 </html>
