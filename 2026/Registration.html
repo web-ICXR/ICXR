@@ -162,6 +162,10 @@
             margin: 1.4rem 0;
             border: 1px solid #dfe8f0;
         }
+        .joint-pass-note p {
+            line-height: 1.7;
+            margin-bottom: 0.4rem;
+        }
         .info-card > :last-child {
             margin-bottom: 0;
         }
@@ -265,12 +269,13 @@
         .table-scroll {
             overflow-x: auto;
             margin: 1.4rem 0;
-            border-radius: 20px;
+            border-radius: 14px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
         }
         table {
             width: 100%;
             min-width: 640px;
+            table-layout: fixed;
             border-collapse: separate;
             border-spacing: 0;
             background: #ffffff;
@@ -280,7 +285,17 @@
             color: #ffffff;
             padding: 14px 16px;
             font-weight: 600;
-            text-align: left;
+            text-align: center;
+        }
+        thead th:first-child {
+            width: 28%;
+        }
+        thead th:nth-child(2) {
+            width: 36%;
+        }
+        thead th:nth-child(3),
+        thead th:nth-child(4) {
+            width: 18%;
         }
         thead th span {
             display: block;
@@ -291,14 +306,13 @@
         tbody th, td {
             padding: 12px 16px;
             border-bottom: 1px solid #e9edf2;
-            text-align: left;
+            text-align: center;
             color: #1f2e3a;
-            vertical-align: top;
+            vertical-align: middle;
         }
         tbody th {
             background: #f0f5fa;
             font-weight: 600;
-            width: 27%;
         }
         thead th:first-child,
         tbody th[scope="rowgroup"] {
@@ -308,6 +322,9 @@
         td.fee {
             white-space: nowrap;
             font-variant-numeric: tabular-nums;
+        }
+        tbody + tbody tr:first-child > * {
+            border-top: 1px solid #d5e2ec;
         }
         tbody tr:hover td {
             background: #f8fafd;
@@ -433,10 +450,30 @@
                         <tr><td>Non-CCF Member</td><td class="fee">￥7200</td><td class="fee">￥7200</td></tr>
                     </tbody>
                     <tbody>
-                        <tr><th scope="rowgroup" rowspan="2">Student Pass (Banquet Excluded)</th><td>CCF Student Member</td><td class="fee">￥800</td><td class="fee">￥1000</td></tr>
+                        <tr><th scope="rowgroup" rowspan="2">Student Pass<br>(Banquet Excluded)</th><td>CCF Student Member</td><td class="fee">￥800</td><td class="fee">￥1000</td></tr>
                         <tr><td>Non-CCF Student Member</td><td class="fee">￥1000</td><td class="fee">￥1400</td></tr>
                     </tbody>
                 </table>
+            </div>
+
+            <h2 id="additional-services">Additional services</h2>
+            <div class="table-scroll" role="region" aria-labelledby="additional-services" tabindex="0">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Additional service</th>
+                            <th scope="col">Membership Type</th>
+                            <th scope="col">9.1–10.20</th>
+                            <th scope="col">10.21–11.6</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="rowgroup">Joint Conference Pass<br>(ChinaVR 2026 Add-on)</th><td style="text-align: center; vertical-align: middle;">General</td><td class="fee" style="text-align: center; vertical-align: middle;">￥1000</td><td class="fee" style="text-align: center; vertical-align: middle;">￥1000</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="info-card joint-pass-note">
+                <p><strong>Joint Conference Pass (optional): </strong>Add CNY 1,000 to your ICXR 2026 registration to attend ChinaVR 2026 as well. Select “Joint Conference Pass (ChinaVR 2026 Add-on)” under additional services. The add-on is for the same attendee and does not replace paper registration at either conference. The fee is CNY 1,000 during both early-bird and regular registration, regardless of membership status.</p>
             </div>
 
             <h2 id="paper-registration-guide">Paper Registration Guide</h2>
@@ -562,6 +599,26 @@
                         <tr><td>非CCF学生会员</td><td class="fee">￥1000</td><td class="fee">￥1400</td></tr>
                     </tbody>
                 </table>
+            </div>
+
+            <h2 id="additional-services-zh">附加服务</h2>
+            <div class="table-scroll" role="region" aria-labelledby="additional-services-zh" tabindex="0">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">附加内容</th>
+                            <th scope="col">会员类型</th>
+                            <th scope="col">9.1–10.20</th>
+                            <th scope="col">10.21–11.6</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="rowgroup">中英文通票（ChinaVR2026）</th><td style="text-align: center; vertical-align: middle;">不区分会员资格</td><td class="fee" style="text-align: center; vertical-align: middle;">￥1000</td><td class="fee" style="text-align: center; vertical-align: middle;">￥1000</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="info-card joint-pass-note">
+                <p><strong>中英文会议通票（可选）：</strong>在 ICXR 2026 注册费基础上加付人民币1,000元，同一位参会者即可同时参加 ChinaVR 2026。报名时请在附加项目中选择“中英文通票（ChinaVR2026）”。通票不替代任一会议的论文注册，论文仍须按各会议要求办理。早鸟期和常规期均为1,000元，不区分会员身份。</p>
             </div>
 
             <h2 id="chinese-registration-guide">论文注册选票指南</h2>
