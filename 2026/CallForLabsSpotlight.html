@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ICXR 2026: Call for Labs Spotlight Proposals</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #f4f7fc; color: #1e2a3e; line-height: 1.6; }
+        .wrapper { width: 1200px; max-width: 100%; margin: 0 auto; }
+        .content { background: #fff; border-radius: 32px; box-shadow: 0 12px 30px rgba(0,0,0,.05); margin: 2rem auto; padding: 3rem 4rem; }
+        h1 { font-size: 2.3rem; line-height: 1.25; font-weight: 700; color: #0b2b4f; letter-spacing: -.3px; }
+        h2 { font-size: 1.7rem; font-weight: 600; color: #0b2b4f; margin: 1.8rem 0 1rem; border-left: 5px solid #2c7da0; padding-left: 1rem; }
+        p { margin-bottom: 1rem; color: #2c3e4e; line-height: 1.75; }
+        .page-header { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: flex-start; justify-content: space-between; }
+        .page-header h1 { flex: 1 1 620px; }
+        .language-switch { display: inline-flex; padding: .25rem; border: 1px solid #dfe8f0; border-radius: 12px; background: #f0f5fa; gap: .2rem; }
+        .language-tab { border: 0; border-radius: 9px; background: transparent; padding: .55rem .9rem; color: #1e4a76; font: inherit; font-weight: 600; cursor: pointer; }
+        .language-tab[aria-selected="true"] { background: #0b2b4f; color: #fff; }
+        [hidden] { display: none !important; }
+        .content a { color: #1e4a76; text-underline-offset: 3px; overflow-wrap: anywhere; }
+        .content .btn-link { display: inline-block; padding: .75rem 1.3rem; background: #0b2b4f; color: #fff; border-radius: 12px; font-weight: 600; text-decoration: none; }
+        .btn-link:hover { background: #1e4a76; }
+        .submission-action { margin: 1.25rem 0; }
+        .info-card { background: #f0f5fa; border: 1px solid #dfe8f0; border-radius: 20px; padding: 1.25rem 1.5rem; margin: 1.4rem 0; }
+        .info-card p:last-child { margin-bottom: 0; }
+        .table-scroll { overflow-x: auto; border-radius: 14px; border: 1px solid #e9edf2; margin: 1.4rem 0; }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th, td { padding: 14px 18px; }
+        thead th { background: #0b2b4f; color: #fff; }
+        tbody th { font-weight: 500; color: #2c3e4e; }
+        tbody tr + tr { border-top: 1px solid #e9edf2; }
+        td { white-space: nowrap; font-variant-numeric: tabular-nums; color: #1e4a76; }
+        .content a:focus-visible, .language-tab:focus-visible, .table-scroll:focus-visible { outline: 3px solid #2c7da0; outline-offset: 4px; }
+        #header-container .dropdown:focus-within > .dropdown-content { display: block; }
+        @media (max-width: 1100px) {
+            #header-container .nav-container, #header-container .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+        }
+        @media (max-width: 768px) {
+            .content { margin: 1rem; padding: 1.5rem; border-radius: 24px; }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.35rem; }
+            .page-header { gap: 1rem; }
+            th, td { padding: 12px; font-size: .9rem; }
+            .info-card { padding: 1rem; }
+            #header-container .dropdown-content { max-width: calc(100vw - 3rem); }
+            #header-container .dropdown-content a { white-space: normal; }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div id="header-container"></div>
+    <main class="content">
+        <div class="page-header">
+            <h1 id="page-title">Call for Labs Spotlight Proposals</h1>
+            <div class="language-switch" role="tablist" aria-label="Language / 语言">
+                <button type="button" id="labs-tab-en" class="language-tab" role="tab" aria-selected="true" aria-controls="labs-en" data-lang="en">English</button>
+                <button type="button" id="labs-tab-zh" class="language-tab" role="tab" aria-selected="false" aria-controls="labs-zh" tabindex="-1" data-lang="zh">中文</button>
+            </div>
+        </div>
+            <div id="labs-en" class="language-panel" role="tabpanel" aria-labelledby="labs-tab-en" lang="en">
+                <h2>Overview</h2>
+                <p>We invite research groups from all areas of XR (Augmented, Mixed, and Virtual Reality), 3D User Interfaces, and related fields to apply to present in the “Labs Spotlight” session at the International Conference on Extended Reality 2026 (ICXR 2026). This premier session is designed to provide a high-visibility stage for academic and industrial research groups worldwide to showcase their cutting-edge work, state-of-the-art facilities, and future research visions in the field of Extended Reality (XR).</p>
+                <p>Presentations may highlight the group’s research areas, team members, facilities, ongoing and past projects, academic and industrial collaborations, and open opportunities, welcoming participation from both academic and industrial labs. These presentations aim to attract top talent by pitching open positions such as Ph.D., postdoc, and internships directly to an audience of highly motivated students and young researchers, while also boosting visibility by putting a spotlight on the group’s achievements and unique capabilities in front of leading experts and industry pioneers. In addition, they foster collaborations by connecting with potential academic partners and industry sponsors to spark new collaborative projects.</p>
+                <p>While presentation materials will not appear in the official ICXR proceedings, a list of participating labs and their contact details will be featured on the ICXR 2026 website, providing lasting visibility to the broader XR community.</p>
+                <h2>Submissions &amp; Registration Requirement</h2>
+                <p>The presentations are not limited to slides, videos, posters, etc. Applications must be submitted through the following Web Submission Form. The presentation time should be within three minutes.</p>
+                <p class="submission-action"><a class="btn-link" href="https://v.wjx.cn/vm/tAGnohJ.aspx#" target="_blank" rel="noopener noreferrer">Submit a Proposal</a></p>
+                <p>If the above link is not accessible in your region, please send your Lab descriptions and materials (e.g., Slides, Videos) via <a href="mailto:shaokui@bnu.edu.cn">shaokui@bnu.edu.cn</a>.</p>
+                <div class="info-card">
+                <p>Confirmation of Attendance: Accepted groups will be required to confirm their participation and provide at least one presenter’s ICXR 2026 registration details by the confirmation deadline (see below) to be officially scheduled in the program.</p>
+                </div>
+                <h2>Important Dates</h2>
+                <div class="table-scroll" tabindex="0" role="region" aria-label="Important Dates">
+                    <table>
+                        <thead><tr><th scope="col">Milestone</th><th scope="col">Date (23:59 AoE)</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row">Submission Deadline</th><td>Oct 15, 2026</td></tr>
+                            <tr><th scope="row">Notification of Acceptance</th><td>Oct 17, 2026</td></tr>
+                            <tr><th scope="row">Participation Confirmation Deadline (with registration details)</th><td>Oct 19, 2026</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h2>Contact</h2>
+                <p>ICXR 2026 Program Chairs</p>
+                <p>Inquiries: Shao-Kui Zhang <a href="mailto:shaokui@bnu.edu.cn">shaokui@bnu.edu.cn</a></p>
+            </div>
+            <div id="labs-zh" class="language-panel" role="tabpanel" aria-labelledby="labs-tab-zh" lang="zh-CN" hidden>
+                <h2>活动介绍</h2>
+                <p>第三届国际扩展现实会议（ICXR 2026）由中国计算机学会（CCF）主办，致力于推进虚拟现实、增强现实、混合现实及人工智能相关技术研究与创新。该会议入选了CCF高质量国际学术会议培育计划，以及CCF国际学术会议推荐列表。</p>
+                <p>我们诚邀来自扩展现实（增强现实、混合现实、虚拟现实）、三维用户界面及相关领域的各个研究团队，申请参加将于2026年举办的国际扩展现实大会（ICXR 2026）上的“实验室聚焦（Labs Spotlight）”环节。这一顶级环节旨在为全球学术界和工业界的研究团队提供一个高知名度的舞台，展示他们在扩展现实领域的前沿工作、先进设施以及未来研究愿景。</p>
+                <p>展示内容可涵盖实验室的研究方向、团队成员、设施设备、正在进行及已完成的项目、学术与产业合作，以及开放的合作机会，欢迎学术界和工业界的实验室参与。这些展示旨在通过直接向积极进取的学生和青年研究人员推介博士、博士后、实习等开放职位来吸引顶尖人才；同时通过在领先专家和行业先驱面前突出团队的成就与独特能力来提升知名度。此外，还能通过与潜在学术伙伴和行业赞助商建立联系，激发新的合作项目。</p>
+                <p>虽然展示材料不会出现在ICXR 2026的正式会议论文集中，但参与实验室的名单及其联系方式将在ICXR 2026官网上展示，从而为更广泛的XR社区提供持续的可见性。</p>
+                <h2>提交与注册要求</h2>
+                <p>展示形式不限于幻灯片、视频、海报等。请通过以下网络提交表单进行申请。展示时长应在三分钟以内。</p>
+                <p class="submission-action"><a class="btn-link" href="https://v.wjx.cn/vm/tAGnohJ.aspx#" target="_blank" rel="noopener noreferrer">提交申请</a></p>
+                <p>如果上述链接在您所在地区无法访问，请将实验室介绍及材料（如幻灯片、视频）发送至 <a href="mailto:shaokui@bnu.edu.cn">shaokui@bnu.edu.cn</a>。</p>
+                <div class="info-card">
+                <p>参会确认：被接受的团队需要在确认截止日期前确认参会，并提供至少一位演讲者的ICXR 2026注册信息，方可正式列入会议日程。</p>
+                </div>
+                <h2>重要日期</h2>
+                <div class="table-scroll" tabindex="0" role="region" aria-label="重要日期">
+                    <table>
+                        <thead><tr><th scope="col">事项</th><th scope="col">日期（23:59 AoE）</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row">提交截止日期</th><td>2026年10月15日</td></tr>
+                            <tr><th scope="row">接收通知日期</th><td>2026年10月17日</td></tr>
+                            <tr><th scope="row">参会确认截止日期（需提供注册信息）</th><td>2026年10月19日</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h2>联系方式</h2>
+                <p>ICXR 2026 程序委员会主席</p>
+                <p>咨询请联系：张少魁 <a href="mailto:shaokui@bnu.edu.cn">shaokui@bnu.edu.cn</a></p>
+            </div>
+    </main>
+    <div id="footer-container"></div>
+</div>
+<script>
+    for (const part of ['header', 'footer']) {
+        fetch(part + '.html').then(response => {
+            if (!response.ok) throw new Error('Unable to load ' + part);
+            return response.text();
+        }).then(markup => {
+            document.getElementById(part + '-container').innerHTML = markup;
+        }).catch(error => console.error(error));
+    }
+    const tabs = Array.from(document.querySelectorAll('.language-tab'));
+    const titles = { en: 'Call for Labs Spotlight Proposals', zh: '实验室聚焦提案征集' };
+    function setLanguage(language, remember = true) {
+        tabs.forEach(tab => {
+            const selected = tab.dataset.lang === language;
+            tab.setAttribute('aria-selected', String(selected));
+            tab.tabIndex = selected ? 0 : -1;
+            document.getElementById('labs-' + tab.dataset.lang).hidden = !selected;
+        });
+        document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
+        document.getElementById('page-title').textContent = titles[language];
+        document.title = 'ICXR 2026: ' + titles[language];
+        if (remember) {
+            try { localStorage.setItem('icxr-2026-labs-spotlight-language', language); } catch {}
+        }
+    }
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => setLanguage(tab.dataset.lang));
+        tab.addEventListener('keydown', event => {
+            let next;
+            if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+            else if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+            else if (event.key === 'Home') next = 0;
+            else if (event.key === 'End') next = tabs.length - 1;
+            else return;
+            event.preventDefault();
+            setLanguage(tabs[next].dataset.lang);
+            tabs[next].focus();
+        });
+    });
+    let initialLanguage = 'en';
+    try {
+        const saved = localStorage.getItem('icxr-2026-labs-spotlight-language');
+        if (saved === 'en' || saved === 'zh') initialLanguage = saved;
+    } catch {}
+    setLanguage(initialLanguage, false);
+</script>
+</body>
+</html>
