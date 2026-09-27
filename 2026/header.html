@@ -41,6 +41,12 @@
             <a href="Keynote.html" class="nav-item">Keynote</a>
             <a href="Registration.html" class="nav-item">Registration</a>
             <a href="Venue.html" class="nav-item">Venue</a>
+            <div class="dropdown download-menu">
+                <button class="dropbtn" type="button">Download <span class="arrow">▼</span></button>
+                <div class="dropdown-content">
+                    <a href="downloads/ICXR-2026-Invitation-Letter.pdf" download="ICXR 2026 Invitation Letter.pdf">Invitation Letter (PDF)</a>
+                </div>
+            </div>
         </div>
     </div>
 </nav>
@@ -174,6 +180,14 @@
         font-size: 0.6rem;
         opacity: 0.5;
         transition: transform 0.3s;
+    }
+
+    .download-menu > .dropdown-content {
+        left: auto;
+        right: 0;
+    }
+    .download-menu:focus-within > .dropdown-content {
+        display: block;
     }
 
     /* 二级菜单面板：默认隐藏 */
