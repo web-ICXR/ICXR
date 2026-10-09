@@ -38,6 +38,12 @@
                 </div>
             </div>
 
+            <div class="dropdown program-menu">
+                <button class="dropbtn" type="button">Program <span class="arrow">▼</span></button>
+                <div class="dropdown-content">
+                    <a href="Program.html">Overview</a>
+                </div>
+            </div>
             <a href="Keynote.html" class="nav-item">Keynote</a>
             <a href="Registration.html" class="nav-item">Registration</a>
             <a href="Venue.html" class="nav-item">Venue</a>
@@ -89,7 +95,7 @@
 
     .nav-links {
         display: flex;
-        gap: 2.5rem;
+        gap: 2rem;
         align-items: center;
     }
 
@@ -186,7 +192,8 @@
         left: auto;
         right: 0;
     }
-    .download-menu:focus-within > .dropdown-content {
+    .download-menu:focus-within > .dropdown-content,
+    .program-menu:focus-within > .dropdown-content {
         display: block;
     }
 
@@ -225,6 +232,15 @@
         display: block;
         width: 100%;
         height: auto;
+    }
+
+    /* Keep the navigation within the page after adding Program. */
+    @media (max-width: 1100px) {
+        .nav-container, .nav-links {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
     }
 
     /* --- 移动端适配 --- */
