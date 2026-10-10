@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ICXR 2026: Poster Template</title>
+    <link rel="stylesheet" href="template-resources.css">
+</head>
+<body>
+<div class="wrapper">
+    <div id="header-container"></div>
+    <main class="content">
+        <h1>Poster Template</h1>
+        <p>Use the ICXR 2026 template for your poster.</p>
+        <a class="download-button" href="downloads/icxr-2026-poster-a0.pptx" download>Download Poster Template</a>
+        <h2>Preview</h2>
+        <figure class="poster-preview">
+            <img src="images/templates/poster-a0.png" alt="Portrait poster template with ICXR 2026 header, sample research title, two content columns and a paper ID in the footer">
+        </figure>
+    </main>
+    <div id="footer-container"></div>
+</div>
+<script>
+    for (const part of ['header', 'footer']) {
+        fetch(part + '.html').then(response => {
+            if (!response.ok) throw new Error('Unable to load ' + part);
+            return response.text();
+        }).then(markup => {
+            document.getElementById(part + '-container').innerHTML = markup;
+            if (part === 'header') document.querySelector('a[href="PosterTemplate.html"]')?.setAttribute('aria-current', 'page');
+        }).catch(error => console.error(error));
+    }
+</script>
+</body>
+</html>

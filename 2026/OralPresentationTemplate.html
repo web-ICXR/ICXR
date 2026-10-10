@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ICXR 2026: Oral Presentation Template</title>
+    <link rel="stylesheet" href="template-resources.css">
+</head>
+<body>
+<div class="wrapper">
+    <div id="header-container"></div>
+    <main class="content">
+        <h1>Oral Presentation Template</h1>
+        <p>Use the ICXR 2026 template for your oral presentation.</p>
+        <a class="download-button" href="downloads/icxr-2026-oral-presentation-template.pptx" download>Download Oral Presentation Template</a>
+        <h2>Preview</h2>
+        <div class="preview-grid">
+            <figure>
+                <img src="images/templates/oral-title.png" width="1280" height="720" alt="ICXR 2026 oral presentation title slide with conference logo and Guangzhou artwork">
+            </figure>
+            <figure>
+                <img src="images/templates/oral-content.png" width="1280" height="720" alt="Content slide with a white background, conference logo and page number" loading="lazy">
+            </figure>
+            <figure>
+                <img src="images/templates/oral-slide-3.png" width="1280" height="720" alt="ICXR 2026 oral presentation template, slide 3" loading="lazy">
+            </figure>
+            <figure>
+                <img src="images/templates/oral-slide-4.png" width="1280" height="720" alt="ICXR 2026 oral presentation template, slide 4" loading="lazy">
+            </figure>
+            <figure>
+                <img src="images/templates/oral-slide-5.png" width="1280" height="720" alt="ICXR 2026 oral presentation template, slide 5" loading="lazy">
+            </figure>
+            <figure>
+                <img src="images/templates/oral-slide-6.png" width="1280" height="720" alt="ICXR 2026 oral presentation template, slide 6" loading="lazy">
+            </figure>
+            <figure>
+                <img src="images/templates/oral-closing.png" width="1280" height="720" alt="Closing slide with conference logo and Guangzhou artwork" loading="lazy">
+            </figure>
+        </div>
+    </main>
+    <div id="footer-container"></div>
+</div>
+<script>
+    for (const part of ['header', 'footer']) {
+        fetch(part + '.html').then(response => {
+            if (!response.ok) throw new Error('Unable to load ' + part);
+            return response.text();
+        }).then(markup => {
+            document.getElementById(part + '-container').innerHTML = markup;
+            if (part === 'header') document.querySelector('a[href="OralPresentationTemplate.html"]')?.setAttribute('aria-current', 'page');
+        }).catch(error => console.error(error));
+    }
+</script>
+</body>
+</html>
