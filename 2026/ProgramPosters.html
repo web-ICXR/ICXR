@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ICXR 2026: Poster Presentations</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #f4f7fc; color: #1e2f3e; line-height: 1.5; }
+        .wrapper { width: 1200px; max-width: 100%; margin: 0 auto; }
+        #header-container nav { padding: .9rem 2rem; display: flex; justify-content: center; flex-wrap: wrap; gap: .5rem 1.2rem; align-items: center; }
+        #header-container .nav-logo a { padding: .5rem .2rem; font-size: 1.05rem; font-weight: 600; letter-spacing: .3px; }
+        #header-container .dropdown { display: inline-block; }
+        #header-container .dropdown-content { border-radius: 16px; }
+        #header-container .dropdown-content a { border-bottom: 1px solid #eef2f6; letter-spacing: .3px; }
+        #header-container .dropdown:focus-within > .dropdown-content { display: block; }
+        .content { margin: 2rem auto; padding: 3rem 4rem; background: #fff; border-radius: 32px; box-shadow: 0 12px 30px rgba(0,0,0,.05); }
+        h1 { font-size: 2.2rem; line-height: 1.25; color: #0b2b4f; margin-bottom: 1.5rem; }
+        h2 { font-size: 1.5rem; color: #0b2b4f; margin-bottom: 1.25rem; border-left: 5px solid #2c7da0; padding-left: 1rem; }
+        @media (max-width: 768px) {
+            .content { margin: 1rem .5rem; padding: 1.5rem; border-radius: 24px; }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.25rem; }
+            #header-container .dropdown-content { max-width: calc(100vw - 3rem); }
+            #header-container .dropdown-content a { white-space: normal; }
+        }
+
+        html { scroll-behavior: smooth; }
+        .content > header { padding-bottom: 1.5rem; border-bottom: 1px solid #e1e9f2; }
+        .content > header h1 { margin-bottom: 1rem; }
+        .content > header p { color: #52677c; margin: .25rem 0; }
+        .content .tools { display: flex; justify-content: flex-end; margin-bottom: 1rem; }
+        .content .tools button { font: inherit; font-size: .9rem; color: #0b2b4f; background: #f0f6fb; border: 1px solid #d9e5ef; padding: .55rem 1rem; border-radius: 10px; cursor: pointer; }
+        .content .tools button:hover { background: #e2edf7; }
+        .content .table-scroll { overflow-x: auto; border: 1px solid #e1e9f2; border-radius: 16px; }
+        .content table { border-collapse: collapse; width: 100%; text-align: left; }
+        .content th { color: #fff; background: #0b2b4f; font-size: .9rem; font-weight: 600; padding: .85rem 1rem; }
+        .content td { padding: 1rem; border-bottom: 1px solid #e5edf5; vertical-align: top; }
+        .content tr:last-child td { border-bottom: 0; }
+        .content .poster-list { margin-top: 2rem; }
+        .content .papers { table-layout: fixed; }
+        .content .papers th:first-child { width: 100px; }
+        .content .paper-id { color: #0b2b4f; font-weight: 600; white-space: nowrap; background: #f0f6fb; }
+        .content .paper-title { color: #0b2b4f; font-weight: 600; line-height: 1.5; margin-bottom: .4rem; overflow-wrap: anywhere; }
+        .content .authors { color: #52677c; font-size: .94rem; line-height: 1.65; overflow-wrap: anywhere; }
+        @media (max-width: 768px) {
+            .content th, .content td { padding: .75rem; }
+            .content .papers th:first-child { width: 76px; }
+            .content .paper-id, .content .authors { font-size: .85rem; }
+        }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+        @media print {
+            @page { size: A4; margin: 17mm; }
+            body { background: #fff; font-size: 11pt; }
+            .wrapper { width: auto; }
+            #header-container, #footer-container, .content .tools { display: none; }
+            .content { margin: 0; padding: 0; border-radius: 0; box-shadow: none; }
+            .content h1 { font-size: 25pt; }
+            .content .table-scroll { overflow: visible; border-radius: 0; }
+            .content th { color: #0b2b4f; background: #f0f6fb; }
+            .content tr { break-inside: avoid; }
+            .content thead { display: table-header-group; }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div id="header-container"></div>
+    <main class="content">
+<div class="tools"><button type="button" onclick="window.print()">Print / Save as PDF</button></div>
+<header><h1>ICXR 2026 Poster Presentations</h1><p>November 6, 2026 · Ballroom E & F & G, Conference Center, Langham Place, Guangzhou, China</p><p>13:30–15:00 and 15:20–18:00 · Coffee Break: 15:00–15:20</p><p>China Standard Time (UTC+8)</p></header>
+<section class="poster-list"><div class="table-scroll"><table class="papers"><thead><tr><th scope="col">Paper ID</th><th scope="col">Paper Title and Authors</th></tr></thead><tbody><tr><td class="paper-id">P1038</td><td><div class="paper-title">A Simulation Method for Bubble-Driven Rigid-Body Dynamics in Supersaturated Fluids</div><div class="authors">Chengrui Wang; Xubo Yang</div></td></tr>
+<tr><td class="paper-id">P1156</td><td><div class="paper-title">Mitigating Short Walks Between Resets: Proactive Reset for Multi-user Redirected Walking</div><div class="authors">ShangMing Zhu; Qiang Tong; Sen-Zhe Xu; Jin-Feng Li; Peng-Hui Yuan; Wen-Yu Guo; Junyu Wu; Song-Hai Zhang</div></td></tr>
+<tr><td class="paper-id">P2320</td><td><div class="paper-title">What and How Long We Look: Rethinking Gaze Semantics for Emotion Recognition</div><div class="authors">Xinyu Liu; Mengke Song; Guisheng Zhang; Chenglizhao Chen</div></td></tr>
+<tr><td class="paper-id">P2671</td><td><div class="paper-title">TARCN: Topology-Aware Local Refinement for Coarse-to-Fine Neural Cloth Simulation</div><div class="authors">tao peng; Menglin Fan; Xianfang Tang; Junjie Huang; Zili Zhang; Li Li</div></td></tr>
+<tr><td class="paper-id">P3231</td><td><div class="paper-title">UEP-3DGS: Unequal Error Protection-based 3D Gaussian Splatting Video Streaming</div><div class="authors">Yuanwei Zhu; Yongtao Wang; Yuanting Yan; Xiuquan Qiao; Yakun Huang</div></td></tr>
+<tr><td class="paper-id">P3240</td><td><div class="paper-title">STFNet: Super Token Fusion Network for Reconstructing 3D Two-hand Interaction Mesh</div><div class="authors">Guoqiong Liao; Longjie Huang; Jiajun Zhang; QingXin Li; Yue Tang; Kefan Chen</div></td></tr>
+<tr><td class="paper-id">P4816</td><td><div class="paper-title">MDE: Human Muscle Dynamics Estimation from Monocular Videos</div><div class="authors">Yifan Huang; Xinyu Zhang; Feixiang Lu; Bin Zhou</div></td></tr>
+<tr><td class="paper-id">P5314</td><td><div class="paper-title">PanoramaFit: Effects of Viewpoint Guidance Paradigms on Motion Imitation in 360° Video-Based VR Fitness</div><div class="authors">Lutong Wang; Hongqiu Luan; Linwei Fan; Huiyu Li; Li Huang</div></td></tr>
+<tr><td class="paper-id">P5466</td><td><div class="paper-title">Spherical Transformer U-Net for Saliency Prediction on Panoramic Videos</div><div class="authors">Xu Lin; Chunmei Qing; Jiahan Chen; Qihao Xiong; Xiangmin Xu</div></td></tr>
+<tr><td class="paper-id">P5643</td><td><div class="paper-title">Real-Time Mesh-Based Engraving Interaction in an XR Virtual Museum for Chinese Movable-Type Printing</div><div class="authors">Jialiang He; Ying Liu; Jiajing Fu; Dan Zhang</div></td></tr>
+<tr><td class="paper-id">P5923</td><td><div class="paper-title">Beyond the Prompt: A 3D UI Study of Mixed-Initiative Region Selection in Language-Guided 3D Editing</div><div class="authors">Bowei Zhang; Xinda Liu; Xuehuai Shi; Kang Li</div></td></tr>
+<tr><td class="paper-id">P5977</td><td><div class="paper-title">InstGSVQA: 3D Question Answering with Frozen VLMs via Semantic 3D Gaussian Splatting</div><div class="authors">Fuyao Meng; Qichuan Geng; Liangliang Cai; Zhong Zhou</div></td></tr>
+<tr><td class="paper-id">P6263</td><td><div class="paper-title">Learning to Estimate Spatially-Varying Detailed Indoor Illumination from Single Omnidirectional Image</div><div class="authors">Rong-Kai Xu; Lei Zhang; Junhong Zhao</div></td></tr>
+<tr><td class="paper-id">P6557</td><td><div class="paper-title">From Mono to Stereo: Accelerating Binocular Gaussian Splatting via Reprojection and Selective Patching</div><div class="authors">Hongfei Zhu; Ling Zhou</div></td></tr>
+<tr><td class="paper-id">P6614</td><td><div class="paper-title">OlfaDrone: Characterizing Odor and Airflow Perception in a Drone-Based Olfactory Display for XR</div><div class="authors">Ryosei Unoki; Natthaphon Hatsakornkhanachok; Parinya Punpongsanon</div></td></tr>
+<tr><td class="paper-id">P6634</td><td><div class="paper-title">Speaking to Edit: LLM-Guided Semantic Interactive Part Editing of AI-generated 3D Models in Immersive Virtual Environments</div><div class="authors">Jian Wu; Liya Chen; Zhenming Zhang; Haokun Luo; Lili Wang; Kaiyue Li; Wen Wu; Chaoji Chen</div></td></tr>
+<tr><td class="paper-id">P7008</td><td><div class="paper-title">Effects of Frame Rates and Locomotion Techniques on Cybersickness in Virtual Reality</div><div class="authors">Junlin Chi; Tingjie Wan; Hai-Ning Liang; BoYu Gao</div></td></tr>
+<tr><td class="paper-id">P7025</td><td><div class="paper-title">Through Human Eyes and Machine Eyes: Understanding View Mismatch in Video See-Through Extended Reality</div><div class="authors">Yanming Xiu</div></td></tr>
+<tr><td class="paper-id">P7098</td><td><div class="paper-title">LightOcc-GS: Illumination-Aware Occlusion Modeling for 3D Gaussian Inverse Rendering</div><div class="authors">haoran liang; Miao Wang</div></td></tr>
+<tr><td class="paper-id">P7418</td><td><div class="paper-title">How Much Delay Goes Unnoticed? Quantifying Perceptual Latency Threshold across Multimodalities in Virtual Reality</div><div class="authors">Natthaphon Hatsakornkhanachok; Parinya Punpongsanon</div></td></tr>
+<tr><td class="paper-id">P7710</td><td><div class="paper-title">LG-HMI: A Display-Free Wearable Laser Interface for Outdoor AR Guidance in Precision Berry Thinning</div><div class="authors">Kabin Yok-in; Prawit Buayai; Xiaoyang Mao</div></td></tr>
+<tr><td class="paper-id">P7762</td><td><div class="paper-title">Improving Quality of Motor Imagery with Multimodal Emotion Induction and Recognition for BCI Applications</div><div class="authors">Huaichang Yin; Cheng Pan; Shiwei Cheng</div></td></tr>
+<tr><td class="paper-id">P7889</td><td><div class="paper-title">TangibleBuoyancy: Force Feedback Curbs the Control Illusion in VR Physics Experiments</div><div class="authors">Jiarui Zhao; Hailin Ji; Hongwen Zhang; Xiaoyan Hu; yanlin luo</div></td></tr>
+<tr><td class="paper-id">P7977</td><td><div class="paper-title">MotionFrame: Task-Aware Low-Burden Visual Cues for Mitigating Motion Sickness in In-Vehicle AR</div><div class="authors">Chenyang Yu; Jiaxin Yu; Jiahao Deng; Tao Shi; Chao Mei; Liang Xie</div></td></tr>
+<tr><td class="paper-id">P8089</td><td><div class="paper-title">DRFLoc: Visual Relocalization with Geometry-Consistent Distance Radiance Fields</div><div class="authors">Tong Chen; Shengjia Liang; Qichuan Geng; Zhong Zhou</div></td></tr>
+<tr><td class="paper-id">P8371</td><td><div class="paper-title">Multi-Modal 3D Generation via Structural Reinforcement Learning</div><div class="authors">Shengling Duan; Xueqin Zhao; Jiali Feng; Yue Qi</div></td></tr>
+<tr><td class="paper-id">P8555</td><td><div class="paper-title">Hierarchical OBB-ACD Collision Detection for Complex Automotive Exhibits in XR-Based Digital Museums</div><div class="authors">Jialiang He; Shanshan Xu; Ying Tian; Dan Zhang</div></td></tr>
+<tr><td class="paper-id">P8793</td><td><div class="paper-title">Comparing Direct Touch with Gaze+Pinch Techniques in an Augmented Reality Flood Risk Management Scenario</div><div class="authors">Solmaz Goodarzi; Luca Konstantin Koops; Frank Steinicke; Sukran Karaosmanoglu</div></td></tr>
+<tr><td class="paper-id">P8959</td><td><div class="paper-title">Cross-Scale Aggregation Network for Infrared Small Target Detection in See-Through Extended Reality</div><div class="authors">Ziyang Wang; Gan Zhang; Yuandong Yang; Zhiyu Guan; Zhiping Shi; Na Jiang</div></td></tr>
+<tr><td class="paper-id">P9391</td><td><div class="paper-title">Future-Aware Reset Direction Optimization for Redirected Walking</div><div class="authors">Jin-Feng Li; Qiang Tong; Sen-Zhe Xu; Wen-Yu Guo; Peng-Hui Yuan; ShangMing Zhu; Junyu Wu; Song-Hai Zhang</div></td></tr>
+<tr><td class="paper-id">P9414</td><td><div class="paper-title">DanceShowMaker: Multi-Agent Creative Planning for Controllable Dance Video Generation</div><div class="authors">Ling Jiang; Xin Fang; Ziheng Wang; Kaige Li</div></td></tr>
+<tr><td class="paper-id">P9553</td><td><div class="paper-title">Agentic Multimodal Evidence Reasoning with Monte Carlo Tree Search for Multimodal Misinformation Detection</div><div class="authors">Baiyu Ji; Dongyu She; Yongkang Zhang; Qichuan Geng; Zhong Zhou</div></td></tr>
+<tr><td class="paper-id">P9735</td><td><div class="paper-title">Neural Reconstruction of Indoor Scenes using Geometric and Shading Cues</div><div class="authors">Xinxiang Zhou; Haifeng Zhao; Yanping Fu</div></td></tr>
+<tr><td class="paper-id">P9812</td><td><div class="paper-title">Human-AI Collaborative Virtual Reality Exposure Therapy for Therapist-Guided Personalization of Exposure Scenes</div><div class="authors">Yunzhan Zhou; Bo Li; Tian Feng; Chengying Ma; Yifei Li</div></td></tr>
+<tr><td class="paper-id">P9820</td><td><div class="paper-title">NostalgiHome: A Home-Oriented VR System for Reminiscence-Driven Psychological Care in Postoperative Breast Cancer Patients</div><div class="authors">Fenghong Wang; Kexin Wu; Aowei Li</div></td></tr>
+<tr><td class="paper-id">P9846</td><td><div class="paper-title">Developmental Characteristics and Educational Value of XR-Assisted Museum Learning</div><div class="authors">Xiuchuan He; Siyu Chen; Jingying Xie; Kai Peng</div></td></tr>
+<tr><td class="paper-id">P9922</td><td><div class="paper-title">Evaluation of AR-Based Tactical Environments for Managing Operational Complexity in Manned-Unmanned Joint Simulation Missions</div><div class="authors">Bengunur Algok; Murat Akkan; Dilhan Derelioğlu; Gizem Bodur Uruç</div></td></tr></tbody></table></div></section>
+</main>
+    <div id="footer-container"></div>
+</div>
+<script>
+    for (const part of ['header', 'footer']) {
+        fetch(part + '.html').then(response => {
+            if (!response.ok) throw new Error('Unable to load ' + part);
+            return response.text();
+        }).then(markup => {
+            document.getElementById(part + '-container').innerHTML = markup;
+            if (part === 'header') document.querySelector('a[href="ProgramPosters.html"]')?.setAttribute('aria-current', 'page');
+        }).catch(error => console.error(error));
+    }
+</script>
+</body>
+</html>
