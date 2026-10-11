@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ICXR 2026: Oral Presentation Sessions</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #f4f7fc; color: #1e2f3e; line-height: 1.5; }
+        .wrapper { width: 1200px; max-width: 100%; margin: 0 auto; }
+        #header-container nav { padding: .9rem 2rem; display: flex; justify-content: center; flex-wrap: wrap; gap: .5rem 1.2rem; align-items: center; }
+        #header-container .nav-logo a { padding: .5rem .2rem; font-size: 1.05rem; font-weight: 600; letter-spacing: .3px; }
+        #header-container .dropdown { display: inline-block; }
+        #header-container .dropdown-content { border-radius: 16px; }
+        #header-container .dropdown-content a { border-bottom: 1px solid #eef2f6; letter-spacing: .3px; }
+        #header-container .dropdown:focus-within > .dropdown-content { display: block; }
+        .content { margin: 2rem auto; padding: 3rem 4rem; background: #fff; border-radius: 32px; box-shadow: 0 12px 30px rgba(0,0,0,.05); }
+        h1 { font-size: 2.2rem; line-height: 1.25; color: #0b2b4f; margin-bottom: 1.5rem; }
+        h2 { font-size: 1.5rem; color: #0b2b4f; margin-bottom: 1.25rem; border-left: 5px solid #2c7da0; padding-left: 1rem; }
+        @media (max-width: 768px) {
+            .content { margin: 1rem .5rem; padding: 1.5rem; border-radius: 24px; }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.25rem; }
+            #header-container .dropdown-content { max-width: calc(100vw - 3rem); }
+            #header-container .dropdown-content a { white-space: normal; }
+        }
+
+        html { scroll-behavior: smooth; }
+        .content > header { padding-bottom: 1.5rem; border-bottom: 1px solid #e1e9f2; }
+        .content > header h1 { margin-bottom: 1rem; }
+        .content > header p { color: #52677c; margin: .25rem 0; }
+        .content .tools { display: flex; justify-content: flex-end; margin-bottom: 1rem; }
+        .content .tools button { font: inherit; font-size: .9rem; color: #0b2b4f; background: #f0f6fb; border: 1px solid #d9e5ef; padding: .55rem 1rem; border-radius: 10px; cursor: pointer; }
+        .content .tools button:hover { background: #e2edf7; }
+        .content .overview { margin: 2rem 0 3rem; }
+        .content .table-scroll { overflow-x: auto; border: 1px solid #e1e9f2; border-radius: 16px; }
+        .content table { border-collapse: collapse; width: 100%; text-align: left; }
+        .content th { color: #fff; background: #0b2b4f; font-size: .9rem; font-weight: 600; padding: .85rem 1rem; }
+        .content td { padding: 1rem; border-bottom: 1px solid #e5edf5; vertical-align: top; }
+        .content tr:last-child td { border-bottom: 0; }
+        .content .overview table { min-width: 780px; font-size: .9rem; }
+        .content .overview td { padding: .85rem 1rem; }
+        .content .overview tbody tr:nth-child(even) { background: #f6f9fd; }
+        .content .overview td:nth-child(-n+4) { white-space: nowrap; }
+        .content .overview a { color: #155a80; font-weight: 600; text-underline-offset: 3px; }
+        .content .overview a:hover { color: #0b2b4f; }
+        .content .session { margin-bottom: 3rem; scroll-margin-top: 1.5rem; }
+        .content .session:last-child { margin-bottom: 0; }
+        .content .session-label { color: #2c7da0; font-weight: 700; margin-bottom: .6rem; padding-top: 1.5rem; border-top: 1px solid #d9e5ef; }
+        .content .session h2 { font-size: 1.55rem; line-height: 1.35; margin-bottom: .85rem; }
+        .content .session-meta { display: flex; flex-wrap: wrap; gap: .4rem 1.5rem; color: #52677c; margin-bottom: 1.25rem; }
+        .content .papers { table-layout: fixed; }
+        .content .papers th:first-child { width: 100px; }
+        .content .paper-id { color: #0b2b4f; font-weight: 600; white-space: nowrap; background: #f0f6fb; }
+        .content .paper-title { color: #0b2b4f; font-weight: 600; line-height: 1.5; margin-bottom: .4rem; overflow-wrap: anywhere; }
+        .content .authors { color: #52677c; font-size: .94rem; line-height: 1.65; overflow-wrap: anywhere; }
+        @media (max-width: 768px) {
+            .content .session h2 { font-size: 1.25rem; }
+            .content th, .content td { padding: .75rem; }
+            .content .papers th:first-child { width: 76px; }
+            .content .paper-id, .content .authors { font-size: .85rem; }
+            .content .session-meta { font-size: .9rem; }
+        }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+        @media print {
+            @page { size: A4; margin: 17mm; }
+            body { background: #fff; font-size: 11pt; }
+            .wrapper { width: auto; }
+            #header-container, #footer-container, .content .tools { display: none; }
+            .content { margin: 0; padding: 0; border-radius: 0; box-shadow: none; }
+            .content h1 { font-size: 25pt; }
+            .content .session h2 { font-size: 18pt; }
+            .content .table-scroll { overflow: visible; border-radius: 0; }
+            .content .overview table { min-width: 0; font-size: 9pt; }
+            .content .overview th, .content .overview td { padding: 6px; }
+            .content .overview td:nth-child(-n+4) { white-space: normal; }
+            .content th { color: #0b2b4f; background: #f0f6fb; }
+            .content .session { break-before: page; margin-bottom: 0; }
+            .content tr { break-inside: avoid; }
+            .content thead { display: table-header-group; }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div id="header-container"></div>
+    <main class="content">
+<div class="tools"><button type="button" onclick="window.print()">Print / Save as PDF</button></div>
+<header><h1>ICXR 2026 Oral Presentation Sessions</h1><p>November 5–6, 2026 · Guangzhou, China</p><p>China Standard Time (UTC+8)</p></header>
+<section class="overview"><h2>Schedule at a Glance</h2><div class="table-scroll"><table><thead><tr><th>Session</th><th>Date</th><th>Time</th><th>Venue</th><th>Topic</th></tr></thead><tbody><tr><td><a href="#session-1">Session 1</a></td><td>November 5</td><td class="time">08:00–09:00</td><td>Ballroom ABC</td><td>Finding Our Place: Mapping and Tracking</td></tr>
+<tr><td><a href="#session-2">Session 2</a></td><td>November 5</td><td class="time">09:00–10:00</td><td>Ballroom ABC</td><td>Worlds by Design</td></tr>
+<tr><td><a href="#session-3">Session 3</a></td><td>November 5</td><td class="time">10:20–11:20</td><td>Ballroom ABC</td><td>Digital Humans: Shape, Appearance and Motion</td></tr>
+<tr><td><a href="#session-4">Session 4</a></td><td>November 5</td><td class="time">11:20–12:20</td><td>Ballroom ABC</td><td>Every Frame Counts</td></tr>
+<tr><td><a href="#session-5">Session 5</a></td><td>November 5</td><td class="time">13:20–14:20</td><td>Ballroom ABC</td><td>Within Reach: Hands, Gaze and Interaction</td></tr>
+<tr><td><a href="#session-6">Session 6</a></td><td>November 5</td><td class="time">14:20–15:20</td><td>Ballroom ABC</td><td>Attention and Experience in XR</td></tr>
+<tr><td><a href="#session-7">Session 7</a></td><td>November 5</td><td class="time">15:40–16:40</td><td>Ballroom ABC</td><td>Agents with Intent</td></tr>
+<tr><td><a href="#session-8">Session 8</a></td><td>November 5</td><td class="time">16:40–17:40</td><td>Ballroom ABC</td><td>Learning to Act: Robots and World Models</td></tr>
+<tr><td><a href="#session-9">Session 9</a></td><td>November 5</td><td class="time">17:40–18:30</td><td>Ballroom ABC</td><td>Beneath the Surface: Medical Geometry and Volume Visualization</td></tr>
+<tr><td><a href="#session-10">Session 10</a></td><td>November 6</td><td class="time">15:20–16:20</td><td>Ballroom D</td><td>Visual Understanding and Semantic Processing</td></tr>
+<tr><td><a href="#session-11">Session 11</a></td><td>November 6</td><td class="time">16:20–17:20</td><td>Ballroom D</td><td>3D Reconstruction in a Changing World</td></tr></tbody></table></div></section>
+<section id="session-1" class="session">
+ <div class="session-label">Oral Session 1</div>
+ <h2>Finding Our Place: Mapping and Tracking</h2>
+ <p class="session-meta"><time>November 5, 2026</time><span>08:00–09:00</span><span>Ballroom ABC</span></p>
+ <div class="table-scroll"><table class="papers"><thead><tr><th scope="col">Paper ID</th><th scope="col">Paper Title and Authors</th></tr></thead><tbody><tr><td class="paper-id">P3649</td><td><div class="paper-title">AmbiGuard: Auditing Structural Constraints for Indoor Multiview Point Cloud Registration</div><div class="authors">Wantong Duan; Wenxiang Du; Yue Qi; Yongtang Bao</div></td></tr>
+<tr><td class="paper-id">P8961</td><td><div class="paper-title">VI-VGGT: Visual-Inertial Camera Pose Estimation with Geometry Grounded Transformer</div><div class="authors">Wenrui Zhou; Yuze Wang; Junyi Wang; Yue Qi; Chen Wang</div></td></tr>
+<tr><td class="paper-id">P3210</td><td><div class="paper-title">EC-IPT: Edge-Confidence Infrared 6DoF Pose Tracking</div><div class="authors">Jiachen Li; Yongji Jin; Delong Han; Mingle Zhou; Jin Wan</div></td></tr>
+<tr><td class="paper-id">P6704</td><td><div class="paper-title">Feed-Forward Visual Geometry Model Meets AR: An On-the-fly Mobile AR Tour Deployment Framework with 3D Semantic Mapping and Camera Pose Refinement</div><div class="authors">Tianchi Luan; Yuze Wang; Junyi Wang; Chen Wang; Minghuan Liu; Yue Qi</div></td></tr>
+<tr><td class="paper-id">P3053</td><td><div class="paper-title">AutoMapping: Simulation-Driven Virtual-Real Registration for 3D Projection</div><div class="authors">Pengye Xi; Shijun Yu; Zhongrui Wang; Qiang Fu</div></td></tr></tbody></table></div>
+ </section>
+<section id="session-2" class="session">
+ <div class="session-label">Oral Session 2</div>
+ <h2>Worlds by Design</h2>
+ <p class="session-meta"><time>November 5, 2026</time><span>09:00–10:00</span><span>Ballroom ABC</span></p>
+ <div class="table-scroll"><table class="papers"><thead><tr><th scope="col">Paper ID</th><th scope="col">Paper Title and Authors</th></tr></thead><tbody><tr><td class="paper-id">P2005</td><td><div class="paper-title">HMoLA-Diff: Hierarchical MoE-LoRA for Continual Few-Shot Personalized T2I Generation</div><div class="authors">Zhanheng Nie; Yifan Zhao; Hongyu Wu; Qigang Wang; Xinmin Dai; Jia Li</div></td></tr>
+<tr><td class="paper-id">P2825</td><td><div class="paper-title">AGGS: Attention-Guided Gaussian Steering for Controllable Compositional Text-to-Image Generation</div><div class="authors">Zaoying Huang; Changqun Xia; Yanjie Liang; Jia Li</div></td></tr>
+<tr><td class="paper-id">P2518</td><td><div class="paper-title">Style3D: Efficient 3D Asset Stylization via Multi-view Dual-feature Alignment</div><div class="authors">Bingjie Song; xin huang; Ruting Xie; Xue Wang; Qing Wang</div></td></tr>
+<tr><td class="paper-id">P2915</td><td><div class="paper-title">SceneAug: Structure-Aware Data Augmentation for 3D Indoor Scene Synthesis</div><div class="authors">Jun Yang; liang yue; Shao-Kui Zhang; Jianwei Guo; Song-Hai Zhang</div></td></tr>
+<tr><td class="paper-id">P2411</td><td><div class="paper-title">ODSCtrl: Camera-Controlled Omnidirectional Stereo Video Generation for Virtual Wandering</div><div class="authors">Jia-Jun Wang; Haozhong Yang; Dong Han; Miao Wang</div></td></tr></tbody></table></div>
+ </section>
+<section id="session-3" class="session">
+ <div class="session-label">Oral Session 3</div>
+ <h2>Digital Humans: Shape, Appearance and Motion</h2>
+ <p class="session-meta"><time>November 5, 2026</time><span>10:20–11:20</span><span>Ballroom ABC</span></p>
+ <div class="table-scroll"><table class="papers"><thead><tr><th scope="col">Paper ID</th><th scope="col">Paper Title and Authors</th></tr></thead><tbody><tr><td class="paper-id">P1305</td><td><div class="paper-title">PaDA: Parametrically Enhanced Diffusion for Avatar Reconstruction from a Single-view Image</div><div class="authors">Liang Qiao; Haowen Wang; Chongli Zhang; Xiuquan Qiao; Yakun Huang</div></td></tr>
+<tr><td class="paper-id">P9990</td><td><div class="paper-title">UGeoGS: Uncertainty-Aware Geometric Correction for Sparse-View Human Gaussian Splatting</div><div class="authors">Kaijin Zhao; Guoqing Zhou; Qing Wang</div></td></tr>
+<tr><td class="paper-id">P9157</td><td><div class="paper-title">SRAvatar:High-Resolution Gaussian Avatar Optimization for Low-Quality Face Reconstruction</div><div class="authors">Xiao Sun; Chenyang Wang; Qiangqiang Shen; Zhiwei Zhong; Kui Jiang; Junjun Jiang; Xianming Liu</div></td></tr>
+<tr><td class="paper-id">P8554</td><td><div class="paper-title">LIG-Hand: Lightweight Two-Hand 3D Mesh Reconstruction via Part-Guided Local Interaction</div><div class="authors">Guoqiong Liao; Jiajun Zhang; Longjie Huang; Kefan Chen; Zhaolong Yao; Bo Li</div></td></tr>
+<tr><td class="paper-id">P9933</td><td><div class="paper-title">Hand-Body Intersection Reduction for Animated Mesh-Based Avatars with an Exploratory 3DGS Feasibility Study in XR</div><div class="authors">Andy Schleising; Luis Fernando de Souza Cardoso; Elhassan Makled; Bea Vorhof; Tobias Schwandt; Wolfgang Broll</div></td></tr></tbody></table></div>
+ </section>
+<section id="session-4" class="session">
+ <div class="session-label">Oral Session 4</div>
+ <h2>Every Frame Counts</h2>
+ <p class="session-meta"><time>November 5, 2026</time><span>11:20–12:20</span><span>Ballroom ABC</span></p>
+ <div class="table-scroll"><table class="papers"><thead><tr><th scope="col">Paper ID</th><th scope="col">Paper Title and Authors</th></tr></thead><tbody><tr><td class="paper-id">P4489</td><td><div class="paper-title">ScaFovea-GS: Toward Real-Time Fovea-Preserving Gaussian Splatting for Extended Reality</div><div class="authors">Mingwei Zhang; Yanan Liu; Qianhan Tang; Jian Gong; Dan Xu</div></td></tr>
+<tr><td class="paper-id">P7104</td><td><div class="paper-title">NeuralASTRA: Perception-Budgeted Progressive Gaussian Streaming for Low-Latency Cloud XR</div><div class="authors">Khang Yeu Tang; HUIMIN HU; Ivan Cao; Xiaohui Wang; Song-Hai Zhang</div></td></tr>
+<tr><td class="paper-id">P8809</td><td><div class="paper-title">A Frame-Budgeted Mobile GPU Pipeline for Real-Time Interactive Fluid Simulation and Rendering</div><div class="authors">Peng Yu; Deteng Yan; Linying Jiang; Qiliang Zhu; Hongtao Fu; Aimin Hao; Yang Gao</div></td></tr>
+<tr><td class="paper-id">P1166</td><td><div class="paper-title">View-Dependent Stereo Rendering for Through-Water Mixed Reality</div><div class="authors">Yuqi Wu; Hao Du; Mingchuan Ren; Tingting Chen; Chenglei Yang</div></td></tr>
+<tr><td class="paper-id">P4743</td><td><div class="paper-title">Tiled Hybrid Wave-Geometric Acoustic Fields for City-Scale Outdoor Mixed-Reality Auralisation</div><div class="authors">Alex Orsholits; Manabu Tsukada</div></td></tr></tbody></table></div>
+ </section>
+<section id="session-5" class="session">
+ <div class="session-label">Oral Session 5</div>
+ <h2>Within Reach: Hands, Gaze and Interaction</h2>
+ <p class="session-meta"><time>November 5, 2026</time><span>13:20–14:20</span><span>Ballroom ABC</span></p>
+ <div class="table-scroll"><table class="papers"><thead><tr><th scope="col">Paper ID</th><th scope="col">Paper Title and Authors</th></tr></thead><tbody><tr><td class="paper-id">P3143</td><td><div class="paper-title">SaP: Scene-aware Portals for Efficient VR Distant Interaction</div><div class="authors">Ruixian Hu; Bohan Li; Xuehuai Shi; Xinda Liu; Jian Wu; Lili Wang; Qingshan Liu</div></td></tr>
+<tr><td class="paper-id">P5816</td><td><div class="paper-title">Say It, See It, Move It: Voice-Gaze Intent Control for VR Avatar Manipulation</div><div class="authors">Jinyao Yang; Zixuan Guo; Yan Zhang; Mark Billinghurst; Xubo Yang</div></td></tr>
+<tr><td class="paper-id">P2544</td><td><div class="paper-title">Evaluating the Eye-Tracking Interaction for Moving Target Selection in 2D and 3D Virtual Environments</div><div class="authors">Zijun Mai; Tingjie Wan; Jiana Feng; BoYu Gao</div></td></tr>
+<tr><td class="paper-id">P5397</td><td><div class="paper-title">Understanding and Supporting Bare-Hand Typing While Walking in Mixed Reality</div><div class="authors">Ziyang Zhang; Zhenyu Li; Gan Huang; Xun Qian; Guofeng Zhang</div></td></tr>
+<tr><td class="paper-id">P6168</td><td><div class="paper-title">TarotXR: A Bare-Hand Ritual Interaction Framework for Immersive Tarot Reading</div><div class="authors">Zongyou Tan; Guanzhi Huang; Xiaodan Xia; Shao-Kui Zhang; Jian Li; Zhen Cui; Jianwei Guo</div></td></tr></tbody></table></div>
+ </section>
+<section id="session-6" class="session">
+ <div class="session-label">Oral Session 6</div>
+ <h2>Attention and Experience in XR</h2>
+ <p class="session-meta"><time>November 5, 2026</time><span>14:20–15:20</span><span>Ballroom ABC</span></p>
+ <div class="table-scroll"><table class="papers"><thead><tr><th scope="col">Paper ID</th><th scope="col">Paper Title and Authors</th></tr></thead><tbody><tr><td class="paper-id">P6203</td><td><div class="paper-title">What Influences Change Blindness in Dynamic VR: The Role of Movement Direction, Velocity and Contrast</div><div class="authors">Zinan Han; Haozhong Yang; Junlong Chen; Yi-Jun Li; Song-Hai Zhang; Per Ola Kristensson; Miao Wang</div></td></tr>
+<tr><td class="paper-id">P1546</td><td><div class="paper-title">Eye-EEG Cross-Modal Learning for 4D Visual Attention Analysis in Mobile XR</div><div class="authors">Bo Liu; Jinghan Zhao; Jiaxi Wang; Jingjin Dong; Feng Lu</div></td></tr>
+<tr><td class="paper-id">P4065</td><td><div class="paper-title">Supporting Attentional Recovery in Virtual Reality: A Comparative Evaluation of Cueing Mechanisms Following Distraction</div><div class="authors">Jalal Safari Bazargani; Fatema Rahimi; Abolghasem Sadeghi-Niaraki; Soo-Mi Choi</div></td></tr>
+<tr><td class="paper-id">P1267</td><td><div class="paper-title">A Comparative Study Evaluating Selection Mechanisms and Visual Cues in VR Museums</div><div class="authors">Xinyi Yang; Bingqing Chen; Yue Li</div></td></tr>
+<tr><td class="paper-id">P5675</td><td><div class="paper-title">SkiExARGame: AR Gamified Training in Alpine Skiing with Time-Distorted Mental Rehearsal</div><div class="authors">Yuki Tabei; Chen-Chieh Liao; Yichen Peng; Erwin Wu; Hideki Koike</div></td></tr></tbody></table></div>
+ </section>
+<section id="session-7" class="session">
+ <div class="session-label">Oral Session 7</div>
+ <h2>Agents with Intent</h2>
+ <p class="session-meta"><time>November 5, 2026</time><span>15:40–16:40</span><span>Ballroom ABC</span></p>
+ <div class="table-scroll"><table class="papers"><thead><tr><th scope="col">Paper ID</th><th scope="col">Paper Title and Authors</th></tr></thead><tbody><tr><td class="paper-id">P9818</td><td><div class="paper-title">IntentVR: Combining Generative AI and Intent-Defined Interaction in VR Environment</div><div class="authors">Ningning Xu; Kaiwen Li; Qinglin Mao; Zirui Yu; Haibo Zhou; Dr. Yoke Chin Lai; Xu Sun; Yiping Zhang</div></td></tr>
+<tr><td class="paper-id">P4209</td><td><div class="paper-title">StyGazeTalk: Learning Stylized Gaze–Head Dynamics</div><div class="authors">Chengwei Shi; Chong Cao</div></td></tr>
+<tr><td class="paper-id">P6486</td><td><div class="paper-title">Avatar Embodiment, Task-Role Alignment, and Expectation Mismatch in Task-Oriented VR</div><div class="authors">Bowei Zhang; Jiahao Li; Xinda Liu; Guohua Geng; Kang Li</div></td></tr>
+<tr><td class="paper-id">P4747</td><td><div class="paper-title">When Two Reach for One: Intent-Aware Graph Reasoning for Proactive Human-Agent Collaboration in VR</div><div class="authors">Fatema Rahimi; Soo-Mi Choi</div></td></tr>
+<tr><td class="paper-id">P6951</td><td><div class="paper-title">An Agent-Based Multimodal System for Image-Grounded Handwritten Chinese Essay Correction</div><div class="authors">Jian Wu; Zhenye Chai; Yahong Mao; Renzhi Xiao; Xiaolong Liu; Jing Zhang; Ran Ding; Chenghang Wu</div></td></tr></tbody></table></div>
+ </section>
+<section id="session-8" class="session">
+ <div class="session-label">Oral Session 8</div>
+ <h2>Learning to Act: Robots and World Models</h2>
+ <p class="session-meta"><time>November 5, 2026</time><span>16:40–17:40</span><span>Ballroom ABC</span></p>
+ <div class="table-scroll"><table class="papers"><thead><tr><th scope="col">Paper ID</th><th scope="col">Paper Title and Authors</th></tr></thead><tbody><tr><td class="paper-id">P1967</td><td><div class="paper-title">Sparse Predictive Foveation for Action-Conditioned World Modeling</div><div class="authors">Ivan Cao; Khang Yeu Tang; Song-Hai Zhang</div></td></tr>
+<tr><td class="paper-id">P1090</td><td><div class="paper-title">Fast Differentiable Force-Closure Estimation and Geometry-Guided Contact Resampling for Dexterous Grasp Synthesis</div><div class="authors">Yihui Wang; Haoxiang Zhang; Peng Yu; yunhong wang; Jiaxin Chen</div></td></tr>
+<tr><td class="paper-id">P8115</td><td><div class="paper-title">Gaussian2Sim: Generating Robot Vision-Language-Action Data from Real-World 3D Gaussian Splatting</div><div class="authors">Qing Yang; Dongdong Weng; Yue Liu; Yongtian Wang</div></td></tr>
+<tr><td class="paper-id">P4522</td><td><div class="paper-title">AGTwin: Hardware-Grounded Digital Twins for Air–Ground Robot Collaboration</div><div class="authors">Haojie Ren; Zhenguo Chen; Yuanwei Zhu; Xiuquan Qiao; Yakun Huang</div></td></tr>
+<tr><td class="paper-id">P2155</td><td><div class="paper-title">Task-Oriented Natural-Walking VR Telepresence for Simulated Mobile Robot-Assisted Ward Rounds: A Proof-of-Concept Study</div><div class="authors">Wei Gai; Chenzhi Xing; Xiyu Bao; Shengmin Zhao; Haixu Shang; Ying Yang; Chenglei Yang</div></td></tr></tbody></table></div>
+ </section>
+<section id="session-9" class="session">
+ <div class="session-label">Oral Session 9</div>
+ <h2>Beneath the Surface: Medical Geometry and Volume Visualization</h2>
+ <p class="session-meta"><time>November 5, 2026</time><span>17:40–18:30</span><span>Ballroom ABC</span></p>
+ <div class="table-scroll"><table class="papers"><thead><tr><th scope="col">Paper ID</th><th scope="col">Paper Title and Authors</th></tr></thead><tbody><tr><td class="paper-id">P8324</td><td><div class="paper-title">SGPR-Net: Surface-Guided Progressive Refinement Network for 3D Medical Image Segmentation</div><div class="authors">Tong Yang; Fan Zhang; Hua Wang; Yepeng Liu; Zewen Zhang</div></td></tr>
+<tr><td class="paper-id">P6079</td><td><div class="paper-title">OT-CranioFormer: Cranial Defect Completion with Structure-guided Attention via Optimal Transport</div><div class="authors">Siying Liu; Xinbin Sun; Guodong Wang; Junli Zhao; Zhenkuan Pan</div></td></tr>
+<tr><td class="paper-id">P8284</td><td><div class="paper-title">Variable Basis Mapping: From Volumetric Fields to Gaussian Splatting</div><div class="authors">Qibiao Li; Yuxuan Wang; youcheng cai; Ligang Liu</div></td></tr>
+<tr><td class="paper-id">P2080</td><td><div class="paper-title">VVGT: Visual Volume-Grounded Transformer</div><div class="authors">Yuxuan Wang; Qibiao Li; youcheng cai; Ligang Liu</div></td></tr></tbody></table></div>
+ </section>
+<section id="session-10" class="session">
+ <div class="session-label">Oral Session 10</div>
+ <h2>Visual Understanding and Semantic Processing</h2>
+ <p class="session-meta"><time>November 6, 2026</time><span>15:20–16:20</span><span>Ballroom D</span></p>
+ <div class="table-scroll"><table class="papers"><thead><tr><th scope="col">Paper ID</th><th scope="col">Paper Title and Authors</th></tr></thead><tbody><tr><td class="paper-id">P2304</td><td><div class="paper-title">DU2Net: A Simple Yet Competitive Baseline for High-Precision Image Segmentation with Depth Map Priors</div><div class="authors">Xizhe Cao; Zhongtao Wang; Yisong Chen; Sheng Li; Fei Zhu; Guoping Wang</div></td></tr>
+<tr><td class="paper-id">P9171</td><td><div class="paper-title">EQ-Net: Edge-Aware Query Network for CAD Primitive Segmentation</div><div class="authors">Shengdi Zhou; Yingying Shi; jun liao; Xundong Wang; Bin Zhou</div></td></tr>
+<tr><td class="paper-id">P7202</td><td><div class="paper-title">Interactive Alignment of LLMs and 3D Worlds: A Perceive-Reason-Align Framework</div><div class="authors">Junyu Zhang; Gaolei Li; Jianhua Li; Hang Zhang; Riji Yu; Kai Zhou</div></td></tr>
+<tr><td class="paper-id">P8487</td><td><div class="paper-title">Beyond Raw Pixels: Mining Reconstruction-Induced Features for Generalizable Deepfake Video Detection</div><div class="authors">Ziwen Yang; Ling Jiang; Haifeng Tang; Xianya Geng; Gaoming Yang</div></td></tr>
+<tr><td class="paper-id">P9942</td><td><div class="paper-title">Filtering the Physical World: An End-to-End AR Pipeline for Semantic Ad-Blocking</div><div class="authors">Sebastian Rings; Eric Krüger; Frank Steinicke</div></td></tr></tbody></table></div>
+ </section>
+<section id="session-11" class="session">
+ <div class="session-label">Oral Session 11</div>
+ <h2>3D Reconstruction in a Changing World</h2>
+ <p class="session-meta"><time>November 6, 2026</time><span>16:20–17:20</span><span>Ballroom D</span></p>
+ <div class="table-scroll"><table class="papers"><thead><tr><th scope="col">Paper ID</th><th scope="col">Paper Title and Authors</th></tr></thead><tbody><tr><td class="paper-id">P3514</td><td><div class="paper-title">SceneRefresh: Reliable Updates for Explicit Indoor 3D Scene Models under New RGB Observations</div><div class="authors">Wantong Duan; Wenxiang Du; Yue Qi; Yongtang Bao</div></td></tr>
+<tr><td class="paper-id">P4496</td><td><div class="paper-title">Gen2Struct: Harnessing Generative Priors for Geometry-Consistent 3D Scene Reconstruction</div><div class="authors">Yan Fang; Chendong Yao; Bofeng Wu; Jiangjian Xiao; Jianfei Ge</div></td></tr>
+<tr><td class="paper-id">P9328</td><td><div class="paper-title">Uncertainty-Aware Factorized Appearance Modeling for Robust 3D Gaussian Splatting in Uncontrolled Outdoor Scenes</div><div class="authors">wenzhuo Jia; hua li; jiayao Pan; Wenting Xue</div></td></tr>
+<tr><td class="paper-id">P2964</td><td><div class="paper-title">SC-Gaussian Splatting: Semantic Cues and Confidence-Aware Mask Fusion for Egocentric Dynamic Reconstruction</div><div class="authors">Tong Chen; Shengjia Liang; Qichuan Geng; Zhong Zhou</div></td></tr>
+<tr><td class="paper-id">P6467</td><td><div class="paper-title">An Open-Source Simulation Workflow for Planning Multi-Camera Photogrammetry Setups for XR Asset Capture</div><div class="authors">Altan Gürel; Markus Hülß; Gottfried Hofmann; Jens Grubert</div></td></tr></tbody></table></div>
+ </section>
+    </main>
+    <div id="footer-container"></div>
+</div>
+<script>
+    for (const part of ['header', 'footer']) {
+        fetch(part + '.html').then(response => {
+            if (!response.ok) throw new Error('Unable to load ' + part);
+            return response.text();
+        }).then(markup => {
+            document.getElementById(part + '-container').innerHTML = markup;
+            if (part === 'header') document.querySelector('a[href="ProgramPapers.html"]')?.setAttribute('aria-current', 'page');
+        }).catch(error => console.error(error));
+    }
+</script>
+</body>
+</html>
