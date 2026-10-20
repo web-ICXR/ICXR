@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ICXR 2026: Panel</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #f4f7fc; color: #1e2f3e; line-height: 1.5; }
+        .wrapper { width: 1200px; max-width: 100%; margin: 0 auto; }
+        #header-container nav { padding: .9rem 2rem; display: flex; justify-content: center; flex-wrap: wrap; gap: .5rem 1.2rem; align-items: center; }
+        #header-container .nav-logo a { padding: .5rem .2rem; font-size: 1.05rem; font-weight: 600; letter-spacing: .3px; }
+        #header-container .dropdown { display: inline-block; }
+        #header-container .dropdown-content { border-radius: 16px; }
+        #header-container .dropdown-content a { border-bottom: 1px solid #eef2f6; letter-spacing: .3px; }
+        #header-container .dropdown:focus-within > .dropdown-content { display: block; }
+        .content { margin: 2rem auto; padding: 3rem 4rem; background: #fff; border-radius: 32px; box-shadow: 0 12px 30px rgba(0,0,0,.05); }
+        h1 { font-size: 2.2rem; line-height: 1.25; color: #0b2b4f; margin-bottom: 1.5rem; }
+        h2 { font-size: 1.5rem; color: #0b2b4f; margin-bottom: 1.25rem; border-left: 5px solid #2c7da0; padding-left: 1rem; }
+        @media (max-width: 768px) {
+            .content { margin: 1rem .5rem; padding: 1.5rem; border-radius: 24px; }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.25rem; }
+            #header-container .dropdown-content { max-width: calc(100vw - 3rem); }
+            #header-container .dropdown-content a { white-space: normal; }
+        }
+
+
+        .event-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:1.5rem; }
+        .event-heading h1 { margin-bottom:.8rem; }
+        .eyebrow { color:#2c7da0; font-size:.9rem; font-weight:700; margin-bottom:.5rem; letter-spacing:.04em; }
+        .event-meta { margin:1.2rem 0 2rem; padding:1.2rem 1.5rem; background:#f0f6fb; border:1px solid #dfe8f0; border-radius:16px; color:#52677c; }
+        .event-meta p + p { margin-top:.35rem; }
+        .event-intro p { margin-bottom:1rem; line-height:1.75; }
+        .event-section { margin-top:2.5rem; }
+        .topics { padding-left:1.3rem; line-height:1.7; }
+        .topics li + li { margin-top:.6rem; }
+        .speaker-card { display:grid; grid-template-columns:160px minmax(0,1fr); gap:1.75rem; padding:2rem 0; border-bottom:1px solid #e1e9f2; }
+        .speaker-card:first-of-type { padding-top:.5rem; }
+        .speaker-card:last-child { border-bottom:0; padding-bottom:0; }
+        .speaker-card.no-photo { grid-template-columns:1fr; }
+        .speaker-photo { width:100%; height:auto; border-radius:14px; display:block; }
+        .speaker-card h3 { font-size:1.4rem; color:#0b2b4f; line-height:1.3; margin-bottom:.3rem; }
+        .affiliation { color:#52677c; margin-bottom:1rem; }
+        .talk-title { color:#0b2b4f; font-size:1.1rem; font-weight:600; line-height:1.5; margin-bottom:1rem; }
+        .bio { line-height:1.75; overflow-wrap:break-word; }
+        .bio-label { display:block; font-weight:600; color:#52677c; margin-bottom:.4rem; }
+        .closing { padding:1.5rem; margin-top:2rem; border-radius:16px; background:#f0f6fb; line-height:1.75; }
+        .language-switch { display:inline-flex; padding:.25rem; border:1px solid #dfe8f0; border-radius:12px; background:#f0f5fa; flex-shrink:0; }
+        .language-button { border:0; border-radius:9px; padding:.55rem .9rem; color:#1e4a76; font:inherit; font-weight:600; cursor:pointer; background:transparent; }
+        .language-button[aria-pressed="true"] { color:#fff; background:#0b2b4f; }
+        .language-button:focus-visible { outline:3px solid #2c7da0; outline-offset:3px; }
+        [hidden] { display:none !important; }
+        @media(max-width:600px) {
+            .event-heading { flex-direction:column; gap:.75rem; }
+            .speaker-card { grid-template-columns:1fr; gap:1rem; }
+            .speaker-photo { width:140px; }
+            .event-meta { padding:1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div id="header-container"></div>
+    <main class="content">
+<header class="event-heading"><div><p class="eyebrow" data-en="PANEL DISCUSSION" data-zh="圆桌论坛">PANEL DISCUSSION</p><h1 data-en="Meet the Editors-in-Chief" data-zh="与期刊主编面对面">Meet the Editors-in-Chief</h1></div><div class="language-switch" role="group" aria-label="Language"><button class="language-button" type="button" data-lang="en" aria-pressed="true">English</button><button class="language-button" type="button" data-lang="zh" aria-pressed="false">中文</button></div></header><div class="event-meta"><p data-en="November 6, 2026 · 13:30–15:00" data-zh="2026年11月6日 · 13:30–15:00">November 6, 2026 · 13:30–15:00</p><p data-en="Ballroom A &amp; B &amp; C, Conference Center, Langham Place, Guangzhou, China" data-zh="广州朗豪酒店会议中心，宴会厅 A &amp; B &amp; C">Ballroom A &amp; B &amp; C, Conference Center, Langham Place, Guangzhou, China</p><p data-en="China Standard Time (UTC+8)" data-zh="中国标准时间（UTC+8）">China Standard Time (UTC+8)</p></div><section class="event-intro"><p data-en="How does a research idea become a high-quality journal publication? With research topics evolving rapidly and the journal landscape becoming increasingly diverse, how can authors choose the right journal, prepare their manuscripts, respond to reviewer comments, and help build a healthier, more impactful scholarly community?" data-zh="一篇论文如何从研究构想到高质量发表？面对快速变化的研究议题与日益多元的期刊生态，作者应如何选择投稿方向、准备稿件、回应审稿意见，并参与建设更健康、更有影响力的学术共同体？">How does a research idea become a high-quality journal publication? With research topics evolving rapidly and the journal landscape becoming increasingly diverse, how can authors choose the right journal, prepare their manuscripts, respond to reviewer comments, and help build a healthier, more impactful scholarly community?</p><p data-en="ICXR 2026 brings together editors-in-chief and editorial representatives from international journals in extended reality and human–computer interaction for a panel discussion, “Meet the Editors-in-Chief”. Covering journal development, academic writing, submission strategies, and peer review, the panel offers early-career researchers, graduate students, and industry researchers an opportunity to engage with journal editors." data-zh="ICXR 2026特别邀请扩展现实与人机交互领域国际期刊的主编及编辑代表，举办“圆桌论坛：与期刊主编面对面”。论坛将围绕期刊发展、学术写作、投稿策略与同行评审等议题展开交流，为青年学者、研究生及产业研究人员提供与期刊编辑直接对话的机会。">ICXR 2026 brings together editors-in-chief and editorial representatives from international journals in extended reality and human–computer interaction for a panel discussion, “Meet the Editors-in-Chief”. Covering journal development, academic writing, submission strategies, and peer review, the panel offers early-career researchers, graduate students, and industry researchers an opportunity to engage with journal editors.</p></section><section class="event-section"><h2 data-en="Discussion Topics" data-zh="交流议题">Discussion Topics</h2><ul class="topics"><li data-en="What emerging research directions are XR journals focusing on?" data-zh="XR领域期刊正在关注哪些新兴研究方向？">What emerging research directions are XR journals focusing on?</li><li data-en="How can authors identify the right journal for their research?" data-zh="如何为自己的研究选择合适的期刊？">How can authors identify the right journal for their research?</li><li data-en="What makes a paper compelling to editors and reviewers?" data-zh="什么样的论文更容易获得编辑和审稿人的认可？">What makes a paper compelling to editors and reviewers?</li><li data-en="How can authors write clear, persuasive manuscripts and cover letters?" data-zh="如何撰写清晰、有说服力的论文与投稿信？">How can authors write clear, persuasive manuscripts and cover letters?</li><li data-en="How can authors respond effectively to reviewer comments and revise their manuscripts?" data-zh="面对审稿意见，如何进行有效回应和修改？">How can authors respond effectively to reviewer comments and revise their manuscripts?</li><li data-en="What does it take to be a responsible and constructive peer reviewer?" data-zh="如何成为负责任、高质量的同行评审人？">What does it take to be a responsible and constructive peer reviewer?</li><li data-en="How are AI tools reshaping academic writing, submission, and peer review?" data-zh="AI工具正在如何影响学术写作、投稿与审稿流程？">How are AI tools reshaping academic writing, submission, and peer review?</li></ul></section><section class="event-section"><h2 data-en="Panelists" data-zh="对话嘉宾">Panelists</h2><article class="speaker-card"><img class="speaker-photo" src="images/program-speakers/kiyoshi-kiyokawa.png" width="1074" height="1200" alt="Kiyoshi Kiyokawa" loading="lazy"><div lang="en"><h3>Kiyoshi Kiyokawa</h3><p class="affiliation">Nara Institute of Science and Technology</p><p class="talk-title">Associate Editor-in-Chief, IEEE Transactions on Visualization and Computer Graphics (TVCG)</p><span class="bio-label" data-en="Biography" data-zh="个人简介（英文）">Biography</span><p class="bio">Kiyoshi Kiyokawa is a Professor at Nara Institute of Science and Technology, where he has served since 2017. He received his M.S. and Ph.D. degrees in information systems from Nara Institute of Science and Technology in 1996 and 1998, respectively. He was a Research Fellow of the Japan Society for the Promotion of Science in 1998, worked at the Communications Research Laboratory, now the National Institute of Information and Communications Technology, from 1999 to 2002, and was a visiting researcher at the Human Interface Technology Laboratory at the University of Washington from 2001 to 2002. He was an Associate Professor at the Cybermedia Center, Osaka University, from 2002 to 2017. His research interests include virtual reality, augmented reality, human augmentation, 3D user interfaces, computer-supported cooperative work, and context awareness. He is a Board Member and Fellow of the Virtual Reality Society of Japan, Associate Editor-in-Chief of IEEE Transactions on Visualization and Computer Graphics, and an inductee of the inaugural class of the IEEE VGTC Virtual Reality Academy.</p></div></article>
+<article class="speaker-card"><img class="speaker-photo" src="images/program-speakers/helen-petrie.png" width="218" height="327" alt="Helen Petrie" loading="lazy"><div lang="en"><h3>Helen Petrie</h3><p class="affiliation">University of York</p><p class="talk-title">Editor-in-Chief, Interacting with Computers (IwC)</p><span class="bio-label" data-en="Biography" data-zh="个人简介（英文）">Biography</span><p class="bio">Professor Helen Petrie is Professor of Human-Computer Interaction in Computer Science. She has over 20 years of internationally recognized research on new technologies for people with disabilities and older people, with the aim of improving quality of life and well-being. Her current interests include supporting older people to live independently in their own homes for longer. She has contributed to more than 30 British and international projects and has published widely in these areas. Her honors include a Royal Television Society Technical Innovation Prize, a Social Impact Award from the Association for Computing Machinery, and a Lifetime Achievement Award from the Royal National Institute for Blind People. She is a Chartered Psychologist and an Associate Fellow of the British Psychological Society.</p></div></article>
+<article class="speaker-card"><img class="speaker-photo" src="images/program-speakers/mark-billinghurst.png" width="1000" height="1000" alt="Mark Billinghurst" loading="lazy"><div lang="en"><h3>Mark Billinghurst</h3><p class="affiliation">University of South Australia</p><p class="talk-title">Editor-in-Chief, Empathic Computing</p><span class="bio-label" data-en="Biography" data-zh="个人简介（英文）">Biography</span><p class="bio">Professor Mark Billinghurst is Director of the Australian Research Centre for Interactive Virtual Environments at the University of South Australia and Director of the Empathic Computing Laboratory at the University of Auckland, and the University of South Australia. He earned a PhD in 2002 from the University of Washington and conducts research on how virtual and real worlds can be merged, publishing over 750 papers on Augmented Reality, Virtual Reality, remote collaboration, Empathic Computing, and related topics. In 2013 he was elected as a Fellow of the Royal Society of New Zealand, in 2019 was given the ISMAR Career Impact Award in recognition for lifetime contribution to AR research and commercialization, and in 2023 elected as a Fellow of the IEEE.</p></div></article>
+<article class="speaker-card"><img class="speaker-photo" src="images/program-speakers/yongtian-wang.png" width="424" height="426" alt="Yongtian Wang" loading="lazy"><div lang="en"><h3>Yongtian Wang</h3><p class="affiliation">Beijing Institute of Technology</p><p class="talk-title">Editor-in-Chief, Virtual Reality &amp; Intelligent Hardware (VRIH)</p><span class="bio-label" data-en="Biography" data-zh="个人简介（英文）">Biography</span><p class="bio">Yongtian Wang received his B.Sc. degree in precision instrumentation from Tianjin University, China, in 1982, and his Ph.D. degree in optics from the University of Reading, England, in 1986. He is currently a Professor of Optics and Applied Computer Science at Beijing Institute of Technology and a Chang Jiang Scholar. He serves as Head of the Faculty of Information and Electronics Sciences at Beijing Institute of Technology and Director of the Beijing Engineering Research Center of Mixed Reality and Advanced Display. His research interests include optical design and CAD, optical instrumentation, 3D display, image processing, and virtual reality and augmented reality technologies and applications. He is a Fellow of SPIE, a Fellow of IET, and a Director of the Chinese Optical Society.</p></div></article>
+</section><p class="closing" lang="zh-CN" hidden>这是一次了解国际期刊发展趋势的机会，也是一次围绕研究、写作、投稿与审稿进行交流的机会。欢迎注册参加ICXR 2026，与期刊编辑面对面交流，分享研究中的心得体会，共同探讨XR学术共同体的未来。</p>
+    </main>
+    <div id="footer-container"></div>
+</div>
+<script>
+    for (const part of ['header', 'footer']) {
+        fetch(part + '.html').then(response => {
+            if (!response.ok) throw new Error('Unable to load ' + part);
+            return response.text();
+        }).then(markup => {
+            document.getElementById(part + '-container').innerHTML = markup;
+            if (part === 'header') document.querySelector('a[href="ProgramPanel.html"]')?.setAttribute('aria-current', 'page');
+        }).catch(console.error);
+    }
+
+    function setLanguage(language) {
+        document.querySelectorAll('[data-en]').forEach(element => { element.textContent = element.dataset[language]; });
+        document.querySelectorAll('.language-button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.lang === language)));
+        document.querySelector('.closing').hidden = language !== 'zh';
+        document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
+        document.title = language === 'zh' ? 'ICXR 2026：与期刊主编面对面' : 'ICXR 2026: Panel';
+    }
+    document.querySelectorAll('.language-button').forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.lang)));
+</script>
+</body>
+</html>

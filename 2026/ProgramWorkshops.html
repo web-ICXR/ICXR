@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ICXR 2026: Workshops</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #f4f7fc; color: #1e2f3e; line-height: 1.5; }
+        .wrapper { width: 1200px; max-width: 100%; margin: 0 auto; }
+        #header-container nav { padding: .9rem 2rem; display: flex; justify-content: center; flex-wrap: wrap; gap: .5rem 1.2rem; align-items: center; }
+        #header-container .nav-logo a { padding: .5rem .2rem; font-size: 1.05rem; font-weight: 600; letter-spacing: .3px; }
+        #header-container .dropdown { display: inline-block; }
+        #header-container .dropdown-content { border-radius: 16px; }
+        #header-container .dropdown-content a { border-bottom: 1px solid #eef2f6; letter-spacing: .3px; }
+        #header-container .dropdown:focus-within > .dropdown-content { display: block; }
+        .content { margin: 2rem auto; padding: 3rem 4rem; background: #fff; border-radius: 32px; box-shadow: 0 12px 30px rgba(0,0,0,.05); }
+        h1 { font-size: 2.2rem; line-height: 1.25; color: #0b2b4f; margin-bottom: 1.5rem; }
+        h2 { font-size: 1.5rem; color: #0b2b4f; margin-bottom: 1.25rem; border-left: 5px solid #2c7da0; padding-left: 1rem; }
+        @media (max-width: 768px) {
+            .content { margin: 1rem .5rem; padding: 1.5rem; border-radius: 24px; }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.25rem; }
+            #header-container .dropdown-content { max-width: calc(100vw - 3rem); }
+            #header-container .dropdown-content a { white-space: normal; }
+        }
+
+
+        .event-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:1.5rem; }
+        .event-heading h1 { margin-bottom:.8rem; }
+        .eyebrow { color:#2c7da0; font-size:.9rem; font-weight:700; margin-bottom:.5rem; letter-spacing:.04em; }
+        .event-meta { margin:1.2rem 0 2rem; padding:1.2rem 1.5rem; background:#f0f6fb; border:1px solid #dfe8f0; border-radius:16px; color:#52677c; }
+        .event-meta p + p { margin-top:.35rem; }
+        .event-intro p { margin-bottom:1rem; line-height:1.75; }
+        .event-section { margin-top:2.5rem; }
+        .topics { padding-left:1.3rem; line-height:1.7; }
+        .topics li + li { margin-top:.6rem; }
+        .speaker-card { display:grid; grid-template-columns:160px minmax(0,1fr); gap:1.75rem; padding:2rem 0; border-bottom:1px solid #e1e9f2; }
+        .speaker-card:first-of-type { padding-top:.5rem; }
+        .speaker-card:last-child { border-bottom:0; padding-bottom:0; }
+        .speaker-card.no-photo { grid-template-columns:1fr; }
+        .speaker-photo { width:100%; height:auto; border-radius:14px; display:block; }
+        .speaker-card h3 { font-size:1.4rem; color:#0b2b4f; line-height:1.3; margin-bottom:.3rem; }
+        .affiliation { color:#52677c; margin-bottom:1rem; }
+        .talk-title { color:#0b2b4f; font-size:1.1rem; font-weight:600; line-height:1.5; margin-bottom:1rem; }
+        .bio { line-height:1.75; overflow-wrap:break-word; }
+        .bio-label { display:block; font-weight:600; color:#52677c; margin-bottom:.4rem; }
+        .closing { padding:1.5rem; margin-top:2rem; border-radius:16px; background:#f0f6fb; line-height:1.75; }
+        .language-switch { display:inline-flex; padding:.25rem; border:1px solid #dfe8f0; border-radius:12px; background:#f0f5fa; flex-shrink:0; }
+        .language-button { border:0; border-radius:9px; padding:.55rem .9rem; color:#1e4a76; font:inherit; font-weight:600; cursor:pointer; background:transparent; }
+        .language-button[aria-pressed="true"] { color:#fff; background:#0b2b4f; }
+        .language-button:focus-visible { outline:3px solid #2c7da0; outline-offset:3px; }
+        [hidden] { display:none !important; }
+        @media(max-width:600px) {
+            .event-heading { flex-direction:column; gap:.75rem; }
+            .speaker-card { grid-template-columns:1fr; gap:1rem; }
+            .speaker-photo { width:140px; }
+            .event-meta { padding:1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div id="header-container"></div>
+    <main class="content">
+<header class="event-heading"><div><p class="eyebrow">WORKSHOP</p><h1>Frontiers of XR Technology</h1></div></header><div class="event-meta"><p>November 6, 2026 · 15:20–16:50</p><p>Ballroom A &amp; B &amp; C, Conference Center, Langham Place, Guangzhou, China</p><p>China Standard Time (UTC+8)</p></div><section class="event-intro"><h2>Workshop Abstract</h2><p>Extended reality (XR) is reshaping how people interact with intelligent systems, experience virtual environments, and develop skills for real-world practice. This workshop brings together researchers to explore four complementary directions: situated human–AI interaction, personalized physical experiences bridging real-world vision and virtual interaction, body-motion-based locomotion in virtual reality, and immersive intelligence for medical training and healthcare. Across these topics, the workshop examines how context, embodiment, and movement can inform the design of intuitive and meaningful XR experiences. It aims to foster discussion of emerging research challenges and opportunities, connecting advances in interaction design with practical applications in training and healthcare.</p></section><section class="event-section"><h2>Speakers and Talks</h2><article class="speaker-card"><img class="speaker-photo" src="images/program-speakers/jens-grubert.png" width="554" height="554" alt="Jens Grubert" loading="lazy"><div lang="en"><h3>Jens Grubert</h3><p class="affiliation">Coburg University of Applied Sciences and Arts</p><p class="talk-title">XR for Situated Human–AI Interaction</p><span class="bio-label">Biography</span><p class="bio">Jens Grubert is Professor of Human-Computer Interaction in the Internet of Things at Coburg University with more than 20 years of academic and industrial experience in extended reality. He is head of the Laboratory for Augmented and Virtual Reality, the Laboratory for Reality Capture, and the Laboratory for Multimodal Human-Computer Interaction. Jens serves as spokesperson for the Center for Responsible Artificial Intelligence at Coburg University and as scientific director of the Technology Transfer Center Upper Franconia: Digital Intelligence in Lichtenfels. He received his habilitation from the University of Passau in 2022, his Ph.D. with distinction from Graz University of Technology in 2015, and his diploma in computational visualistics with highest distinction from Otto von Guericke University Magdeburg in 2009. His current research interests lie at the intersection of extended reality and interactive artificial intelligence. He has served the XR community in various roles, including as co-chair of the IEEE ISMAR Program Committee in 2018, 2019, 2022, and 2023 and as an IEEE ISMAR Steering Committee member from 2019 to 2025. He also regularly serves as a program committee member for both IEEE ISMAR and IEEE VR and has served on the editorial boards of IEEE TVCG and Frontiers in Virtual Reality since 2022.</p></div></article>
+<article class="speaker-card"><img class="speaker-photo" src="images/program-speakers/hyungseok-kim.png" width="1036" height="1200" alt="HyungSeok Kim" loading="lazy"><div lang="en"><h3>HyungSeok Kim</h3><p class="affiliation">Konkuk University</p><p class="talk-title">Personalized Physical Experiences : Bridging the gap between real-world vision and virtual interaction.</p><span class="bio-label">Biography</span><p class="bio">HyungSeok Kim received a Ph.D. degree in Computer Science in February 2003 at VR Lab, KAIST. He is a Professor at Computer Science and Engineering, Konkuk University, Korea since 2006. Before joining Konkuk University, he was a senior researcher at MIRA Lab, University of Geneva, being involved in research activities on virtual reality. His major research field is real-time interaction in virtual environments and multimodal interaction mechanisms. His current research activities are focused on topics of virtual embodiments and evoking believable experiences in virtual environments.</p></div></article>
+<article class="speaker-card"><img class="speaker-photo" src="images/program-speakers/huawei-tu.png" width="200" height="200" alt="Huawei Tu" loading="lazy"><div lang="en"><h3>Huawei Tu</h3><p class="affiliation">La Trobe University</p><p class="talk-title">Body Motion Based Locomotion Design in Virtual Reality</p><span class="bio-label">Biography</span><p class="bio">Dr Huawei Tu is a Senior Lecturer at La Trobe University, Australia (equivalent to Associate Professor in the North American academic system). He conducts both fundamental and applied research, combining theory and experimentation to explore how to enhance user experience in VR with HCI technologies. He has published more than 40 papers in leading journals and conferences, including ACM TOCHI, ACM CHI, IEEE TVCG, and IEEE VR. He has served on the program committees of conferences including IEEE VR in 2023, 2025, and 2027, ACM CHI 2025, and IEEE ISMAR 2022. He has received several awards, including the IEEE ISMAR 2025 Honorable Mention Award, the ACM CHI 2020 Honorable Mention Award, and the Fiscal 2017 JASSO Follow-up Research Fellowship.</p></div></article>
+<article class="speaker-card"><img class="speaker-photo" src="images/program-speakers/khoo-eng-tat.png" width="966" height="1200" alt="Khoo Eng Tat" loading="lazy"><div lang="en"><h3>Khoo Eng Tat</h3><p class="affiliation">National University of Singapore</p><p class="talk-title">Immersive Intelligence for Medical Training and Healthcare</p><span class="bio-label">Biography</span><p class="bio">Associate Professor Khoo Eng Tat is the Director of the Institute for Design and Engineering Leadership and Assistant Dean (Research and Technology) at the College of Design and Engineering, National University of Singapore. He is also Principal Investigator of the Immersive Reality Lab. His research focuses on AI, immersive intelligence, and the design and application of augmented, virtual, and mixed reality for education, healthcare, and aviation. He collaborates closely with industry partners to lead projects translating advanced technologies into scalable and viable solutions. Prior to his academic career, he was R&amp;D Director of a pioneering VR/AR company. He later co-founded a VR startup and served as Head of Engineering at a venture capital firm.</p></div></article>
+</section>
+    </main>
+    <div id="footer-container"></div>
+</div>
+<script>
+    for (const part of ['header', 'footer']) {
+        fetch(part + '.html').then(response => {
+            if (!response.ok) throw new Error('Unable to load ' + part);
+            return response.text();
+        }).then(markup => {
+            document.getElementById(part + '-container').innerHTML = markup;
+            if (part === 'header') document.querySelector('a[href="ProgramWorkshops.html"]')?.setAttribute('aria-current', 'page');
+        }).catch(console.error);
+    }
+</script>
+</body>
+</html>
